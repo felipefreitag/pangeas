@@ -1,0 +1,21 @@
+"pt-BR":
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        first_name: Nome
+        last_name: Sobrenome
+  sign_out: Sair
+  flash:
+    actions:
+      create:
+        notice: "Criação de %{resource_name} realizada com sucesso."
+        alert: "Não foi possível realizar a criação de %{resource_name}."
+      update:
+        notice: "Atualização de %{resource_name} realizada com sucesso."
+        alert: "Não foi possível realizar a atualização de %{resource_name}."
+      destroy:
+        notice: "Exclusão de %{resource_name} realizada com sucesso."
+        alert: "Não foi possível realizar a exclusão de %{resource_name}."
+    not_authorized: "Você não possui permissão para realizar esta ação."

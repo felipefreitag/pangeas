@@ -1,0 +1,13 @@
+javascript:
+  toastr.options = {
+    showDuration: 200,
+    hideDuration: 200,
+    timeOut: 5000,
+    positionClass: "no-toast-position-class"
+  }
+- for key, msg in flash
+  - unless key == :timedout
+    - key = "success" if key == "notice"
+    - key = "error" if ["failure", "alert"].include?(key)
+    javascript:
+      toastr.#{key}("#{msg}");
