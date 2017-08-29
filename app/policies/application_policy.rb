@@ -28,7 +28,7 @@ class ApplicationPolicy
   end
 
   def create?
-    user
+    is_admin?
   end
 
   def new?
@@ -36,7 +36,7 @@ class ApplicationPolicy
   end
 
   def update?
-    is_owner_or_admin?
+    is_admin?
   end
 
   def edit?
@@ -44,7 +44,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    is_owner_or_admin?
+    is_admin?
   end
 
   def scope
@@ -64,5 +64,4 @@ class ApplicationPolicy
   def is_owned_by?(user)
     user.present? && record.user == user
   end
-
 end

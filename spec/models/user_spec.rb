@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "associations" do
+    it { expect(subject).to have_many(:subscriptions) }
+  end
+
+  describe "validations" do
+    it { expect(subject).to validate_presence_of(:first_name) }
+    it { expect(subject).to validate_presence_of(:last_name) }
+  end
 end

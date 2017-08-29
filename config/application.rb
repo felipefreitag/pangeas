@@ -28,6 +28,8 @@ module Pangeas
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.active_record.schema_format = :sql
+
     config.time_zone = 'Brasilia'
 
     config.i18n.available_locales = :"pt-BR"
