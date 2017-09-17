@@ -1,15 +1,33 @@
-div class="grid-container"
-  div class="video"
-    <iframe src="https://player.vimeo.com/video/163721649" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  div class="video-info"
+div class="video"
+  div class="grid-container"
+    <iframe src="https://player.vimeo.com/video/163721649" width="720" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+div class="video-info"
+  div class="grid-container"
     div class="grid-x grid-padding-x"
-      p class="small-4 cell" Informações
-      p class="small-4 cell" Sinopse
-      p class="small-4 cell" Biografia
-  div class="watch-also"
-    div class="text-center"
-      a href="#" Mostrar mais
-    h5 class="mb-1rem" Assista também...
+      div class="small-4 cell border-right-white"
+        h6 Informações
+        p Mauris pretium bibendum lectus, in placerat erat porttitor ac.
+          Nulla condimentum, augue ac pellentesque iaculis, tellus augue faucibus
+          magna, eget viverra sem elit non risus.
+      div class="small-4 cell border-right-white"
+        h6 Sinopse
+        p Praesent venenatis justo ut venenatis consectetur.
+          In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
+          Maecenas ultrices sit amet libero sed hendrerit. Quisque
+      div class="small-4 cell"
+        h6 Biografia
+        p Pellentesque volutpat volutpat molestie. Quisque tincidunt mattis velit,
+          at vulputate nisi malesuada non. Vivamus eget ultricies tortor. Nulla
+          venenatis est non massa suscipit,
+  div class="link-container"
+    a href="#"
+      = fa_stacked_icon "angle-double-down", base: "circle"
+    a href="#"
+      strong mostrar mais
+div class="watch-also"
+  div class="grid-container"
+    h5 class="mb-1rem"
+      strong Assista também...
     div class="grid-x grid-padding-x"
       div class="small-4 cell"
         div class="responsive-embed text-center"

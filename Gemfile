@@ -24,6 +24,7 @@ gem 'devise-i18n-views', github: 'mcasimir/devise-i18n-views'
 gem 'devise-foundation-views'
 gem 'toastr-rails'
 gem 'state_machines-activerecord'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
