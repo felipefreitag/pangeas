@@ -1,0 +1,44 @@
+div class="video"
+  div class="grid-container"
+    iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}" width="720" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen]
+div class="video-info"
+  div class="grid-container"
+    div class="grid-x grid-padding-x"
+      - unless @video.information.nil?
+        div class="small-4 cell border-right-white"
+          h6 Informações
+          p
+            = @video.information
+      - unless @video.synopsys.nil?
+        div class="small-4 cell border-right-white"
+          h6 Sinopse
+          p
+            = @video.synopsys
+      - unless @video.bio.nil?
+        div class="small-4 cell"
+          h6 Biografia
+          p
+            = @video.bio
+  div class="link-container"
+    a href="#"
+      = fa_stacked_icon "angle-double-down", base: "circle"
+    a href="#"
+      strong mostrar mais
+div class="watch-also"
+  div class="grid-container"
+    - unless @video.category.nil?
+      h5 class="mb-1rem ml-onehalf"
+        strong Assista também...
+      div class="grid-x grid-padding-x"
+        div class="small-4 cell"
+          div class="responsive-embed text-center"
+            = image_tag href="http://lorempixel.com/311/175/animals"
+            p Nome do conteúdo
+        div class="small-4 cell"
+          div class="responsive-embed text-center"
+            = image_tag href="http://lorempixel.com/311/175/animals"
+            p Nome do conteúdo
+        div class="small-4 cell"
+          div class="responsive-embed text-center"
+            = image_tag href="http://lorempixel.com/311/175/animals"
+            p Nome do conteúdo

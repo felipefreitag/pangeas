@@ -9,13 +9,14 @@ div class="bg-black"
         ul[class="dropdown menu" data-dropdown-menu]
           li class="menu-text"
             = image_tag "logo-pangeas.png"
-          li class="menu-item": a href='#' Início
-          li class="menu-item": a href='#' Eventos & Pesquisa
-          li class="menu-item": a href='#' Vida em Equilíbrio
-          li class="menu-item": a href='#' Cursos Pangeas
+          li class="menu-item"
+            = link_to "Início", root_path
+          / li class="menu-item": a href='#' Eventos & Pesquisa
+          / li class="menu-item": a href='#' Vida em Equilíbrio
+          / li class="menu-item": a href='#' Cursos Pangeas
       div class="top-bar-right"
         ul class="menu"
-          li
-            a href="#" class="pink-color"
-              strong Meu perfil
+          / li
+          /   a href="#" class="pink-color"
+          /     strong Meu perfil
 div class="header-divider"
