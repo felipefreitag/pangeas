@@ -32,7 +32,7 @@
         h5
           strong Assista também...
         .owl-carousel
-          - for video in @video.category.videos
+          - @video.category.videos.each do |video|
             .text-center
               = image_tag href="http://lorempixel.com/311/175/animals"
               p = video.name

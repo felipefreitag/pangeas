@@ -1,1 +1,49 @@
-h1 Show section
+.sections-show-container
+  .hero
+    .grid-container
+      .title.text-center
+        h2 = @section.name
+        h5.m-0
+          | Aqui você encontra informações práticas e filosóficas para
+          span.bg-primary viver sua saúde e liberdade
+      .text-center
+        h5 Confira as categorias nos atalhos abaixo:
+        .grid-container
+          .grid-x.grid-margin-x
+            .auto.cell
+            - @section.subsections.each do |subsection|
+              .shrink.cell
+                a.button.success.subsection-link
+                  = subsection.name
+            .auto.cell
+  .whats-new
+    .grid-container
+      h4.text-center Veja o que tem de novo na Pangeas
+      .grid-x.grid-padding-x
+        - @latest_videos.each do |video|
+          .medium-4.cell
+            = link_to(video)
+              = image_tag href="http://lorempixel.com/370/175/animals"
+            h5 = video.name
+            p = video.description
+  .subsections-container
+    .grid-container
+      - @section.subsections.each do |subsection|
+        .subsection-block
+          .title
+            h3 = subsection.name
+          - subsection.categories.each do |category|
+            .category-block
+              .category-title
+                h5 = category.name
+                p = category.description
+              / .category-latest
+              /   .grid-x.grid-padding-x
+              /     .medium-6.cell
+              /       = link_to(category.videos.last)
+              /         = image_tag src="http://lorempixel.com/400/300/animals"
+              /     .medium-6.cell
+              /       div
+              /         / h5 = category.videos.last.name
+              /         / p = category.videos.last.description
+              / .category-carousel
