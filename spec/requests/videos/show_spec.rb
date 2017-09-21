@@ -5,11 +5,11 @@ RSpec.describe "Show video", type: :request do
 
   let!(:video) {
     Video.create!(
-      name: "foo",
-      description: "description Praesent venenatis justo ut venenatis consectetur.
-        In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
-        Maecenas ultrices sit amet libero sed hendrerit. Quisque",
-      vimeo_id: "163721649",
+      name: 'foo bar',
+      description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+        Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+        e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+      vimeo_id: '163721649',
     )
   }
 
