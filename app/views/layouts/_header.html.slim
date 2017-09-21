@@ -1,22 +1,22 @@
-div class="bg-black"
-  div class="row"
-    div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium"
-      button[class="menu-icon" type="button" data-toggle]
-      div class="title-bar-title" Menu
+.bg-black
+  .grid-container
+    .title-bar[data-responsive-toggle="main-menu" data-hide-for="medium"]
+      button.menu-icon[data-toggle]
+      .title-bar-title Menu
 
-    div class="top-bar" id="main-menu"
-      div class="top-bar-left"
-        ul[class="dropdown menu" data-dropdown-menu]
-          li class="menu-text"
+    #main-menu.top-bar
+      .top-bar-left
+        ul.dropdown.menu[data-dropdown-menu]
+          li.menu-text
             = image_tag "logo-pangeas.png"
-          li class="menu-item"
+          li.menu-item
             = link_to "Início", root_path
-          / li class="menu-item": a href='#' Eventos & Pesquisa
-          / li class="menu-item": a href='#' Vida em Equilíbrio
-          / li class="menu-item": a href='#' Cursos Pangeas
-      div class="top-bar-right"
-        ul class="menu"
+          / li.menu-item: a href='#' Eventos & Pesquisa
+          / li.menu-item: a href='#' Vida em Equilíbrio
+          / li.menu-item: a href='#' Cursos Pangeas
+      .top-bar-right
+        ul.menu
           / li
           /   a href="#" class="pink-color"
           /     strong Meu perfil
-div class="header-divider"
+.header-divider

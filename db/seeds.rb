@@ -1,16 +1,16 @@
 video = Video.create!(
-  name: "foo",
-  description: "description Praesent venenatis justo ut venenatis consectetur.
-    In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
-    Maecenas ultrices sit amet libero sed hendrerit. Quisque",
-  information: "Information Praesent venenatis justo ut venenatis consectetur.
-    In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
-    Maecenas ultrices sit amet libero sed hendrerit. Quisque",
-  synopsys: "Synopsis Praesent venenatis justo ut venenatis consectetur.
-    In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
-    Maecenas ultrices sit amet libero sed hendrerit. Quisque",
-  bio: "Bio Praesent venenatis justo ut venenatis consectetur.
-    In mauris nisi, pellentesque quis elementum eu, feugiat eget magna.
-    Maecenas ultrices sit amet libero sed hendrerit. Quisque",
+  name: 'foo bar',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
 )
