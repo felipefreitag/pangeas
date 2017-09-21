@@ -3,6 +3,6 @@ class Video < ApplicationRecord
   validates :description, presence: true
   validates :vimeo_id, presence: true
 
-  belongs_to :category
-  belongs_to :series
+  belongs_to :category, optional: true
+  belongs_to :series, optional: true
 end

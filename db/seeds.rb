@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+video = Video.create!(
+  name: 'foo bar',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+)
