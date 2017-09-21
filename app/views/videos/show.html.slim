@@ -29,7 +29,7 @@
   .watch-also
     .grid-container
       - unless @video.category.nil?
-        h5.mb-1rem
+        h5
           strong Assista também...
         .owl-carousel
           - for video in @video.category.videos
