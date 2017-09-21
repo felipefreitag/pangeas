@@ -1,45 +1,38 @@
-.video
-  .grid-container
-    iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}" width="720"
-      height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen]
-.video-info
-  .grid-container
-    .grid-x.grid-padding-x
-      - unless @video.information.nil?
-        .small-4.cell.border-right-white
-          h6 Informações
-          p
-            = @video.information
-      - unless @video.synopsys.nil?
-        .small-4.cell.border-right-white
-          h6 Sinopse
-          p
-            = @video.synopsys
-      - unless @video.bio.nil?
-        .small-4.cell
-          h6 Biografia
-          p
-            = @video.bio
-  / .link-container
-  /   a href="#"
-  /     = fa_stacked_icon "angle-double-down", base: "circle"
-  /   a href="#"
-  /     strong mostrar mais
-.watch-also
-  .grid-container
-    - unless @video.category.nil?
-      h5 class="mb-1rem ml-1point5rem"
-        strong Assista também...
+.video-container
+  .video
+    .grid-container
+      iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}" width="720"
+        height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen]
+  .video-info
+    .grid-container
       .grid-x.grid-padding-x
-        .small-4.cell
-          .responsive-embed.text-center
-            = image_tag href="http://lorempixel.com/311/175/animals"
-            p Nome do conteúdo
-        .small-4.cell
-          .responsive-embed.text-center
-            = image_tag href="http://lorempixel.com/311/175/animals"
-            p Nome do conteúdo
-        .small-4.cell
-          .responsive-embed.text-center
-            = image_tag href="http://lorempixel.com/311/175/animals"
-            p Nome do conteúdo
+        - unless @video.information.nil?
+          .medium-4.cell.border-right-white
+            h6 Informações
+            p
+              = @video.information
+        - unless @video.synopsys.nil?
+          .medium-4.cell.border-right-white
+            h6 Sinopse
+            p
+              = @video.synopsys
+        - unless @video.bio.nil?
+          .medium-4.cell
+            h6 Biografia
+            p
+              = @video.bio
+    / .link-container
+    /   a href="#"
+    /     = fa_stacked_icon "angle-double-down", base: "circle"
+    /   a href="#"
+    /     strong mostrar mais
+  .watch-also
+    .grid-container
+      - unless @video.category.nil?
+        h5.mb-1rem
+          strong Assista também...
+        .owl-carousel
+          - for video in @video.category.videos
+            .text-center
+              = image_tag href="http://lorempixel.com/311/175/animals"
+              p = video.name
