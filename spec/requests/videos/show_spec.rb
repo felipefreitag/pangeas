@@ -18,7 +18,7 @@ RSpec.describe "Show video", type: :request do
       get "/videos/#{video.id}"
     end
 
-    it "Renders show video template" do
+    it "is returns ok" do
       expect(subject).to have_http_status(:ok)
     end
   end
