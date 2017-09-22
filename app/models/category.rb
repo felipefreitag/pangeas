@@ -4,4 +4,6 @@ class Category < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :subsection
+  has_many :videos
+  has_many :series
 end
