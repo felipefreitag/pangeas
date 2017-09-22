@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Series, type: :model do
   describe "associations" do
     it { expect(subject).to belong_to(:category) }
+    it { expect(subject).to have_many(:videos) }
   end
 
   describe "validations" do

@@ -20,12 +20,14 @@
     .grid-container
       h4.text-center Veja o que tem de novo na Pangeas
       .grid-x.grid-padding-x
-        - @latest_videos.each do |video|
-          .medium-4.cell
-            = link_to(video)
-              = image_tag href="http://lorempixel.com/370/175/animals"
-            h5 = video.name
-            p = video.description
+        - unless @latest_videos.empty?
+          - @latest_videos.each do |video|
+            .medium-4.cell
+              = link_to(video)
+                = image_tag href="http://lorempixel.com/370/175/animals"
+              - unless video.nil?  
+                h5 = video.name
+                p = video.description
   .subsections-container
     .grid-container
       - @section.subsections.each do |subsection|

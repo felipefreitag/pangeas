@@ -4,4 +4,5 @@ class Series < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :category
+  has_many :videos
 end
