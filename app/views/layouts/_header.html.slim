@@ -8,11 +8,12 @@
       .top-bar-left
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
-            = image_tag "logo-pangeas.png"
+            = image_tag 'logo-pangeas.png'
           li.menu-item
-            = link_to "Início", root_path
+            = link_to 'Início', root_path
           / li.menu-item: a href='#' Eventos & Pesquisa
-          / li.menu-item: a href='#' Vida em Equilíbrio
+          li.menu-item
+            = link_to 'Vida em Equilíbrio', '/sections/1'
           / li.menu-item: a href='#' Cursos Pangeas
       .top-bar-right
         ul.menu
