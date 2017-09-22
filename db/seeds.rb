@@ -104,6 +104,7 @@ video1 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/animals",
   category: category_educacao,
 )
 
@@ -122,6 +123,7 @@ video2 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/sports",
   category: category_educacao,
 )
 
@@ -140,6 +142,7 @@ video3 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/people",
   category: category_educacao,
 )
 
@@ -158,6 +161,7 @@ video4 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/abstract",
   category: category_educacao,
 )
 
@@ -176,6 +180,7 @@ video1_series = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
   series: series,
 )
 
@@ -194,5 +199,6 @@ video2_series = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
   series: series,
 )

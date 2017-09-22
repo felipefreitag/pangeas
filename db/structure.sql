@@ -299,7 +299,8 @@ CREATE TABLE videos (
     highlighted boolean DEFAULT false NOT NULL,
     sorting integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    image_url character varying
 );
 
 
@@ -560,6 +561,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170829123213'),
 ('20170829124452'),
 ('20170829125252'),
-('20170829130413');
+('20170829130413'),
+('20170922172600');
 
 

@@ -24,8 +24,8 @@
           - @latest_videos.each do |video|
             .medium-4.cell
               = link_to(video)
-                = image_tag href="http://lorempixel.com/370/175/animals"
-              - unless video.nil?  
+                = image_tag src="#{video.image_url}"
+              - unless video.nil?
                 h5 = video.name
                 p = video.description
   .subsections-container
