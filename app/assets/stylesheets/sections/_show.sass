@@ -1,5 +1,11 @@
 .sections-show-container
   background-color: $white
+  .hero
+    .title
+      .grid-x
+        margin-bottom: 1rem
+      h2
+        padding-top: 1rem
   .whats-new
     background-color: $black
     color: $white
@@ -21,19 +27,30 @@
     .subsection-block
       text-align: center
       margin-top: 2rem
+      &:focus
+        outline: none
       .title
         display: inline-block
         padding: 0 0.5rem
-        margin-bottom: 1rem
+        margin-bottom: 1.5rem
         background-color: $primary-color
         h3
           margin: 0
       &:last-child
         padding-bottom: 3rem
+        .category-block
+          &:last-child
+            border-bottom: none
       .category-block
         text-align: left
+        padding-bottom: 1.5rem
         border-bottom: solid 2px $dark-gray
         .category-title
           margin-top: 1rem
+          padding-left: 15px
           h5
             margin: 0
+        .category-latest
+          padding-bottom: 2rem
+        .watch-all
+          text-align: center

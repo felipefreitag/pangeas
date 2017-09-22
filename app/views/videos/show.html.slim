@@ -27,12 +27,25 @@
     /   a href="#"
     /     strong mostrar mais
   .watch-also
-    .grid-container
-      - unless @video.category.nil?
+    - unless @video.series.nil?
+      .text-center
+        = link_to "Voltar para a lista de episódios da série", @video.series, class: "button success"
+        .grid-container.text-left
+          h5
+            strong Assista também...
+          .owl-carousel
+            - @video.series.videos.each do |video|
+              .text-center
+                = link_to(video)
+                  = image_tag src="#{video.image_url}"
+                p = video.name
+    - unless @video.category.nil?
+      .grid-container
         h5
           strong Assista também...
         .owl-carousel
           - @video.category.videos.each do |video|
             .text-center
-              = image_tag href="http://lorempixel.com/311/175/animals"
+              = link_to(video)
+                = image_tag src="#{video.image_url}"
               p = video.name

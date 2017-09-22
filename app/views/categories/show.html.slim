@@ -8,8 +8,8 @@
         h5 #{@category.description}
       .grid-x.grid-padding-x
         .medium-6.cell
-          = link_to(@videos.last)
-            = image_tag src="http://lorempixel.com/640/480/animals"
+          = link_to(@latest_video)
+            = image_tag src="#{@latest_video.image_url}"
         .medium-6.cell
           div
             h5 = @videos.first.name
@@ -19,11 +19,11 @@
         - @videos.each do |video|
           .medium-4.cell.img-container
             = link_to(video)
-              = image_tag href="http://lorempixel.com/370/175/animals"
+              = image_tag src="#{video.image_url}"
             h6 = video.name
       - unless @series.empty?
         - @series.each do |serie|
           .medium-4.cell.img-container
             = link_to(serie)
-              = image_tag href="http://lorempixel.com/370/175/animals"
+              = image_tag src="#{serie.videos.first.image_url}"
             h6 = serie.name

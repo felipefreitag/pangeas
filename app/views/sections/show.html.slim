@@ -2,9 +2,15 @@
   .hero
     .grid-container
       .title.text-center
-        h2 = @section.name
-        h5.m-0
-          | Aqui você encontra informações práticas e filosóficas para
+        .grid-x.grid-padding-x.align-middle
+          .auto.cell
+          .shrink.cell
+            = image_tag 'section-vida-equilibrio'
+          .shrink.cell
+            h2 = @section.name
+          .auto.cell
+        h5
+          span> Aqui você encontra informações práticas e filosóficas para
           span.bg-primary viver sua saúde e liberdade
       .text-center
         h5 Confira as categorias nos atalhos abaixo:
@@ -13,7 +19,7 @@
             .auto.cell
             - @section.subsections.each do |subsection|
               .shrink.cell
-                a.button.success.subsection-link
+                a.button.success.subsection-link href="#subsection-#{subsection.id}"
                   = subsection.name
             .auto.cell
   .whats-new
@@ -24,28 +30,44 @@
           - @latest_videos.each do |video|
             .medium-4.cell
               = link_to(video)
-                = image_tag href="http://lorempixel.com/370/175/animals"
-              - unless video.nil?  
+                = image_tag src="#{video.image_url}"
+              - unless video.nil?
                 h5 = video.name
                 p = video.description
   .subsections-container
     .grid-container
-      - @section.subsections.each do |subsection|
-        .subsection-block
+      - @subsections.each do |subsection|
+        .subsection-block id="subsection-#{subsection.id}"
           .title
             h3 = subsection.name
           - subsection.categories.each do |category|
             .category-block
               .category-title
-                h5 = category.name
+                h4 = category.name
                 p = category.description
-              / .category-latest
-              /   .grid-x.grid-padding-x
-              /     .medium-6.cell
-              /       = link_to(category.videos.last)
-              /         = image_tag src="http://lorempixel.com/400/300/animals"
-              /     .medium-6.cell
-              /       div
-              /         / h5 = category.videos.last.name
-              /         / p = category.videos.last.description
-              / .category-carousel
+              - unless category.videos.empty?
+                - category_latest_video = category.videos.last
+                .category-latest
+                  .grid-x.grid-padding-x
+                    .medium-6.cell
+                      = link_to(category_latest_video)
+                        = image_tag src="#{category_latest_video.image_url}"
+                    .medium-6.cell
+                      div
+                        h5 = category_latest_video.name
+                        p = category_latest_video.description
+                .category-carousel
+                  .owl-carousel
+                    - category.videos.each do |video|
+                      .text-center
+                        = link_to(video)
+                          = image_tag src="#{video.image_url}"
+                        p = video.name
+                    - unless category.series.empty?
+                      - category.series.each do |serie|
+                        .text-center
+                          = link_to(serie)
+                            = image_tag src="#{serie.videos.first.image_url}"
+                          p = serie.name
+              .watch-all
+                = link_to "Ver todos os vídeos", category, class: "button success"
