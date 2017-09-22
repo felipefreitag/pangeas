@@ -1,1 +1,21 @@
-h1 Series show
+.series-container
+  .grid-container
+    .hero
+      .text-center.title
+        h3.m-0
+          = @series.name
+        h5 #{@series.description}
+      .grid-x.grid-padding-x
+        .medium-6.cell
+          = link_to(@series.videos.first)
+            = image_tag src="#{@series.videos.first.image_url}"
+        .medium-6.cell
+          div
+            h5 = @videos.first.name
+            p = @videos.first.description
+    .video-list.grid-x.grid-padding-x.grid-padding-y
+      - @videos.each do |video|
+        .medium-4.cell.img-container
+          = link_to(video)
+            = image_tag src="#{video.image_url}"
+          h6 = video.name
