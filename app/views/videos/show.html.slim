@@ -34,5 +34,6 @@
         .owl-carousel
           - @video.category.videos.each do |video|
             .text-center
-              = image_tag src="#{video.image_url}"
+              = link_to(video)
+                = image_tag src="#{video.image_url}"
               p = video.name

@@ -5,10 +5,12 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
+    all_videos = Video.order(:created_at)
     @latest_videos = [
-      Video.order(:created_at).last,
-      Video.order(:created_at).second_to_last,
-      Video.order(:created_at).third_to_last
+      all_videos.last,
+      all_videos.second_to_last,
+      all_videos.third_to_last
     ]
+    @subsections = @section.subsections
   end
 end
