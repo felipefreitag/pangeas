@@ -19,12 +19,19 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    all_videos = Video.order(:created_at)
-    @latest_videos = [
-      all_videos.last,
-      all_videos.second_to_last,
-      all_videos.third_to_last
-    ]
-    @subsections = @section.subsections
+    if @section.name == 'Eventos & Pesquisa'
+      render :show_events and return
+    elsif @section.name == 'Vida em Equilíbrio'
+      all_videos = Video.order(:created_at)
+      @latest_videos = [
+        all_videos.last,
+        all_videos.second_to_last,
+        all_videos.third_to_last
+      ]
+      @subsections = @section.subsections
+      render :show and return
+    elsif @section.name == 'Cursos Pangeas'
+      render :show_courses and return
+    end
   end
 end

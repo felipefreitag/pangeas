@@ -1,0 +1,15 @@
+.sections-show-container
+  .hero
+    .grid-container
+      .title.text-center
+        .grid-x.grid-padding-x.align-middle
+          .auto.cell
+          .shrink.cell
+            .img-container
+              = image_tag @section.image_url
+          .shrink.cell
+            h2 = @section.name
+          .auto.cell
+        h5
+          span> Aqui você encontra informações práticas e filosóficas para
+          span.bg-primary viver sua saúde e liberdade
