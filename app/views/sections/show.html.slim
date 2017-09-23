@@ -5,7 +5,8 @@
         .grid-x.grid-padding-x.align-middle
           .auto.cell
           .shrink.cell
-            = image_tag 'section-vida-equilibrio'
+            .img-container
+              = image_tag @section.image_url
           .shrink.cell
             h2 = @section.name
           .auto.cell

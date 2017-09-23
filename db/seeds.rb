@@ -1,7 +1,19 @@
+section2 =  Section.create!(
+  name: 'Eventos & Pesquisa',
+  description: 'some section description',
+  image_url: 'eventos'
+)
+
 section =  Section.create!(
   name: 'Vida em Equilíbrio',
   description: 'some section description',
-  image_url: 'http://image-url'
+  image_url: 'vida-equilibrio'
+)
+
+section3 =  Section.create!(
+  name: 'Cursos Pangeas',
+  description: 'some section description',
+  image_url: 'cursos-em-breve'
 )
 
 subsection_mente = Subsection.create!(
