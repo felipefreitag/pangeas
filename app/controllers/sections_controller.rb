@@ -1,7 +1,6 @@
 class SectionsController < ApplicationController
 
   def index
-    @sections = Section.all
     all_videos = Video.order(:created_at)
     @latest_videos = [
       all_videos.last,

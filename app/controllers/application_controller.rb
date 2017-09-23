@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   # after_action :verify_authorized, unless: -> { devise_controller? }
   # after_action :verify_policy_scoped, unless: -> { devise_controller? }
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  before_action :get_sections
+
+  def get_sections
+    @sections = Section.all
+  end
 
   def namespace
     names = self.class.to_s.split('::')

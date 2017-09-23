@@ -11,12 +11,9 @@
             = image_tag 'logo-pangeas.png'
           li.menu-item
             = link_to 'Início', root_path
-          li.menu-item
-            = link_to 'Eventos', '/sections/1'
-          li.menu-item
-            = link_to 'Vida em Equilíbrio', '/sections/2'
-          li.menu-item
-            = link_to 'Cursos Pangeas', '/sections/3'
+          - @sections.each do |section|
+              li.menu-item
+                = link_to section.name, section
       .top-bar-right
         ul.menu
           / li
