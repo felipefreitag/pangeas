@@ -31,8 +31,8 @@
           - @latest_videos.each do |video|
             .medium-4.cell
               = link_to(video)
-                = image_tag src="#{video.image_url}"
-              - unless video.nil?
+                = image_tag video.image_url
+              - if video
                 h5 = video.name
                 p = video.description
   .coming-up

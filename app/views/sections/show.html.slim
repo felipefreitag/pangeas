@@ -31,8 +31,8 @@
           - @latest_videos.each do |video|
             .medium-4.cell
               = link_to(video)
-                = image_tag src="#{video.image_url}"
-              - unless video.nil?
+                = image_tag video.image_url
+              - if video
                 h5 = video.name
                 p = video.description
   .subsections-container
@@ -52,7 +52,7 @@
                   .grid-x.grid-padding-x
                     .medium-6.cell
                       = link_to(category_latest_video)
-                        = image_tag src="#{category_latest_video.image_url}"
+                        = image_tag category_latest_video.image_url
                     .medium-6.cell
                       div
                         h5 = category_latest_video.name
@@ -62,13 +62,13 @@
                     - category.videos.each do |video|
                       .text-center
                         = link_to(video)
-                          = image_tag src="#{video.image_url}"
+                          = image_tag video.image_url
                         p = video.name
                     - unless category.series.empty?
                       - category.series.each do |serie|
                         .text-center
                           = link_to(serie)
-                            = image_tag src="#{serie.videos.first.image_url}"
+                            = image_tag serie.videos.first.image_url
                           p = serie.name
               .watch-all
                 = link_to "Ver todos os vídeos", category, class: "button success"

@@ -6,17 +6,17 @@
   .video-info
     .grid-container
       .grid-x.grid-padding-x
-        - unless @video.information.nil?
+        - if @video.information
           .medium-4.cell.border-right-white
             h6 Informações
             p
               = @video.information
-        - unless @video.synopsys.nil?
+        - if @video.synopsys
           .medium-4.cell.border-right-white
             h6 Sinopse
             p
               = @video.synopsys
-        - unless @video.bio.nil?
+        - if @video.bio
           .medium-4.cell
             h6 Biografia
             p
@@ -27,7 +27,7 @@
     /   a href="#"
     /     strong mostrar mais
   .watch-also
-    - unless @video.series.nil?
+    - if @video.series
       .text-center
         = link_to "Voltar para a lista de episódios da série", @video.series, class: "button success"
         .grid-container.text-left
@@ -37,9 +37,9 @@
             - @video.series.videos.each do |video|
               .text-center
                 = link_to(video)
-                  = image_tag src="#{video.image_url}"
+                  = image_tag video.image_url
                 p = video.name
-    - unless @video.category.nil?
+    - if @video.category
       .grid-container
         h5
           strong Assista também...
@@ -47,5 +47,5 @@
           - @video.category.videos.each do |video|
             .text-center
               = link_to(video)
-                = image_tag src="#{video.image_url}"
+                = image_tag video.image_url
               p = video.name
