@@ -2,11 +2,14 @@ class SectionsController < ApplicationController
 
   def index
     all_videos = Video.order(:created_at)
-    @latest_videos = [
-      all_videos.last,
-      all_videos.second_to_last,
-      all_videos.third_to_last
-    ]
+    @latest_videos = []
+    unless all_videos.empty?
+      @latest_videos = [
+        all_videos.last,
+        all_videos.second_to_last,
+        all_videos.third_to_last
+      ]
+    end
     content = {
       date: "XX/XX",
       name: "Nome do conteúdo",
@@ -18,16 +21,20 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
+    @subsections = @section.subsections
+    @latest_videos = []
     if @section.name == 'Eventos & Pesquisa'
       render :show_events and return
     elsif @section.name == 'Vida em Equilíbrio'
+      ap 'section vida'
       all_videos = Video.order(:created_at)
-      @latest_videos = [
-        all_videos.last,
-        all_videos.second_to_last,
-        all_videos.third_to_last
-      ]
-      @subsections = @section.subsections
+      unless all_videos.empty?
+        @latest_videos = [
+          all_videos.last,
+          all_videos.second_to_last,
+          all_videos.third_to_last
+        ]
+      end
       render :show and return
     elsif @section.name == 'Cursos Pangeas'
       render :show_courses and return

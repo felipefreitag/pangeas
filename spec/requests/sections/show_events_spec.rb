@@ -5,7 +5,7 @@ RSpec.describe "Show section", type: :request do
 
   let!(:section) {
     Section.create!(
-      name: 'foo section',
+      name: 'Eventos & Pesquisa',
       description: 'some section description',
       image_url: 'http://image-url'
     )

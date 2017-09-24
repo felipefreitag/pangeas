@@ -34,6 +34,7 @@ RSpec.describe "Show category", type: :request do
         e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
       vimeo_id: '163721649',
       category: category,
+      image_url: 'http://foo.png',
     )
   }
 
