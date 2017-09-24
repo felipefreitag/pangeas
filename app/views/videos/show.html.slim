@@ -30,22 +30,6 @@
     - if @video.series
       .text-center
         = link_to "Voltar para a lista de episódios da série", @video.series, class: "button success"
-        .grid-container.text-left
-          h5
-            strong Assista também...
-          .owl-carousel
-            - @video.series.videos.each do |video|
-              .text-center
-                = link_to(video)
-                  = image_tag video.image_url
-                p = video.name
+        = render partial: 'videos_carousel', locals: { videos: @video.series.videos }
     - if @video.category
-      .grid-container
-        h5
-          strong Assista também...
-        .owl-carousel
-          - @video.category.videos.each do |video|
-            .text-center
-              = link_to(video)
-                = image_tag video.image_url
-              p = video.name
+      = render partial: 'videos_carousel', locals: { videos: @video.category.videos }
