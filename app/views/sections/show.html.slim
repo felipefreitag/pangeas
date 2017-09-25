@@ -56,7 +56,7 @@
                         h5= category.latest_video.name
                         p= category.latest_video.description
                 .category-carousel
-                  .owl-carousel
+                  .owl-carousel.carousel-three-items
                     - category.videos.each do |video|
                       .text-center
                         = link_to video

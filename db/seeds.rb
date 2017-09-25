@@ -307,6 +307,13 @@ event3d = Series.create!(
   image_url: "http://lorempixel.com/573/322/nature",
 )
 
+event3e = Series.create!(
+  name: '7° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
 event4a = Series.create!(
   name: 'Palestra avulsa 1',
   description: 'some series description',
