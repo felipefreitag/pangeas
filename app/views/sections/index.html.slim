@@ -5,7 +5,7 @@
         h2 Clique e escolha por onde começar...
         h5
           span> Eventos & Pesquisa para estudiosos e profissionais; Vida em Equilíbrio para ser saudável e livre no seu dia a dia; e, em breve, Cursos Pangeas para uma experiência intensa de aprendizado.
-          span.bg-primary É só escolher.
+          span.bg-blue-highlight É só escolher.
       .sections-links
         .grid-x.grid-padding-x.grid-margin-x
           .auto.cell
@@ -40,10 +40,10 @@
       .header
         h4.text-center O que vem por aí...
         h5.text-center
-          span.bg-primary Nossa equipe está sempre trabalhando para trazer cada vez mais conhecimento
+          span.bg-blue-highlight Nossa equipe está sempre trabalhando para trazer cada vez mais conhecimento
           span< para criarmos saúde e liberdade. Aqui vai um pouquinho do que está por vir:
       .ul.content
         - @new_content.each do |content|
           li
-            span.bg-primary= "#{content[:date]} #{content[:name]}:"
+            span.bg-blue-highlight= "#{content[:date]} #{content[:name]}:"
             span<= content[:description]
