@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :get_sections
 
   def get_sections
-    @sections = Section.all
+    @sections = Section.order(:id).all
   end
 
   def namespace

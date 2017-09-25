@@ -13,7 +13,7 @@
             .medium-3.cell.section-cell
               = link_to(section)
                 = image_tag section.image_url
-                h6 = section.name
+                h6= section.name
           .auto.cell
   .whats-new-header
     .grid-container
@@ -33,8 +33,8 @@
               = link_to(video)
                 = image_tag video.image_url
               - if video
-                h5 = video.name
-                p = video.description
+                h5= video.name
+                p= video.description
   .coming-up
     .grid-container
       .header
@@ -45,5 +45,5 @@
       .ul.content
         - @new_content.each do |content|
           li
-            span.bg-primary = "#{content[:date]} #{content[:name]}:"
-            span< = content[:description]
+            span.bg-primary= "#{content[:date]} #{content[:name]}:"
+            span<= content[:description]

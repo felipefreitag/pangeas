@@ -13,18 +13,18 @@
               = image_tag @latest_video.image_url
           .medium-6.cell
             div
-              h5 = @latest_video.name
-              p = @latest_video.description
+              h5= @latest_video.name
+              p= @latest_video.description
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - unless @videos.empty?
         - @videos.each do |video|
           .medium-4.cell.img-container
             = link_to(video)
               = image_tag video.image_url
-            h6 = video.name
+            h6= video.name
       - unless @series.empty?
         - @series.each do |serie|
           .medium-4.cell.img-container
             = link_to(serie)
               = image_tag serie.videos.first.image_url
-            h6 = serie.name
+            h6= serie.name

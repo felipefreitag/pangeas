@@ -8,7 +8,7 @@
             .img-container
               = image_tag @section.image_url
           .shrink.cell
-            h2 = @section.name
+            h2= @section.name
           .auto.cell
         h5
           span> Aqui você encontra informações práticas e filosóficas para
@@ -30,22 +30,21 @@
         - unless @latest_videos.empty?
           - @latest_videos.each do |video|
             .medium-4.cell
-              = link_to(video)
+              = link_to video
                 = image_tag video.image_url
-              - if video
-                h5 = video.name
-                p = video.description
+              h5= video.name
+              p= video.description
   .subsections-container
     .grid-container
       - @subsections.each do |subsection|
         .subsection-block id="subsection-#{subsection.id}"
           .title
-            h3 = subsection.name
+            h3= subsection.name
           - subsection.categories.each do |category|
             .category-block
               .category-title
-                h4 = category.name
-                p = category.description
+                h4= category.name
+                p= category.description
               - unless category.videos.empty?
                 - category_latest_video = category.videos.last
                 .category-latest
@@ -55,20 +54,20 @@
                         = image_tag category_latest_video.image_url
                     .medium-6.cell
                       div
-                        h5 = category_latest_video.name
-                        p = category_latest_video.description
+                        h5= category_latest_video.name
+                        p= category_latest_video.description
                 .category-carousel
                   .owl-carousel
                     - category.videos.each do |video|
                       .text-center
-                        = link_to(video)
+                        = link_to video
                           = image_tag video.image_url
-                        p = video.name
+                        p= video.name
                     - unless category.series.empty?
                       - category.series.each do |serie|
                         .text-center
-                          = link_to(serie)
+                          = link_to serie
                             = image_tag serie.videos.first.image_url
-                          p = serie.name
+                          p= serie.name
               .watch-all
                 = link_to "Ver todos os vídeos", category, class: "button success"

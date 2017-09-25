@@ -26,7 +26,6 @@ class SectionsController < ApplicationController
     if @section.name == 'Eventos & Pesquisa'
       render :show_events and return
     elsif @section.name == 'Vida em Equilíbrio'
-      ap 'section vida'
       all_videos = Video.order(:created_at)
       unless all_videos.empty?
         @latest_videos = [
