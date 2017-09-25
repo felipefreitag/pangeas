@@ -26,7 +26,7 @@ $(function(){
     ga('set', 'location', event.data.url);
     ga('send', 'pageview');
     $(document).foundation();
+    startCarousel();
+    smoothScroll();
   });
 });
-
-$(function(){ $(document).foundation(); });

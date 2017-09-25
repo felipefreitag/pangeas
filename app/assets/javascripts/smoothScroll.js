@@ -1,8 +1,7 @@
 /*
 *  From https://css-tricks.com/snippets/jquery/smooth-scrolling/
 */
-
-$(function() {
+function smoothScroll() {
   // Select all links with hashes
   $('a[href*="#"]')
     // Remove links that don't actually link to anything
@@ -40,4 +39,4 @@ $(function() {
         }
       }
     });
-});
+}

@@ -1,4 +1,4 @@
-$(function(){
+function startCarousel() {
   $(".owl-carousel").owlCarousel({
     nav: true,
     navText: ['<i class="fa fa-caret-left fa-2x" aria-hidden="true"></i>',
@@ -12,4 +12,4 @@ $(function(){
       600: { items: 3 },
     }
   });
-});
+}
