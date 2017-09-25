@@ -1,19 +1,19 @@
 section2 =  Section.create!(
   name: 'Eventos & Pesquisa',
   description: 'some section description',
-  image_url: 'eventos'
+  image_url: 'https://image.ibb.co/caOVM5/events.png'
 )
 
 section =  Section.create!(
   name: 'Vida em Equilíbrio',
   description: 'some section description',
-  image_url: 'vida-equilibrio'
+  image_url: 'https://image.ibb.co/iAgvok/vida_equilibrio.png'
 )
 
 section3 =  Section.create!(
   name: 'Cursos Pangeas',
   description: 'some section description',
-  image_url: 'cursos-em-breve'
+  image_url: 'https://image.ibb.co/bvG6uQ/courses_coming_soon.png'
 )
 
 subsection_mente = Subsection.create!(
