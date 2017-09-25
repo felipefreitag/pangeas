@@ -8,6 +8,6 @@ class Category < ApplicationRecord
   has_many :series
 
   def latest_video
-    @latest_video ||= @videos.order(:created_at).last
+    @latest_video ||= videos.order(:created_at).last
   end
 end

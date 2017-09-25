@@ -46,16 +46,15 @@
                 h4= category.name
                 p= category.description
               - unless category.videos.empty?
-                - category_latest_video = category.videos.last
                 .category-latest
                   .grid-x.grid-padding-x
                     .medium-6.cell
-                      = link_to(category_latest_video)
-                        = image_tag category_latest_video.image_url
+                      = link_to(category.latest_video)
+                        = image_tag category.latest_video.image_url
                     .medium-6.cell
                       div
-                        h5= category_latest_video.name
-                        p= category_latest_video.description
+                        h5= category.latest_video.name
+                        p= category.latest_video.description
                 .category-carousel
                   .owl-carousel
                     - category.videos.each do |video|
