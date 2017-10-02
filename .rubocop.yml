@@ -9,3 +9,5 @@ AllCops:
     - 'node_modules/**/*'
 Rails:
   Enabled: true
+Documentation:
+  Enabled: false  
