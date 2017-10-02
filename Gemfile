@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop', '~> 0.50.0', require: false
 end
 
 group :development do
