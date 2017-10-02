@@ -39,7 +39,7 @@
                   .grid-x.grid-padding-x
                     .medium-7.cell
                       = link_to event
-                        = image_tag event.get_image_url
+                        = image_tag event.image
                     .medium-5.cell
                       h6= event.name
                       p= event.description
@@ -53,7 +53,7 @@
               - @other_events.series.each do |serie|
                 .text-center
                   = link_to serie
-                    = image_tag serie.get_image_url
+                    = image_tag serie.image
                   p= serie.name
       - if @talks
         .talks.event-category-block
@@ -65,5 +65,5 @@
               - @other_events.series.each do |serie|
                 .text-center
                   = link_to serie
-                    = image_tag serie.get_image_url
+                    = image_tag serie.image
                   p= serie.name

@@ -74,13 +74,13 @@ RSpec.describe Series, type: :model do
   describe "get image url" do
     context "with series image_url set" do
       it "returns the series image url" do
-        expect(series.get_image_url).to eq('http://foo')
+        expect(series.image).to eq('http://foo')
       end
     end
 
     context "without series image_url set" do
       it "Returns the first video image url" do
-        expect(series2.get_image_url).to eq(video.image_url)
+        expect(series2.image).to eq(video.image_url)
       end
     end
   end
