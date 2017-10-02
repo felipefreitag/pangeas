@@ -10,6 +10,7 @@ RSpec.describe "Show video", type: :request do
         Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
         e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
       vimeo_id: '163721649',
+      image_url: 'http://foo.png',
     )
   }
 

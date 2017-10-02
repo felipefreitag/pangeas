@@ -1,1 +1,63 @@
-h1 Sections index
+.sections-index-container
+  .hero
+    .grid-container
+      .title.text-center
+        h2 Clique e escolha por onde começar...
+        h5
+          span> Eventos & Pesquisa para estudiosos e profissionais; Vida em Equilíbrio para ser saudável e livre no seu dia a dia; e, em breve, Cursos Pangeas para uma experiência intensa de aprendizado.
+          span.bg-blue-highlight É só escolher.
+      .sections-links
+        .grid-x.grid-padding-x.grid-margin-x
+          .auto.cell
+          - @sections.each do |section|
+            .medium-3.cell.section-cell
+              = link_to(section)
+                = image_tag section.image_url
+                h6= section.name
+          .auto.cell
+  .whats-new-header
+    .grid-container
+      .grid-x
+        .medium-1.cell
+        .medium-3.cell.text-center
+          = image_tag 'just-released'
+        .shrink.cell.text-center
+          h4.text-center Veja o que tem de novo na Pangeas
+        .medium-2.cell
+  .whats-new
+    .grid-container
+      .grid-x.grid-padding-x
+        - unless @latest_videos.empty?
+          - @latest_videos.each do |video|
+            .medium-4.cell
+              = link_to(video)
+                = image_tag video.image_url
+              - if video
+                h5= video.name
+                p= video.description
+  .coming-up
+    .grid-container
+      .header
+        h4.text-center O que vem por aí...
+        h5.text-center
+          span.bg-blue-highlight Nossa equipe está sempre trabalhando para trazer cada vez mais conhecimento
+          span< para criarmos saúde e liberdade. Aqui vai um pouquinho do que está por vir:
+      .ul.content
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.
+        li
+          span.bg-blue-highlight XX/XX Nome do conteúdo:
+          span< Pequena descrição do que vai ser, para quem vai ser e o que traz de benefício.

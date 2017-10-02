@@ -1,7 +1,24 @@
+section_events =  Section.create!(
+  name: 'Eventos & Pesquisa',
+  description: 'some section description',
+  image_url: 'https://image.ibb.co/caOVM5/events.png'
+)
+
 section =  Section.create!(
   name: 'Vida em Equilíbrio',
   description: 'some section description',
-  image_url: 'http://image-url'
+  image_url: 'https://image.ibb.co/iAgvok/vida_equilibrio.png'
+)
+
+section3 =  Section.create!(
+  name: 'Cursos Pangeas',
+  description: 'some section description',
+  image_url: 'https://image.ibb.co/bvG6uQ/courses_coming_soon.png'
+)
+
+subsection_events = Subsection.create!(
+  name: 'events',
+  section: section_events,
 )
 
 subsection_mente = Subsection.create!(
@@ -27,6 +44,30 @@ subsection_energia = Subsection.create!(
 subsection_terra = Subsection.create!(
   name: 'Terra Viva',
   section: section,
+)
+
+category_events_highlight = Category.create!(
+  name: 'Em destaque',
+  description: 'some category description',
+  subsection: subsection_events,
+)
+
+category_events = Category.create!(
+  name: 'Eventos',
+  description: 'some category description',
+  subsection: subsection_events,
+)
+
+category_other_events = Category.create!(
+  name: 'Outros Eventos',
+  description: 'some category description',
+  subsection: subsection_events,
+)
+
+category_talks = Category.create!(
+  name: 'Palestras Avulsas',
+  description: 'some category description',
+  subsection: subsection_events,
 )
 
 category_educacao = Category.create!(
@@ -104,6 +145,7 @@ video1 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/animals",
   category: category_educacao,
 )
 
@@ -122,6 +164,7 @@ video2 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/sports",
   category: category_educacao,
 )
 
@@ -140,6 +183,7 @@ video3 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/people",
   category: category_educacao,
 )
 
@@ -158,6 +202,7 @@ video4 = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/abstract",
   category: category_educacao,
 )
 
@@ -176,6 +221,7 @@ video1_series = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
   series: series,
 )
 
@@ -194,5 +240,255 @@ video2_series = Video.create!(
     sua participação no filme "Quem somos nós?". Com diversos livros publicados
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
   series: series,
+)
+
+event1 = Series.create!(
+  name: 'Conheça a Psicologia Quântica',
+  description: 'some series description',
+  category: category_events_highlight,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event2a = Series.create!(
+  name: 'Primeiro Congresso Internacional',
+  description: 'some series description',
+  category: category_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event2b = Series.create!(
+  name: '5° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event2c = Series.create!(
+  name: 'Primeiro Congresso Internacional',
+  description: 'some series description',
+  category: category_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event2d = Series.create!(
+  name: '5° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event3a = Series.create!(
+  name: 'Primeiro Congresso Internacional',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event3b = Series.create!(
+  name: '5° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event3c = Series.create!(
+  name: 'Primeiro Congresso Internacional',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event3d = Series.create!(
+  name: '5° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event3e = Series.create!(
+  name: '7° Congresso Saúde Terapia Quântica',
+  description: 'some series description',
+  category: category_other_events,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+event4a = Series.create!(
+  name: 'Palestra avulsa 1',
+  description: 'some series description',
+  category: category_talks,
+  image_url: "http://lorempixel.com/573/322/nature",
+)
+
+video1_events = Video.create!(
+  name: 'Palestra 1 Evento',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  series: event1,
+)
+
+video2_events = Video.create!(
+  name: 'Palestra 1 Evento',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  series: event2a,
+)
+
+video3_events = Video.create!(
+  name: 'Palestra 1 Evento',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  series: event2a,
+)
+
+video4_events = Video.create!(
+  name: 'Palestra 1 Evento',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  series: event2a,
+)
+
+video5_events = Video.create!(
+  name: 'Palestra 1 Evento',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  series: event2a,
+  category: category_events_highlight
+)
+
+video6_events = Video.create!(
+  name: 'Palestra 1 Avulsa',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  category: category_talks,
+)
+
+video6_events = Video.create!(
+  name: 'Palestra 2 Avulsa',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  category: category_talks,
+)
+
+video6_events = Video.create!(
+  name: 'Palestra 3 Avulsa',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  category: category_talks,
+)
+
+video6_events = Video.create!(
+  name: 'Palestra 4 Avulsa',
+  description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  information: 'Palestrante: Amit Goswami Tema da Palestra: Psicologia Quântica
+    Integrativa Local: Palácio dos Festivais - Gramado Evento: Conferência Internacional
+    de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
+    Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
+    e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela
+    sua participação no filme "Quem somos nós?". Com diversos livros publicados
+    e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: "163721649",
+  image_url: "http://lorempixel.com/573/322/nature",
+  category: category_talks,
 )

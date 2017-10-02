@@ -3,27 +3,28 @@
     .hero
       .text-center.title
         h3.m-0
-          span.bg-primary Todos os vídeos
+          span.bg-blue-highlight Todos os vídeos
           |  de #{@category.name}
         h5 #{@category.description}
-      .grid-x.grid-padding-x
-        .medium-6.cell
-          = link_to(@videos.last)
-            = image_tag src="http://lorempixel.com/640/480/animals"
-        .medium-6.cell
-          div
-            h5 = @videos.first.name
-            p = @videos.first.description
+      - if @latest_video
+        .grid-x.grid-padding-x
+          .medium-6.cell
+            = link_to(@latest_video)
+              = image_tag @latest_video.image_url
+          .medium-6.cell
+            div
+              h5= @latest_video.name
+              p= @latest_video.description
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - unless @videos.empty?
         - @videos.each do |video|
           .medium-4.cell.img-container
             = link_to(video)
-              = image_tag href="http://lorempixel.com/370/175/animals"
-            h6 = video.name
+              = image_tag video.image_url
+            h6= video.name
       - unless @series.empty?
         - @series.each do |serie|
           .medium-4.cell.img-container
             = link_to(serie)
-              = image_tag href="http://lorempixel.com/370/175/animals"
-            h6 = serie.name
+              = image_tag serie.videos.first.image_url
+            h6= serie.name

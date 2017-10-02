@@ -8,12 +8,12 @@
       .top-bar-left
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
-            = image_tag "logo-pangeas.png"
+            = image_tag 'logo-pangeas.png'
           li.menu-item
-            = link_to "Início", root_path
-          / li.menu-item: a href='#' Eventos & Pesquisa
-          / li.menu-item: a href='#' Vida em Equilíbrio
-          / li.menu-item: a href='#' Cursos Pangeas
+            = link_to 'Início', root_path
+          - @sections.each do |section|
+              li.menu-item
+                = link_to section.name, section
       .top-bar-right
         ul.menu
           / li

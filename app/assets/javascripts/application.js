@@ -17,6 +17,8 @@
 //= require turbolinks
 //= require toastr
 //= require owl.carousel
+//= require carousel
+//= require smoothScroll
 //= require_tree .
 
 $(function(){
@@ -24,23 +26,7 @@ $(function(){
     ga('set', 'location', event.data.url);
     ga('send', 'pageview');
     $(document).foundation();
-  });
-});
-
-$(function(){ $(document).foundation(); });
-
-$(function(){
-  $(".owl-carousel").owlCarousel({
-    nav: true,
-    navText: ['<i class="fa fa-caret-left fa-2x" aria-hidden="true"></i>',
-      '<i class="fa fa-caret-right fa-2x" aria-hidden="true"></i>'],
-    loop: true,
-    margin: 15,
-    responsiveClass: true,
-    responsive: {
-      0: { items: 1 },
-      400: { items: 2 },
-      600: { items: 3 },
-    }
+    startCarousel();
+    smoothScroll();
   });
 });

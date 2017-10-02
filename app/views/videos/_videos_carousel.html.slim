@@ -1,0 +1,10 @@
+- unless videos.empty?
+  .grid-container.text-left
+    h5
+      strong Assista também...
+    .owl-carousel.carousel-three-items
+      - videos.each do |video|
+        .text-center
+          = link_to(video)
+            = image_tag video.image_url
+          p= video.name

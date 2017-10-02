@@ -1,0 +1,65 @@
+.sections-event-show-container
+  .hero
+    .grid-container
+      .title.text-center
+        .grid-x.grid-padding-x.align-middle
+          .auto.cell
+          .shrink.cell
+            .img-container
+              = image_tag @section.image_url
+          .shrink.cell
+            h2= @section.name
+          .auto.cell
+        h5
+          span> Aqui você encontra conhecimentos para ganhar um novo olhar sobre
+          span.bg-blue-highlight o futuro mais humano da saúde.
+  .event-highlight
+    .grid-container
+      h4.text-center Em destaque
+      - if @highlight
+        .grid-x.grid-padding-x
+          .medium-6.cell
+            = link_to @highlight
+              = image_tag @highlight.image_url
+          .medium-6.cell
+            div
+              h5= @highlight.name
+              p= @highlight.description
+  .event-categories
+    .grid-container
+      .events.event-category-block
+        .text-center
+          .title
+            h3= @events.name
+        .grid-x.grid-margin-x.grid-margin-y
+          - @events.series.each do |event|
+            .medium-6.cell
+              .grid-x.grid-padding-x
+                .medium-7.cell
+                  = link_to event
+                    = image_tag event.get_image_url
+                .medium-5.cell
+                  h6= event.name
+                  p= event.description
+      .other-events.event-category-block
+        .text-center
+          .title
+            h3= @other_events.name
+        - unless @other_events.series.empty?
+          .owl-carousel.carousel-four-items
+            - @other_events.series.each do |serie|
+              .text-center
+                = link_to serie
+                  = image_tag serie.get_image_url
+                p= serie.name
+      .talks.event-category-block
+        .text-center
+          .title
+            h3= @talks.name
+        - unless @talks.videos.empty?
+          .owl-carousel.carousel-three-items
+            - @other_events.series.each do |serie|
+              .text-center
+                = link_to serie
+                  = image_tag serie.get_image_url
+                p= serie.name

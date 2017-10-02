@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
+RSpec.describe "Show section", type: :request do
+  subject { response }
 
   let!(:section) {
     Section.create!(
-      name: 'foo section',
+      name: 'Eventos & Pesquisa',
       description: 'some section description',
       image_url: 'http://image-url'
     )
@@ -37,21 +38,13 @@ RSpec.describe Category, type: :model do
     )
   }
 
-  describe "associations" do
-    it { expect(subject).to belong_to(:subsection) }
-    it { expect(subject).to have_many(:videos) }
-    it { expect(subject).to have_many(:series) }
-  end
+  describe "GET" do
+    before do
+      get "/sections/#{section.id}"
+    end
 
-  describe "validations" do
-    it { expect(subject).to validate_presence_of(:subsection) }
-    it { expect(subject).to validate_presence_of(:name) }
-    it { expect(subject).to validate_presence_of(:description) }
-  end
-
-  describe "latest video" do
-    it "Returns the video" do
-      expect(category.latest_video).to eq(video)
+    it "Returns ok" do
+      expect(subject).to have_http_status(:ok)
     end
   end
 end
