@@ -2,15 +2,15 @@
 
 require 'rails_helper'
 
-RSpec.describe "Sections index", type: :request do
+RSpec.describe 'Sections index', type: :request do
   subject { response }
 
-  describe "GET" do
+  describe 'GET' do
     before do
-      get "/sections"
+      get '/sections'
     end
 
-    it "Returns ok" do
+    it 'Returns ok' do
       expect(subject).to have_http_status(:ok)
     end
   end

@@ -2,48 +2,49 @@
 
 require 'rails_helper'
 
-RSpec.describe "Show series", type: :request do
+RSpec.describe 'Show series', type: :request do
   subject { response }
 
-  let!(:section) {
+  let!(:section) do
     Section.create!(
       name: 'foo section',
       description: 'some section description',
       image_url: 'http://image-url'
     )
-  }
+  end
 
-  let!(:subsection) {
+  let!(:subsection) do
     Subsection.create!(
-      name: "bar subsection",
-      section: section,
+      name: 'bar subsection',
+      section: section
     )
-  }
+  end
 
-  let!(:category) {
+  let!(:category) do
     Category.create!(
       name: 'baz category',
       description: 'some category description',
-      subsection: subsection,
+      subsection: subsection
     )
-  }
+  end
 
-  let!(:series) {
+  let!(:series) do
     Series.create!(
       name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia
-        Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia tradicional
-        e a Quântica. Ele sua fala ele mostra que o modelo comportamental',
-      category: category,
+      description: 'Amig Goswami é uma das maiores autoridades mundiais em
+        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
+        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
+        modelo comportamental',
+      category: category
     )
-  }
+  end
 
-  describe "GET" do
+  describe 'GET' do
     before do
       get "/series/#{series.id}"
     end
 
-    it "is returns ok" do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
     end
   end
