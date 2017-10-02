@@ -21,12 +21,17 @@ class SectionsController < ApplicationController
 
     if @section.name == 'Eventos & Pesquisa'
       subsection_events = @subsections.find_by(name: 'events')
-      highlight_category = subsection_events.categories.find_by(name: 'Em destaque')
-      @highlight = highlight_category.videos.first || highlight_category.series.first
+      highlight_category = subsection_events.categories.find_by(
+        name: 'Em destaque'
+      )
+      @highlight = highlight_category.videos.first ||
+                   highlight_category.series.first
       @events = subsection_events.categories.find_by(name: 'Eventos')
-      @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
+      @other_events = subsection_events.categories.find_by(
+        name: 'Outros Eventos'
+      )
       @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
-      render :show_events and return
+      render :show_events && return
 
     elsif @section.name == 'Vida em Equilíbrio'
       all_videos = Video.order(:created_at)
@@ -37,10 +42,10 @@ class SectionsController < ApplicationController
           all_videos.third_to_last
         ]
       end
-      render :show and return
+      render :show && return
 
     elsif @section.name == 'Cursos Pangeas'
-      render :show_courses and return
+      render :show_courses && return
     end
   end
 end
