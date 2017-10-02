@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Series < ApplicationRecord
   validates :category, presence: true
   validates :name, presence: true

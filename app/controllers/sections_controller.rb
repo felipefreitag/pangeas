@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SectionsController < ApplicationController
 
   def index
@@ -36,7 +38,7 @@ class SectionsController < ApplicationController
         ]
       end
       render :show and return
-      
+
     elsif @section.name == 'Cursos Pangeas'
       render :show_courses and return
     end
