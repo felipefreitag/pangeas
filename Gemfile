@@ -30,6 +30,7 @@ gem 'awesome_print'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.6'
+  gem 'rspec_junit_formatter'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
