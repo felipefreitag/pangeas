@@ -8,6 +8,8 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'node_modules/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
 Rails:
   Enabled: true
 Documentation:
