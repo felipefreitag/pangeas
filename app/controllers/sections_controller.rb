@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SectionsController < ApplicationController
-
   def index
     all_videos = Video.order(:created_at)
     @latest_videos = []
