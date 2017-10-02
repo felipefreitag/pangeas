@@ -14,19 +14,19 @@ class Subscription < ApplicationRecord
     state :canceled
 
     event :reject do
-      transition pending: rejected
+      transition :pending => :rejected
     end
 
     event :activate do
-      transition %i[pending inactive] => :active
+      transition [:pending, :inactive] => :active
     end
 
     event :deactivate do
-      transition ative: inactive
+      transition :ative => :inactive
     end
 
     event :cancel do
-      transition ative: canceled
+      transition :ative => :canceled
     end
 
     before_transition any => :active do |subscription|
