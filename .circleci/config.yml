@@ -5,7 +5,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/pangeas
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
@@ -46,7 +45,6 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rake db:drop
       - run: bundle exec rake db:create
       - run: bundle exec rake db:structure:load
 
