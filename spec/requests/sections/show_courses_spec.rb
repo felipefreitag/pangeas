@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Show section", type: :request do
+RSpec.describe "Show Courses section", type: :request do
   subject { response }
 
   let!(:section) {

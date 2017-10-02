@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Show section", type: :request do
+RSpec.describe "Show Events section", type: :request do
   subject { response }
 
   let!(:section) {
@@ -13,14 +13,14 @@ RSpec.describe "Show section", type: :request do
 
   let!(:subsection) {
     Subsection.create!(
-      name: "bar subsection",
+      name: "events",
       section: section,
     )
   }
 
   let!(:category) {
     Category.create!(
-      name: 'baz category',
+      name: 'Em destaque',
       description: 'some category description',
       subsection: subsection,
     )
