@@ -8,9 +8,9 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'node_modules/**/*'
-Metrics/LineLength:
+Style/HashSyntax:
   Exclude:
-    - '**/GemFile'
+    - '**/subscription.rb'
 Rails:
   Enabled: true
 Documentation:
