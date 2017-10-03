@@ -8,8 +8,9 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'node_modules/**/*'
-    - 'spec/rails_helper.rb'
-    - 'spec/spec_helper.rb'
+Metrics/LineLength:
+  Exclude:
+    - '**/GemFile'
 Rails:
   Enabled: true
 Documentation:
