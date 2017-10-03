@@ -11,6 +11,9 @@ AllCops:
 Style/HashSyntax:
   Exclude:
     - '**/subscription.rb'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
 Rails:
   Enabled: true
 Documentation:
