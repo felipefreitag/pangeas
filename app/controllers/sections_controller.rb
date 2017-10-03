@@ -26,17 +26,11 @@ class SectionsController < ApplicationController
   end
 
   def show_events
-    @subsections = @section.subsections
-    subsection_events = @subsections.find_by(name: 'events')
-    highlight_category = subsection_events.categories.find_by(
-      name: 'Em destaque'
-    )
-    @highlight = highlight_category.videos.first ||
-                 highlight_category.series.first
+    subsection_events = @section.subsections.find_by(name: 'events')
     @events = subsection_events.categories.find_by(name: 'Eventos')
-    @other_events = subsection_events.categories.find_by(
-      name: 'Outros Eventos'
-    )
+    @highlight = @events.videos.find_by(highlighted: 'true') ||
+                 @events.series.find_by(highlighted: 'true')
+    @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
     @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
   end
 

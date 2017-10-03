@@ -22,7 +22,7 @@ RSpec.describe 'Show Events section', type: :request do
 
   let!(:category) do
     Category.create!(
-      name: 'Em destaque',
+      name: 'Eventos',
       description: 'some category description',
       subsection: subsection
     )
