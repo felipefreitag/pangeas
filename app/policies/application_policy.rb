@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationPolicy
   class Scope
     attr_reader :user, :scope
@@ -53,15 +55,15 @@ class ApplicationPolicy
 
   protected
 
-  def is_admin?
+  def admin?
     user.try(:admin?) || false
   end
 
-  def is_owner_or_admin?
-    is_owned_by?(user) || is_admin?
+  def owner_or_admin?
+    owned_by?(user) || is_admin?
   end
 
-  def is_owned_by?(user)
+  def owned_by?(user)
     user.present? && record.user == user
   end
 end

@@ -1,13 +1,21 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise(
+    :database_authenticatable,
+    :registerable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable
+  )
 
- validates :first_name, presence: true
- validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
- has_many :subscriptions
+  has_many :subscriptions
 
- def subscribed?
-   @subscribed ||= subscriptions.with_state(:active).count > 0
- end
+  def subscribed?
+    @subscribed ||= subscriptions.with_state(:active).count.positive?
+  end
 end
