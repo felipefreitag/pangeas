@@ -4,6 +4,8 @@
 
 [![codecov](https://codecov.io/gh/felipefreitag/pangeas/branch/master/graph/badge.svg)](https://codecov.io/gh/felipefreitag/pangeas)
 
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
