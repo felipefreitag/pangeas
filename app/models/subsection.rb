@@ -5,5 +5,5 @@ class Subsection < ApplicationRecord
   validates :name, presence: true
   belongs_to :section
 
-  has_many :categories
+  has_many :categories, dependent: :restrict_with_exception
 end
