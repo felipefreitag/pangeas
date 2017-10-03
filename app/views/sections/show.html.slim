@@ -20,7 +20,9 @@
             .auto.cell
             - @section.subsections.each do |subsection|
               .shrink.cell
-                a.button.success.subsection-link href="#subsection-#{subsection.id}"
+                a.button.success.subsection-link[
+                  href="#subsection-#{subsection.id}"
+                ]
                   = subsection.name
             .auto.cell
   .whats-new
@@ -28,7 +30,7 @@
       h4.text-center Veja o que tem de novo na Pangeas
       .grid-x.grid-padding-x
         - if @latest_videos
-          - @latest_videos.each do |video|
+          - @latest_videos&.each do |video|
             .medium-4.cell
               = link_to video
                 = image_tag video.image_url
@@ -69,4 +71,5 @@
                             = image_tag serie.image
                           p= serie.name
               .watch-all
-                = link_to "Ver todos os vídeos", category, class: "button success"
+                = link_to 'Ver todos os vídeos', category,
+                  class: 'button success'

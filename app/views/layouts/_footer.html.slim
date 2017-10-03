@@ -3,7 +3,8 @@ footer
   .grid-container
     .grid-x.grid-padding-x.footer-container
       .medium-3.cell
-        .grid-x.grid-margin-x.grid-margin-y.grid-padding-x.grid-padding-y.align-center-middle.footer-box
+        .footer-box[class="grid-x grid-margin-x grid-margin-y grid-padding-x
+          grid-padding-y"]
           .medium-6.cell.bg-success
             | Imagem, som e conteúdo com qualidade
           .medium-6.cell.bg-primary
@@ -29,6 +30,6 @@ footer
         .text-center
           p Site seguro
           a#back-to-top href="#main-menu"
-            = fa_stacked_icon "chevron-up", base: "square"
+            = fa_stacked_icon 'chevron-up', base: 'square'
   .grid-container.text-center
     p.m-0 Copyright Pange.as

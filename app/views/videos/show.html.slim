@@ -1,8 +1,14 @@
 .video-container
   .video
     .grid-container
-      iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}" width="720"
-        height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen]
+      iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}"
+        width="720"
+        height="480"
+        frameborder="0"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+      ]
   .video-info
     .grid-container
       .grid-x.grid-padding-x
@@ -26,7 +32,10 @@
   .watch-also
     - if @video.series
       .text-center
-        = link_to "Voltar para a lista de episódios da série", @video.series, class: "button success"
-        = render partial: 'videos_carousel', locals: { videos: @video.series.videos }
+        = link_to 'Voltar para a lista de episódios da série',
+          @video.series, class: 'button success'
+        = render partial: 'videos_carousel',
+          locals: { videos: @video.series.videos }
     - if @video.category
-      = render partial: 'videos_carousel', locals: { videos: @video.category.videos }
+      = render partial: 'videos_carousel',
+        locals: { videos: @video.category.videos }

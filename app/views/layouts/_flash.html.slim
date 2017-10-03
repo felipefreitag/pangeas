@@ -5,9 +5,9 @@ javascript:
     timeOut: 5000,
     positionClass: "no-toast-position-class"
   }
-- for key, msg in flash
+- flash.each do |key, msg|
   - unless key == :timedout
-    - key = "success" if key == "notice"
-    - key = "error" if ["failure", "alert"].include?(key)
+    - key = 'success' if key == 'notice'
+    - key = 'error' if %w[failure alert].include?(key)
     javascript:
       toastr.#{key}("#{msg}");
