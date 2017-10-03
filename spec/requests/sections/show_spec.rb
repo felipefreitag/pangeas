@@ -49,5 +49,9 @@ RSpec.describe 'Show section', type: :request do
     it 'Returns ok' do
       expect(subject).to have_http_status(:ok)
     end
+
+    it 'Renders the correct template' do
+      expect(subject).to render_template(:show)
+    end
   end
 end

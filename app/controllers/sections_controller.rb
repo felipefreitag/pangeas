@@ -30,8 +30,7 @@ class SectionsController < ApplicationController
         name: 'Outros Eventos'
       )
       @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
-      render :show_events && return
-
+      render :show_events
     elsif @section.name == 'Vida em Equilíbrio'
       all_videos = Video.order(:created_at)
       unless all_videos.empty?
@@ -41,10 +40,9 @@ class SectionsController < ApplicationController
           all_videos.third_to_last
         ]
       end
-      render :show && return
-
+      render :show
     elsif @section.name == 'Cursos Pangeas'
-      render :show_courses && return
+      render :show_courses
     end
   end
 end
