@@ -30,7 +30,7 @@
       h4.text-center Veja o que tem de novo na Pangeas
       .grid-x.grid-padding-x
         - if @latest_videos
-          - @latest_videos&.each do |video|
+          - @latest_videos.each do |video|
             .medium-4.cell
               = link_to video
                 = image_tag video.image_url
