@@ -49,6 +49,11 @@ jobs:
           name: run rubocop
           command: bin/rubocop
 
+      # Run Slim-lint
+      - run:
+          name: run slim-lint
+          command: bin/slim-lint .
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:structure:load

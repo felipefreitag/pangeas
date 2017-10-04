@@ -20,7 +20,9 @@
             .auto.cell
             - @section.subsections.each do |subsection|
               .shrink.cell
-                a.button.success.subsection-link href="#subsection-#{subsection.id}"
+                a.button.success.subsection-link[
+                  href="#subsection-#{subsection.id}"
+                ]
                   = subsection.name
             .auto.cell
   .whats-new
@@ -69,4 +71,5 @@
                             = image_tag serie.image
                           p= serie.name
               .watch-all
-                = link_to "Ver todos os vídeos", category, class: "button success"
+                = link_to 'Ver todos os vídeos', category,
+                  class: 'button success'

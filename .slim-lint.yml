@@ -1,0 +1,40 @@
+exclude:
+  - '.gems/**/*.slim'
+  - 'vendor/**/*.slim'
+
+linters:
+  RuboCop:
+    enabled: true
+    # These cops are incredibly noisy since the Ruby we extract from Slim
+    # templates isn't well-formatted, so we ignore them.
+    # https://github.com/sds/slim-lint/blob/master/config/default.yml
+    ignored_cops:
+      - Layout/AlignArray
+      - Layout/AlignHash
+      - Layout/AlignParameters
+      - Layout/FirstParameterIndentation
+      - Layout/IndentArray
+      - Layout/IndentationConsistency
+      - Layout/IndentationWidth
+      - Layout/MultilineArrayBraceLayout
+      - Layout/MultilineAssignmentLayout
+      - Layout/MultilineHashBraceLayout
+      - Layout/MultilineMethodCallBraceLayout
+      - Layout/MultilineMethodCallIndentation
+      - Layout/MultilineMethodDefinitionBraceLayout
+      - Layout/MultilineOperationIndentation
+      - Layout/TrailingBlankLines
+      - Layout/TrailingWhitespace
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/BlockLength
+      - Metrics/BlockNesting
+      - Metrics/LineLength
+      - Naming/FileName
+      - Style/FrozenStringLiteralComment
+      - Style/IfUnlessModifier
+      - Style/Next
+      - Style/WhileUntilModifier
+      # Non-standard cops:
+      - Style/SafeNavigation
