@@ -15,9 +15,9 @@
             - @sections.each do |section|
                 li.menu-item
                   = link_to section.name, section
-      - if user_signed_in?
-        .top-bar-right
-          ul.menu
+      .top-bar-right
+        ul.menu
+          - if user_signed_in?
             li
               = link_to 'Meu Perfil',
                 edit_user_registration_path,
@@ -26,4 +26,9 @@
               = link_to 'Sair',
                 destroy_user_session_path, method: :delete,
                 class: 'white-color'
+          - else
+            li
+              = link_to 'Login do Assinante',
+                new_user_session_path,
+                class: 'white-color bg-pink bold'
 .header-divider
