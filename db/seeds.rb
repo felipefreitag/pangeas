@@ -46,12 +46,6 @@ subsection_terra = Subsection.create!(
   section: section,
 )
 
-category_events_highlight = Category.create!(
-  name: 'Em destaque',
-  description: 'some category description',
-  subsection: subsection_events,
-)
-
 category_events = Category.create!(
   name: 'Eventos',
   description: 'some category description',
@@ -245,9 +239,10 @@ video2_series = Video.create!(
 )
 
 event1 = Series.create!(
-  name: 'Conheça a Psicologia Quântica',
+  name: 'Destaque Psicologia Quântica',
   description: 'some series description',
-  category: category_events_highlight,
+  category: category_events,
+  highlighted: true,
   image_url: "http://lorempixel.com/573/322/nature",
 )
 
@@ -414,7 +409,7 @@ video5_events = Video.create!(
   vimeo_id: "163721649",
   image_url: "http://lorempixel.com/573/322/nature",
   series: event2a,
-  category: category_events_highlight
+  category: category_events
 )
 
 video6_events = Video.create!(

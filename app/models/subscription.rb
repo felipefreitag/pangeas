@@ -18,7 +18,7 @@ class Subscription < ApplicationRecord
     end
 
     event :activate do
-      transition [:pending, :inactive] => :active
+      transition %i[pending inactive] => :active
     end
 
     event :deactivate do

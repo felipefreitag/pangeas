@@ -22,7 +22,7 @@ RSpec.describe 'Show Events section', type: :request do
 
   let!(:category) do
     Category.create!(
-      name: 'Em destaque',
+      name: 'Eventos',
       description: 'some category description',
       subsection: subsection
     )
@@ -46,8 +46,12 @@ RSpec.describe 'Show Events section', type: :request do
       get "/sections/#{section.id}"
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
+    end
+
+    it 'renders the correct template' do
+      expect(subject).to render_template(:show_events)
     end
   end
 end

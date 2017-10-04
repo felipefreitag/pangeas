@@ -18,8 +18,12 @@ RSpec.describe 'Show Courses section', type: :request do
       get "/sections/#{section.id}"
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
+    end
+
+    it 'renders the correct template' do
+      expect(subject).to render_template(:show_courses)
     end
   end
 end

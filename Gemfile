@@ -20,6 +20,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'pundit'
 gem 'rails', '~> 5.1.3'
+gem 'rails-controller-testing'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
@@ -35,7 +36,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rspec_junit_formatter'
   gem 'rubocop', '~> 0.50.0', require: false
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers',
+      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+      branch: 'rails-5'
 end
 
 group :development do

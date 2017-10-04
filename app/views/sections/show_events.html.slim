@@ -13,10 +13,10 @@
         h5
           span> Aqui você encontra conhecimentos para ganhar um novo olhar sobre
           span.bg-blue-highlight o futuro mais humano da saúde.
-  .event-highlight
-    .grid-container
-      h4.text-center Em destaque
-      - if @highlight
+  - if @highlight
+    .event-highlight
+      .grid-container
+        h4.text-center Em destaque
         .grid-x.grid-padding-x
           .medium-6.cell
             = link_to @highlight

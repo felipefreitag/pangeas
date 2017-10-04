@@ -10,7 +10,7 @@ RSpec.describe 'Sections index', type: :request do
       get '/sections'
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
     end
   end

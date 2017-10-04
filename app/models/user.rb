@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :restrict_with_exception
 
   def subscribed?
     @subscribed ||= subscriptions.with_state(:active).count.positive?

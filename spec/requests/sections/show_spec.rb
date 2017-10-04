@@ -7,7 +7,7 @@ RSpec.describe 'Show section', type: :request do
 
   let!(:section) do
     Section.create!(
-      name: 'foo section',
+      name: 'Vida em Equilíbrio',
       description: 'some section description',
       image_url: 'http://image-url'
     )
@@ -41,13 +41,43 @@ RSpec.describe 'Show section', type: :request do
     )
   end
 
+  let!(:video2) do
+    Video.create!(
+      name: 'foo bar',
+      description: 'Amig Goswami é uma das maiores autoridades mundiais em
+          Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
+          Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
+          modelo comportamental',
+      vimeo_id: '163721649',
+      category: category,
+      image_url: 'http://foo.png'
+    )
+  end
+
+  let!(:video3) do
+    Video.create!(
+      name: 'foo bar',
+      description: 'Amig Goswami é uma das maiores autoridades mundiais em
+          Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
+          Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
+          modelo comportamental',
+      vimeo_id: '163721649',
+      category: category,
+      image_url: 'http://foo.png'
+    )
+  end
+
   describe 'GET' do
     before do
       get "/sections/#{section.id}"
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
+    end
+
+    it 'renders the correct template' do
+      expect(subject).to render_template(:show)
     end
   end
 end

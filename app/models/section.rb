@@ -5,5 +5,5 @@ class Section < ApplicationRecord
   validates :description, presence: true
   validates :image_url, presence: true
 
-  has_many :subsections
+  has_many :subsections, dependent: :restrict_with_exception
 end
