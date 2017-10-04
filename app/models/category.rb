@@ -6,8 +6,8 @@ class Category < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :subsection
-  has_many:videos, dependent: :restrict_with_exception
-  has_many:series, dependent: :restrict_with_exception
+  has_many :videos, dependent: :restrict_with_exception
+  has_many :series, dependent: :restrict_with_exception
 
   def latest_video
     @latest_video ||= videos.order(:created_at).last

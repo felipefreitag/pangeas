@@ -81,7 +81,7 @@ RSpec.describe Series, type: :model do
     end
 
     context 'without series image_url set' do
-      it 'Returns the first video image url' do
+      it 'returns the first video image url' do
         expect(series2.image).to eq(video.image_url)
       end
     end

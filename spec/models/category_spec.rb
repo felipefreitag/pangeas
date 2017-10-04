@@ -52,7 +52,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'latest video' do
-    it 'Returns the video' do
+    it 'returns the video' do
       expect(category.latest_video).to eq(video)
     end
   end
