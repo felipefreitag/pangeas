@@ -25,12 +25,7 @@ meta[
 - if content_for?(:image_url)
   meta property="og:image" content==yield(:image_url)
 - else
-  meta[
-    property="og:image"
-    content==( \
-      "#{request.protocol}#{request.host_with_port}#{image_path('image-facebook.jpg')}"\
-    )
-  ]
+  meta property="og:image" content==(image_url 'image-facebook.jpg')
 
 meta[property="og:description"
   content==strip_tags( \
