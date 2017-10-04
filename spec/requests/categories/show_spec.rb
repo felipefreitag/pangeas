@@ -46,7 +46,7 @@ RSpec.describe 'Show category', type: :request do
       get "/categories/#{category.id}"
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
     end
   end

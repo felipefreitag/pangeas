@@ -72,11 +72,11 @@ RSpec.describe 'Show section', type: :request do
       get "/sections/#{section.id}"
     end
 
-    it 'Returns ok' do
+    it 'returns ok' do
       expect(subject).to have_http_status(:ok)
     end
 
-    it 'Renders the correct template' do
+    it 'renders the correct template' do
       expect(subject).to render_template(:show)
     end
   end

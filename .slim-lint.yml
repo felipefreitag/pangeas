@@ -1,7 +1,6 @@
 exclude:
   - '.gems/**/*.slim'
   - 'vendor/**/*.slim'
-  - 'app/views/layouts/application.html.slim'
 
 linters:
   RuboCop:
