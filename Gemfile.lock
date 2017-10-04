@@ -1,10 +1,4 @@
 GIT
-  remote: https://github.com/mcasimir/devise-i18n-views.git
-  revision: 323418eea9216307bbbbc64164c2e197c3bfab49
-  specs:
-    devise-i18n-views (0.3.7)
-
-GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: 4b160bd19ecca7f97d7ac22dccd5fde9b0da5a9f
   branch: rails-5
@@ -300,7 +294,6 @@ DEPENDENCIES
   devise
   devise-foundation-views
   devise-i18n
-  devise-i18n-views!
   dotenv-rails
   font-awesome-rails
   foreman
