@@ -9,11 +9,12 @@
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
             = image_tag 'logo-pangeas.png'
-          li.menu-item
-            = link_to 'Início', root_path
-          - @sections.each do |section|
-              li.menu-item
-                = link_to section.name, section
+          - if user_signed_in?
+            li.menu-item
+              = link_to 'Início', root_path
+            - @sections.each do |section|
+                li.menu-item
+                  = link_to section.name, section
       - if user_signed_in?
         .top-bar-right
           ul.menu
