@@ -14,9 +14,15 @@
           - @sections.each do |section|
               li.menu-item
                 = link_to section.name, section
-      .top-bar-right
-        ul.menu
-          / li
-          /   a href="#" class="pink-color"
-          /     strong Meu perfil
+      - if user_signed_in?
+        .top-bar-right
+          ul.menu
+            li
+              = link_to 'Meu Perfil',
+                edit_user_registration_path,
+                class: 'pink-color bold'
+            li
+              = link_to 'Sair',
+                destroy_user_session_path, method: :delete,
+                class: 'white-color'
 .header-divider
