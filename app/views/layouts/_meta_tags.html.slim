@@ -1,0 +1,44 @@
+- description = 'Aqui você assiste Cultura de Saúde e Liberdade'
+
+/ Meta tags for pages that don't have specific meta tags
+meta[
+  name="description"
+  content==strip_tags( \
+    content_for?(:description) ? yield(:description) : description \
+  )
+]
+
+meta name="keywords" content="#{yield :title} Pange.as"
+
+meta[
+  property="og:title"
+  content==(content_for?(:og_title) ? yield(:og_title) : yield(:title))
+]
+
+meta property="og:type" content="website"
+
+meta[
+  property="og:url"
+  content=(content_for?(:url) ? yield(:url) : request.url)
+]
+
+- if content_for?(:image_url)
+  meta property="og:image" content==(yield(:image_url))
+- else
+  meta[
+    property="og:image"
+    content==( \
+      "#{request.protocol}#{request.host_with_port}#{image_path('image-facebook.jpg')}" \
+    )
+  ]
+
+meta[property="og:description"
+  content==strip_tags( \
+    content_for?(:description) ? yield(:description) : description \
+    )
+]
+
+meta[
+  name="author"
+  content=(content_for?(:author) ? yield(:author) : 'Pange.as')
+]
