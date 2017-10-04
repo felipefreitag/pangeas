@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :namespace
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # after_action :verify_authorized, unless: -> { devise_controller? }
-  # after_action :verify_policy_scoped, unless: -> { devise_controller? }
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  before_action :sections
+  before_action :sections, unless: -> { devise_controller? }
+  after_action :verify_authorized, unless: -> { devise_controller? }
+  after_action :verify_policy_scoped, unless: -> { devise_controller? }
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def sections
-    @sections = Section.order(:id).all
+    @sections = policy_scope(Section)
   end
 
   def namespace

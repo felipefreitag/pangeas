@@ -10,7 +10,8 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope
+      return if user.blank?
+      scope.order(:id).all
     end
   end
 
@@ -30,7 +31,7 @@ class ApplicationPolicy
   end
 
   def create?
-    is_admin?
+    admin?
   end
 
   def new?
@@ -38,7 +39,7 @@ class ApplicationPolicy
   end
 
   def update?
-    is_admin?
+    admin?
   end
 
   def edit?
@@ -46,7 +47,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    is_admin?
+    admin?
   end
 
   def scope
