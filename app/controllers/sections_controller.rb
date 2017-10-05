@@ -2,13 +2,11 @@
 
 class SectionsController < ApplicationController
   def index
-    authorize @sections
     latest_videos
   end
 
   def show
     @section = Section.find(params[:id])
-    authorize @section
     if @section.name == 'Eventos & Pesquisa'
       show_events
     elsif @section.name == 'Cursos Pangeas'

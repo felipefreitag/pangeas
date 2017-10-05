@@ -10,8 +10,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      return if user.blank?
-      scope.order(:id).all
+      scope
     end
   end
 

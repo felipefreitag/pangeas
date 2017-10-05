@@ -1,3 +1,10 @@
+User.create!(
+  first_name: 'foo',
+  last_name: 'bar',
+  email: 'foo@bar.com',
+  password: '123456'
+)
+
 section_events =  Section.create!(
   name: 'Eventos & Pesquisa',
   description: 'some section description',

@@ -22,9 +22,18 @@ RSpec.describe 'Sections index', type: :request do
     )
   end
 
-  describe 'GET' do
+  describe 'without logged user' do
     before do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
+      get '/sections'
+    end
+
+    it 'redirects' do
+      expect(subject).to have_http_status(:found)
+    end
+  end
+
+  describe 'with logged user' do
+    before do
       sign_in user
       get '/sections'
     end
