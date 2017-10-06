@@ -9,12 +9,10 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.name == 'Eventos & Pesquisa'
       show_events
-      render :show_events
     elsif @section.name == 'Cursos Pangeas'
       render :show_courses
     elsif @section.name == 'Vida em Equilíbrio'
       show_section
-      render :show
     end
   end
 
@@ -23,15 +21,18 @@ class SectionsController < ApplicationController
   def show_section
     @subsections = @section.subsections
     latest_videos
+    render :show
   end
 
   def show_events
     subsection_events = @section.subsections.find_by(name: 'events')
     @events = subsection_events.categories.find_by(name: 'Eventos')
-    @highlight = @events.videos.find_by(highlighted: 'true') ||
-                 @events.series.find_by(highlighted: 'true')
+    @highlight =
+      @events.videos.find_by(highlighted: 'true') ||
+      @events.series.find_by(highlighted: 'true')
     @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
     @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
+    render :show_events
   end
 
   def latest_videos

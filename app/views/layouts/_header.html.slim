@@ -9,14 +9,26 @@
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
             = image_tag 'logo-pangeas.png'
-          li.menu-item
-            = link_to 'Início', root_path
-          - @sections.each do |section|
-              li.menu-item
-                = link_to section.name, section
+          - if user_signed_in?
+            li.menu-item
+              = link_to 'Início', root_path
+            - @sections.each do |section|
+                li.menu-item
+                  = link_to section.name, section
       .top-bar-right
         ul.menu
-          / li
-          /   a href="#" class="pink-color"
-          /     strong Meu perfil
+          - if user_signed_in?
+            li
+              = link_to 'Meu Perfil',
+                edit_user_registration_path,
+                class: 'pink-color bold'
+            li
+              = link_to 'Sair',
+                destroy_user_session_path, method: :delete,
+                class: 'white-color'
+          - else
+            li
+              = link_to 'Login do Assinante',
+                new_user_session_path,
+                class: 'white-color bg-pink bold'
 .header-divider
