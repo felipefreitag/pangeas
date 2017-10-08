@@ -4,7 +4,9 @@
       ' Carta para
       span.bg-highlight> todos
       | nessa Pangeas
-    .grid-x
+    .grid-x.mission-text-container
+      .medium-1.cell.position-relative
+        = fa_icon 'quote-left 3x', class: 'icon-quote-left'
       .medium-10.medium-centered.cell.mission-text
         p
           | Livre,
@@ -48,6 +50,8 @@
           ' No mínimo, espero que as ideias que descubro em liberdade sejam
           ' responsáveis por te ajudar a também
           span.bg-highlight parar e respirar.
+      .medium-1.cell.position-relative
+        = fa_icon 'quote-right 3x', class: 'icon-quote-right'
     .grid-x
       .medium-12.cell.text-center
         = image_tag 'sign_in_divider'
