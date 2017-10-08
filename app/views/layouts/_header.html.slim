@@ -15,6 +15,9 @@
             - @sections.each do |section|
                 li.menu-item
                   = link_to section.name, section
+          - else
+            li.menu-item
+              = link_to 'Nossa Missão', page_path('our_mission')
       .top-bar-right
         ul.menu
           - if user_signed_in?
