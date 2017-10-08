@@ -1,2 +1,65 @@
-h1
-  | Our mission
+.mission-container
+  .grid-container
+    h3.title
+      ' Carta para
+      span.bg-highlight> todos
+      | nessa Pangeas
+    .grid-x
+      .medium-10.medium-centered.cell.mission-text
+        p
+          | Livre,
+          br
+          ' Eu sou. Livre porque
+          span.bg-highlight> sei questionar a liberdade:
+          ' Quem me
+          ' impede de comer melhor? O que permite que as doenças continuem
+          ' crescendo no mundo? Por que minhas emoções tem tanta força? O que
+          | cria o medo que me prende em casa? etc.
+        p
+          ' Mas não confundo liberdade com falta de responsabilidade ou com
+          ' fuga da realidade. Sei que
+          span.bg-highlight> posso escolher meu caminho
+          ' e que cada
+          ' escolha cria novos laços, para serem mantidos ou para serem
+          | desatados.
+        p
+          ' Por isso sei que para ser livre eu posso entender melhor como
+          ' funcionam minhas emoções. Posso descobrir quais realmente são os
+          ' alimentos e os movimentos que fazem meu corpo ter sua melhor forma.
+          ' Posso parar para respirar e sair do roteiro que o mundo inteiro
+          ' escreveu para eu interpretar. E, então,
+          span.bg-highlight>
+            ' observar melhor a causa (e não somente o sintoma) dos nossos
+            | problemas
+          ' de saúde, de
+          ' relacionamentos, políticos, econômicos, ambientais... Quem sabe até
+          ' entender o equilíbrio que a natureza descobriu em bilhões de anos e
+          ' finalmente poder parar de sugar/temer para começar somente a
+          | nutri-la.
+        p
+          ' O que tenho aqui, obviamente, precisa melhorar. Sempre precisar
+          ' melhorar. Porque quanto mais livre algo é, mais livre pode ser.
+          ' Porém, no meio de
+          span.bg-highlight> ideias novas e práticas ancestrais, já tenho
+          ' algumas pérolas para apresentar. Jóias duras o suficiente para
+          ' quebrar a identidade sem autoconsciência que nossa humanidade criou
+          | e belas o bastante para continuarmos querendo vê-las evoluir.
+        p
+          ' No mínimo, espero que as ideias que descubro em liberdade sejam
+          ' responsáveis por te ajudar a também
+          span.bg-highlight parar e respirar.
+    .grid-x
+      .medium-12.cell.text-center
+        = image_tag 'sign_in_divider'
+    .sign-up-cta
+      .grid-x
+        .medium-6.medium-centered.cell
+          h3.text-center
+            | Gostou da nossa missão? Então...
+      .grid-x
+        .auto.cell
+        .medium-5.cell.text-center
+          = link_to 'Clique aqui e comece a assistir',
+            new_registration_path('user'),
+            class: 'button success large'
+        .auto.cell
