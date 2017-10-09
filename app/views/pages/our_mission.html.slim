@@ -52,18 +52,8 @@
           span.bg-highlight parar e respirar.
       .medium-1.cell.position-relative
         = fa_icon 'quote-right 3x', class: 'icon-quote-right'
-    .grid-x
-      .medium-12.cell.text-center
-        = image_tag 'sign_in_divider'
-    .sign-up-cta
-      .grid-x
-        .medium-6.medium-centered.cell
-          h3.text-center
-            | Gostou da nossa missão? Então...
-      .grid-x
-        .auto.cell
-        .medium-5.cell.text-center
-          = link_to 'Clique aqui e comece a assistir',
-            new_registration_path('user'),
-            class: 'button success large'
-        .auto.cell
+    = render 'layouts/call_to_action',
+      locals: { \
+        title: 'Gostou da nossa missão? Então...',
+        sign_up: 'Clique aqui e comece a assistir' \
+      }

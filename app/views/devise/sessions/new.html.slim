@@ -32,17 +32,8 @@
                 = link_to 'Clique aqui', new_password_path(resource_name)
                 | .
       .auto.cell
-    .sign-in-divider.text-center
-      = image_tag 'sign_in_divider'
-    .sign-up-cta
-      .grid-x
-        .medium-6.medium-centered.cell
-          h3.text-center
-            | Ainda não é assinante? Então...
-      .grid-x
-        .auto.cell
-        .medium-5.cell.text-center
-          = link_to 'Clique aqui e veja como assinar',
-            new_registration_path(resource_name),
-            class: 'button success large'
-        .auto.cell
+    = render 'layouts/call_to_action',
+      locals: { \
+        title: 'Ainda não é assinante? Então...',
+        sign_up: 'Clique aqui e veja como assinar' \
+      }
