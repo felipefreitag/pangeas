@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :namespace
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!
+  before_action(
+    :authenticate_user!,
+    unless: -> { self.class == HighVoltage::PagesController }
+  )
   before_action :sections
   # after_action :verify_authorized, unless: -> { devise_controller? }
   # after_action :verify_policy_scoped, unless: -> { devise_controller? }
