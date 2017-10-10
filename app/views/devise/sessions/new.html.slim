@@ -32,7 +32,8 @@
                 = link_to 'Clique aqui', new_password_path(resource_name)
                 | .
       .auto.cell
-    = render 'layouts/call_to_action',
+    = render \
+      partial: 'layouts/call_to_action',
       locals: { \
         title: 'Ainda não é assinante? Então...',
         sign_up: 'Clique aqui e veja como assinar' \

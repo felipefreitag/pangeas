@@ -52,7 +52,8 @@
           span.bg-highlight parar e respirar.
       .medium-1.cell.position-relative
         = fa_icon 'quote-right 3x', class: 'icon-quote-right'
-    = render 'layouts/call_to_action',
+    = render \
+      partial: 'layouts/call_to_action',
       locals: { \
         title: 'Gostou da nossa missão? Então...',
         sign_up: 'Clique aqui e comece a assistir' \
