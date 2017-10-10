@@ -165,7 +165,8 @@
           h5
             ' É claro que todos os cursos vão nos ajudar ainda mais a construir
             ' um mundo livre e saudável.
-  = render 'layouts/pricing_table',
+  = render \
+    partial: 'layouts/pricing_table',
     locals: { \
       title: 'Gostou? Então veja o plano certo para você' \
     }

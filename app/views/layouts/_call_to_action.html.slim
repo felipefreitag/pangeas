@@ -3,12 +3,11 @@
 .sign-up-cta
   .grid-x
     .medium-6.medium-centered.cell
-      h3.text-center
-        = locals[:title]
+      h3.text-center= title
   .grid-x
     .auto.cell
     .medium-5.cell.text-center
-      = link_to locals[:sign_up],
+      = link_to sign_up,
         new_registration_path('user'),
         class: 'button success large'
     .auto.cell
