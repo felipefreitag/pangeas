@@ -1,6 +1,26 @@
 .home-container
   .hero
+    .grid-container.text-center
+      = image_tag 'logo-pangeas'
+      h1
+        ' Aqui você assiste cultura de
+        span.bg-highlight Saúde e Liberdade
+        = link_to 'Clique e saiba como começar',
+          new_registration_path('user'),
+          class: 'button success large'
   .info
+    .grid-container
+      .grid-x
+        .medium-11.medium-centered.cell.text-center
+          h4
+            ' Você descobriu a Pangeas... Um espaço online por assinatura que
+            ' produz e reúne vídeos (aulas, séries, palestras, cursos,
+            ' documentários) para quem quer tomar
+            span.bg-highlight> decisões mais conscientes
+            ' na
+            span.bg-highlight> busca por equilíbrio
+            ' físico, mental, social, ambiental e espiritual. Junte-se a todos
+            | nós!
     = render \
       partial: 'layouts/call_to_action',
       locals: { \
