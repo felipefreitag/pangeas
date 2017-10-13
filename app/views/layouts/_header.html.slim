@@ -17,6 +17,10 @@
                   = link_to section.name, section
           - else
             li.menu-item
+              = link_to 'Assine agora',
+                new_registration_path('user'),
+                class: 'button success'
+            li.menu-item
               = link_to 'Nossa Missão', page_path('our_mission')
             li.menu-item
               = link_to 'Como Funciona', page_path('how_it_works')
@@ -35,5 +39,5 @@
             li
               = link_to 'Login do Assinante',
                 new_user_session_path,
-                class: 'white-color bg-pink bold'
+                class: 'button bg-pink bold'
 .header-divider
