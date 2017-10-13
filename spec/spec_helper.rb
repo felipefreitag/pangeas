@@ -5,8 +5,10 @@ SimpleCov.start 'rails' do
   add_filter '.gems'
 end
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
