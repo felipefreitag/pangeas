@@ -1,1 +1,16 @@
-h1 home
+.home-container
+  .hero
+  .info
+    = render \
+      partial: 'layouts/call_to_action',
+      locals: { \
+        title: nil,
+        divider: false,
+        sign_up: 'Clique aqui e comece a assistir' \
+      }
+  .testimonial
+  = render \
+    partial: 'layouts/pricing_table',
+    locals: { \
+      title: 'Escolha abaixo o formato certo para você' \
+    }

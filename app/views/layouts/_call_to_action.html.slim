@@ -1,17 +1,20 @@
-.text-center
-  = image_tag 'sign_in_divider'
-.call-to-action
-  .grid-x
-    .medium-6.medium-centered.cell
-      h3.text-center= title
-  .grid-x.grid-padding-x.grid-margin-x
-    .auto.cell
-    .medium-5.cell.text-center
-      = link_to sign_up,
-        new_registration_path('user'),
-        class: 'button success large'
-    .medium-5.cell.text-center
-      = link_to 'Veja nossa lista de conteúdos',
-        page_path('how_it_works'),
-        class: 'button secondary large'
-    .auto.cell
+.grid-container
+  - if divider
+    .text-center
+      = image_tag 'sign_in_divider'
+  .call-to-action
+    - if title
+      .grid-x
+        .medium-6.medium-centered.cell
+          h3.text-center= title
+    .grid-x.grid-padding-x.grid-margin-x
+      .auto.cell
+      .medium-5.cell.text-center
+        = link_to sign_up,
+          new_registration_path('user'),
+          class: 'button success large'
+      .medium-5.cell.text-center
+        = link_to 'Veja nossa lista de conteúdos',
+          page_path('how_it_works'),
+          class: 'button secondary large'
+      .auto.cell
