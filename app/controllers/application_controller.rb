@@ -37,4 +37,10 @@ class ApplicationController < ActionController::Base
       keys: %i[first_name last_name email password password_confirmation]
     )
   end
+
+  protected
+
+  def after_sign_in_path_for(_resource)
+    sections_path
+  end
 end
