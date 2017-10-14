@@ -4,5 +4,4 @@ Rails.application.routes.draw do
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
   resources :sections, only: %i[index show]
-  root "sections#index"
 end

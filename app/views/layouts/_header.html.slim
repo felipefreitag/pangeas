@@ -11,11 +11,15 @@
             = image_tag 'logo-pangeas.png'
           - if user_signed_in?
             li.menu-item
-              = link_to 'Início', root_path
+              = link_to 'Início', sections_path
             - @sections.each do |section|
                 li.menu-item
                   = link_to section.name, section
           - else
+            li.menu-item
+              = link_to 'Assine agora',
+                new_registration_path('user'),
+                class: 'button success'
             li.menu-item
               = link_to 'Nossa Missão', page_path('our_mission')
             li.menu-item
@@ -35,5 +39,5 @@
             li
               = link_to 'Login do Assinante',
                 new_user_session_path,
-                class: 'white-color bg-pink bold'
+                class: 'button bg-pink bold'
 .header-divider

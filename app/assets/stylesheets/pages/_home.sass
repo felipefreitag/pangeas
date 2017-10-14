@@ -1,0 +1,81 @@
+.home-container
+  .hero
+    padding-bottom: 1rem
+    background: $light-gray
+    background: -webkit-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: -o-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: -moz-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+
+    .bg-tablet
+      background: image-url('tablet.png')
+      background-repeat: no-repeat
+      background-position: center
+      .title
+        padding-top: 8rem
+        margin-bottom: 0
+        h2
+          margin-top: 2rem
+          margin-bottom: 3rem
+        a
+          box-shadow: 0 5px 5px 1px $dark-gray
+      .audience
+        width: 190px
+        color: $blue-highlight
+        font-weight: bold
+        margin-bottom: 2rem
+        &:after
+          content: ""
+          height: 5px
+          width: 40px
+          background-color: $blue-highlight
+          margin: 0.5rem auto
+          display: block
+      .right-0
+        margin-right: 0
+        margin-left: auto
+      .img-left
+        margin-top: 12rem
+      .img-right
+        margin-top: 4rem
+        img
+          padding-left: 2rem
+  .info
+    padding-top: 3rem
+    background-color: $white
+    h5
+      margin-bottom: 3rem
+    .bg-black
+      background-color: $black
+      .cell
+        color: $white
+        img
+          margin-top: 2rem
+      .play
+        margin-top: 4.5rem
+      ol
+        padding: 2rem 3rem
+        font-weight: bold
+        margin-bottom: 0
+        li
+          margin-bottom: 1.5rem
+        p
+          margin-bottom: 0
+  .social-proof
+    color: $white
+    background: image-url('social-proof.png')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    height: 370px
+    padding-top: 4rem
+    .fa
+      margin-top: 5rem
+    p
+      margin-bottom: 2rem
+      &:before
+        content: "•"
+        margin-right: 1rem
+      &:after
+        content: "•"
+        margin-left: 1rem

@@ -4,7 +4,7 @@
     .sign-in-form.grid-x
       .medium-1.cell
       .medium-2.cell
-        = image_tag 'sign_in_welcome'
+        = image_tag 'sign-in-welcome'
       .medium-6.cell
         .grid-x
           .large-12.cell
@@ -36,5 +36,6 @@
       partial: 'layouts/call_to_action',
       locals: { \
         title: 'Ainda não é assinante? Então...',
+        divider: true,
         sign_up: 'Clique aqui e veja como assinar' \
       }

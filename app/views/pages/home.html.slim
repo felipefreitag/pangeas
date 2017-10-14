@@ -1,0 +1,82 @@
+.home-container
+  .hero
+    .grid-container.text-center
+      .grid-x.bg-tablet
+        .auto.cell
+        .medium-4.cell.img-left
+          p.audience Para quem busca equilíbrio na sua vida.
+          = image_tag 'person-sitting'
+        .medium-4.cell.title
+          = image_tag 'logo-transparent'
+          h2.bold
+            ' Aqui você assiste cultura de
+            span.bg-highlight Saúde e Liberdade
+          = link_to 'Clique e saiba como começar',
+            new_registration_path('user'),
+            class: 'button success large'
+        .medium-4.cell.img-right
+          p.audience.right-0 Para o novo profissional de saúde e bem-estar.
+          = image_tag 'person-book'
+        .auto.cell
+  .info
+    .grid-container
+      .grid-x
+        .medium-10.medium-centered.cell.text-center
+          h5
+            ' Você descobriu a Pangeas... Um espaço online por assinatura que
+            ' produz e reúne vídeos (aulas, séries, palestras, cursos,
+            ' documentários) para quem quer tomar
+            span.bg-highlight> decisões mais conscientes
+            ' na
+            span.bg-highlight> busca por equilíbrio
+            ' físico, mental, social, ambiental e espiritual. Junte-se a todos
+            | nós!
+      .grid-x
+        .medium-10.medium-centered.cell
+          .grid-x.bg-black.text-center
+            .medium-5.cell
+              = image_tag 'person-press-play'
+            .medium-2.cell.play
+              = image_tag 'home-play'
+            .medium-5.cell
+              ol.text-left
+                li
+                  ' É só assinar para acessar todo o nosso conteúdo do celular,
+                  | note e tablet.
+                li
+                  ' Vídeos práticos para o iniciante e mais aprofundados para o
+                  | profissional.
+                li
+                  ' Conhecimentos novos e ancestrais de diferentes lugares do
+                  | mundo.
+                p
+                  | Tudo isso por R$ 22,90 ao mês
+    = render \
+      partial: 'layouts/call_to_action',
+      locals: { \
+        title: nil,
+        divider: false,
+        sign_up: 'Clique aqui e comece a assistir' \
+      }
+  .social-proof
+    .grid-container
+      .grid-x
+        .auto.cell
+        .medium-5.cell
+        .medium-1.cell.text-center
+          = fa_icon 'quote-left 3x', class: 'icon-quote-left'
+        .medium-5.cell.text-center
+          p Dr. Carlos Braghini
+          h4
+            ' Não é assinante da Pangeas? Deveria.
+            ' Experimente pensar além do convencional.
+            ' Mentes são como pára-quedas, funcionam melhor
+            | quando abertas.
+        .medium-1.cell.text-center
+          = fa_icon 'quote-right 3x', class: 'icon-quote-right'
+        .auto.cell
+  = render \
+    partial: 'layouts/pricing_table',
+    locals: { \
+      title: 'Escolha abaixo o formato certo para você' \
+    }
