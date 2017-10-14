@@ -3,9 +3,10 @@
     .grid-container.text-center
       .grid-x.bg-tablet
         .auto.cell
-        .medium-3.cell.img-left
+        .medium-4.cell.img-left
+          p.audience Para quem busca equilíbrio na sua vida.
           = image_tag 'person-sitting'
-        .medium-5.cell.title
+        .medium-4.cell.title
           = image_tag 'logo-transparent'
           h2.bold
             ' Aqui você assiste cultura de
@@ -13,14 +14,15 @@
           = link_to 'Clique e saiba como começar',
             new_registration_path('user'),
             class: 'button success large'
-        .medium-3.cell.img-right
+        .medium-4.cell.img-right
+          p.audience.right-0 Para o novo profissional de saúde e bem-estar.
           = image_tag 'person-book'
         .auto.cell
   .info
     .grid-container
       .grid-x
-        .medium-11.medium-centered.cell.text-center
-          h4
+        .medium-10.medium-centered.cell.text-center
+          h5
             ' Você descobriu a Pangeas... Um espaço online por assinatura que
             ' produz e reúne vídeos (aulas, séries, palestras, cursos,
             ' documentários) para quem quer tomar
@@ -29,6 +31,8 @@
             span.bg-highlight> busca por equilíbrio
             ' físico, mental, social, ambiental e espiritual. Junte-se a todos
             | nós!
+      .grid-x
+
     = render \
       partial: 'layouts/call_to_action',
       locals: { \

@@ -1,27 +1,43 @@
 .home-container
   .hero
-    padding-bottom: 0
+    padding-bottom: 1rem
     background: $light-gray
-    background: -webkit-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
-    background: -o-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
-    background: -moz-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
-    background: linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
+    background: -webkit-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: -o-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: -moz-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
+    background: linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%, $white 99%)
 
     .bg-tablet
       background: image-url('tablet.png')
       background-repeat: no-repeat
       background-position: center
       .title
-        padding-top: 10rem
+        padding-top: 8rem
+        margin-bottom: 0
         h2
           margin-top: 2rem
-          margin-bottom: 5rem
+          margin-bottom: 3rem
         a
           box-shadow: 0 5px 5px 1px $dark-gray
+      .audience
+        width: 190px
+        color: $blue-highlight
+        font-weight: bold
+        margin-bottom: 2rem
+        &:after
+          content: ""
+          height: 5px
+          width: 40px
+          background-color: $blue-highlight
+          margin: 0.5rem auto
+          display: block
+      .right-0
+        margin-right: 0
+        margin-left: auto
       .img-left
-        margin-top: 20rem
+        margin-top: 12rem
       .img-right
-        margin-top: 11.5rem
+        margin-top: 4rem
         img
           padding-left: 2rem
   .info
