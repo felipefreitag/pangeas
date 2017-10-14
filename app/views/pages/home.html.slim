@@ -47,7 +47,8 @@
                   ' Vídeos práticos para o iniciante e mais aprofundados para o
                   | profissional.
                 li
-                  ' Conhecimentos novos e ancestrais de diferentes lugares do mundo.
+                  ' Conhecimentos novos e ancestrais de diferentes lugares do
+                  | mundo.
                 p
                   | Tudo isso por R$ 22,90 ao mês
     = render \
@@ -57,7 +58,23 @@
         divider: false,
         sign_up: 'Clique aqui e comece a assistir' \
       }
-  .testimonial
+  .social-proof
+    .grid-container
+      .grid-x
+        .auto.cell
+        .medium-5.cell
+        .medium-1.cell.text-center
+          = fa_icon 'quote-left 3x', class: 'icon-quote-left'
+        .medium-5.cell.text-center
+          p Dr. Carlos Braghini
+          h4
+            ' Não é assinante da Pangeas? Deveria.
+            ' Experimente pensar além do convencional.
+            ' Mentes são como pára-quedas, funcionam melhor
+            | quando abertas.
+        .medium-1.cell.text-center
+          = fa_icon 'quote-right 3x', class: 'icon-quote-right'
+        .auto.cell
   = render \
     partial: 'layouts/pricing_table',
     locals: { \
