@@ -1,13 +1,21 @@
 .home-container
   .hero
     .grid-container.text-center
-      = image_tag 'logo-pangeas'
-      h1
-        ' Aqui você assiste cultura de
-        span.bg-highlight Saúde e Liberdade
-        = link_to 'Clique e saiba como começar',
-          new_registration_path('user'),
-          class: 'button success large'
+      .grid-x.bg-tablet
+        .auto.cell
+        .medium-3.cell.img-left
+          = image_tag 'person-sitting'
+        .medium-5.cell.title
+          = image_tag 'logo-transparent'
+          h2.bold
+            ' Aqui você assiste cultura de
+            span.bg-highlight Saúde e Liberdade
+          = link_to 'Clique e saiba como começar',
+            new_registration_path('user'),
+            class: 'button success large'
+        .medium-3.cell.img-right
+          = image_tag 'person-book'
+        .auto.cell
   .info
     .grid-container
       .grid-x

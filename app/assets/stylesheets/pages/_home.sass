@@ -1,7 +1,29 @@
 .home-container
   .hero
-    background-color: $light-gray
-    padding-bottom: 5rem
+    padding-bottom: 0
+    background: $light-gray
+    background: -webkit-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
+    background: -o-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
+    background: -moz-linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
+    background: linear-gradient($light-gray 75%, $medium-gray 80%, $light-gray 95%)
+
+    .bg-tablet
+      background: image-url('tablet.png')
+      background-repeat: no-repeat
+      background-position: center
+      .title
+        padding-top: 10rem
+        h2
+          margin-top: 2rem
+          margin-bottom: 5rem
+        a
+          box-shadow: 0 5px 5px 1px $dark-gray
+      .img-left
+        margin-top: 20rem
+      .img-right
+        margin-top: 11.5rem
+        img
+          padding-left: 2rem
   .info
     padding-top: 3rem
     background-color: $white
