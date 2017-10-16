@@ -54,6 +54,11 @@ jobs:
           name: run slim-lint
           command: bin/slim-lint .
 
+      # Run Sass-lint
+      - run:
+          name: run sass-lint
+          command: yarn run sass-lint
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:structure:load
