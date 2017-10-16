@@ -57,7 +57,7 @@ jobs:
       # Run Sass-lint
       - run:
           name: run sass-lint
-          command: yarn run sass-lint
+          command: yarn run sass-lint -c .sass-lint.yml --no-exit -v
 
       # Database setup
       - run: bundle exec rake db:create
