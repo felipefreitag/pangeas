@@ -1,1 +1,18 @@
-h1 subscribe
+.subscribe-container.bg-white
+  .hero
+    .grid-container
+      .grid-x
+        .medium-9.medium-centered.cell.text-center
+          h2 Mais de 150 novos vídeos em 1 ano e meio!
+          h5
+            ' São diversas
+            span.bg-highlight aulas, séries, palestras, entrevistas,
+              ' documentários...
+            ' Tudo para aprendermos juntos os caminhos para viver uma verdadeira
+            ' Cultura de Saúde e Liberdade. Junte-se a todos na Pangeas
+  = render 'layouts/info'
+  = render \
+    partial: 'layouts/pricing_table',
+    locals: { \
+      title: 'Escolha abaixo o formato certo para você' \
+    }
