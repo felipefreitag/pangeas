@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class SectionsController < ApplicationController
+  after_action :verify_authorized
+
   def index
+    authorize Section
     latest_videos
   end
 
   def show
     @section = Section.find(params[:id])
+    authorize @section
     if @section.name == 'Eventos & Pesquisa'
       show_events
     elsif @section.name == 'Cursos Pangeas'

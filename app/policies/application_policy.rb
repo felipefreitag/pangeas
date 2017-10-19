@@ -30,7 +30,7 @@ class ApplicationPolicy
   end
 
   def create?
-    is_admin?
+    admin?
   end
 
   def new?
@@ -38,7 +38,7 @@ class ApplicationPolicy
   end
 
   def update?
-    is_admin?
+    admin?
   end
 
   def edit?
@@ -46,7 +46,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    is_admin?
+    admin?
   end
 
   def scope
@@ -60,7 +60,7 @@ class ApplicationPolicy
   end
 
   def owner_or_admin?
-    owned_by?(user) || is_admin?
+    owned_by?(user) || admin?
   end
 
   def owned_by?(user)

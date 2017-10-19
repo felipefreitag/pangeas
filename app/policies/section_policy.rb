@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
-class VideoPolicy < ApplicationPolicy
-  def initialize(user, video)
+class SectionPolicy < ApplicationPolicy
+  def initialize(user, section)
     @user = user
     @subscription = user.subscriptions.first
-    @video = video
+    @section = section
+  end
+
+  def index?
+    @subscription&.state == 'active'
   end
 
   def show?
