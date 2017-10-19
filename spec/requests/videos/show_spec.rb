@@ -14,6 +14,23 @@ RSpec.describe 'Show video', type: :request do
     )
   end
 
+  let!(:subscription) do
+    Subscription.create!(
+      user: user,
+      state: 'active',
+      recurrence: 'monthly'
+    )
+  end
+
+  let!(:user2) do
+    User.create!(
+      first_name: 'jane',
+      last_name: 'doe',
+      email: 'bar@baz.com',
+      password: '123456'
+    )
+  end
+
   let!(:video) do
     Video.create!(
       name: 'foo bar',
@@ -37,13 +54,26 @@ RSpec.describe 'Show video', type: :request do
   end
 
   describe 'with logged user' do
-    before do
-      sign_in user
-      get "/videos/#{video.id}"
+    describe 'without subscription' do
+      before do
+        sign_in user2
+        get "/videos/#{video.id}"
+      end
+
+      it 'redirects' do
+        expect(subject).to have_http_status(:found)
+      end
     end
 
-    it 'returns ok' do
-      expect(subject).to have_http_status(:ok)
+    describe 'with subscription' do
+      before do
+        sign_in user
+        get "/videos/#{video.id}"
+      end
+
+      it 'returns ok' do
+        expect(subject).to have_http_status(:ok)
+      end
     end
   end
 end
