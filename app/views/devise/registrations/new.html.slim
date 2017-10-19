@@ -1,24 +1,32 @@
-= foundation_devise_error_messages!
-.row
-  .medium-6.medium-centered.columns
-    .login-box
-      .row
-        .large-12.columns
-          = form_for(resource,
-            as: resource_name,
-            url: registration_path(resource_name)) do |f|
-            .row
-              h5.text-center= t('.sign_up', default: 'Sign up')
-            .row
-              = f.email_field :email, autofocus: true,
-                class: 'large-12 columns', placeholder: 'Email'
-            .row
-              = f.password_field :password, autocomplete: 'off',
-                class: 'large-12 columns', placeholder: 'Password'
-            .row
-              = f.password_field :password_confirmation, autocomplete: 'off',
-                class: 'large-12 columns', placeholder: 'Password Confirmation'
-            .row
-              = f.submit t('.sign_up', default: 'Sign up'),
-                class: 'button expand large-12 large-centered columns'
-        = render 'devise/shared/links'
+.forms-container
+  = foundation_devise_error_messages!
+  .grid-container
+    .devise-form.grid-x
+      .medium-6.medium-centered.cell
+        .grid-x
+          .large-12.cell
+            = form_for(resource,
+              as: resource_name,
+              url: registration_path(resource_name)) do |f|
+              h3.text-center= 'Inscreva-se'
+              .grid-x
+                = f.text_field :first_name, autofocus: true,
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'DIGITE SEU NOME AQUI'
+                = f.text_field :last_name,
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'DIGITE SEU SOBRENOME AQUI'
+                = f.email_field :email,
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'DIGITE SEU E-MAIL AQUI'
+              .grid-x
+                = f.password_field :password, autocomplete: 'off',
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'DIGITE SUA SENHA AQUI'
+              .grid-x
+                = f.password_field :password_confirmation, autocomplete: 'off',
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'CONFIRME SUA SENHA'
+              .grid-x
+                = f.submit  t('.sign_up', default: 'Sign up'),
+                  class: 'button primary expand large-12 large-centered cell'

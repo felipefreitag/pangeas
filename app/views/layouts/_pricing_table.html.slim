@@ -1,7 +1,7 @@
 .pricing-table
   .grid-container
     .grid-x.header
-      .medium-10.medium-centered.cell.text-center
+      .medium-9.medium-centered.cell.text-center
         h2= title
         p
           ' Escolhendo um dos planos abaixo você vira assinante e ganha
@@ -29,7 +29,9 @@
             h6 A assinatura renova automaticamente todo mês
             h6 Solicitando o cancelamento, a assinatura não será renovada
               no final do mês da solicitação
-            .button.success.large Assinar
+            = link_to 'Assinar',
+              new_registration_path('user'),
+              class: 'button success large'
       .medium-4.cell
         .card.text-center
           = image_tag 'top-menu-colored-bar'
@@ -49,5 +51,7 @@
             h6 Renova automaticamente de 12 em 12 meses
             h6 Solicitando o cancelamento, a assinatura não será renovada
               no final do período de adesão
-            .button.success.large Assinar
+            = link_to 'Assinar',
+              new_registration_path('user'),
+              class: 'button success large'
       .auto.cell
