@@ -1,40 +1,35 @@
-= foundation_devise_error_messages!
-.row
-  .medium-6.medium-centered.columns
-    .login-box
-      .row
-        .large-12.columns
-          = form_for(resource,
-            as: resource_name,
-            url: registration_path(resource_name),
-            html: { method: :put }) do |f|
-            .row
-              h5.text-center= \
-                t('.title', resource: resource_class.model_name.human,
-                default: "Edit #{resource_name.to_s.humanize}")
-            .row
-              = f.email_field :email, autofocus: true,
-                class: 'large-12 columns', placeholder: 'Email'
-            .row
-              = f.password_field :password, autocomplete: 'off',
-                class: 'large-12 columns', placeholder: 'Password',
-                title: "leave blank if you don't want to change it"
-            .row
-              = f.password_field :password_confirmation, autocomplete: 'off',
-                class: 'large-12 columns', placeholder: 'Password Confirmation'
-            .row
-              = f.password_field :current_password, autocomplete: 'off',
-                class: 'large-12 columns', placeholder: 'Current Password',
-                title: 'we need your current password to confirm your changes'
-            .row
-              = f.submit t('.update', default: 'Update'),
-                class: 'button expand large-12 large-centered columns'
-        p
-          = t('.unhappy', default: 'Unhappy')
-          '?
-          = link_to t('.cancel_my_account', default: 'Cancel my account'),
-            registration_path(resource_name),
-            data: { confirm: t('.are_you_sure', default: 'Are you sure?') },
-            method: :delete
-          | .
-        = link_to t('.back', default: 'Back'), :back
+.forms-container
+  = foundation_devise_error_messages!
+  .grid-container
+    .devise-form.grid-x
+      .medium-6.medium-centered.cell
+        .grid-x
+          .large-12.cell
+            = form_for(resource,
+              as: resource_name,
+              url: registration_path(resource_name),
+              html: { method: :put }) do |f|
+              h3.text-center= 'Editar seus dados'
+              .grid-x
+                = f.label :email
+                = f.email_field :email, autofocus: true,
+                  class: 'large-12 cell pink-input',
+                    placeholder: 'Email'
+              .grid-x
+                = f.label 'Senha - Deixe em branco se não quiser alterar'
+                = f.password_field :password, autocomplete: 'off',
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'Nova senha'
+              .grid-x
+                = f.label 'Confirme sua nova senha'
+                = f.password_field :password_confirmation, autocomplete: 'off',
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'Digite novamente sua nova senha'
+              .grid-x
+                = f.label 'Digite sua senha atual para confirmar as alterações'
+                = f.password_field :current_password, autocomplete: 'off',
+                  class: 'large-12 cell pink-input',
+                  placeholder: 'Senha atual'
+              .grid-x
+                = f.submit t('.update', default: 'Update'),
+                  class: 'button primary expand large-12 large-centered cell'
