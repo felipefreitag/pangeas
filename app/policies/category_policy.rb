@@ -3,11 +3,10 @@
 class CategoryPolicy < ApplicationPolicy
   def initialize(user, category)
     @user = user
-    @subscription = user.subscriptions.first
     @category = category
   end
 
   def show?
-    @subscription&.state == 'active'
+    @user.subscribed?
   end
 end

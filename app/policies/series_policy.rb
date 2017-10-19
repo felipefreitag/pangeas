@@ -3,11 +3,10 @@
 class SeriesPolicy < ApplicationPolicy
   def initialize(user, series)
     @user = user
-    @subscription = user.subscriptions.first
     @series = series
   end
 
   def show?
-    @subscription&.state == 'active'
+    @user.subscribed?
   end
 end

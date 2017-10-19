@@ -3,15 +3,14 @@
 class SectionPolicy < ApplicationPolicy
   def initialize(user, section)
     @user = user
-    @subscription = user.subscriptions.first
     @section = section
   end
 
   def index?
-    @subscription&.state == 'active'
+    @user.subscribed?
   end
 
   def show?
-    @subscription&.state == 'active'
+    @user.subscribed?
   end
 end
