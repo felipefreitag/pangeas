@@ -5,32 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Show category', type: :request do
   subject { response }
 
-  let!(:user) do
-    User.create!(
-      first_name: 'john',
-      last_name: 'doe',
-      email: 'foo@bar.com',
-      password: '123456'
-    )
-  end
-
-  let!(:subscription) do
-    Subscription.create!(
-      user: user,
-      state: 'active',
-      recurrence: 'monthly'
-    )
-  end
-
-  let!(:user2) do
-    User.create!(
-      first_name: 'jane',
-      last_name: 'doe',
-      email: 'bar@baz.com',
-      password: '123456'
-    )
-  end
-
   let!(:section) do
     Section.create!(
       name: 'foo section',
@@ -67,7 +41,7 @@ RSpec.describe 'Show category', type: :request do
     )
   end
 
-  describe 'without logged user' do
+  context 'without logged user' do
     before do
       get "/categories/#{category.id}"
     end
@@ -77,10 +51,19 @@ RSpec.describe 'Show category', type: :request do
     end
   end
 
-  describe 'with logged user' do
-    describe 'without subscription' do
+  context 'with logged user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'jane',
+        last_name: 'doe',
+        email: 'bar@baz.com',
+        password: '123456'
+      )
+    end
+
+    context 'without subscription' do
       before do
-        sign_in user2
+        sign_in user
         get "/categories/#{category.id}"
       end
 
@@ -89,7 +72,15 @@ RSpec.describe 'Show category', type: :request do
       end
     end
 
-    describe 'with subscription' do
+    context 'with subscription' do
+      let!(:subscription) do
+        Subscription.create!(
+          user: user,
+          state: 'active',
+          recurrence: 'monthly'
+        )
+      end
+
       before do
         sign_in user
         get "/categories/#{category.id}"

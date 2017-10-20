@@ -51,7 +51,7 @@ RSpec.describe Category, type: :model do
     it { expect(subject).to validate_presence_of(:description) }
   end
 
-  describe 'latest video' do
+  describe 'latest_video' do
     it 'returns the video' do
       expect(category.latest_video).to eq(video)
     end

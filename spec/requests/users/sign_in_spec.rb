@@ -14,7 +14,7 @@ RSpec.describe 'User sign-in', type: :request do
     )
   end
 
-  describe 'after user signs in' do
+  context 'when user signs in' do
     before do
       post user_session_path \
         'user[email]': user.email,

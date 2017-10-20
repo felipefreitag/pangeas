@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
       self.class == HighVoltage::PagesController
     end
   )
-  # after_action :verify_policy_scoped, unless: -> { devise_controller? }
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def sections
