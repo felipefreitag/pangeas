@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'User policy' do
-  subject { UserPolicy }
+RSpec.describe UserPolicy do
+  subject { described_class }
 
   permissions :index?, :create?, :update?, :destroy? do
     context 'when user is admin' do
@@ -18,7 +18,7 @@ RSpec.describe 'User policy' do
       end
 
       it 'allows access' do
-        expect(subject).to permit(user)
+        is_expected.to permit(user)
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe 'User policy' do
       end
 
       it 'denies access' do
-        expect(subject).not_to permit(user)
+        is_expected.not_to permit(user)
       end
     end
   end

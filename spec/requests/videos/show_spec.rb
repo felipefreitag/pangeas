@@ -23,7 +23,7 @@ RSpec.describe 'Show video', type: :request do
     end
 
     it 'redirects' do
-      expect(subject).to have_http_status(:found)
+      is_expected.to have_http_status(:found)
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Show video', type: :request do
       end
 
       it 'redirects' do
-        expect(subject).to have_http_status(:found)
+        is_expected.to have_http_status(:found)
       end
     end
 
@@ -63,7 +63,7 @@ RSpec.describe 'Show video', type: :request do
       end
 
       it 'returns ok' do
-        expect(subject).to have_http_status(:ok)
+        is_expected.to have_http_status(:ok)
       end
     end
   end

@@ -27,14 +27,14 @@ RSpec.describe Series, type: :model do
   end
 
   describe 'associations' do
-    it { expect(subject).to belong_to(:category) }
-    it { expect(subject).to have_many(:videos) }
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:videos) }
   end
 
   describe 'validations' do
-    it { expect(subject).to validate_presence_of(:category) }
-    it { expect(subject).to validate_presence_of(:name) }
-    it { expect(subject).to validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:category) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:description) }
   end
 
   describe '.image' do
@@ -50,6 +50,7 @@ RSpec.describe Series, type: :model do
           image_url: 'http://foo'
         )
       end
+
       it 'returns the series image url' do
         expect(series.image).to eq('http://foo')
       end

@@ -3,6 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe Subscription, recurrence: :model do
+  subject(:subscription) do
+    Subscription.new(
+      user: user,
+      recurrence: 'monthly'
+    )
+  end
+
   let(:user) do
     User.create!(
       email: 'foo@bar.com',
@@ -12,20 +19,13 @@ RSpec.describe Subscription, recurrence: :model do
     )
   end
 
-  subject(:subscription) do
-    Subscription.new(
-      user: user,
-      recurrence: 'monthly'
-    )
-  end
-
   describe 'associations' do
-    it { expect(subject).to belong_to(:user) }
+    it { is_expected.to belong_to(:user) }
   end
 
   describe 'validations' do
-    it { expect(subject).to validate_presence_of(:user) }
-    it { expect(subject).to validate_presence_of(:recurrence) }
+    it { is_expected.to validate_presence_of(:user) }
+    it { is_expected.to validate_presence_of(:recurrence) }
   end
 
   describe 'activate' do

@@ -19,7 +19,7 @@ RSpec.describe 'Show Courses section', type: :request do
     end
 
     it 'redirects' do
-      expect(subject).to have_http_status(:found)
+      is_expected.to have_http_status(:found)
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe 'Show Courses section', type: :request do
       end
 
       it 'redirects' do
-        expect(subject).to have_http_status(:found)
+        is_expected.to have_http_status(:found)
       end
     end
 
@@ -59,11 +59,11 @@ RSpec.describe 'Show Courses section', type: :request do
       end
 
       it 'returns ok' do
-        expect(subject).to have_http_status(:ok)
+        is_expected.to have_http_status(:ok)
       end
 
       it 'renders the correct template' do
-        expect(subject).to render_template(:show_courses)
+        is_expected.to render_template(:show_courses)
       end
     end
   end

@@ -22,7 +22,7 @@ RSpec.describe 'User sign-in', type: :request do
     end
 
     it 'redirects to sections/index' do
-      expect(subject).to redirect_to(sections_path)
+      is_expected.to redirect_to(sections_path)
     end
   end
 end

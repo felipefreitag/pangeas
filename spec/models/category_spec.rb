@@ -40,15 +40,15 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'associations' do
-    it { expect(subject).to belong_to(:subsection) }
-    it { expect(subject).to have_many(:videos) }
-    it { expect(subject).to have_many(:series) }
+    it { is_expected.to belong_to(:subsection) }
+    it { is_expected.to have_many(:videos) }
+    it { is_expected.to have_many(:series) }
   end
 
   describe 'validations' do
-    it { expect(subject).to validate_presence_of(:subsection) }
-    it { expect(subject).to validate_presence_of(:name) }
-    it { expect(subject).to validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:subsection) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:description) }
   end
 
   describe 'latest_video' do
