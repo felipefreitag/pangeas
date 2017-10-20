@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Sections index', type: :request do
   subject { response }
 
-  let!(:section) do
+  before do
     Section.create!(
       name: 'foo section',
       description: 'some section description',
@@ -45,15 +45,12 @@ RSpec.describe 'Sections index', type: :request do
     end
 
     context 'with subscription' do
-      let!(:subscription) do
+      before do
         Subscription.create!(
           user: user,
           state: 'active',
           recurrence: 'monthly'
         )
-      end
-
-      before do
         sign_in user
         get '/sections'
       end

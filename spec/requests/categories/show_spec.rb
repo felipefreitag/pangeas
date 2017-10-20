@@ -28,19 +28,6 @@ RSpec.describe 'Show category', type: :request do
     )
   end
 
-  let!(:video) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
-    )
-  end
-
   context 'without logged user' do
     before do
       get "/categories/#{category.id}"
@@ -73,15 +60,12 @@ RSpec.describe 'Show category', type: :request do
     end
 
     context 'with subscription' do
-      let!(:subscription) do
+      before do
         Subscription.create!(
           user: user,
           state: 'active',
           recurrence: 'monthly'
         )
-      end
-
-      before do
         sign_in user
         get "/categories/#{category.id}"
       end

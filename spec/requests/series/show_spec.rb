@@ -71,15 +71,12 @@ RSpec.describe 'Show series', type: :request do
     end
 
     context 'with subscription' do
-      let!(:subscription) do
+      before do
         Subscription.create!(
           user: user,
           state: 'active',
           recurrence: 'monthly'
         )
-      end
-
-      before do
         sign_in user
         get "/series/#{series.id}"
       end

@@ -13,31 +13,16 @@ RSpec.describe 'Show Events section', type: :request do
     )
   end
 
-  let!(:subsection) do
-    Subsection.create!(
+  before do
+    subsection = Subsection.create!(
       name: 'events',
       section: section
     )
-  end
 
-  let!(:category) do
     Category.create!(
       name: 'Eventos',
       description: 'some category description',
       subsection: subsection
-    )
-  end
-
-  let!(:video) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
     )
   end
 
@@ -73,15 +58,12 @@ RSpec.describe 'Show Events section', type: :request do
     end
 
     context 'with subscription' do
-      let!(:subscription) do
+      before do
         Subscription.create!(
           user: user,
           state: 'active',
           recurrence: 'monthly'
         )
-      end
-
-      before do
         sign_in user
         get "/sections/#{section.id}"
       end
