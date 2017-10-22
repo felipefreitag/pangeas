@@ -8,14 +8,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action(
     :authenticate_user!,
-    unless: -> { self.class == HighVoltage::PagesController }
+    unless: lambda do
+      self.class == HighVoltage::PagesController ||
+      self.class == SubscriptionsController
+    end
   )
   before_action :sections
   after_action(
     :verify_authorized,
     unless: lambda do
       devise_controller? ||
-      self.class == HighVoltage::PagesController
+      self.class == HighVoltage::PagesController ||
+      self.class == SubscriptionsController
     end
   )
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -32,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized(_exception)
     flash[:alert] = t('flash.not_authorized')
-    redirect_to(page_path('subscribe') || root_path)
+    redirect_to(new_subscription_path || root_path)
   end
 
   def configure_permitted_parameters
