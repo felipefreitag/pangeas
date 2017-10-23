@@ -8,18 +8,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action(
     :authenticate_user!,
-    unless: lambda do
-      self.class == HighVoltage::PagesController ||
-      self.class == SubscriptionsController
-    end
+    unless: -> { self.class == HighVoltage::PagesController }
   )
   before_action :sections
   after_action(
     :verify_authorized,
     unless: lambda do
       devise_controller? ||
-      self.class == HighVoltage::PagesController ||
-      self.class == SubscriptionsController
+      self.class == HighVoltage::PagesController
     end
   )
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
