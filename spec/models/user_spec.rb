@@ -13,6 +13,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'subscribed?' do
+    subject { user.subscribed? }
+
     let!(:user) do
       User.create!(
         first_name: 'john',
@@ -32,7 +34,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns true' do
-        expect(user.subscribed?).to be(true)
+        is_expected.to be(true)
       end
     end
 
@@ -45,7 +47,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns false' do
-        expect(user.subscribed?).to be(false)
+        is_expected.to be(false)
       end
     end
   end

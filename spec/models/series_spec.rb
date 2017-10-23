@@ -37,7 +37,7 @@ RSpec.describe Series, type: :model do
     it { is_expected.to validate_presence_of(:description) }
   end
 
-  describe '.image' do
+  describe '#image' do
     context 'with series image_url set' do
       let!(:series) do
         Series.create!(
@@ -50,6 +50,7 @@ RSpec.describe Series, type: :model do
           image_url: 'http://foo'
         )
       end
+
 
       it 'returns the series image url' do
         expect(series.image).to eq('http://foo')

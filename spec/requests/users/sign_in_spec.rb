@@ -16,9 +16,11 @@ RSpec.describe 'User sign-in', type: :request do
 
   context 'when user signs in' do
     before do
-      post user_session_path \
-        'user[email]': user.email,
-        'user[password]': user.password
+      post user_session_path,
+           params: {
+             'user[email]': user.email,
+             'user[password]': user.password
+           }
     end
 
     it 'redirects to sections/index' do
