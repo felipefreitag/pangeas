@@ -51,7 +51,6 @@ RSpec.describe Series, type: :model do
         )
       end
 
-
       it 'returns the series image url' do
         expect(series.image).to eq('http://foo')
       end
