@@ -39,25 +39,15 @@ RSpec.describe Series, type: :model do
 
   describe '#image' do
     context 'with series image_url set' do
-      let!(:series) do
-        Series.create!(
-          name: 'foo bar',
-          description: 'Amig Goswami é uma das maiores autoridades mundiais em
-            Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-            Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-            modelo comportamental',
-          category: category,
-          image_url: 'http://foo'
-        )
-      end
+      subject { Series.new(image_url: 'http://foo').image }
 
       it 'returns the series image url' do
-        expect(series.image).to eq('http://foo')
+        is_expected.to eq('http://foo')
       end
     end
 
     context 'without series image_url set' do
-      let!(:series) do
+      subject(:series) do
         Series.create!(
           name: 'foo bar',
           description: 'Amig Goswami é uma das maiores autoridades mundiais em
