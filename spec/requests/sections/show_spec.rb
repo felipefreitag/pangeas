@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Show section', type: :request do
+RSpec.describe 'GET /sections/:id', type: :request do
   subject { response }
 
   let!(:section) do
@@ -18,9 +18,7 @@ RSpec.describe 'Show section', type: :request do
       get "/sections/#{section.id}"
     end
 
-    it 'redirects' do
-      is_expected.to have_http_status(:found)
-    end
+    it { is_expected.to have_http_status(:found) }
   end
 
   context 'with logged user' do
@@ -39,9 +37,7 @@ RSpec.describe 'Show section', type: :request do
         get "/sections/#{section.id}"
       end
 
-      it 'redirects' do
-        is_expected.to have_http_status(:found)
-      end
+      it { is_expected.to have_http_status(:found) }
     end
 
     context 'with subscription' do
@@ -55,13 +51,8 @@ RSpec.describe 'Show section', type: :request do
         get "/sections/#{section.id}"
       end
 
-      it 'returns ok' do
-        is_expected.to have_http_status(:ok)
-      end
-
-      it 'renders the correct template' do
-        is_expected.to render_template(:show)
-      end
+      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to render_template(:show) }
     end
   end
 end
