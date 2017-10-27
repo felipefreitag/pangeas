@@ -1,1 +1,115 @@
-h1 cstq landing page
+.landing-page-container
+  .bg-cstq
+    .hero
+      .grid-container
+        .grid-x
+          .medium-6.medium-centered.cell
+            .logo-wrap
+              = image_tag 'https://image.ibb.co/mxSnGR/CSTQ_Logo.png'
+        .grid-x.grid-padding-x
+          .medium-6.cell
+            h3 Palestras e aulas para você:
+            ol
+              li Usar a Biofísica na Saúde.
+              p.mb-1rem Câncer, doenças crônicas, degenerações, estética...
+              li.mb-1rem Aprender Práticas (casos reais).
+              li Entender a Visão Sistêmica
+              p.mb-1rem Onde a Física Quântica encontra todas Medicinas.
+            = link_to 'Clique e comece a crescer!',
+              '#crescer',
+              class: 'button success expand large-12 large-centered cell'
+          .medium-6.cell
+            .responsive-embed.widescreen
+              iframe[
+                src="https://www.youtube.com/embed/cfI8_BLdaUc"
+                frameborder="0"
+                gesture="media"
+                allowfullscreen
+            ]
+  .description
+    .grid-container.text-center
+      h4
+       span.bold> Mais de 120 palestras
+       ' dos principais eventos de saúde integrativa
+       span.bold> por R$ 29,90
+  .details
+    .grid-container
+      .grid-x
+        .medium-12.cell
+          h5 Como vou assistir?
+          p
+            ' Assista quando e onde quiser (celular, note, tablet, smart TV)
+            ' através da
+            strong> Pangeas:
+            ' uma plataforma online que traz
+            strong> Conteúdos de Qualidade para profissionais da
+            strong> Saúde Integrativa.
+            ' São vídeos de 6 países sobre a Biorressonância, Terapias
+            ' Frequenciais, Alimentação, Saúde Quântica, Antroposofia e
+            ' muito mais!
+            = link_to 'Clique aqui e comece a crescer', '#crescer'
+        .medium-12.cell
+          h5 O que é o CSTQ?
+          p
+            ' O
+            strong> CSTQ
+            ' (V Congresso Latino-Americano em Saúde e Terapias Quânticas) é o
+            ' evento que está mostrando que o caminho está traçado, e
+            strong> cada vez mais os profissionais da saúde
+            ' estão encontrando seus melhores resultados nessa vibração da
+            strong> onda virtual da ciência
+            ' e do
+            strong> conhecimento das teorias quânticas aplicadas à saúde.
+        .medium-12.cell
+          h5 Quais eventos estão disponíveis para associados?
+          p
+            ' Além do CSTQ, você vai encontrar na Pangeas os conhecimentos de
+            ' diversos outros eventos (além dos que ainda estão por vir), além
+            ' de aulas, entrevistas e outros conteúdos. Em 1 ano já produzimos
+            ' mais de 200 vídeos.
+      .grid-x
+        .medium-12.cell
+          .event-logo-wrap
+            =image_tag 'https://image.ibb.co/erkzD6/Logos_Congressos.jpg'
+      .grid-x
+        .medium-8.cell
+          h5
+            ' Para
+            strong> mergulhar na Medicina Quântica
+            | é só clicar no botão
+        .medium-4.cell
+          = link_to 'Quero ter acesso a tudo!',
+            '#crescer',
+            class: 'button success expand large-12 large-centered cell'
+  .speakers
+    h3.text-center Conheça os Palestrantes/Professores da CSTQ
+  .testimonials
+    .grid-container
+      .grid-x.grid-padding-x
+        .medium-6.cell.text-center
+          = image_tag 'https://image.ibb.co/kvxqLm/rosangela_arnt.png',
+            class: 'vertical-padding-5'
+          h5 Médica e consultora científica
+          p
+           ' "Para mim a Pangeas é um caminho maravilhoso para obtenção de
+           ' informações pertinentes na área da saúde integrativa, com seriedade
+           ' na escolha das fontes. Representa um grupo determinado e corajoso,
+           ' que ousa criar eventos grandiosos como as Conferências
+           ' Internacionais de Saúde Quântica, que fazem sucesso até hoje, com
+           ' suas edições postadas no seu site, ajudando milhares de pessoas
+           | interessadas no assunto. Eu recomendo."
+        .medium-6.cell.text-center
+          = image_tag 'https://image.ibb.co/bT07GR/Dr_Carlos_Braghini.png'
+          h5 Médico e Quiropraxista
+          p
+            ' "Estar associado à plataforma Pangeas me torna participante deste
+            ' projeto maravilhoso. E de bônus, me traz a certeza de que terei
+            ' acesso a conteúdo relevante, pouco acessível nos canais
+            ' convencionais e de qualidade impecável. Vida longa e próspera à
+            ' equipe Pangeas."
+  #crescer
+    = render \
+      partial: 'layouts/pricing_table',
+      locals: { \
+        title: 'Como começar a crescer' \
+      }
