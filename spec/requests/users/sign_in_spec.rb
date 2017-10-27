@@ -16,11 +16,10 @@ RSpec.describe 'GET /users/sign_in', type: :request do
 
   context 'when user signs in' do
     before do
-      post user_session_path,
-           params: {
-             'user[email]': user.email,
-             'user[password]': user.password
-           }
+      post user_session_path, params: {
+        'user[email]': user.email,
+        'user[password]': user.password
+      }
     end
 
     it { is_expected.to redirect_to(sections_path) }
