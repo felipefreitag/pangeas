@@ -5,37 +5,27 @@ require 'rails_helper'
 RSpec.describe UserPolicy do
   subject { described_class }
 
+  let(:user) do
+    User.create!(
+      first_name: 'john',
+      last_name: 'doe',
+      email: 'foo@bar.com',
+      password: '123456',
+      admin: admin
+    )
+  end
+
   permissions :index?, :create?, :update?, :destroy? do
     context 'when user is admin' do
-      let!(:user) do
-        User.create!(
-          first_name: 'john',
-          last_name: 'doe',
-          email: 'foo@bar.com',
-          password: '123456',
-          admin: true
-        )
-      end
+      let(:admin) { true }
 
-      it 'allows access' do
-        is_expected.to permit(user)
-      end
+      it { is_expected.to permit(user) }
     end
 
     context 'when user is not admin' do
-      let!(:user) do
-        User.create!(
-          first_name: 'john',
-          last_name: 'doe',
-          email: 'foo@bar.com',
-          password: '123456',
-          admin: false
-        )
-      end
+      let(:admin) { false }
 
-      it 'denies access' do
-        is_expected.not_to permit(user)
-      end
+      it { is_expected.not_to permit(user) }
     end
   end
 end

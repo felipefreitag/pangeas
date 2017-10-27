@@ -38,16 +38,16 @@ RSpec.describe Series, type: :model do
   end
 
   describe '#image' do
-    context 'with series image_url set' do
-      subject { Series.new(image_url: 'http://foo').image }
+    subject { series.image }
 
-      it 'returns the series image url' do
-        is_expected.to eq('http://foo')
-      end
+    context 'with series image_url set' do
+      let(:series) { Series.new(image_url: 'http://foo') }
+
+      it { is_expected.to eq('http://foo') }
     end
 
     context 'without series image_url set' do
-      subject(:series) do
+      let(:series) do
         Series.create!(
           name: 'foo bar',
           description: 'Amig Goswami é uma das maiores autoridades mundiais em
@@ -71,9 +71,7 @@ RSpec.describe Series, type: :model do
         )
       end
 
-      it 'returns the first video image url' do
-        expect(series.image).to eq(video.image_url)
-      end
+      it { is_expected.to eq(video.image_url) }
     end
   end
 end
