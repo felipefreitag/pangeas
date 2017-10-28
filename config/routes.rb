@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :videos, only: %i[show]
   resources :series, only: %i[show]
   resources :categories, only: %i[show]

@@ -82,6 +82,7 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     erubi (1.6.1)
+    excon (0.59.0)
     execjs (2.7.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
@@ -300,6 +301,7 @@ DEPENDENCIES
   devise-foundation-views
   devise-i18n
   dotenv-rails
+  excon
   font-awesome-rails
   foreman
   foundation-rails
