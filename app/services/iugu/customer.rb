@@ -9,7 +9,7 @@ class Iugu
     end
 
     def create(params)
-      response = @api.post('customers', body: params.to_json)
+      @api.post('/customers', body: params.to_json)
     end
   end
 end

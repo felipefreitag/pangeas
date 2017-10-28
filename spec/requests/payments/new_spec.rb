@@ -7,6 +7,8 @@ RSpec.describe 'GET /payments/new', type: :request do
 
   context 'without logged user' do
     before do
+      stub_request(:post, 'https://api.iugu.com/v1/customers')
+        .to_return(status: 200, body: '', headers: {})
       get '/payments/new'
     end
 
@@ -24,6 +26,18 @@ RSpec.describe 'GET /payments/new', type: :request do
     end
 
     before do
+      headers = {
+        'Accept' => 'application/json',
+        'Authorization' => 'Basic MjU4NGFjNmQ5MGE4M2JlYzVmNjhmYmEzMzk0NmFiNWM6',
+        'Content-Type' => 'application/json',
+        'Host' => 'api.iugu.com:443'
+      }
+      stub_request(:post, 'https://api.iugu.com/v1/customers')
+        .with(
+          body: '{"email":"bar@baz.com","name":"jane doe"}',
+          headers: headers
+        )
+        .to_return(status: 200, body: '', headers: {})
       sign_in user
       get '/payments/new'
     end
