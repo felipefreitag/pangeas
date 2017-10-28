@@ -18,8 +18,8 @@ class Iugu
 
     private
 
-    def request(method, resource, options = {})
-      url = "https://api.iugu.com/v1/#{resource}/"
+    def request(method, path, options = {})
+      url = "https://api.iugu.com/v1/#{path}/"
       merged_options = {
         user: @token,
         headers: {
