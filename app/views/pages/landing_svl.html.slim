@@ -1,0 +1,149 @@
+.landing-page-container
+  .bg-svl
+    .hero
+      .grid-container.black-color
+        .grid-x
+          .medium-6.medium-centered.cell
+            .logo-wrap
+              = image_tag 'https://image.ibb.co/d7ND86/Title_SLV_600x193.png'
+        .grid-x.grid-padding-x
+          .medium-6.cell
+            h3 Aulas e palestras para você:
+            ol
+              li Aprencer o que Cria Saúde.
+              p.mb-1rem Alimentação, Hábitos/Crenças, limites emocionais
+              li.mb-1rem Descobrir o seu Propósito.
+              li Encontrar Caminhos Práticos.
+              p.mb-1rem Dicas e informações aplicáveis no seu dia a dia.
+            = link_to 'Clique e comece a crescer!',
+              '#crescer',
+              class: 'button success expand large large-centered cell'
+          .medium-6.cell
+            .responsive-embed.widescreen
+              iframe[
+                src="https://www.youtube.com/embed/ZbJ5BDEcXl0?showinfo=0"
+                frameborder="0"
+                gesture="media"
+                allowfullscreen
+              ]
+  .description
+    .grid-container.text-center
+      h4
+       span.bold> Mais de 120 aulas
+       ' com os principais profissionais de Saúde Integrativa
+       span.bold> por R$ 29,90
+  .details
+    .grid-container
+      .grid-x
+        .medium-12.cell
+          h5.bold Como vou assistir?
+          p
+            ' Assista quando e onde quiser (celular, note, tablet, smart TV)
+            ' através da
+            strong> Pangeas:
+            ' uma plataforma online que traz
+            strong> Conteúdos de Qualidade para quem quer construir saúde e
+            strong> liberdade.
+            ' São vídeos de 6 países sobre Alimentação, Hábitos Saudáveis,
+            ' Terapias Frequenciais, Educação emocional e muito mais!
+            = link_to 'Clique aqui e comece a crescer', '#crescer'
+        .medium-12.cell
+          h5.bold O que é o Meeting SVL?
+          p
+            ' O
+            strong> Meeting Saúde e Vida Longa
+            ' foi criado pelo Dr. Ricardo Hoffmann, com
+            strong> grandes nomes da área da saúde,
+            ' para construirmos a melhor versão de nós mesmos. As palestras
+            ' práticas nos ensinam cuidados com a
+            strong> alimentação, fatores ambientais, hábitos, crenças, aspectos
+            strong> emocionais, etc.
+            | Todos os fatores que influenciam em nosso bem-estar.
+        .medium-12.cell
+          h5.bold Quais eventos estão disponíveis para associados?
+          p
+            ' Além do Meeting SVL você vai encontrar na Pangeas os conhecimentos
+            ' de diversos outros eventos (além dos que ainda estão por vir),
+            ' além de aulas, entrevistas e outros conteúdos. Em 1 ano já
+            ' produzimos mais de 200 vídeos. :)
+      .grid-x
+        .medium-12.cell
+          .event-logo-wrap
+            =image_tag 'https://image.ibb.co/erkzD6/Logos_Congressos.jpg'
+      .grid-x
+        .medium-8.cell.text-center
+          h5
+            ' Para
+            strong> mergulhar nessa mudança
+            | é só você clicar no botão
+        .medium-4.cell
+          = link_to 'Quero ter acesso a tudo!',
+            '#crescer',
+            class: 'button success expand large-12 large-centered cell'
+  .speakers
+    .grid-container
+      .grid-x
+        .medium-12.centered.cell
+          h3.text-center Conheça os Palestrantes/Professores do Meeting SVL
+      .grid-x.grid-margin-x.grid-margin-y
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+        .medium-4.cell
+          .video-wrap
+            = link_to 'https://youtu.be/f6lgS2oKGzc',
+              title: 'Teaser', target: '_blank' do
+              = image_tag 'http://lorempixel.com/380/200/nature'
+              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+  .testimonials
+    .grid-container
+      .grid-x.grid-padding-x
+        .medium-6.cell.text-center
+          = image_tag 'https://image.ibb.co/gQKh1R/hoffmann2.png'
+          h5 Precursor da Microfisioterapia no Brasil
+          p
+            ' "Não existe preço financeiro que pague o momento em que as pessoas
+            ' sentem o êxtase de encontrar seu propósito. Só existe o valor da
+            | gratidão."
+        .medium-6.cell.text-center
+          = image_tag 'https://image.ibb.co/bT07GR/Dr_Carlos_Braghini.png'
+          h5 Médico e Quiropraxista
+          p
+            ' "Estar associado à plataforma Pangeas me torna participante deste
+            ' projeto maravilhoso. E de bônus, me traz a certeza de que terei
+            ' acesso a conteúdo relevante, pouco acessível nos canais
+            ' convencionais e de qualidade impecável. Vida longa e próspera à
+            ' equipe Pangeas."
+  #crescer
+    = render \
+      partial: 'layouts/pricing_table',
+      locals: { \
+        title: 'Como começar a crescer' \
+      }
