@@ -11,9 +11,14 @@ class ApplicationController < ActionController::Base
     unless: -> { self.class == HighVoltage::PagesController }
   )
   before_action :sections
-  # after_action :verify_authorized, unless: -> { devise_controller? }
-  # after_action :verify_policy_scoped, unless: -> { devise_controller? }
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action(
+    :verify_authorized,
+    unless: lambda do
+      devise_controller? ||
+      self.class == HighVoltage::PagesController
+    end
+  )
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def sections
     @sections = Section.order(:id).all
@@ -27,7 +32,7 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized(_exception)
     flash[:alert] = t('flash.not_authorized')
-    redirect_to(request.referer || root_path)
+    redirect_to(new_subscription_path || root_path)
   end
 
   def configure_permitted_parameters

@@ -2,17 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Show section', type: :request do
+RSpec.describe 'GET /sections/:id', type: :request do
   subject { response }
-
-  let!(:user) do
-    User.create!(
-      first_name: 'john',
-      last_name: 'doe',
-      email: 'foo@bar.com',
-      password: '123456'
-    )
-  end
 
   let!(:section) do
     Section.create!(
@@ -22,82 +13,46 @@ RSpec.describe 'Show section', type: :request do
     )
   end
 
-  let!(:subsection) do
-    Subsection.create!(
-      name: 'bar subsection',
-      section: section
-    )
-  end
-
-  let!(:category) do
-    Category.create!(
-      name: 'baz category',
-      description: 'some category description',
-      subsection: subsection
-    )
-  end
-
-  let!(:video) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-          Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-          Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-          modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
-    )
-  end
-
-  let!(:video2) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-          Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-          Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-          modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
-    )
-  end
-
-  let!(:video3) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-          Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-          Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-          modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
-    )
-  end
-
-  describe 'without logged user' do
+  context 'without logged user' do
     before do
       get "/sections/#{section.id}"
     end
 
-    it 'redirects' do
-      expect(subject).to have_http_status(:found)
-    end
+    it { is_expected.to have_http_status(:found) }
   end
 
-  describe 'with logged user' do
-    before do
-      sign_in user
-      get "/sections/#{section.id}"
+  context 'with logged user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'john',
+        last_name: 'doe',
+        email: 'foo@bar.com',
+        password: '123456'
+      )
     end
 
-    it 'returns ok' do
-      expect(subject).to have_http_status(:ok)
+    context 'without subscription' do
+      before do
+        sign_in user
+        get "/sections/#{section.id}"
+      end
+
+      it { is_expected.to have_http_status(:found) }
     end
 
-    it 'renders the correct template' do
-      expect(subject).to render_template(:show)
+    context 'with subscription' do
+      before do
+        Subscription.create!(
+          user: user,
+          state: 'active',
+          recurrence: 'monthly'
+        )
+        sign_in user
+        get "/sections/#{section.id}"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to render_template(:show) }
     end
   end
 end

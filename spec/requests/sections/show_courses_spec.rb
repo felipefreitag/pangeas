@@ -2,17 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Show Courses section', type: :request do
+RSpec.describe 'GET /sections/3', type: :request do
   subject { response }
-
-  let!(:user) do
-    User.create!(
-      first_name: 'john',
-      last_name: 'doe',
-      email: 'foo@bar.com',
-      password: '123456'
-    )
-  end
 
   let!(:section) do
     Section.create!(
@@ -22,28 +13,46 @@ RSpec.describe 'Show Courses section', type: :request do
     )
   end
 
-  describe 'without logged user' do
+  context 'without logged user' do
     before do
       get "/sections/#{section.id}"
     end
 
-    it 'redirects' do
-      expect(subject).to have_http_status(:found)
-    end
+    it { is_expected.to have_http_status(:found) }
   end
 
-  describe 'with logged user' do
-    before do
-      sign_in user
-      get "/sections/#{section.id}"
+  context 'with logged user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'john',
+        last_name: 'doe',
+        email: 'foo@bar.com',
+        password: '123456'
+      )
     end
 
-    it 'returns ok' do
-      expect(subject).to have_http_status(:ok)
+    context 'without subscription' do
+      before do
+        sign_in user
+        get "/sections/#{section.id}"
+      end
+
+      it { is_expected.to have_http_status(:found) }
     end
 
-    it 'renders the correct template' do
-      expect(subject).to render_template(:show_courses)
+    context 'with subscription' do
+      before do
+        Subscription.create!(
+          user: user,
+          state: 'active',
+          recurrence: 'monthly'
+        )
+        sign_in user
+        get "/sections/#{section.id}"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+      it { is_expected.to render_template(:show_courses) }
     end
   end
 end

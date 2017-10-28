@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class VideoPolicy < ApplicationPolicy
-  def initialize(user, video)
+class SeriesPolicy < ApplicationPolicy
+  def initialize(user, series)
     @user = user
-    @video = video
+    @series = series
   end
 
   def show?

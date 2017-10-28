@@ -2,17 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Show video', type: :request do
+RSpec.describe 'GET /videos/:id', type: :request do
   subject { response }
-
-  let!(:user) do
-    User.create!(
-      first_name: 'john',
-      last_name: 'doe',
-      email: 'foo@bar.com',
-      password: '123456'
-    )
-  end
 
   let!(:video) do
     Video.create!(
@@ -26,24 +17,45 @@ RSpec.describe 'Show video', type: :request do
     )
   end
 
-  describe 'without logged user' do
+  context 'without logged user' do
     before do
       get "/videos/#{video.id}"
     end
 
-    it 'redirects' do
-      expect(subject).to have_http_status(:found)
-    end
+    it { is_expected.to have_http_status(:found) }
   end
 
-  describe 'with logged user' do
-    before do
-      sign_in user
-      get "/videos/#{video.id}"
+  context 'with logged user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'john',
+        last_name: 'doe',
+        email: 'foo@bar.com',
+        password: '123456'
+      )
     end
 
-    it 'returns ok' do
-      expect(subject).to have_http_status(:ok)
+    context 'without subscription' do
+      before do
+        sign_in user
+        get "/videos/#{video.id}"
+      end
+
+      it { is_expected.to have_http_status(:found) }
+    end
+
+    context 'with subscription' do
+      before do
+        Subscription.create!(
+          user: user,
+          state: 'active',
+          recurrence: 'monthly'
+        )
+        sign_in user
+        get "/videos/#{video.id}"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
     end
   end
 end

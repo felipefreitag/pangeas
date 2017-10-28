@@ -1,8 +1,21 @@
-User.create!(
+user = User.create!(
   first_name: 'foo',
   last_name: 'bar',
   email: 'foo@bar.com',
   password: '123456'
+)
+
+User.create!(
+  first_name: 'john',
+  last_name: 'doe',
+  email: 'john@doe.com',
+  password: '123456'
+)
+
+Subscription.create!(
+  user: user,
+  recurrence: 'monthly',
+  state: 'active'
 )
 
 section_events =  Section.create!(

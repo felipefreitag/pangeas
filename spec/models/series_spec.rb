@@ -26,64 +26,52 @@ RSpec.describe Series, type: :model do
     )
   end
 
-  let!(:series) do
-    Series.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      category: category,
-      image_url: 'http://foo'
-    )
-  end
-
-  let!(:series2) do
-    Series.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      category: category
-    )
-  end
-
-  let!(:video) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      vimeo_id: '163721649',
-      series: series2,
-      image_url: 'http://foobar.png'
-    )
-  end
-
   describe 'associations' do
-    it { expect(subject).to belong_to(:category) }
-    it { expect(subject).to have_many(:videos) }
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:videos) }
   end
 
   describe 'validations' do
-    it { expect(subject).to validate_presence_of(:category) }
-    it { expect(subject).to validate_presence_of(:name) }
-    it { expect(subject).to validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:category) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:description) }
   end
 
-  describe 'get image url' do
+  describe '#image' do
+    subject { series.image }
+
     context 'with series image_url set' do
-      it 'returns the series image url' do
-        expect(series.image).to eq('http://foo')
-      end
+      let(:series) { Series.new(image_url: 'http://foo') }
+
+      it { is_expected.to eq('http://foo') }
     end
 
     context 'without series image_url set' do
-      it 'returns the first video image url' do
-        expect(series2.image).to eq(video.image_url)
+      let(:series) do
+        Series.create!(
+          name: 'foo bar',
+          description: 'Amig Goswami é uma das maiores autoridades mundiais em
+            Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
+            Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
+            modelo comportamental',
+          category: category
+        )
       end
+
+      let!(:video) do
+        Video.create!(
+          name: 'foo bar',
+          description: 'Amig Goswami é uma das maiores autoridades mundiais em
+            Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
+            Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
+            modelo comportamental',
+          vimeo_id: '163721649',
+          series: series,
+          image_url: 'http://foobar.png'
+        )
+      end
+
+      it { is_expected.to eq(video.image_url) }
     end
   end
 end
