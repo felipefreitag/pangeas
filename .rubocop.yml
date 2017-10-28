@@ -15,10 +15,18 @@ AllCops:
 Style/HashSyntax:
   Exclude:
     - '**/subscription.rb'
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*.rb'
 Rails:
   Enabled: true
 Documentation:
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+Rails/NotNullColumn:
+  Enabled: false
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented

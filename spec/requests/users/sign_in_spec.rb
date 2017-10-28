@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'User sign-in', type: :request do
+RSpec.describe 'GET /users/sign_in', type: :request do
   subject { response }
 
   let!(:user) do
@@ -16,15 +16,12 @@ RSpec.describe 'User sign-in', type: :request do
 
   context 'when user signs in' do
     before do
-      post user_session_path,
-           params: {
-             'user[email]': user.email,
-             'user[password]': user.password
-           }
+      post user_session_path, params: {
+        'user[email]': user.email,
+        'user[password]': user.password
+      }
     end
 
-    it 'redirects to sections/index' do
-      is_expected.to redirect_to(sections_path)
-    end
+    it { is_expected.to redirect_to(sections_path) }
   end
 end

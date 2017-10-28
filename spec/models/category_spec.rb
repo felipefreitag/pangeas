@@ -54,8 +54,6 @@ RSpec.describe Category, type: :model do
   describe '#latest_video' do
     subject { category.latest_video }
 
-    it 'returns the video' do
-      is_expected.to eq(video)
-    end
+    it { is_expected.to eq(video) }
   end
 end

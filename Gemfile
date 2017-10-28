@@ -39,8 +39,8 @@ group :development, :test do
   gem 'rubocop', '~> 0.50.0', require: false
   gem 'rubocop-rspec'
   gem 'shoulda-matchers',
-      git: 'https://github.com/thoughtbot/shoulda-matchers.git',
-      branch: 'rails-5'
+    git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+    branch: 'rails-5'
   gem 'slim_lint'
 end
 

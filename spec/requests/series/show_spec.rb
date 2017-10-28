@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Show series', type: :request do
+RSpec.describe 'GET /series/:id', type: :request do
   subject { response }
 
   let!(:section) do
@@ -44,9 +44,7 @@ RSpec.describe 'Show series', type: :request do
       get "/series/#{series.id}"
     end
 
-    it 'redirects' do
-      is_expected.to have_http_status(:found)
-    end
+    it { is_expected.to have_http_status(:found) }
   end
 
   context 'with logged user' do
@@ -65,9 +63,7 @@ RSpec.describe 'Show series', type: :request do
         get "/series/#{series.id}"
       end
 
-      it 'redirects' do
-        is_expected.to have_http_status(:found)
-      end
+      it { is_expected.to have_http_status(:found) }
     end
 
     context 'with subscription' do
@@ -81,9 +77,7 @@ RSpec.describe 'Show series', type: :request do
         get "/series/#{series.id}"
       end
 
-      it 'returns ok' do
-        is_expected.to have_http_status(:ok)
-      end
+      it { is_expected.to have_http_status(:ok) }
     end
   end
 end

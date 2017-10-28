@@ -26,29 +26,18 @@ RSpec.describe User, type: :model do
 
     context 'with an active subscription' do
       before do
-        Subscription.create!(
-          user: user,
-          state: 'active',
-          recurrence: 'monthly'
-        )
+        Subscription.create!(user: user, state: 'active', recurrence: 'monthly')
       end
 
-      it 'returns true' do
-        is_expected.to be(true)
-      end
+      it { is_expected.to be(true) }
     end
 
     context 'with a non-active subscription' do
       before do
-        Subscription.create!(
-          user: user,
-          recurrence: 'monthly'
-        )
+        Subscription.create!(user: user, recurrence: 'monthly')
       end
 
-      it 'returns false' do
-        is_expected.to be(false)
-      end
+      it { is_expected.to be(false) }
     end
   end
 end
