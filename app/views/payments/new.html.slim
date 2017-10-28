@@ -1,1 +1,68 @@
-h1 New Payment
+.payment-container
+  .grid-container
+    .grid-x
+      .medium-8.medium-centered.cell
+        form[
+          id="payment-form"
+          target="_blank"
+          action="https://<-- seu servico -->"
+          method="POST"
+        ]
+          .usable-creditcard-form
+            .wrapper
+              .input-group.nmb_a
+                .icon.ccic-brand
+                input[
+                  autocomplete="off"
+                  class="credit_card_number"
+                  data-iugu="number"
+                  placeholder="Número do Cartão"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_b
+                .icon.ccic-cvv
+                input[
+                  autocomplete="off"
+                  class="credit_card_cvv"
+                  data-iugu="verification_value"
+                  placeholder="CVV"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_c
+                .icon.ccic-name
+                input[
+                  class="credit_card_name"
+                  data-iugu="full_name"
+                  placeholder="Titular do Cartão"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_d
+                .icon.ccic-exp
+                input[
+                  autocomplete="off"
+                  class="credit_card_expiration"
+                  data-iugu="expiration"
+                  placeholder="MM/AA"
+                  type="text"
+                  value=""
+                ]
+            .footer
+              = image_tag 'http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png'
+              a.iugu-btn href="http://iugu.com" tabindex="-1"
+                = image_tag 'http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png'
+          .token-area
+            input[
+              type="text"
+              name="token"
+              id="token"
+              value=""
+              readonly="true"
+              size="64"
+              style="text-align:center"
+            ]
+
+          div
+            button type="submit" Salvar
