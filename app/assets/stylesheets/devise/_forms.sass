@@ -1,5 +1,13 @@
 .forms-container
   background-color: $white
+  .alert-box
+    padding: 1rem
+    color: $white
+    background-color: $alert-color
+    h5
+      text-align: center
+    .close
+      display: none
   .devise-form
     padding-top: 4rem
     padding-bottom: 3rem
@@ -11,5 +19,8 @@
       box-shadow: none
       padding-top: 1.5rem
       padding-bottom: 1.5rem
+    .field_with_errors
+      .pink-input
+        border: 5px solid $alert-color
     .button
       margin-bottom: 0.5rem

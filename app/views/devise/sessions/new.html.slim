@@ -1,5 +1,4 @@
 .forms-container
-  = foundation_devise_error_messages!
   .grid-container
     .devise-form.grid-x
       .medium-1.cell
@@ -8,18 +7,21 @@
       .medium-6.cell
         .grid-x
           .large-12.cell
+            = foundation_devise_error_messages!
             = form_for(resource,
               as: resource_name,
               url: session_path(resource_name)) do |f|
               h3.text-center= 'Login do Assinante'
               .grid-x
-                = f.email_field :email, autofocus: true,
-                  class: 'large-12 cell pink-input',
-                  placeholder: 'DIGITE SEU E-MAIL AQUI'
+                .large-12.cell
+                  = f.email_field :email, autofocus: true,
+                    class: 'pink-input',
+                    placeholder: 'DIGITE SEU E-MAIL AQUI'
               .grid-x
-                = f.password_field :password, autocomplete: 'off',
-                  class: 'large-12 cell pink-input',
-                  placeholder: 'DIGITE SUA SENHA AQUI'
+                .large-12.cell
+                  = f.password_field :password, autocomplete: 'off',
+                    class: 'pink-input',
+                    placeholder: 'DIGITE SUA SENHA AQUI'
               - if devise_mapping.rememberable?
                 .grid-x
                   = f.check_box :remember_me

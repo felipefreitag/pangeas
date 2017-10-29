@@ -1,24 +1,26 @@
 .forms-container
-  = foundation_devise_error_messages!
   .grid-container
     .devise-form.grid-x
       .medium-6.medium-centered.cell
         .grid-x
           .large-12.cell
+            = foundation_devise_error_messages!
             = form_for(resource,
               as: resource_name,
               url: password_path(resource_name),
               html: { method: :post }) do |f|
               h3.text-center= 'Esqueceu sua senha?'
               .grid-x
-                = f.email_field :email, autofocus: true,
-                  class: 'large-12 cell pink-input',
-                  placeholder: 'DIGITE SEU E-MAIL AQUI'
+                .large-12.cell
+                  = f.email_field :email, autofocus: true,
+                    class: 'pink-input',
+                    placeholder: 'DIGITE SEU E-MAIL AQUI'
               .grid-x
-                = f.submit \
-                  t('.send_me_reset_password_instructions',
-                  default: 'Send me reset password instructions'),
-                  class: 'button expand large-12 large-centered cell'
+                .large-12.cell
+                  = f.submit \
+                    t('.send_me_reset_password_instructions',
+                    default: 'Send me reset password instructions'),
+                    class: 'button expand'
               p.text-center
                 ' Voltar para login?
                 = link_to 'Clique aqui',
