@@ -12,7 +12,7 @@ RSpec.describe 'GET /payments/new', type: :request do
       get '/payments/new'
     end
 
-    it { is_expected.to have_http_status(:found) }
+    it { is_expected.to redirect_to(new_user_session_path) }
   end
 
   context 'with logged user' do
@@ -28,7 +28,7 @@ RSpec.describe 'GET /payments/new', type: :request do
     before do
       headers = {
         'Accept' => 'application/json',
-        'Authorization' => 'Basic MjU4NGFjNmQ5MGE4M2JlYzVmNjhmYmEzMzk0NmFiNWM6',
+        'Authorization' => /Basic .+/,
         'Content-Type' => 'application/json',
         'Host' => 'api.iugu.com:443'
       }

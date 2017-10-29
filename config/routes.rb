@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
   resources :sections, only: %i[index show]
-  resources :subscriptions, only: %i[new] do
+  resources :subscriptions, only: %i[new create] do
     post :activate, on: :collection
   end
-  resources :payments, only: %i[new create]
+  resources :payments, only: %i[new]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
   get '/cifsqpangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
   get '/svl', to: 'high_voltage/pages#show', id: 'landing_svl'

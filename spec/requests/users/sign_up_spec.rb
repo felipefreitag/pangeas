@@ -8,10 +8,12 @@ RSpec.describe 'GET /users/sign_up', type: :request do
   context 'when user signs up' do
     before do
       post user_registration_path, params: {
-        'user[first_name]': 'foo',
-        'user[last_name]': 'bar',
-        'user[email]': 'foo@bar.com',
-        'user[password]': '123456'
+        user: {
+          first_name: 'foo',
+          last_name: 'bar',
+          email: 'foo@bar.com',
+          password: '123456'
+        }
       }
     end
 
