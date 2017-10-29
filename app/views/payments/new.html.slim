@@ -1,0 +1,67 @@
+.forms-container
+  .grid-container
+    .payment-form.grid-x
+      .medium-6.medium-centered.cell
+        = form_tag id: 'payment-form',
+          target: '_blank',
+          controller: 'subscriptions',
+          action: 'create',
+          method: 'post'
+          .usable-creditcard-form
+            .wrapper
+              .input-group.nmb_a
+                .icon.ccic-brand
+                input[
+                  autocomplete="off"
+                  class="credit_card_number"
+                  data-iugu="number"
+                  placeholder="Número do Cartão"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_b
+                .icon.ccic-cvv
+                input[
+                  autocomplete="off"
+                  class="credit_card_cvv"
+                  data-iugu="verification_value"
+                  placeholder="CVV"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_c
+                .icon.ccic-name
+                input[
+                  class="credit_card_name"
+                  data-iugu="full_name"
+                  placeholder="Titular do Cartão"
+                  type="text"
+                  value=""
+                ]
+              .input-group.nmb_d
+                .icon.ccic-exp
+                input[
+                  autocomplete="off"
+                  class="credit_card_expiration"
+                  data-iugu="expiration"
+                  placeholder="MM/AA"
+                  type="text"
+                  value=""
+                ]
+            .footer
+              = image_tag 'https://image.ibb.co/c338am/cc_icons.png.png'
+              a.iugu-btn href="http://iugu.com" tabindex="-1"
+                = image_tag 'https://image.ibb.co/mPwuFm/payments_by_iugu.png'
+          .token-area
+            input[
+              type="hidden"
+              name="token"
+              id="token"
+              value=""
+              readonly="true"
+              size="64"
+              style="text-align:center"
+            ]
+          .grid-x
+            button.button.success.large.expand.cell.large-12 type="submit"
+              | Salvar
