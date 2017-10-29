@@ -2,12 +2,11 @@
   .grid-container
     .payment-form.grid-x
       .medium-6.medium-centered.cell
-        form[
-          id="payment-form"
-          target="_blank"
-          action=subscriptions_path
-          method="POST"
-        ]
+        = form_tag id: 'payment-form',
+          target: '_blank',
+          controller: 'subscriptions',
+          action: 'create',
+          method: 'post'
           .usable-creditcard-form
             .wrapper
               .input-group.nmb_a
