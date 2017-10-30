@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
 
   def new
     iugu = Iugu.new(token: ENV['IUGU_API_TOKEN'])
+    session[:iugu] = iugu
     iugu.customer.create(
       email: current_user.email,
       name: "#{current_user.first_name} #{current_user.last_name}"

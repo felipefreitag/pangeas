@@ -37,7 +37,11 @@ RSpec.describe 'GET /payments/new', type: :request do
           body: '{"email":"bar@baz.com","name":"jane doe"}',
           headers: headers
         )
-        .to_return(status: 200, body: '', headers: {})
+        .to_return(
+          status: 200,
+          body: { id: 'bar' }.to_json,
+          headers: {}
+        )
       sign_in user
       get '/payments/new'
     end

@@ -9,7 +9,14 @@ class SubscriptionsController < ApplicationController
 
   def create
     authorize Subscription
-    payment_form_token = params[:token]
-    redirect_to sections_path
+    iugu = session[:iugu]
+    # iugu.payment_method.create(
+    #   customer_id: iugu.customer.id,
+    #   token: params[:token],
+    # )
+    # subscription = Subscription.new(
+    #   user_id: current_user[:id],
+    #   recurrence: params[:recurrence]
+    # )
   end
 end

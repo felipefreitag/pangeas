@@ -6,6 +6,7 @@
       .medium-6.medium-centered.cell
         = form_with url: subscriptions_path,
           id: 'payment-form'
+          input type='hidden' name='recurrence' value=params[:recurrence]
           .usable-creditcard-form
             .wrapper
               .input-group.nmb_a
