@@ -6,4 +6,10 @@ class SubscriptionsController < ApplicationController
   def new
     authorize Subscription
   end
+
+  def create
+    authorize Subscription
+    payment_form_token = params[:token]
+    redirect_to sections_path
+  end
 end

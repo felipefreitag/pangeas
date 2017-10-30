@@ -19,6 +19,7 @@
 //= require owl.carousel
 //= require carousel
 //= require smoothScroll
+//= require iugu_api
 //= require_tree .
 
 $(function(){
@@ -28,5 +29,6 @@ $(function(){
     $(document).foundation();
     startCarousel();
     smoothScroll();
+    iuguApi();
   });
 });
