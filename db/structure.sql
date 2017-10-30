@@ -185,7 +185,8 @@ CREATE TABLE subscriptions (
     payment_method character varying,
     activated_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    iugu_id character varying
 );
 
 
@@ -461,6 +462,13 @@ CREATE INDEX index_series_on_category_id ON series USING btree (category_id);
 
 
 --
+-- Name: index_subscriptions_on_iugu_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_subscriptions_on_iugu_id ON subscriptions USING btree (iugu_id);
+
+
+--
 -- Name: index_subscriptions_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -566,6 +574,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170829130413'),
 ('20170922172600'),
 ('20170925190751'),
-('20171030201335');
+('20171030201335'),
+('20171030201522');
 
 
