@@ -6,9 +6,11 @@ function iuguApi() {
   }
   $('#payment-form').submit(function(event) {
     var form = $(this);
+    $('button[type=submit]').attr('disabled', true);
     var tokenResponseHandler = function(data) {
       if (data.errors) {
         console.log("Erro salvando cartão: " + JSON.stringify(data.errors));
+        $('button[type=submit]').attr('disabled', false);
       } else {
         $("#token").val(data.id);
         form.get(0).submit();
