@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Iugu
-  class IuguSubscription
+  class Subscription
     attr_reader :api, :id
 
     def initialize(options)
