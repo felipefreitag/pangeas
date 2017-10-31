@@ -17,9 +17,6 @@
 //= require turbolinks
 //= require toastr
 //= require owl.carousel
-//= require carousel
-//= require smoothScroll
-//= require iugu_api
 //= require_tree .
 
 $(function(){

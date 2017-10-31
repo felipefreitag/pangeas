@@ -8,10 +8,10 @@ function iuguApi() {
     var form = $(this);
     var tokenResponseHandler = function(data) {
       if (data.errors) {
-          console.log("Erro salvando cartão: " + JSON.stringify(data.errors));
+        console.log("Erro salvando cartão: " + JSON.stringify(data.errors));
       } else {
-          $("#token").val( data.id );
-          form.get(0).submit();
+        $("#token").val(data.id);
+        form.get(0).submit();
       }
     }
     Iugu.createPaymentToken(this, tokenResponseHandler);

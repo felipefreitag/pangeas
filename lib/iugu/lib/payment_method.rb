@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
-class Iugu
+module Iugu
   class PaymentMethod
-    attr_reader :api, :id
+    attr_reader :api
 
     def initialize(options)
       @api = options[:api]
-      @id = nil
     end
 
     def create(params)
       merged_params = {
-        description: 'Sign-up credit card',
+        description: 'Cartão de crédito',
         set_as_default: true
       }.merge(params)
 
       api.post(
-        "/customers/#{params[:customer_id]}/payment_methods}",
+        "/customers/#{params[:customer_id]}/payment_methods",
         body: merged_params.to_json
       )
     end

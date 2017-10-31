@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized(_exception)
-    flash[:alert] = t('flash.not_authorized')
+    flash[:failure] = t('flash.not_authorized')
     redirect_to(new_subscription_path || root_path)
   end
 

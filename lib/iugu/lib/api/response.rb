@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Iugu
+module Iugu
   class API
     class Response
       attr_reader :status, :json, :headers

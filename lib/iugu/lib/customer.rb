@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-class Iugu
+module Iugu
   class Customer
-    attr_reader :api, :id
+    attr_reader :api
 
     def initialize(options)
       @api = options[:api]
-      @id = nil
     end
 
     def create(params)
-      response = api.post('/customers', body: params.to_json)
-      @id = response.json['id']
+      api.post('/customers', body: params.to_json)
     end
   end
 end
