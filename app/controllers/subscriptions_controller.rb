@@ -5,6 +5,8 @@ class SubscriptionsController < ApplicationController
 
   def new
     authorize Subscription
+    subscription = current_user.subscription
+    redirect_to subscription if subscription
   end
 
   def create
