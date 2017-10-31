@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/iugu'
-
 class SubscriptionsController < ApplicationController
   skip_before_action :authenticate_user!
 

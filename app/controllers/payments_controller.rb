@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/iugu'
-
 class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
 
