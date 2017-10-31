@@ -5,6 +5,7 @@ class SubscriptionsController < ApplicationController
 
   def new
     authorize Subscription
+    return unless current_user
     subscription = current_user.subscription
     redirect_to subscription if subscription
   end
