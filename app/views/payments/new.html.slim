@@ -2,9 +2,15 @@
   = javascript_include_tag 'https://js.iugu.com/v2'
 .forms-container
   .grid-container
-    .payment-form.grid-x
+    .devise-form.payment-form.grid-x
       .medium-6.medium-centered.cell
+        .grid-x#error-box.hidden
+          .large-12.cell
+            .alert-box.alert
+              h5 Não foi possível cadastrar meio de pagamento
+              ul#error-list
         = form_with url: subscriptions_path, id: 'payment-form'
+          h3.text-center Por favor, digite seus dados de pagamento
           input[
             type="hidden"
             name="subscription[recurrence]"
