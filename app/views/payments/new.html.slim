@@ -57,11 +57,14 @@
                   type="text"
                   value=""
                 ]
-            .footer
-              = image_tag 'https://image.ibb.co/c338am/cc_icons.png.png'
-              a.iugu-btn href="http://iugu.com" tabindex="-1"
-                = image_tag 'https://image.ibb.co/mPwuFm/payments_by_iugu.png'
-          .token-area
+              .footer.mb-3rem
+                = image_tag 'https://image.ibb.co/c338am/cc_icons.png.png',
+                  class: 'float-left'
+                a.iugu-btn href="http://iugu.com" tabindex="-1"
+                  = image_tag \
+                    'https://image.ibb.co/mPwuFm/payments_by_iugu.png',
+                    class: 'float-right'
+          .token-area.clear-both
             input[
               type="hidden"
               name="token"
