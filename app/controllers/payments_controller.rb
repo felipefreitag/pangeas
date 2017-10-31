@@ -4,8 +4,8 @@ class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
 
   def new
+    return if current_user.iugu_id
     iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
-    return unless current_user.iugu_id
     customer = create_customer(iugu)
     current_user.update! iugu_id: customer['id']
   end
