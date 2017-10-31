@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
   resources :sections, only: %i[index show]
-  resources :subscriptions, only: %i[new create] do
+  resources :subscriptions, only: %i[new create show] do
     post :activate, on: :collection
   end
   resources :payments, only: %i[new]

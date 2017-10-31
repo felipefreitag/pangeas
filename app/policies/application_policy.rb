@@ -26,7 +26,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(id: record.id).exists?
+    owner_or_admin?
   end
 
   def create?
