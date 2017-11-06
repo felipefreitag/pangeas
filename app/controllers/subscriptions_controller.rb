@@ -16,10 +16,9 @@ class SubscriptionsController < ApplicationController
     return render_error('seu pagamento') unless create_payment_method(iugu)
     iugu_subscription = create_iugu_subscription(iugu)
     return render_error('sua assinatura') unless iugu_subscription
-    subscription = Subscription.create!(subscription_params.merge(
-      user: current_user,
-      iugu_id: iugu_subscription['id']
-    ))
+    subscription = create_subscription(
+      subscription_params, iugu_subscription['id']
+    )
     redirect_to subscription
   end
 
@@ -29,6 +28,14 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
+  def create_subscription(subscription_params, iugu_id)
+    Subscription.create!(subscription_params.merge(
+      user: current_user,
+      iugu_id: iugu_id,
+      affiliate_tag: affiliate_tag
+    ))
+  end
 
   def create_payment_method(iugu)
     iugu.payment_method.create(
@@ -55,5 +62,9 @@ class SubscriptionsController < ApplicationController
       "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
       'Por favor, tente novamente mais tarde.'
     redirect_to root_path
+  end
+
+  def affiliate_tag
+    request.env['affiliate.tag'] ? request.env['affiliate.tag'] : nil
   end
 end
