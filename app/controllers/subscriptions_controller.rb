@@ -28,6 +28,10 @@ class SubscriptionsController < ApplicationController
     authorize @subscription
   end
 
+  def activate
+    authorize Subscription
+  end
+
   private
 
   def create_payment_method(iugu)
