@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Iugu
+module Iugu
   class Customer
     attr_reader :api
 

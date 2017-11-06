@@ -3,6 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  let!(:user) do
+    User.create!(
+      first_name: 'john',
+      last_name: 'doe',
+      email: 'foo@bar.com',
+      password: '123456'
+    )
+  end
+
   describe 'associations' do
     it { is_expected.to have_many(:subscriptions) }
   end
@@ -14,15 +23,6 @@ RSpec.describe User, type: :model do
 
   describe 'subscribed?' do
     subject { user.subscribed? }
-
-    let!(:user) do
-      User.create!(
-        first_name: 'john',
-        last_name: 'doe',
-        email: 'foo@bar.com',
-        password: '123456'
-      )
-    end
 
     context 'with an active subscription' do
       before do
@@ -38,6 +38,23 @@ RSpec.describe User, type: :model do
       end
 
       it { is_expected.to be(false) }
+    end
+  end
+
+  describe 'subscription' do
+    subject { user.subscription }
+
+    context 'without subscriptions' do
+      it { is_expected.to be(nil) }
+    end
+
+    context 'with subscriptions' do
+      before do
+        Subscription.create!(user: user, recurrence: 'monthly')
+        Subscription.create!(user: user, recurrence: 'anual')
+      end
+
+      it { is_expected.to eq(user.subscriptions.order(:created_at).last) }
     end
   end
 end

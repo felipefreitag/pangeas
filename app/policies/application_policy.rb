@@ -1,19 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationPolicy
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
-  end
-
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -26,7 +13,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(id: record.id).exists?
+    owner_or_admin?
   end
 
   def create?
@@ -47,10 +34,6 @@ class ApplicationPolicy
 
   def destroy?
     admin?
-  end
-
-  def scope
-    Pundit.policy_scope!(user, record.class)
   end
 
   protected

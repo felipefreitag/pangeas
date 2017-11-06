@@ -17,8 +17,6 @@
 //= require turbolinks
 //= require toastr
 //= require owl.carousel
-//= require carousel
-//= require smoothScroll
 //= require_tree .
 
 $(function(){
@@ -28,5 +26,6 @@ $(function(){
     $(document).foundation();
     startCarousel();
     smoothScroll();
+    iuguApi();
   });
 });

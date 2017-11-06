@@ -1,12 +1,21 @@
+- content_for :external_js
+  = javascript_include_tag 'https://js.iugu.com/v2'
 .forms-container
   .grid-container
-    .payment-form.grid-x
+    .devise-form.payment-form.grid-x
       .medium-6.medium-centered.cell
-        = form_tag id: 'payment-form',
-          target: '_blank',
-          controller: 'subscriptions',
-          action: 'create',
-          method: 'post'
+        .grid-x#error-box.hidden
+          .large-12.cell
+            .alert-box.alert
+              h5 Não foi possível cadastrar meio de pagamento
+              ul#error-list
+        = form_with url: subscriptions_path, id: 'payment-form'
+          h3.text-center Por favor, digite seus dados de pagamento
+          input[
+            type="hidden"
+            name="subscription[recurrence]"
+            value=params[:recurrence]
+          ]
           .usable-creditcard-form
             .wrapper
               .input-group.nmb_a
@@ -48,11 +57,14 @@
                   type="text"
                   value=""
                 ]
-            .footer
-              = image_tag 'https://image.ibb.co/c338am/cc_icons.png.png'
-              a.iugu-btn href="http://iugu.com" tabindex="-1"
-                = image_tag 'https://image.ibb.co/mPwuFm/payments_by_iugu.png'
-          .token-area
+              .footer.mb-3rem
+                = image_tag 'https://image.ibb.co/c338am/cc_icons.png.png',
+                  class: 'float-left'
+                a.iugu-btn href="http://iugu.com" tabindex="-1"
+                  = image_tag \
+                    'https://image.ibb.co/mPwuFm/payments_by_iugu.png',
+                    class: 'float-right'
+          .token-area.clear-both
             input[
               type="hidden"
               name="token"
@@ -63,5 +75,5 @@
               style="text-align:center"
             ]
           .grid-x
-            button.button.success.large.expand.cell.large-12 type="submit"
+            button.button.success.large.expand.large-12.cell type="submit"
               | Salvar

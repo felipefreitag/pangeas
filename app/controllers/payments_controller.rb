@@ -4,10 +4,31 @@ class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
 
   def new
-    iugu = Iugu.new(token: ENV['IUGU_API_TOKEN'])
-    iugu.customer.create(
+    return if current_user.iugu_id
+    iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
+    customer = create_customer(iugu)
+    current_user.update! iugu_id: customer['id']
+  end
+
+  private
+
+  def create_customer(iugu)
+    response = iugu.customer.create(
       email: current_user.email,
-      name: "#{current_user.first_name} #{current_user.last_name}"
+      name: name
     )
+    return render_error unless response.success?
+    response.json
+  end
+
+  def name
+    "#{current_user.first_name} #{current_user.last_name}"
+  end
+
+  def render_error
+    flash[:failure] =
+      'Ooops, alguma coisa deu errado com seu cadastro no Iugu. ' \
+      'Por favor, tente novamente mais tarde.'
+    redirect_to root_path
   end
 end

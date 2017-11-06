@@ -1,0 +1,29 @@
+.subscribe-container.bg-white
+  .hero
+    .grid-container
+      .grid-x
+        .medium-9.medium-centered.cell.text-center
+          h2 Bem-vindx!
+          h5
+            ' Sua assinatura está sendo processada.
+            ' Você receberá um e-mail do Iugu no endereço
+            = current_user.email
+            span< quando for aprovada.
+          h5.text-left Aqui estão os dados que você registrou:
+          ul.text-left
+            li
+              ' Nome:
+              = current_user.first_name
+              = current_user.last_name
+            li
+              ' E-mail:
+              = current_user.email
+            li
+              ' Tipo de assinatura:
+              - if @subscription.recurrence == 'monthly'
+                ' Mensal
+              - if @subscription.recurrence == 'anual'
+                ' Anual
+            li
+              ' Se você precisar de ajuda, este é o ID da sua assinatura:
+              = @subscription.iugu_id

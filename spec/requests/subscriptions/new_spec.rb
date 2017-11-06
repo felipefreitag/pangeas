@@ -5,9 +5,41 @@ require 'rails_helper'
 RSpec.describe 'GET /subscriptions/new', type: :request do
   subject { response }
 
-  before do
-    get '/subscriptions/new'
+  context 'without a logged in user' do
+    before do
+      get '/subscriptions/new'
+    end
+
+    it { is_expected.to have_http_status(:ok) }
   end
 
-  it { is_expected.to have_http_status(:ok) }
+  context 'with a logged in user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'jane',
+        last_name: 'doe',
+        email: 'bar@baz.com',
+        password: '123456'
+      )
+    end
+
+    context 'that has no subscription' do
+      before do
+        sign_in user
+        get '/subscriptions/new'
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+
+    context 'that has a subscription' do
+      before do
+        Subscription.create!(user: user, recurrence: 'monthly')
+        sign_in user
+        get '/subscriptions/new'
+      end
+
+      it { is_expected.to redirect_to(user.subscription) }
+    end
+  end
 end
