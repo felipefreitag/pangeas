@@ -17,7 +17,7 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
 
   context 'when api payment method fails' do
     before do
-      stub_request_payment(500)
+      stub_payment_request(500)
       sign_in user
       post '/subscriptions'
     end
@@ -30,8 +30,8 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
 
   context 'when api subscription fails' do
     before do
-      stub_request_payment(200)
-      stub_request_subscription(status: 500)
+      stub_payment_request(200)
+      stub_subscription_request(status: 500)
       sign_in user
       post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
     end
@@ -43,18 +43,54 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
   end
 
   context 'when subscription is created' do
-    before do
-      stub_request_payment(200)
-      stub_request_subscription(status: 200, body: { id: '1' }.to_json)
-      sign_in user
-      post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
+    context 'without an affiliate_tag' do
+      before do
+        stub_payment_request(200)
+        stub_subscription_request(status: 200, body: { id: '1' }.to_json)
+        sign_in user
+        post '/subscriptions', params: {
+          subscription: { recurrence: 'monthly' }
+        }
+      end
+
+      it { is_expected.to redirect_to(user.subscription) }
+
+      subject(:subscription) { Subscription.first }
+
+      it { expect(subscription.user).to eq(user) }
+      it { expect(subscription.state).to eq('pending') }
+      it { expect(subscription.recurrence).to eq('monthly') }
+      it { expect(subscription.payment_method).to be(nil) }
+      it { expect(subscription.activated_at).to be(nil) }
+      it { expect(subscription.affiliate_tag).to be(nil) }
     end
 
-    it { is_expected.to redirect_to(user.subscription) }
+    context 'with an affiliate_tag' do
+      before do
+        stub_payment_request(200)
+        stub_subscription_request(status: 200, body: { id: '1' }.to_json)
+        sign_in user
+        get '/', params: { aff: 'aff123' }
+        post '/subscriptions', params: {
+          subscription: { recurrence: 'monthly' }
+        }
+      end
+
+      it { is_expected.to redirect_to(user.subscription) }
+
+      subject(:subscription) { Subscription.first }
+
+      it { expect(subscription.user).to eq(user) }
+      it { expect(subscription.state).to eq('pending') }
+      it { expect(subscription.recurrence).to eq('monthly') }
+      it { expect(subscription.payment_method).to be(nil) }
+      it { expect(subscription.activated_at).to be(nil) }
+      it { expect(subscription.affiliate_tag).to eq('aff123') }
+    end
   end
 end
 
-def stub_request_payment(status)
+def stub_payment_request(status)
   stub_request(:post, "#{base_url}/customers/1/payment_methods")
     .with(
       body: {
@@ -67,7 +103,7 @@ def stub_request_payment(status)
     ).to_return(status: status)
 end
 
-def stub_request_subscription(to_return)
+def stub_subscription_request(to_return)
   stub_request(:post, "#{base_url}/subscriptions")
     .with(
       body: {

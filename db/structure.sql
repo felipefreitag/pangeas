@@ -186,7 +186,8 @@ CREATE TABLE subscriptions (
     activated_at timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    iugu_id character varying
+    iugu_id character varying,
+    affiliate_tag character varying
 );
 
 
@@ -262,7 +263,8 @@ CREATE TABLE users (
     last_sign_in_ip inet,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    iugu_id character varying
+    iugu_id character varying,
+    affiliate_tag character varying
 );
 
 
@@ -575,6 +577,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170922172600'),
 ('20170925190751'),
 ('20171030201335'),
-('20171030201522');
+('20171030201522'),
+('20171106133117'),
+('20171106133210');
 
 
