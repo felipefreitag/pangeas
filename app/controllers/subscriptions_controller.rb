@@ -2,6 +2,7 @@
 
 class SubscriptionsController < ApplicationController
   skip_before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: %i[activate]
 
   def new
     authorize Subscription
@@ -29,7 +30,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def activate
-    subscription = Subscription.find_by(iugu_id: params[:data][:id])
+    subscription = Subscription.find_by!(iugu_id: params[:data][:id])
     authorize subscription
     subscription.activate!
     subscription.update!(
