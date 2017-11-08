@@ -5,15 +5,15 @@
   .call-to-action
     - if title
       .grid-x
-        .medium-6.medium-centered.cell
+        .small-12.medium-6.medium-centered.cell
           h3.text-center= title
-    .grid-x.grid-padding-x.grid-margin-x
+    .grid-x.grid-padding-x
       .auto.cell
-      .medium-5.cell.text-center
+      .small-12.medium-5.cell.text-center
         = link_to sign_up,
           new_subscription_path,
           class: 'button success large'
-      .medium-5.cell.text-center
+      .small-12.medium-5.cell.text-center
         = link_to 'Veja nossa lista de conteúdos',
           page_path('how_it_works'),
           class: 'button secondary large'
