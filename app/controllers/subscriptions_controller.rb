@@ -29,7 +29,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def activate
-    authorize Subscription
+    subscription = Subscription.find(id: params[:data][:id])
+    authorize subscription
+    subscription.activate
   end
 
   private
