@@ -43,14 +43,50 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
   end
 
   context 'when subscription is created' do
-    before do
-      stub_payment_request(200)
-      stub_subscription_request(status: 200, body: { id: '1' }.to_json)
-      sign_in user
-      post '/subscriptions', params: { subscription: { recurrence: 'monthly' } }
+    context 'without an affiliate_tag' do
+      before do
+        stub_payment_request(200)
+        stub_subscription_request(status: 200, body: { id: '1' }.to_json)
+        sign_in user
+        post '/subscriptions', params: {
+          subscription: { recurrence: 'monthly' }
+        }
+      end
+
+      it { is_expected.to redirect_to(user.subscription) }
+
+      subject(:subscription) { Subscription.first }
+
+      it { expect(subscription.user).to eq(user) }
+      it { expect(subscription.state).to eq('pending') }
+      it { expect(subscription.recurrence).to eq('monthly') }
+      it { expect(subscription.payment_method).to be(nil) }
+      it { expect(subscription.activated_at).to be(nil) }
+      it { expect(subscription.affiliate_tag).to be(nil) }
     end
 
-    it { is_expected.to redirect_to(user.subscription) }
+    context 'with an affiliate_tag' do
+      before do
+        stub_payment_request(200)
+        stub_subscription_request(status: 200, body: { id: '1' }.to_json)
+        sign_in user
+        get '/', params: { aff: 'aff123' }
+        post '/subscriptions', params: {
+          subscription: { recurrence: 'monthly' }
+        }
+      end
+
+      it { is_expected.to redirect_to(user.subscription) }
+
+      subject(:subscription) { Subscription.first }
+
+      it { expect(subscription.user).to eq(user) }
+      it { expect(subscription.state).to eq('pending') }
+      it { expect(subscription.recurrence).to eq('monthly') }
+      it { expect(subscription.payment_method).to be(nil) }
+      it { expect(subscription.activated_at).to be(nil) }
+      it { expect(subscription.affiliate_tag).to eq('aff123') }
+    end
   end
 end
 

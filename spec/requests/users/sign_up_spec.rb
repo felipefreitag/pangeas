@@ -22,12 +22,12 @@ RSpec.describe 'GET /users/sign_up', type: :request do
 
       it { is_expected.to redirect_to(new_payment_path) }
 
-      subject(:user_first) { User.first }
+      subject(:first_user) { User.first }
 
-      it { expect(user_first.first_name).to eq('foo') }
-      it { expect(user_first.last_name).to eq('bar') }
-      it { expect(user_first.email).to eq('foo@bar.com') }
-      it { expect(user_first.affiliate_tag).to be(nil) }
+      it { expect(first_user.first_name).to eq('foo') }
+      it { expect(first_user.last_name).to eq('bar') }
+      it { expect(first_user.email).to eq('foo@bar.com') }
+      it { expect(first_user.affiliate_tag).to be(nil) }
     end
 
     context 'with affiliate_tag' do
@@ -38,12 +38,12 @@ RSpec.describe 'GET /users/sign_up', type: :request do
 
       it { is_expected.to redirect_to(new_payment_path) }
 
-      subject(:user_first) { User.first }
+      subject(:first_user) { User.first }
 
-      it { expect(user_first.first_name).to eq('foo') }
-      it { expect(user_first.last_name).to eq('bar') }
-      it { expect(user_first.email).to eq('foo@bar.com') }
-      it { expect(user_first.affiliate_tag).to eq('aff123') }
+      it { expect(first_user.first_name).to eq('foo') }
+      it { expect(first_user.last_name).to eq('bar') }
+      it { expect(first_user.email).to eq('foo@bar.com') }
+      it { expect(first_user.affiliate_tag).to eq('aff123') }
     end
   end
 end
