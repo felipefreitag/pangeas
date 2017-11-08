@@ -6,7 +6,6 @@
     background: -o-linear-gradient($white 94%, $light-gray 95%)
     background: -moz-linear-gradient($white 94%, $light-gray 95%)
     background: linear-gradient($white 94%, $light-gray 95%)
-
     .title
       h2
         margin-top: 1rem
@@ -29,6 +28,8 @@
       position: relative
       h3
         margin-top: 6rem
+        @include breakpoint(small-only)
+          margin-top: 0
   .sections-description
     background-color: $light-gray
     padding-top: 5rem

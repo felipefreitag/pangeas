@@ -3,28 +3,28 @@
     .grid-container
       .title.text-center
         .grid-x.grid-padding-x.align-middle
-          .auto.cell
+          .auto.cell.show-for-medium
           .shrink.cell
             .img-container
               = image_tag @section.image_url
           .shrink.cell
             h2= @section.name
-          .auto.cell
+          .auto.cell.show-for-medium
         h5
           span> Aqui você encontra informações práticas e filosóficas para
           span.bg-highlight viver sua saúde e liberdade
       .text-center
         h5 Confira as categorias nos atalhos abaixo:
         .grid-container
-          .grid-x.grid-margin-x
-            .auto.cell
+          .grid-x.grid-padding-x
+            .auto.cell.show-for-large
             - @section.subsections.each do |subsection|
-              .shrink.cell
+              .shrink.cell.text-center
                 a.button.success.subsection-link[
                   href="#subsection-#{subsection.id}"
                 ]
                   = subsection.name
-            .auto.cell
+            .auto.cell.show-for-large
   .whats-new
     .grid-container
       h4.text-center Veja o que tem de novo na Pangeas

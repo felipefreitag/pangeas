@@ -8,18 +8,18 @@
           span.bg-highlight> acesso a todos os vídeos
           ' na Pangeas, nos ajudando a produzir cada vez mais conteúdos para
           ' encontrarmos saúde e liberdade.
-    .grid-x.grid-padding-x.grid-margin-x
-      .auto.cell
-      .medium-4.cell
+    .grid-x.grid-padding-x
+      .auto.cell.show-for-large
+      .medium-6.large-4.cell
         .card.text-center
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-dark-gray.text-center
             .price.grid-x
-              .medium-3.cell.text-right
+              .large-3.cell
                 p R$
-              .medium-6.cell
+              .large-6.cell
                 h1 29,90
-              .medium-3.cell.text-left
+              .large-3.cell
                 p | mês
             p
               span.bold Período de adesão:
@@ -37,17 +37,17 @@
               = link_to 'Assinar',
                 new_registration_path('user', recurrence: 'monthly'),
                 class: 'button success large'
-      .medium-4.cell
+      .medium-6.large-4.cell
         .card.text-center
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-pink.text-center
             .price.grid-x
-              .medium-3.cell.text-right
+              .large-3.cell.text-right
                 p R$
-              .medium-6.cell
+              .large-6.cell
                 h1 22,90
-              .medium-3.cell.text-left
-                p | mês
+              .large-3.cell.text-left
+                p | mês*
             p
               span.bold Período de adesão:
               | 12 meses
@@ -56,6 +56,7 @@
             h6 Renova automaticamente de 12 em 12 meses
             h6 Solicitando o cancelamento, a assinatura não será renovada
               no final do período de adesão
+            h6 * Valor equivalente ao mês, no pagamento total do período
             - if user_signed_in?
               = link_to 'Assinar',
                 new_payment_path(recurrence: 'anual'),
@@ -64,4 +65,4 @@
               = link_to 'Assinar',
                 new_registration_path('user', recurrence: 'anual'),
                 class: 'button success large'
-      .auto.cell
+      .auto.cell.show-for-large

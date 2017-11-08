@@ -12,27 +12,27 @@
           ' novos caminhos e melhores resultados para seus pacientes.
           | Esses 3 pilares são...
       .sections-logos
-        .grid-x.grid-padding-x.grid-margin-x
+        .grid-x.grid-padding-x
           .auto.cell
           - Section.order(:id).all.each do |section|
-            .medium-3.cell.section-cell.text-center
+            .small-12.medium-3.cell.section-cell.text-center
               = image_tag section.image_url
               h6= section.name
           .auto.cell
       .fold-image
         .grid-x.text-center
           .auto.cell
-          .medium-4.cell
+          .small-12.medium-4.cell
             h3 150 novos vídeos em
-          .medium-2.cell
+          .small-12.medium-2.cell
             = image_tag 'how-it-works.png'
-          .medium-4.cell
+          .small-12.medium-4.cell
             h3 apenas 1 ano e meio
           .auto.cell
   .sections-description
     .grid-container
       .grid-x.grid-padding-x.grid-padding-y
-        .medium-7.cell
+        .small-12.medium-7.cell
           h3 Eventos & Pesquisa
           h5
            ' Nesse espaço estão reunidos
@@ -40,21 +40,22 @@
            ' trazidos para os profissionais e os mais estudiosos com
            ' um objetivo bem direto: quebrar os paradigmas para vermos com
            | clareza o futuro da saúde e dos tratamentos mais humanos.
-        .medium-5.cell.align-right
-          iframe [src="https://player.vimeo.com/video/163721649"
-            width="470"
-            height="264"
-            frameborder="0"
-            webkitallowfullscreen
-            mozallowfullscreen
-            allowfullscreen
-          ]
+        .small-12.medium-5.cell.align-right
+          .responsive-embed.widescreen
+            iframe [src="https://player.vimeo.com/video/163721649"
+              width="470"
+              height="264"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            ]
       .grid-x.grid-padding-x.grid-padding-y
         .medium-12.cell
           h5 Aqui você vai encontrar...
           .grid-x
             .auto.cell
-            .medium-11.cell
+            .small-12.medium-11.cell
               ul
                 li
                   span.bg-highlight> > Eventos nacionais e internacionais
@@ -76,7 +77,7 @@
                   ' Nome da palestra e dos palestrantes;
                   | Nome da palestra e dos palestrantes;
       .grid-x.grid-padding-x.grid-padding-y
-        .medium-7.cell
+        .small-12.medium-7.cell
           h3 Vida em Equilíbrio
           h5
            ' Aqui você encontra os
@@ -85,15 +86,16 @@
            ' consciente de si, do meio ambiente e da relação disso tudo com o
            ' cosmos. São informações práticas e filosóficas para viver sua saúde
            ' e sua liberdade.
-        .medium-5.cell.align-right
-          iframe [src="https://player.vimeo.com/video/163721649"
-            width="470"
-            height="264"
-            frameborder="0"
-            webkitallowfullscreen
-            mozallowfullscreen
-            allowfullscreen
-          ]
+        .small-12.medium-5.cell.align-right
+          .responsive-embed.widescreen
+            iframe [src="https://player.vimeo.com/video/163721649"
+              width="470"
+              height="264"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            ]
       .grid-x.grid-padding-x.grid-padding-y
         .medium-12.cell
           h5 Aqui você vai ver aulas, séries, docs, bate-papos, dicas para...
