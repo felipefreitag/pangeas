@@ -22,11 +22,11 @@ class Subscription < ApplicationRecord
     end
 
     event :deactivate do
-      transition :ative => :inactive
+      transition :active => :inactive
     end
 
     event :cancel do
-      transition :ative => :canceled
+      transition :active => :canceled
     end
 
     before_transition any => :active do |subscription|
