@@ -9,7 +9,11 @@
             .alert-box.alert
               h5 Não foi possível cadastrar meio de pagamento
               ul#error-list
-        = form_with url: subscriptions_path, id: 'payment-form'
+        = form_with url: subscriptions_path, id: 'payment-form',
+            data: { \
+              account: ENV['IUGU_ACCOUNT_ID'],
+              test: ENV['IUGU_TEST_MODE'] \
+            }
           h3.text-center Por favor, digite seus dados de pagamento
           input[
             type="hidden"
