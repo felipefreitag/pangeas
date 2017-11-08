@@ -29,11 +29,11 @@ class SubscriptionsController < ApplicationController
 
   private
 
-  def create_subscription(subscription_params, iugu_id)
-    Subscription.create!(subscription_params.merge(
+  def create_subscription(attributes, iugu_id)
+    Subscription.create!(attributes.merge(
       user: current_user,
       iugu_id: iugu_id,
-      affiliate_tag: affiliate_tag
+      affiliate_tag: request.env['affiliate.tag'].presence
     ))
   end
 
@@ -62,9 +62,5 @@ class SubscriptionsController < ApplicationController
       "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
       'Por favor, tente novamente mais tarde.'
     redirect_to root_path
-  end
-
-  def affiliate_tag
-    request.env['affiliate.tag'] ? request.env['affiliate.tag'] : nil
   end
 end
