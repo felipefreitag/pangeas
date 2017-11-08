@@ -1,11 +1,11 @@
 .forms-container
   .grid-container
     .devise-form.grid-x
-      .medium-1.cell
-      .medium-2.cell
+      .large-1.cell.show-for-large
+      .large-2.cell.show-for-large
         = image_tag 'sign-in-welcome.png'
-      .medium-6.cell
-        .grid-x
+      .medium-8.medium-centered.large-6.cell
+        .grid-x.grid-padding-x
           .large-12.cell
             = foundation_devise_error_messages!
             = form_for(resource,
@@ -33,7 +33,7 @@
                 ' Esqueceu sua senha?
                 = link_to 'Clique aqui', new_password_path(resource_name)
                 | .
-      .auto.cell
+      .auto.cell.show-for-large
     = render \
       partial: 'layouts/call_to_action',
       locals: { \
