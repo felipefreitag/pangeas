@@ -1,8 +1,8 @@
 .forms-container
   .grid-container
     .devise-form.grid-x
-      .medium-6.medium-centered.cell
-        .grid-x
+      .medium-8.large-6.medium-centered.cell
+        .grid-x.grid-padding-x
           .large-12.cell
             = foundation_devise_error_messages!
             = form_for(resource,
@@ -16,11 +16,11 @@
                     class: 'pink-input',
                     placeholder: 'DIGITE SEU E-MAIL AQUI'
               .grid-x
-                .large-12.cell
+                .large-12.cell.text-center
                   = f.submit \
                     t('.send_me_reset_password_instructions',
                     default: 'Send me reset password instructions'),
-                    class: 'button expand'
+                    class: 'button expand whitespace-normal'
               p.text-center
                 ' Voltar para login?
                 = link_to 'Clique aqui',

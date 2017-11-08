@@ -15,6 +15,14 @@
       display: block
       color: $white
       .price
+        .cell:first-child
+          text-align: center
+          @include breakpoint(large)
+            text-align: right
+        .cell:last-child
+          text-align: center
+          @include breakpoint(large)
+            text-align: left
         h1
           font-size: 4rem
           font-weight: bolder
