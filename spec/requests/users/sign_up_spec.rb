@@ -6,17 +6,44 @@ RSpec.describe 'GET /users/sign_up', type: :request do
   subject { response }
 
   context 'when user signs up' do
-    before do
-      post user_registration_path, params: {
-        user: {
-          first_name: 'foo',
-          last_name: 'bar',
-          email: 'foo@bar.com',
-          password: '123456'
-        }
+    let(:user) do
+      {
+        first_name: 'foo',
+        last_name: 'bar',
+        email: 'foo@bar.com',
+        password: '123456'
       }
     end
 
-    it { is_expected.to redirect_to(new_payment_path) }
+    context 'without affiliate_tag' do
+      before do
+        post user_registration_path, params: { user: user }
+      end
+
+      it { is_expected.to redirect_to(new_payment_path) }
+
+      subject(:first_user) { User.first }
+
+      it { expect(first_user.first_name).to eq('foo') }
+      it { expect(first_user.last_name).to eq('bar') }
+      it { expect(first_user.email).to eq('foo@bar.com') }
+      it { expect(first_user.affiliate_tag).to be(nil) }
+    end
+
+    context 'with affiliate_tag' do
+      before do
+        user['affiliate_tag'] = 'aff123'
+        post user_registration_path, params: { user: user }
+      end
+
+      it { is_expected.to redirect_to(new_payment_path) }
+
+      subject(:first_user) { User.first }
+
+      it { expect(first_user.first_name).to eq('foo') }
+      it { expect(first_user.last_name).to eq('bar') }
+      it { expect(first_user.email).to eq('foo@bar.com') }
+      it { expect(first_user.affiliate_tag).to eq('aff123') }
+    end
   end
 end
