@@ -32,10 +32,6 @@ class SubscriptionsController < ApplicationController
     subscription = Subscription.find_by!(iugu_id: params[:data][:id])
     authorize subscription
     subscription.activate!
-    subscription.update!(
-      state: subscription.state,
-      activated_at: subscription.activated_at
-    )
   end
 
   private
