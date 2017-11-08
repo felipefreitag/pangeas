@@ -1,14 +1,15 @@
 .video-container
   .video
     .grid-container
-      iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}"
-        width="720"
-        height="480"
-        frameborder="0"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
-      ]
+      .responsive-embed.widescreen
+        iframe [src="https://player.vimeo.com/video/#{@video.vimeo_id}"
+          width="720"
+          height="480"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        ]
   .video-info
     .grid-container
       .grid-x.grid-padding-x

@@ -3,15 +3,15 @@
     .grid-container
       .title.text-center
         .grid-x.grid-padding-x.align-middle
-          .auto.cell
+          .auto.cell.show-for-medium
           .shrink.cell
             .img-container
               = image_tag @section.image_url
           .shrink.cell
             h2= @section.name
-          .auto.cell
+          .auto.cell.show-for-medium
     .grid-container
-      .grid-x
+      .grid-x.grid-padding-x
         .medium-3.cell
         .medium-6.cell
           .card
