@@ -5,16 +5,16 @@ require 'rails_helper'
 RSpec.describe 'GET /users/:id', type: :request do
   subject { response }
 
-  context 'without logged in user' do
-    let!(:user) do
-      User.create!(
-        first_name: 'jane',
-        last_name: 'doe',
-        email: 'bar@baz.com',
-        password: '123456'
-      )
-    end
+  let!(:user) do
+    User.create!(
+      first_name: 'jane',
+      last_name: 'doe',
+      email: 'bar@baz.com',
+      password: '123456'
+    )
+  end
 
+  context 'without logged in user' do
     before do
       get "/users/#{user[:id]}"
     end
@@ -23,15 +23,6 @@ RSpec.describe 'GET /users/:id', type: :request do
   end
 
   context 'with logged in user' do
-    let!(:user) do
-      User.create!(
-        first_name: 'jane',
-        last_name: 'doe',
-        email: 'bar@baz.com',
-        password: '123456'
-      )
-    end
-
     context 'that is the owner' do
       before do
         sign_in user
