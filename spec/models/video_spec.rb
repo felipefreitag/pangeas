@@ -16,7 +16,15 @@ RSpec.describe Video, type: :model do
 
   describe '.latest' do
     it 'returns the correct SQL' do
-      expect(described_class.latest('foobar').to_sql).to eq("SELECT  \"videos\".* FROM \"videos\" INNER JOIN \"categories\" ON \"categories\".\"id\" = \"videos\"... = \"subsections\".\"section_id\" WHERE (sections.name = 'foobar') ORDER BY created_at DESC LIMIT 3")
+      expect(described_class.latest('foobar').to_sql).to eq(sql_latest)
     end
   end
+end
+
+def sql_latest
+  'SELECT  "videos".* FROM "videos" INNER JOIN "categories" ON "categories"'\
+  '."id" = "videos"."category_id" INNER JOIN "subsections" ON "subsections"'\
+  '."id" = "categories"."subsection_id" INNER JOIN "sections" ON "sections"'\
+  ".\"id\" = \"subsections\".\"section_id\" WHERE (sections.name = 'foobar') "\
+  'ORDER BY created_at DESC LIMIT 3'
 end
