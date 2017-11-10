@@ -30,7 +30,7 @@
           - if user_signed_in?
             li
               = link_to 'Meu Perfil',
-                edit_user_registration_path,
+                user_path(current_user.id),
                 class: 'profile-link'
             li
               = link_to 'Sair',

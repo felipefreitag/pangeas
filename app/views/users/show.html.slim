@@ -1,0 +1,67 @@
+.user-container
+  .grid-container
+    .grid-x.grid-padding-x.divider.
+      .hero.cell.text-center
+        .title
+          = image_tag 'user.png'
+          h3 Área do assinante na Pangeas
+        ' Aqui você encontra os seus dados e
+        span.bg-highlight gerencia sua assinatura na Pangeas
+    .grid-x.grid-padding-x.divider
+      .cell
+        h5 Dados do seu cadastro:
+        ul
+          li
+            ' Nome:
+            = "#{@user.first_name} #{@user.last_name}"
+          li
+            ' E-mail:
+            = @user.email
+        = link_to 'Alterar os dados',
+          edit_user_registration_path,
+          class: 'button success'
+    .grid-x.grid-padding-x.divider
+      .cell
+        h5 Formato e Dados da sua Assinatura:
+        - if @subscription
+          ul
+            li
+              ' Assinatura
+              = @subscription.recurrence
+            li
+              ' Status:
+              = @subscription.state
+            li
+              ' Última renovação:
+              = @subscription.activated_at
+            li Meio de pagamento: Cartão de Crédito
+        - else
+          | Nenhuma assinatura encontrada.
+        = mail_to 'financeiro@pange.as',
+          'Alterar Assinatura',
+          subject: 'Alterar Assinatura',
+          class: 'button success'
+    .grid-x.grid-padding-x.divider
+      .cell
+        h5 Contrato do Assinante:
+        p
+          ' Para a relação da nossa equipe com todos os assinantes ser sempre
+          ' transparente o contrato de serviços contratado com a Pangeas está
+          ' sempre disponível para consulta. Qualquer dúvida é só mandar um
+          | e-mail que nós conversamos. :)
+        = link_to 'Acessar contrato',
+          '#',
+          class: 'button success'
+    .grid-x.grid-padding-x
+      .cell
+        h5 Encerrar Assinatura:
+        p
+          ' Na Pangeas nós valorizamos o conforto dos assinantes, por isso é
+          ' sempre possível encerrar sua assinatura no final do período
+          ' contratado. Além disso, estamos sempre procurando melhorar... Então,
+          ' por favor, antes nos informe o motivo da interrupção da busca por
+          | Saúde e Liberdade.
+        = mail_to 'financeiro@pange.as',
+          'Encerrar assinatura',
+          subject: 'Encerrar Assinatura',
+          class: 'button bg-dark-gray'
