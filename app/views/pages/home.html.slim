@@ -1,12 +1,11 @@
 .home-container
   .hero
     .grid-container.text-center
-      .grid-x.bg-tablet
-        .auto.cell
-        .show-for-large.medium-4.cell.img-left
+      .grid-x.grid-padding-x.bg-tablet
+        .show-for-xlarge.large-4.cell.img-left
           p.audience Para quem busca equilíbrio na sua vida.
           = image_tag 'person-sitting.png'
-        .small-12.medium-4.cell.title
+        .small-12.medium-8.medium-centered.large-4.cell.title
           = image_tag 'logo-transparent.png'
           h2.bold
             ' Aqui você assiste cultura de
@@ -14,10 +13,9 @@
           = link_to 'Clique e saiba como começar',
             new_subscription_path,
             class: 'button success large'
-        .show-for-large.medium-4.cell.img-right
+        .show-for-xlarge.large-4.cell.img-right
           p.audience.right-0 Para o novo profissional de saúde e bem-estar.
           = image_tag 'person-book.png'
-        .auto.cell
   .info
     .grid-container
       .grid-x

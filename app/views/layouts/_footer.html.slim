@@ -1,8 +1,8 @@
 footer
   .footer-divider
   .grid-container
-    .grid-x.grid-padding-x.footer-container
-      .medium-6.large-3.cell
+    .grid-x.grid-padding-x.grid-margin-y.footer-container
+      .medium-6.large-3.xlarge-4.cell
         .footer-box[class="grid-x grid-margin-x grid-margin-y grid-padding-x
           grid-padding-y"]
           .medium-6.cell.bg-success
@@ -13,7 +13,7 @@ footer
             | cultura para o profissional da saúde integral
           .medium-6.cell.bg-yellow
             | planos por menos de R$ 1,00 por dia
-      .medium-6.large-3.cell
+      .medium-6.large-3.cell.footer-links
         div
           h6: strong A Pange.as
           p Saiba mais sobre a Pange.as
@@ -23,14 +23,26 @@ footer
         div
           h6: strong Termos de uso
           p Acesse o contrato de serviço Pange.as
-      .medium-6.large-3.cell
-        .text-center
-          p Facebook page snippet
-      .medium-6.large-3.cell.position-relative
+      .medium-6.large-auto.cell
+        .fb-wrapper
+          .fb-page[
+            data-href="https://www.facebook.com/pangeasgroup"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true"
+          ]
+            blockquote[
+              cite="https://www.facebook.com/pangeasgroup"
+              class="fb-xfbml-parse-ignore"
+            ]
+              a href="https://www.facebook.com/pangeasgroup"
+                | Pangeas
+      .medium-6.large-shrink.cell.position-relative
         .text-center
           p.bold Site seguro
           = image_tag 'https://image.ibb.co/gaojfw/seal_125_50_white.png'
         = link_to '#main-menu', class: 'back-to-top' do
           = fa_stacked_icon 'chevron-up', base: 'square'
-  .grid-container.text-center
-    p.m-0 Copyright Pange.as
+  .grid-container.text-center.copyright
+    p.m-0 © Copyright Pange.as

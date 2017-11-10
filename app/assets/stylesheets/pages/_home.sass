@@ -11,6 +11,7 @@
       background: image-url('tablet.png')
       background-repeat: no-repeat
       background-position: center
+      min-height: 420px
       .title
         padding-top: 8rem
         margin-bottom: 0
@@ -52,7 +53,9 @@
     background-position: center
     background-size: cover
     height: 370px
-    padding-top: 4rem
+    padding-top: 0
+    @include breakpoint(medium)
+      padding-top: 4rem
     .fa
       margin-top: 5rem
     p
