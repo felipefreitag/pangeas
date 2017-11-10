@@ -8,7 +8,8 @@
       .top-bar-left
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
-            = image_tag 'logo-pangeas.png'
+            = link_to root_path, class: 'home-link' do
+              = image_tag 'logo-pangeas.png'
           - if user_signed_in? && current_user.subscribed?
             li.menu-item
               = link_to 'Início', sections_path
@@ -30,11 +31,11 @@
             li
               = link_to 'Meu Perfil',
                 edit_user_registration_path,
-                class: 'pink-color bold'
+                class: 'profile-link'
             li
               = link_to 'Sair',
                 destroy_user_session_path, method: :delete,
-                class: 'white-color'
+                class: 'logout-link'
           - else
             li
               = link_to 'Login do Assinante',
