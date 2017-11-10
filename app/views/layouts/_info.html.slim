@@ -6,7 +6,16 @@
           .medium-5.cell
             = image_tag 'person-press-play.png'
           .medium-2.cell.play
-            = image_tag 'home-play.png'
+            a data-open='info-video'
+              = image_tag 'home-play.png'
+            .reveal#info-video data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://player.vimeo.com/video/163721649"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
           .medium-5.cell
             ol.text-left
               li
