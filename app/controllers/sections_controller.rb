@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 
   def index
     authorize Section
-    latest_videos
+    @latest_videos = Video.latest('Vida em Equilíbrio')
   end
 
   def show
@@ -24,7 +24,7 @@ class SectionsController < ApplicationController
 
   def show_section
     @subsections = @section.subsections
-    latest_videos
+    @latest_videos = Video.latest('Vida em Equilíbrio')
     render :show
   end
 
@@ -37,16 +37,5 @@ class SectionsController < ApplicationController
     @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
     @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
     render :show_events
-  end
-
-  def latest_videos
-    @latest_videos = []
-    all_videos = Video.order(:created_at)
-    return if all_videos.empty?
-    @latest_videos = [
-      all_videos.last,
-      all_videos.second_to_last,
-      all_videos.third_to_last
-    ]
   end
 end

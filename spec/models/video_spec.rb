@@ -13,4 +13,10 @@ RSpec.describe Video, type: :model do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:vimeo_id) }
   end
+
+  describe '.latest' do
+    it 'returns the correct SQL' do
+      expect(described_class.latest('foobar').to_sql).to eq("SELECT  \"videos\".* FROM \"videos\" INNER JOIN \"categories\" ON \"categories\".\"id\" = \"videos\"... = \"subsections\".\"section_id\" WHERE (sections.name = 'foobar') ORDER BY created_at DESC LIMIT 3")
+    end
+  end
 end
