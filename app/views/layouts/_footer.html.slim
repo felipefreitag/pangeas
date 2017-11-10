@@ -9,9 +9,9 @@ footer
             | Imagem, som e conteúdo com qualidade
           .medium-6.cell.bg-primary
             | cultura para criar equilíbrio na sua vida
-          .medium-6.cell.bg-yellow
-            | cultura para o profissional da saúde integral
           .medium-6.cell.bg-pink
+            | cultura para o profissional da saúde integral
+          .medium-6.cell.bg-yellow
             | planos por menos de R$ 1,00 por dia
       .medium-6.large-3.cell
         div
@@ -26,10 +26,11 @@ footer
       .medium-6.large-3.cell
         .text-center
           p Facebook page snippet
-      .medium-6.large-3.cell
+      .medium-6.large-3.cell.position-relative
         .text-center
-          p Site seguro
-          a.back-to-top href="#main-menu"
-            = fa_stacked_icon 'chevron-up', base: 'square'
+          p.bold Site seguro
+          = image_tag 'https://image.ibb.co/gaojfw/seal_125_50_white.png'
+        = link_to '#main-menu', class: 'back-to-top' do
+          = fa_stacked_icon 'chevron-up', base: 'square'
   .grid-container.text-center
     p.m-0 Copyright Pange.as

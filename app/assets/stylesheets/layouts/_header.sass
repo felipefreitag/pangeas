@@ -13,10 +13,24 @@
     padding-bottom: 0
   .menu-item
     padding-top: 0.3rem
-
-.top-bar-left ul li a
+.top-bar-left ul li.menu-item a
   color: $white
-
+  &:hover
+    background-color: $primary-color
+.top-bar-left ul li.menu-text a.home-link
+  padding: 0
+  &:hover
+    background-color: none
+.top-bar-right
+  .profile-link
+    color: $pink-color
+    font-weight: bold
+    &:hover
+      background-color: $light-gray
+  .logout-link
+    color: $white
+    &:hover
+      background-color: $primary-color
 .header-divider
   background-image: image-url('top-menu-colored-bar.png')
   width: 100%
