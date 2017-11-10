@@ -85,43 +85,85 @@
       .grid-x
         .medium-12.centered.cell
           h3.text-center Conheça os Palestrantes/Professores do Meeting SVL
-      .grid-x.grid-margin-x.grid-margin-y
-        .medium-4.cell
+      .grid-x.grid-padding-x.grid-margin-y
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video1' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
+            .reveal#svl-video1 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video2' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
+            .reveal#svl-video2 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video3' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
+            .reveal#svl-video3 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video4' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
+            .reveal#svl-video4 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video5' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
+            .reveal#svl-video5 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
+        .medium-6.large-4.cell
           .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
+            a data-open='svl-video6' title='Teaser'
               = image_tag 'http://lorempixel.com/380/200/nature'
               = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+            .reveal#svl-video6 data-reveal='true'
+              .responsive-embed.widescreen
+                iframe[
+                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
+                  frameborder="0"
+                  gesture="media"
+                  allowfullscreen
+                ]
   .testimonials
     .grid-container
       .grid-x.grid-padding-x
