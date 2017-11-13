@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class SectionsController < ApplicationController
-  after_action :verify_authorized
-
   def index
     authorize Section
     @latest_videos = Video.latest('Vida em Equilíbrio')

@@ -85,43 +85,49 @@
       .grid-x
         .medium-12.centered.cell
           h3.text-center Conheça os Palestrantes/Professores do Meeting SVL
-      .grid-x.grid-margin-x.grid-margin-y
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-        .medium-4.cell
-          .video-wrap
-            = link_to 'https://youtu.be/f6lgS2oKGzc',
-              title: 'Teaser', target: '_blank' do
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+      .grid-x.grid-padding-x.grid-margin-y
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video1',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video2',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video3',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video4',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video5',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
+        .medium-6.large-4.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video6',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
   .testimonials
     .grid-container
       .grid-x.grid-padding-x

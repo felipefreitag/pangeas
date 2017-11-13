@@ -1,0 +1,19 @@
+.video-wrap
+  a data-open=id title='Teaser'
+    = image_tag image_url
+    = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
+  .reveal id=id data-reveal='true'
+    button[
+      class="close-button"
+      data-close
+      aria-label="Close modal"
+      type="button"
+    ]
+      span aria-hidden="true" &times;
+    .responsive-embed.widescreen
+      iframe[
+        src=video_url
+        frameborder="0"
+        gesture="media"
+        allowfullscreen
+      ]
