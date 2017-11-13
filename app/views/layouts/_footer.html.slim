@@ -16,13 +16,22 @@ footer
       .medium-6.large-3.cell.footer-links
         div
           h6: strong A Pange.as
-          p Saiba mais sobre a Pange.as
+          p
+            = link_to 'Saiba mais sobre a Pange.as',
+            page_path('how_it_works'),
+            class: 'white-color'
         div
           h6: strong Fale com o nosso atendimento
-          p E-mail: atendimento@pangeas.com.br
+          p
+            = mail_to 'atendimento@pangeas.com.br',
+            'E-mail: atendimento@pangeas.com.br',
+            class: 'white-color'
         div
           h6: strong Termos de uso
-          p Acesse o contrato de serviço Pange.as
+          p
+            = link_to 'Acesse o contrato de serviço Pange.as',
+            '#',
+            class: 'white-color'
       .medium-6.large-auto.cell
         .fb-wrapper
           .fb-page[
