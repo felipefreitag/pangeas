@@ -23,17 +23,17 @@
     .grid-x.grid-padding-x.divider
       .cell
         h5 Formato e Dados da sua Assinatura:
-        - if @subscription
+        - if @user.subscription
           ul
             li
               ' Assinatura
-              = @subscription.recurrence
+              = @user.subscription.recurrence
             li
               ' Status:
-              = @subscription.state
+              = @user.subscription.state
             li
               ' Última renovação:
-              = @subscription.activated_at
+              = @user.subscription.activated_at
             li Meio de pagamento: Cartão de Crédito
         - else
           | Nenhuma assinatura encontrada.

@@ -87,83 +87,47 @@
           h3.text-center Conheça os Palestrantes/Professores do Meeting SVL
       .grid-x.grid-padding-x.grid-margin-y
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video1' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video1 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video1',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video2' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video2 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video2',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video3' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video3 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video3',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video4' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video4 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video4',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video5' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video5 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video5',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
         .medium-6.large-4.cell
-          .video-wrap
-            a data-open='svl-video6' title='Teaser'
-              = image_tag 'http://lorempixel.com/380/200/nature'
-              = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
-            .reveal#svl-video6 data-reveal='true'
-              .responsive-embed.widescreen
-                iframe[
-                  src="https://www.youtube.com/embed/f6lgS2oKGzc"
-                  frameborder="0"
-                  gesture="media"
-                  allowfullscreen
-                ]
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: 'svl-video6',
+              image_url: 'http://lorempixel.com/380/200/nature',
+              video_url: 'https://www.youtube.com/embed/f6lgS2oKGzc' \
+            }
   .testimonials
     .grid-container
       .grid-x.grid-padding-x
