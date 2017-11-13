@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post :activate, on: :collection
   end
   resources :payments, only: %i[new]
+  resources :users, only: %i[show]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
   get '/cifsqpangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
   get '/svl', to: 'high_voltage/pages#show', id: 'landing_svl'

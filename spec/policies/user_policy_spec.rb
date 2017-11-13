@@ -28,4 +28,40 @@ RSpec.describe UserPolicy do
       it { is_expected.not_to permit(user) }
     end
   end
+
+  permissions :show? do
+    context 'when user is not admin' do
+      let(:admin) { false }
+
+      it { is_expected.to permit(user, user) }
+
+      context 'when it is another user' do
+        let(:user2) do
+          User.create!(
+            first_name: 'john',
+            last_name: 'doe',
+            email: 'foo@baz.com',
+            password: '123456'
+          )
+        end
+
+        it { is_expected.not_to permit(user, user2) }
+      end
+    end
+
+    context 'when user is admin' do
+      let(:admin) { true }
+
+      let(:user2) do
+        User.create!(
+          first_name: 'john',
+          last_name: 'doe',
+          email: 'foo@baz.com',
+          password: '123456'
+        )
+      end
+
+      it { is_expected.to permit(user, user2) }
+    end
+  end
 end

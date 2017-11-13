@@ -11,7 +11,7 @@
     .grid-x.grid-padding-x
       .auto.cell.show-for-large
       .medium-6.large-4.cell
-        .card.text-center
+        .card.text-center.top-space
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-dark-gray.text-center
             .price.grid-x
@@ -37,7 +37,10 @@
               = link_to 'Assinar',
                 new_registration_path('user', recurrence: 'monthly'),
                 class: 'button success large'
-      .medium-6.large-4.cell
+      .medium-6.large-4.cell.text-center
+        .save
+          h5
+            span economize 24%
         .card.text-center
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-pink.text-center
