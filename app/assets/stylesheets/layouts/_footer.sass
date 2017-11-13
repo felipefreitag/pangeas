@@ -1,29 +1,38 @@
 footer
   background-color: $black
   color: $white
-
-.footer-divider
-  background-image: image-url('footer-colored-bar.png')
-  width: 100%
-  height: 18px
-  background-color: $primary-color
-
-.footer-container
-  padding-top: 3rem
-  padding-bottom: 2rem
-
-.footer-box
-  div
-    text-transform: uppercase
-    font-size: 80%
-    font-weight: bold
-
-.back-to-top
-  position: absolute
-  right: 0
-  bottom: 0
-  .fa-stack
-    .fa-square
-      color: $dark-gray
-    .fa-chevron-up
-      color: $white
+  .footer-divider
+    background-image: image-url('footer-colored-bar.png')
+    width: 100%
+    height: 18px
+    background-color: $primary-color
+  .footer-container
+    padding-top: 3rem
+    padding-bottom: 2rem
+    .footer-box
+      text-align: center
+      div
+        text-transform: uppercase
+        font-size: 80%
+        font-weight: bold
+    .footer-links
+      div
+        font-size: 14px
+    .fb-page
+      width: 260px
+      @include breakpoint(medium)
+        width: 315px
+    .back-to-top
+      display: none
+      @include breakpoint(medium)
+        display: block
+      position: absolute
+      right: 0
+      bottom: 0
+      .fa-stack
+        .fa-square
+          color: $dark-gray
+        .fa-chevron-up
+          color: $white
+  .copyright
+    padding-bottom: 1rem
