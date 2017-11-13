@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     admin?
   end
 
+  def show?
+    user_or_admin?
+  end
+
   def create?
     admin?
   end
@@ -15,5 +19,11 @@ class UserPolicy < ApplicationPolicy
 
   def destroy?
     admin?
+  end
+
+  protected
+
+  def user_or_admin?
+    user == record || admin?
   end
 end
