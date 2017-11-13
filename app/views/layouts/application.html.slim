@@ -29,7 +29,7 @@ html lang="pt-br"
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tag
     = render 'layouts/ga_script'
-    = render 'layouts/facebook_pixel'
+    = render 'layouts/facebook_pixel' if ENV['FACEBOOK_PIXEL_ID'].present?
 
   body[
     data-namespace="#{namespace}"

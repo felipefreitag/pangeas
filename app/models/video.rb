@@ -7,4 +7,11 @@ class Video < ApplicationRecord
 
   belongs_to :category, optional: true
   belongs_to :series, optional: true
+
+  def self.latest(section_name)
+    joins(category: { subsection: :section })
+      .where('sections.name = ?', section_name)
+      .order('created_at DESC')
+      .limit(3)
+  end
 end
