@@ -9,6 +9,13 @@
             a data-open='info-video'
               = image_tag 'home-play.png'
             .reveal#info-video data-reveal='true'
+              button[
+                class="close-button"
+                data-close
+                aria-label="Close modal"
+                type="button"
+              ]
+                span aria-hidden="true" &times;
               .responsive-embed.widescreen
                 iframe[
                   src="https://player.vimeo.com/video/163721649"
