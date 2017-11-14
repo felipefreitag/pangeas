@@ -27,10 +27,10 @@
           ul
             li
               ' Assinatura
-              = @user.subscription.recurrence
+              = t(@user.subscription.recurrence)
             li
               ' Status:
-              = @user.subscription.state
+              = t(@user.subscription.state)
             li
               ' Última renovação:
               = @user.subscription.activated_at
