@@ -60,6 +60,11 @@ jobs:
           name: run sass-lint
           command: yarn run sass-lint -c .sass-lint.yml --no-exit -v
 
+      # Run Debride
+      - run:
+          name: run debride
+          command: debride --rails --whitelist debride_whitelist.txt .
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:structure:load
