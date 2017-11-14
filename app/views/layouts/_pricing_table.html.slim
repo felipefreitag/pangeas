@@ -10,7 +10,7 @@
           ' encontrarmos saúde e liberdade.
     .grid-x.grid-padding-x
       .auto.cell.show-for-large
-      .medium-6.large-4.cell
+      .medium-6.large-5.cell
         .card.text-center.top-space
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-dark-gray.text-center
@@ -18,7 +18,7 @@
               .large-2.xlarge-3.cell
                 p R$
               .large-7.xlarge-6.cell
-                h1 29,90
+                p.huge-text 29,90
               .large-2.xlarge-3.cell
                 p | mês
             p
@@ -37,7 +37,7 @@
               = link_to 'Assinar',
                 new_registration_path('user', recurrence: 'monthly'),
                 class: 'button success large'
-      .medium-6.large-4.cell.text-center
+      .medium-6.large-5.cell.text-center
         .save
           h5
             span economize 24%
@@ -48,7 +48,7 @@
               .large-2.xlarge-3.cell
                 p R$
               .large-7.xlarge-6.cell
-                h1 22,90
+                p.huge-text 22,90
               .large-2.xlarge-3.cell
                 p | mês*
             p
