@@ -38,11 +38,15 @@
           @include breakpoint(large)
             text-align: left
         h1
+          //margin-bottom: 0
           font-size: 4rem
           font-weight: bolder
         p
-          padding-top: 1.5rem
+          margin-bottom: 0
+          padding-top: 0rem
           padding-right: 0.4rem
           padding-left: 0.4rem
+          @include breakpoint(large)
+            padding-top: 1.5rem
     .card-section
       padding: 1rem
