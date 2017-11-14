@@ -5,6 +5,11 @@
     .owl-carousel.carousel-three-items
       - videos.each do |video|
         .text-center
-          = link_to(video)
-            = image_tag video.image_url
+          .video-wrap
+            = link_to(video)
+              = image_tag 'top-menu-colored-bar.png',
+                class: 'colored-bar'
+              = image_tag video.image_url
+              = fa_stacked_icon 'play',
+                base: 'square', class: 'fa-2x'
           p= video.name

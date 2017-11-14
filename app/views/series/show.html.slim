@@ -8,8 +8,13 @@
       - unless @series.videos.empty?
         .grid-x.grid-padding-x
           .medium-6.cell
-            = link_to(@series.videos.first)
-              = image_tag @series.videos.first.image_url
+            .video-wrap
+              = link_to(@series.videos.first)
+                = image_tag 'top-menu-colored-bar.png',
+                  class: 'colored-bar'
+                = image_tag @series.videos.first.image_url
+                = fa_stacked_icon 'play',
+                  base: 'square', class: 'fa-2x'
           .medium-6.cell
             div
               h5= @videos.first.name
@@ -17,6 +22,11 @@
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - @videos.each do |video|
         .medium-4.cell.img-container
-          = link_to(video)
-            = image_tag video.image_url
+          .video-wrap
+            = link_to(video)
+              = image_tag 'top-menu-colored-bar.png',
+                class: 'colored-bar'
+              = image_tag video.image_url
+              = fa_stacked_icon 'play',
+                base: 'square', class: 'fa-2x'
           h6= video.name
