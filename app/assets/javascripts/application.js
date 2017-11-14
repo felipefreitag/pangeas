@@ -27,5 +27,6 @@ $(function(){
     startCarousel();
     smoothScroll();
     iuguApi();
+    showMore();
   });
 });
