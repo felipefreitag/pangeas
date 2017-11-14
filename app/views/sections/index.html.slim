@@ -35,13 +35,8 @@
         - unless @latest_videos.empty?
           - @latest_videos.each do |video|
             .medium-4.cell
-              .video-wrap
-                = link_to(video)
-                  = image_tag 'top-menu-colored-bar.png',
-                    class: 'colored-bar'
-                  = image_tag video.image_url
-                  = fa_stacked_icon 'play',
-                    base: 'square', class: 'fa-2x'
+              = render partial: 'layouts/video_link',
+                locals: { video: video }
               - if video
                 h5= video.name
                 p= video.description

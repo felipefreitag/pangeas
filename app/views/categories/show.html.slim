@@ -9,13 +9,8 @@
       - if @latest_video
         .grid-x.grid-padding-x
           .medium-6.cell
-            .video-wrap
-              = link_to(@latest_video)
-                = image_tag 'top-menu-colored-bar.png',
-                class: 'colored-bar'
-                = image_tag @latest_video.image_url
-                = fa_stacked_icon 'play',
-                  base: 'square', class: 'fa-2x'
+            = render partial: 'layouts/video_link',
+              locals: { video: @latest_video }
           .medium-6.cell
             div
               h5= @latest_video.name
@@ -24,22 +19,12 @@
       - unless @videos.empty?
         - @videos.each do |video|
           .medium-4.cell.img-container
-            .video-wrap
-              = link_to(video)
-                = image_tag 'top-menu-colored-bar.png',
-                class: 'colored-bar'
-                = image_tag video.image_url
-                = fa_stacked_icon 'play',
-                  base: 'square', class: 'fa-2x'
+            = render partial: 'layouts/video_link',
+              locals: { video: video }
             h6= video.name
       - unless @series.empty?
         - @series.each do |serie|
           .medium-4.cell.img-container
-            .video-wrap
-              = link_to(serie)
-                = image_tag 'top-menu-colored-bar.png',
-                class: 'colored-bar'
-                = image_tag serie.image
-                = fa_stacked_icon 'play',
-                  base: 'square', class: 'fa-2x'
+            = render partial: 'layouts/video_link',
+              locals: { video: serie }
             h6= serie.name
