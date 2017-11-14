@@ -63,7 +63,7 @@ jobs:
       # Run Debride
       - run:
           name: run debride
-          command: debride --rails --whitelist debride_whitelist.txt .
+          command: bin/debride --rails --whitelist ./debride_whitelist.txt .
 
       # Database setup
       - run: bundle exec rake db:create
