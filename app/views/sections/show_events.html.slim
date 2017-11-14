@@ -19,8 +19,13 @@
         h4.text-center Em destaque
         .grid-x.grid-padding-x
           .medium-6.cell
-            = link_to @highlight
-              = image_tag @highlight.image_url
+            .video-wrap
+              = link_to(@highlight)
+                = image_tag 'top-menu-colored-bar.png',
+                  class: 'colored-bar'
+                = image_tag @highlight.image_url
+                = fa_stacked_icon 'play',
+                  base: 'square', class: 'fa-2x'
           .medium-6.cell
             div
               h5= @highlight.name
@@ -38,8 +43,11 @@
                 .medium-6.cell
                   .grid-x.grid-padding-x
                     .medium-7.cell
-                      = link_to event
-                        = image_tag event.image
+                      .video-wrap
+                        = link_to event
+                          = image_tag 'top-menu-colored-bar.png',
+                            class: 'colored-bar'
+                          = image_tag event.image
                     .medium-5.cell
                       h6= event.name
                       p= event.description
@@ -51,8 +59,10 @@
           - unless @other_events.series.empty?
             .owl-carousel.carousel-four-items
               - @other_events.series.each do |serie|
-                .text-center
+                .video-wrap.text-center
                   = link_to serie
+                    = image_tag 'top-menu-colored-bar.png',
+                      class: 'colored-bar'
                     = image_tag serie.image
                   p= serie.name
       - if @talks
@@ -64,6 +74,11 @@
             .owl-carousel.carousel-three-items
               - @other_events.series.each do |serie|
                 .text-center
-                  = link_to serie
-                    = image_tag serie.image
+                  .video-wrap
+                    = link_to serie
+                      = image_tag 'top-menu-colored-bar.png',
+                        class: 'colored-bar'
+                      = image_tag serie.image
+                      = fa_stacked_icon 'play',
+                        base: 'square', class: 'fa-2x'
                   p= serie.name
