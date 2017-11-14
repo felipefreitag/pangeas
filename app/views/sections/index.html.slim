@@ -37,14 +37,15 @@
             .medium-4.cell
               = link_to(video)
                 = image_tag video.image_url
+                = fa_stacked_icon 'youtube-play', base: 'circle', class: 'fa-2x'
               - if video
                 h5= video.name
                 p= video.description
   .coming-up
     .grid-container
       .header
-        h4.text-center O que vem por aí...
-        h5.text-center
+        h3.text-center O que vem por aí...
+        h4.text-center
           span.bg-highlight
             | Nossa equipe está sempre trabalhando para trazer cada vez mais
               conhecimento
