@@ -17,6 +17,8 @@ engines:
   rubocop:
     enabled: true
     channel: rubocop-0-49
+  reek:
+    enabled: true
 ratings:
   paths:
   - Gemfile.lock
@@ -30,4 +32,4 @@ exclude_paths:
 - node_modules/
 - spec/
 - vendor/
-- .gems/
+- ".gems/"
