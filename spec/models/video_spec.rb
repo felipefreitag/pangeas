@@ -20,7 +20,7 @@ RSpec.describe Video, type: :model do
       '"categories"."id" = "videos"."category_id" INNER JOIN "subsections" ON '\
       '"subsections"."id" = "categories"."subsection_id" INNER JOIN "sections"'\
       ' ON "sections"."id" = "subsections"."section_id" WHERE '\
-      "(sections.name = 'foobar') ORDER BY created_at DESC LIMIT 3"
+      "(sections.name = 'foobar') ORDER BY created_at DESC LIMIT 2"
     end
 
     it 'returns the correct SQL' do

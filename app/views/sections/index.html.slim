@@ -32,14 +32,18 @@
   .whats-new
     .grid-container
       .grid-x.grid-padding-x
-        - unless @latest_videos.empty?
+        - if @latest_series
+          .medium-4.cell
+            = render partial: 'layouts/video_link',
+              locals: { video: @latest_series }
+            h5= @latest_series.name
+            p= @latest_series.description
+        - if @latest_videos
           - @latest_videos.each do |video|
             .medium-4.cell
-              = render partial: 'layouts/video_link',
-                locals: { video: video }
-              - if video
-                h5= video.name
-                p= video.description
+              = render partial: 'layouts/video_link', locals: { video: video }
+              h5= video.name
+              p= video.description
   .coming-up
     .grid-container
       .header

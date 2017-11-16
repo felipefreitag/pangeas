@@ -3,7 +3,8 @@
 class SectionsController < ApplicationController
   def index
     authorize Section
-    @latest_videos = Video.latest('Vida em Equilíbrio')
+    @latest_series = Series.latest(section_life).first
+    @latest_videos = Video.latest(section_life)
   end
 
   def show
@@ -13,7 +14,7 @@ class SectionsController < ApplicationController
       show_events
     elsif @section.name == 'Cursos Pangeas'
       render :show_courses
-    elsif @section.name == 'Vida em Equilíbrio'
+    elsif @section.name == section_life
       show_section
     end
   end
@@ -22,7 +23,8 @@ class SectionsController < ApplicationController
 
   def show_section
     @subsections = @section.subsections
-    @latest_videos = Video.latest('Vida em Equilíbrio')
+    @latest_series = Series.latest(section_life).first
+    @latest_videos = Video.latest(section_life)
     render :show
   end
 
@@ -30,10 +32,14 @@ class SectionsController < ApplicationController
     subsection_events = @section.subsections.find_by(name: 'events')
     @events = subsection_events.categories.find_by(name: 'Eventos')
     @highlight =
-      @events.videos.find_by(highlighted: 'true') ||
-      @events.series.find_by(highlighted: 'true')
+      @events.series.find_by(highlighted: 'true') ||
+      @events.videos.find_by(highlighted: 'true')
     @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
     @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
     render :show_events
+  end
+
+  def section_life
+    'Vida em Equilíbrio'
   end
 end
