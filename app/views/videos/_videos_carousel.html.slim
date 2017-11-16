@@ -5,6 +5,6 @@
     .owl-carousel.carousel-three-items
       - videos.each do |video|
         .text-center
-          = link_to(video)
-            = image_tag video.image_url
+          = render partial: 'layouts/video_link',
+            locals: { video: video }
           p= video.name

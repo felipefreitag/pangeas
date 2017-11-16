@@ -13,9 +13,17 @@
     padding-bottom: 1rem
     border-bottom: solid $primary-color 3px
     position: relative
-    h5, h6
-      text-transform: uppercase
-      font-weight: bold
+    .more-container
+      max-height: 7.5rem
+      overflow: hidden
+      h5, h6
+        text-transform: uppercase
+        font-weight: bold
+      div:not(:first-child)
+        h6
+          margin-top: 1rem
+          @include breakpoint(medium)
+            margin-top: 0
     .fa-stack
       .fa-circle
         color: $primary-color
@@ -29,6 +37,8 @@
       text-align: center
       a
         display: block
+        strong
+          display: block
   .watch-also
     background-color: $white
     padding-top: 3rem

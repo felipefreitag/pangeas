@@ -8,8 +8,8 @@
       - unless @series.videos.empty?
         .grid-x.grid-padding-x
           .medium-6.cell
-            = link_to(@series.videos.first)
-              = image_tag @series.videos.first.image_url
+            = render partial: 'layouts/video_link',
+              locals: { video: @series.videos.first }
           .medium-6.cell
             div
               h5= @videos.first.name
@@ -17,6 +17,6 @@
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - @videos.each do |video|
         .medium-4.cell.img-container
-          = link_to(video)
-            = image_tag video.image_url
+          = render partial: 'layouts/video_link',
+            locals: { video: video }
           h6= video.name

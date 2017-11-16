@@ -32,8 +32,7 @@
         - if @latest_videos
           - @latest_videos.each do |video|
             .medium-4.cell
-              = link_to video
-                = image_tag video.image_url
+              = render partial: 'layouts/video_link', locals: { video: video }
               h5= video.name
               p= video.description
   .subsections-container
@@ -51,8 +50,8 @@
                 .category-latest
                   .grid-x.grid-padding-x
                     .medium-6.cell
-                      = link_to(category.latest_video)
-                        = image_tag category.latest_video.image_url
+                      = render partial: 'layouts/video_link',
+                        locals: { video: category.latest_video }
                     .medium-6.cell
                       div
                         h5= category.latest_video.name
@@ -61,14 +60,14 @@
                   .owl-carousel.carousel-three-items
                     - category.videos.each do |video|
                       .text-center
-                        = link_to video
-                          = image_tag video.image_url
+                        = render partial: 'layouts/video_link',
+                          locals: { video: video }
                         p= video.name
                     - unless category.series.empty?
                       - category.series.each do |serie|
                         .text-center
-                          = link_to serie
-                            = image_tag serie.image
+                          = render partial: 'layouts/video_link',
+                            locals: { video: serie }
                           p= serie.name
               .watch-all
                 = link_to 'Ver todos os vídeos', category,

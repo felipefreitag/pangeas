@@ -19,8 +19,8 @@
         h4.text-center Em destaque
         .grid-x.grid-padding-x
           .medium-6.cell
-            = link_to @highlight
-              = image_tag @highlight.image_url
+            = render partial: 'layouts/video_link',
+              locals: { video: @highlight }
           .medium-6.cell
             div
               h5= @highlight.name
@@ -38,8 +38,8 @@
                 .medium-6.cell
                   .grid-x.grid-padding-x
                     .medium-7.cell
-                      = link_to event
-                        = image_tag event.image
+                      = render partial: 'layouts/video_link',
+                        locals: { video: event }
                     .medium-5.cell
                       h6= event.name
                       p= event.description
@@ -52,8 +52,8 @@
             .owl-carousel.carousel-four-items
               - @other_events.series.each do |serie|
                 .text-center
-                  = link_to serie
-                    = image_tag serie.image
+                  = render partial: 'layouts/video_link',
+                    locals: { video: serie }
                   p= serie.name
       - if @talks
         .talks.event-category-block
@@ -64,6 +64,6 @@
             .owl-carousel.carousel-three-items
               - @other_events.series.each do |serie|
                 .text-center
-                  = link_to serie
-                    = image_tag serie.image
+                  = render partial: 'layouts/video_link',
+                    locals: { video: serie }
                   p= serie.name

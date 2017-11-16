@@ -9,8 +9,8 @@
       - if @latest_video
         .grid-x.grid-padding-x
           .medium-6.cell
-            = link_to(@latest_video)
-              = image_tag @latest_video.image_url
+            = render partial: 'layouts/video_link',
+              locals: { video: @latest_video }
           .medium-6.cell
             div
               h5= @latest_video.name
@@ -19,12 +19,12 @@
       - unless @videos.empty?
         - @videos.each do |video|
           .medium-4.cell.img-container
-            = link_to(video)
-              = image_tag video.image_url
+            = render partial: 'layouts/video_link',
+              locals: { video: video }
             h6= video.name
       - unless @series.empty?
         - @series.each do |serie|
           .medium-4.cell.img-container
-            = link_to(serie)
-              = image_tag serie.image
+            = render partial: 'layouts/video_link',
+              locals: { video: serie }
             h6= serie.name

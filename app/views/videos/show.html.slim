@@ -11,25 +11,24 @@
           allowfullscreen
         ]
   .video-info
-    .grid-container
+    .grid-container.more-container
       .grid-x.grid-padding-x
         - if @video.information
           .medium-4.cell.border-right-white
             h6 Informações
-            p= @video.information
+            .more= @video.information
         - if @video.synopsys
           .medium-4.cell.border-right-white
             h6 Sinopse
-            p= @video.synopsys
+            .more= @video.synopsys
         - if @video.bio
           .medium-4.cell
             h6 Biografia
-            p= @video.bio
-    / .link-container
-    /   a href="#"
-    /     = fa_stacked_icon "angle-double-down", base: "circle"
-    /   a href="#"
-    /     strong mostrar mais
+            .more= @video.bio
+    .link-container
+      =link_to 'javascript:void(0)', class: 'morelink'
+        = fa_stacked_icon 'angle-double-down', base: 'circle'
+        strong mostrar mais
   .watch-also
     - if @video.series
       .text-center
