@@ -36,6 +36,6 @@
           @video.series, class: 'button success'
         = render partial: 'videos_carousel',
           locals: { videos: @video.series.videos }
-    - if @video.category
+    - elsif @video.category
       = render partial: 'videos_carousel',
         locals: { videos: @video.category.videos }
