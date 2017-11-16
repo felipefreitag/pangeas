@@ -16,7 +16,8 @@
               p= @videos.first.description
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - @videos.each do |video|
-        .medium-4.cell.img-container
-          = render partial: 'layouts/video_link',
-            locals: { video: video }
-          h6= video.name
+        - unless video == @videos.first
+          .medium-4.cell.img-container
+            = render partial: 'layouts/video_link',
+              locals: { video: video }
+            h6= video.name
