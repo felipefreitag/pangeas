@@ -74,18 +74,4 @@ RSpec.describe Series, type: :model do
       it { is_expected.to eq(video.image_url) }
     end
   end
-
-  describe '.latest' do
-    let(:sql) do
-      'SELECT  "series".* FROM "series" INNER JOIN "categories" ON '\
-      '"categories"."id" = "series"."category_id" INNER JOIN "subsections" ON '\
-      '"subsections"."id" = "categories"."subsection_id" INNER JOIN "sections"'\
-      ' ON "sections"."id" = "subsections"."section_id" WHERE '\
-      "(sections.name = 'foobar') ORDER BY created_at DESC LIMIT 1"
-    end
-
-    it 'returns the correct SQL' do
-      expect(described_class.latest('foobar').to_sql).to eq(sql)
-    end
-  end
 end

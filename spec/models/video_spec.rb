@@ -24,7 +24,7 @@ RSpec.describe Video, type: :model do
     end
 
     it 'returns the correct SQL' do
-      expect(described_class.latest('foobar').to_sql).to eq(sql)
+      expect(described_class.latest('foobar', 2).to_sql).to eq(sql)
     end
   end
 end

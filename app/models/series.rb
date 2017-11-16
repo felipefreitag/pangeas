@@ -11,11 +11,4 @@ class Series < ApplicationRecord
   def image
     @image ||= image_url ? image_url : videos.order(:sorting).first.image_url
   end
-
-  def self.latest(section_name, limit = 1)
-    joins(category: { subsection: :section })
-      .where('sections.name = ?', section_name)
-      .order('created_at DESC')
-      .limit(limit)
-  end
 end

@@ -3,8 +3,8 @@
 class SectionsController < ApplicationController
   def index
     authorize Section
-    @latest_series = Series.latest(section_life).first
-    @latest_videos = Video.latest(section_life)
+    @latest_series = Series.latest(section_life, 1).first
+    @latest_videos = Video.latest(section_life, 2)
   end
 
   def show
@@ -23,8 +23,8 @@ class SectionsController < ApplicationController
 
   def show_section
     @subsections = @section.subsections
-    @latest_series = Series.latest(section_life).first
-    @latest_videos = Video.latest(section_life)
+    @latest_series = Series.latest(section_life, 1).first
+    @latest_videos = Video.latest(section_life, 2)
     render :show
   end
 
