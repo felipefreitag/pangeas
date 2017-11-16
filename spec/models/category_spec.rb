@@ -26,19 +26,6 @@ RSpec.describe Category, type: :model do
     )
   end
 
-  let!(:video) do
-    Video.create!(
-      name: 'foo bar',
-      description: 'Amig Goswami é uma das maiores autoridades mundiais em
-        Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a
-        Psicologia tradicional e a Quântica. Ele sua fala ele mostra que o
-        modelo comportamental',
-      vimeo_id: '163721649',
-      category: category,
-      image_url: 'http://foo.png'
-    )
-  end
-
   describe 'associations' do
     it { is_expected.to belong_to(:subsection) }
     it { is_expected.to have_many(:videos) }
@@ -51,9 +38,48 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_presence_of(:description) }
   end
 
-  describe '#latest_video' do
-    subject { category.latest_video }
+  describe '#highlight' do
+    subject { category.highlight }
 
-    it { is_expected.to eq(video) }
+    let!(:series) do
+      Series.create!(
+        name: 'foo bar',
+        description: 'barfoo',
+        category: category,
+        highlighted: highlighted_series
+      )
+    end
+
+    let!(:video) do
+      Video.create!(
+        name: 'foo bar',
+        description: 'barfoo',
+        vimeo_id: '163721649',
+        category: category,
+        image_url: 'http://foo.png',
+        highlighted: highlighted_video
+      )
+    end
+
+    context 'with no highlights' do
+      let(:highlighted_series) { false }
+      let(:highlighted_video) { false }
+
+      it { is_expected.to be(nil) }
+    end
+
+    context 'with a highlighted video and series' do
+      let(:highlighted_series) { true }
+      let(:highlighted_video) { true }
+
+      it { is_expected.to eq(series) }
+    end
+
+    context 'with a highlighted video' do
+      let(:highlighted_series) { false }
+      let(:highlighted_video) { true }
+
+      it { is_expected.to eq(video) }
+    end
   end
 end

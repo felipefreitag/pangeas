@@ -46,29 +46,32 @@
               .category-title
                 h4= category.name
                 p= category.description
-              - unless category.videos.empty?
+              - if category.highlight.presence
                 .category-latest
                   .grid-x.grid-padding-x
                     .medium-6.cell
                       = render partial: 'layouts/video_link',
-                        locals: { video: category.latest_video }
+                        locals: { video: category.highlight }
                     .medium-6.cell
                       div
-                        h5= category.latest_video.name
-                        p= category.latest_video.description
+                        h5= category.highlight.name
+                        p= category.highlight.description
                 .category-carousel
                   .owl-carousel.carousel-three-items
-                    - category.videos.each do |video|
-                      .text-center
-                        = render partial: 'layouts/video_link',
-                          locals: { video: video }
-                        p= video.name
                     - unless category.series.empty?
                       - category.series.each do |serie|
-                        .text-center
-                          = render partial: 'layouts/video_link',
-                            locals: { video: serie }
-                          p= serie.name
+                        - unless serie.highlighted
+                          .text-center
+                            = render partial: 'layouts/video_link',
+                              locals: { video: serie }
+                            p= serie.name
+                    - unless category.videos.empty?
+                      - category.videos.each do |video|
+                        - unless video.highlighted
+                          .text-center
+                            = render partial: 'layouts/video_link',
+                              locals: { video: video }
+                            p= video.name
               .watch-all
                 = link_to 'Ver todos os vídeos', category,
                   class: 'button success'
