@@ -35,7 +35,7 @@
         = link_to 'Voltar para a lista de episódios da série',
           @video.series, class: 'button success'
         = render partial: 'videos_carousel',
-          locals: { videos: @video.series.videos }
+          locals: { videos: @video.series.videos, current: @video }
     - elsif @video.category
       = render partial: 'videos_carousel',
-        locals: { videos: @video.category.videos }
+        locals: { videos: @video.category.videos, current: @video }
