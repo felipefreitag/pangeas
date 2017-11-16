@@ -9,7 +9,10 @@
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @series.videos.first }
+              locals: { \
+                video: @series.videos.first,
+                extra_class: 'highlighted' \
+              }
           .medium-6.cell
             div
               h5= @videos.first.name
