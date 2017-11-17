@@ -31,10 +31,10 @@
         .medium-2.cell
   .whats-new
     .grid-container
-      .grid-x.grid-padding-x
+      .grid-x.grid-padding-x.grid-margin-y
         - unless @latest_videos.empty?
           - @latest_videos.each do |video|
-            .medium-4.cell
+            .medium-6.medium-centered.large-4.cell
               = render partial: 'layouts/video_link',
                 locals: { video: video }
               - if video

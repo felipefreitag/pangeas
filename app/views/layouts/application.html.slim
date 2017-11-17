@@ -27,6 +27,7 @@ html lang="pt-br"
     - if content_for? :external_js
       = yield :external_js
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://js.iugu.com/v2'
     = csrf_meta_tag
     = render 'layouts/ga_script'
     = render 'layouts/facebook_pixel' if ENV['FACEBOOK_PIXEL_ID'].present?

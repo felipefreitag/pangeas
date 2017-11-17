@@ -1,5 +1,23 @@
 .video-wrap
   position: relative
+  min-height: 154px
+  @include breakpoint(medium)
+    min-height: 170px
+  @include breakpoint(xlarge)
+    min-height: 211px
+  &.highlighted
+    @include breakpoint(medium)
+      min-height: 180px
+    @include breakpoint(large)
+      min-height: 270px
+    @include breakpoint(xlarge)
+      min-height: 324px
+  &.smaller
+    min-height: 135px
+    @include breakpoint(large)
+      min-height: 144px
+    @include breakpoint(large)
+      min-height: 158px
   a
     image
       margin: 0 auto
