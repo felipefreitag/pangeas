@@ -10,7 +10,7 @@
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @highlight }
+              locals: { video: @highlight, extra_class: 'highlighted' }
           .medium-6.cell
             div
               h5= @highlight.name

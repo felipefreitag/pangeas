@@ -28,20 +28,20 @@
   .whats-new
     .grid-container
       h4.text-center Veja o que tem de novo na Pangeas
-      .grid-x.grid-padding-x
+      .grid-x.grid-padding-x.grid-margin-y
         - if @latest_series
-          .medium-4.cell
+          .medium-6.medium-centered.large-4.cell
             = render partial: 'layouts/video_link',
               locals: { video: @latest_series }
             h5= @latest_series.name
             p= @latest_series.description
+      .grid-x.grid-padding-x.grid-margin-y
         - if @latest_videos
           - @latest_videos.each do |video|
-            .medium-4.cell
+            .medium-6.medium-centered.large-4.cell
               = render partial: 'layouts/video_link', locals: { video: video }
-              - if video
-                h5= video.name
-                p= video.description
+              h5= video.name
+              p= video.description
   .subsections-container
     .grid-container
       - @subsections.each do |subsection|
@@ -58,7 +58,10 @@
                   .grid-x.grid-padding-x
                     .medium-6.cell
                       = render partial: 'layouts/video_link',
-                        locals: { video: category.highlight }
+                        locals: { \
+                          video: category.highlight,
+                          extra_class: 'highlighted' \
+                        }
                     .medium-6.cell
                       div
                         h5= category.highlight.name
