@@ -31,11 +31,10 @@
             li
               ' Status:
               = t(@user.subscription.state)
-            li
-              ' Última renovação:
-              - @user.subscription.activated_at.present?
+            - if @user.subscription.activated_at.present?
+              li
+                ' Última renovação:
                 = l(@user.subscription.activated_at, format: :short)
-            li Meio de pagamento: Cartão de Crédito
         - else
           | Nenhuma assinatura encontrada.
         = mail_to 'financeiro@pange.as',
