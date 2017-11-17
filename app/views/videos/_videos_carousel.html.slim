@@ -4,7 +4,8 @@
       strong Assista também...
     .owl-carousel.carousel-three-items
       - videos.each do |video|
-        .text-center
-          = render partial: 'layouts/video_link',
-            locals: { video: video }
-          p= video.name
+        - if video != current
+          .text-center
+            = render partial: 'layouts/video_link',
+              locals: { video: video }
+            p= video.name

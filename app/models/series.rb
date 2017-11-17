@@ -9,6 +9,6 @@ class Series < ApplicationRecord
   has_many :videos, dependent: :restrict_with_exception
 
   def image
-    @image ||= image_url ? image_url : videos.order(:created_at).first.image_url
+    @image ||= image_url ? image_url : videos.order(:sorting).first.image_url
   end
 end

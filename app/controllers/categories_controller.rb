@@ -6,6 +6,6 @@ class CategoriesController < ApplicationController
     authorize @category
     @videos = @category.videos
     @series = @category.series
-    @latest_video = @category.latest_video
+    @highlight = @category.highlight
   end
 end
