@@ -9,7 +9,8 @@ class Category < ApplicationRecord
   has_many :videos, dependent: :restrict_with_exception
   has_many :series, dependent: :restrict_with_exception
 
-  def latest_video
-    @latest_video ||= videos.order(:created_at).last
+  def highlight
+    @highlight ||=
+      series.find_by(highlighted: true) || videos.find_by(highlighted: true)
   end
 end

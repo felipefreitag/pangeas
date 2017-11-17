@@ -179,6 +179,7 @@ video2 = Video.create!(
     e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: "163721649",
   image_url: "http://lorempixel.com/573/322/sports",
+  highlighted: true,
   category: category_educacao,
 )
 

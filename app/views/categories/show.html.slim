@@ -6,25 +6,27 @@
           span.bg-highlight Todos os vídeos
           |  de #{@category.name}
         h5 #{@category.description}
-      - if @latest_video
+      - if @highlight
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @latest_video, extra_class: 'highlighted' }
+              locals: { video: @highlight, extra_class: 'highlighted' }
           .medium-6.cell
             div
-              h5= @latest_video.name
-              p= @latest_video.description
+              h5= @highlight.name
+              p= @highlight.description
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - unless @videos.empty?
-        - @videos.each do |video|
-          .medium-4.cell.img-container
-            = render partial: 'layouts/video_link',
-              locals: { video: video }
-            h6= video.name
+        - @videos.each do |serie|
+          - unless serie.highlighted
+            .medium-4.cell.img-container
+              = render partial: 'layouts/video_link',
+                locals: { video: serie }
+              h6= serie.name
       - unless @series.empty?
-        - @series.each do |serie|
-          .medium-4.cell.img-container
-            = render partial: 'layouts/video_link',
-              locals: { video: serie }
-            h6= serie.name
+        - @series.each do |video|
+          - unless video.highlighted
+            .medium-4.cell.img-container
+              = render partial: 'layouts/video_link',
+                locals: { video: video }
+              h6= video.name
