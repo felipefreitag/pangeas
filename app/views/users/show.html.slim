@@ -27,14 +27,14 @@
           ul
             li
               ' Assinatura
-              = @user.subscription.recurrence
+              = t(@user.subscription.recurrence)
             li
               ' Status:
-              = @user.subscription.state
-            li
-              ' Última renovação:
-              = @user.subscription.activated_at
-            li Meio de pagamento: Cartão de Crédito
+              = t(@user.subscription.state)
+            - if @user.subscription.activated_at.present?
+              li
+                ' Última renovação:
+                = l(@user.subscription.activated_at, format: :short)
         - else
           | Nenhuma assinatura encontrada.
         = mail_to 'financeiro@pange.as',

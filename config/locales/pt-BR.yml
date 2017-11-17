@@ -6,6 +6,13 @@
       user:
         first_name: Nome
         last_name: Sobrenome
+  monthly: mensal
+  anual: anual
+  active: ativa
+  pending: pendente
+  rejected: rejeitada
+  inactive: inativa
+  canceled: cancelada
   sign_out: Sair
   flash:
     actions:
