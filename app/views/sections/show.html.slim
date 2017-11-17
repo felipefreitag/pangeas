@@ -53,7 +53,7 @@
               .category-title
                 h4= category.name
                 p= category.description
-              - if category.highlight.presence
+              - if category.highlight.present?
                 .category-latest
                   .grid-x.grid-padding-x
                     .medium-6.cell
