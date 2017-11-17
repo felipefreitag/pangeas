@@ -33,7 +33,8 @@
               = t(@user.subscription.state)
             li
               ' Última renovação:
-              = @user.subscription.activated_at
+              - @user.subscription.activated_at.present?
+                = l(@user.subscription.activated_at, format: :short)
             li Meio de pagamento: Cartão de Crédito
         - else
           | Nenhuma assinatura encontrada.
