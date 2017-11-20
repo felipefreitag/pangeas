@@ -12,6 +12,7 @@ RSpec.describe Video, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:vimeo_id) }
+    it { is_expected.to validate_presence_of(:image_url) }
   end
 
   describe '.latest' do
