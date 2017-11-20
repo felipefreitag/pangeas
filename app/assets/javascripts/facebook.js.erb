@@ -1,11 +1,7 @@
-<!-- Facebook script -->
-<script>
-var bindFacebookEvents, defer, dispatch, handleEvent, initializeFacebookSDK;
-var loadFacebookSDK, loaded, restoreFacebookRoot, saveFacebookRoot;
+var bindFacebookEvents, handleEvent, initializeFacebookSDK;
+var loadFacebookSDK, restoreFacebookRoot, saveFacebookRoot;
 
-({defer, dispatch} = Turbolinks);
-
-loaded = false;
+window.domContentLoaded = false;
 
 $(function() {
   loadFacebookSDK();
@@ -19,14 +15,15 @@ handleEvent = function(eventName, handler) {
 };
 
 handleEvent("DOMContentLoaded", function() {
-  return defer(function() {
-    return loaded = true;
+  return Turbolinks.defer(function() {
+    window.domContentLoaded = true;
+    return window.domContentLoaded;
   });
 });
 
 handleEvent("turbolinks:load", function() {
-  if (loaded) {
-    return dispatch("page:load");
+  if (window.domContentLoaded) {
+    return Turbolinks.dispatch("page:load");
   }
 });
 
@@ -35,23 +32,25 @@ bindFacebookEvents = function() {
     .on('turbolinks:request-start', saveFacebookRoot)
     .on('turbolinks:load', restoreFacebookRoot)
     .on('page:load', function() {
-      return typeof FB !== "undefined" && FB !== null ? FB.XFBML.parse() : void 0;
+      return typeof FB !== "undefined" && FB !== null ? FB.XFBML.parse() : undefined;
   });
-  return this.fbEventsBound = true;
+  window.fbEventsBound = true;
+  return window.fbEventsBound;
 };
 
 saveFacebookRoot = function() {
   if ($('#fb-root').length) {
-    return this.fbRoot = $('#fb-root').detach();
+    window.fbRoot = $('#fb-root').detach()
+    return window.fbRoot;
   }
 };
 
 restoreFacebookRoot = function() {
-  if (this.fbRoot != null) {
+  if (window.fbRoot) {
     if ($('#fb-root').length) {
-      return $('#fb-root').replaceWith(this.fbRoot);
+      return $('#fb-root').replaceWith(window.fbRoot);
     } else {
-      return $('body').append(this.fbRoot);
+      return $('body').append(window.fbRoot);
     }
   }
 };
@@ -70,6 +69,3 @@ initializeFacebookSDK = function() {
     xfbml: true
   });
 };
-</script>
-<!-- DO NOT MODIFY -->
-<!-- End Facebook script -->
