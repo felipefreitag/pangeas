@@ -35,7 +35,6 @@
               locals: { video: @latest_series }
             h5= @latest_series.name
             p= @latest_series.description
-      .grid-x.grid-padding-x.grid-margin-y
         - if @latest_videos
           - @latest_videos.each do |video|
             .medium-6.medium-centered.large-4.cell
