@@ -15,11 +15,11 @@
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-dark-gray.text-center
             .price.grid-x
-              .large-2.xlarge-3.cell
+              .large-2.xlarge-3.cell.money
                 p R$
               .large-7.xlarge-6.cell
                 p.huge-text 29,90
-              .large-2.xlarge-3.cell
+              .large-2.xlarge-3.cell.period
                 p | mês
             p
               span.bold Período de adesão:
@@ -40,26 +40,27 @@
       .medium-6.large-5.cell.text-center
         .save
           h5
-            span economize 24%
+            span economize R$ 81,70
         .card.text-center
           = image_tag 'top-menu-colored-bar.png'
           .card-divider.bg-pink.text-center
             .price.grid-x
-              .large-2.xlarge-3.cell
+              .auto.cell.show-for-xlarge
+              .large-2.xlarge-2.cell.money
                 p R$
-              .large-7.xlarge-6.cell
-                p.huge-text 22,90
-              .large-2.xlarge-3.cell
-                p | mês*
+              .large-8.xlarge-7.cell
+                p.huge-text 274,80
+              .large-2.xlarge-2.cell.period
+                p | ano
+              .auto.cell.show-for-xlarge
             p
               span.bold Período de adesão:
               | 12 meses
           .card-section.bg-light-gray
-            h6 Pagamento único de R$ 274,80
+            h6 Pagamento anual recorrente de R$ 274,80
             h6 Renova automaticamente de 12 em 12 meses
             h6 Solicitando o cancelamento, a assinatura não será renovada
               no final do período de adesão
-            h6 * Valor equivalente ao mês, no pagamento total do período
             - if user_signed_in?
               = link_to 'Assinar',
                 new_payment_path(recurrence: 'anual'),
