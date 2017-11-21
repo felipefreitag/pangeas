@@ -29,11 +29,11 @@
       display: block
       color: $white
       .price
-        .cell:first-child
+        .money
           text-align: center
           @include breakpoint(large)
             text-align: right
-        .cell:last-child
+        .period
           text-align: center
           @include breakpoint(large)
             text-align: left
@@ -50,4 +50,6 @@
           font-size: 5rem
           font-weight: bolder
     .card-section
-      padding: 1rem
+      padding: 2rem
+      h6
+        margin-bottom: 1rem
