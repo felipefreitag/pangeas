@@ -2,14 +2,28 @@ user = User.create!(
   first_name: 'foo',
   last_name: 'bar',
   email: 'foo@bar.com',
-  password: '123456'
+  password: '123456',
+  cpf: '1234567890',
+  address: 'foo',
+  address_number: '42',
+  zip_code: '123',
+  city: 'foo',
+  state: 'foo',
+  country: 'foo'
 )
 
 User.create!(
   first_name: 'john',
   last_name: 'doe',
   email: 'john@doe.com',
-  password: '123456'
+  password: '123456',
+  cpf: '1234567890',
+  address: 'foo',
+  address_number: '42',
+  zip_code: '123',
+  city: 'foo',
+  state: 'foo',
+  country: 'foo'  
 )
 
 Subscription.create!(

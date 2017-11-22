@@ -11,7 +11,14 @@ RSpec.describe ApplicationPolicy do
       last_name: 'doe',
       email: 'foo@bar.com',
       password: '123456',
-      admin: admin
+      cpf: '1234567890',
+      admin: admin,
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo'
     )
   end
 

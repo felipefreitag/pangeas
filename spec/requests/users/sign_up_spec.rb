@@ -11,7 +11,14 @@ RSpec.describe 'GET /users/sign_up', type: :request do
         first_name: 'foo',
         last_name: 'bar',
         email: 'foo@bar.com',
-        password: '123456'
+        password: '123456',
+        cpf: '1234567890',
+        address: 'foo',
+        address_number: '42',
+        zip_code: '123',
+        city: 'foo',
+        state: 'foo',
+        country: 'foo'
       }
     end
 

@@ -15,7 +15,14 @@ RSpec.describe Subscription, recurrence: :model do
       email: 'foo@bar.com',
       first_name: 'Foo',
       last_name: 'Bar',
-      password: 'foobarfoo'
+      password: 'foobarfoo',
+      cpf: '1234567890',
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo'
     )
   end
 

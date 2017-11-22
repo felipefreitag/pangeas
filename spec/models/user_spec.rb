@@ -8,7 +8,14 @@ RSpec.describe User, type: :model do
       first_name: 'john',
       last_name: 'doe',
       email: 'foo@bar.com',
-      password: '123456'
+      password: '123456',
+      cpf: '1234567890',
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo'
     )
   end
 
@@ -19,6 +26,13 @@ RSpec.describe User, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:first_name) }
     it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:cpf) }
+    it { is_expected.to validate_presence_of(:zip_code) }
+    it { is_expected.to validate_presence_of(:address) }
+    it { is_expected.to validate_presence_of(:address_number) }
+    it { is_expected.to validate_presence_of(:city) }
+    it { is_expected.to validate_presence_of(:state) }
+    it { is_expected.to validate_presence_of(:country) }
   end
 
   describe 'subscribed?' do

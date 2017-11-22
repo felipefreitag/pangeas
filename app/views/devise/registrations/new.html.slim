@@ -1,7 +1,7 @@
 .forms-container
   .grid-container
     .devise-form.grid-x
-      .medium-8.medium-centered.cell
+      .medium-11.medium-centered.large-8.cell
         .grid-x.grid-padding-x
           .large-12.cell
             = foundation_devise_error_messages!
@@ -12,32 +12,65 @@
               input type='hidden' name='recurrence' value=params[:recurrence]
               = f.hidden_field :affiliate_tag,
                 value: request.env['affiliate.tag']
-              .grid-x
-                .large-12.cell
+              .grid-x.grid-padding-x.mb-2rem
+                .medium-6.cell
                   = f.text_field :first_name, autofocus: true,
                     class: 'pink-input',
                     placeholder: 'DIGITE SEU NOME AQUI'
-              .grid-x
-                .large-12.cell
+                .medium-6.cell
                   = f.text_field :last_name,
                     class: 'large-12 cell pink-input',
                     placeholder: 'DIGITE SEU SOBRENOME AQUI'
-              .grid-x
-                .large-12.cell
+                .medium-6.cell
                   = f.email_field :email,
                     class: 'large-12 cell pink-input',
                     placeholder: 'DIGITE SEU E-MAIL AQUI'
-              .grid-x
-                .large-12.cell
+                .medium-6.cell
+                  = f.text_field :cpf,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'DIGITE SEU CPF AQUI'
+                .medium-6.cell
                   = f.password_field :password, autocomplete: 'off',
                     class: 'large-12 cell pink-input',
                     placeholder: 'DIGITE SUA SENHA AQUI'
-              .grid-x
-                .large-12.cell
+                .medium-6.cell
                   = f.password_field :password_confirmation,
                     autocomplete: 'off',
                     class: 'large-12 cell pink-input',
                     placeholder: 'CONFIRME SUA SENHA'
+              .grid-x.grid-padding-x
+                .medium-6.cell
+                  = f.text_field :address,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Endereço'
+                .medium-6.cell
+                  = f.text_field :address_number,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Número'
+                .medium-6.cell
+                  = f.text_field :address_complement,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Complemento (opcional)'
+                .medium-6.cell
+                  = f.text_field :zip_code,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'CEP'
+                .medium-6.cell
+                  = f.text_field :neighborhood,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Bairro'
+                .medium-6.cell
+                  = f.text_field :city,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Cidade'
+                .medium-6.cell
+                  = f.text_field :state,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'Estado'
+                .medium-6.cell
+                  = f.text_field :country,
+                    class: 'large-12 cell pink-input',
+                    placeholder: 'País'
               .grid-x
                 .large-12.cell
                   = f.submit  t('.sign_up', default: 'Sign up'),

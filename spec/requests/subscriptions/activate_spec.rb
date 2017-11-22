@@ -11,7 +11,14 @@ RSpec.describe 'POST /subscriptions/activate', type: :request do
       last_name: 'doe',
       email: 'bar@baz.com',
       password: '123456',
-      iugu_id: '1'
+      cpf: '1234567890',
+      iugu_id: '1',
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo'
     )
   end
 

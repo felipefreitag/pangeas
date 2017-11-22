@@ -264,7 +264,16 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     iugu_id character varying,
-    affiliate_tag character varying
+    affiliate_tag character varying,
+    cpf character varying NOT NULL,
+    address character varying NOT NULL,
+    address_number character varying NOT NULL,
+    address_complement character varying,
+    neighborhood character varying,
+    city character varying NOT NULL,
+    state character varying NOT NULL,
+    country character varying NOT NULL,
+    zip_code character varying NOT NULL
 );
 
 
@@ -580,6 +589,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171030201522'),
 ('20171106133117'),
 ('20171106133210'),
-('20171120121856');
+('20171120121856'),
+('20171122192715');
 
 
