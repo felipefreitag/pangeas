@@ -28,8 +28,7 @@ RSpec.describe 'GET /payments/new', type: :request do
         zip_code: '123',
         city: 'foo',
         state: 'foo',
-        country: 'foo',
-        phone: '123456'
+        country: 'foo'
       )
     end
 

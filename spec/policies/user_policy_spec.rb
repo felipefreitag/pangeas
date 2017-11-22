@@ -18,8 +18,7 @@ RSpec.describe UserPolicy do
       zip_code: '123',
       city: 'foo',
       state: 'foo',
-      country: 'foo',
-      phone: '123456'
+      country: 'foo'
     )
   end
 
@@ -56,8 +55,7 @@ RSpec.describe UserPolicy do
             zip_code: '123',
             city: 'foo',
             state: 'foo',
-            country: 'foo',
-            phone: '123456'
+            country: 'foo'
           )
         end
 
@@ -80,8 +78,7 @@ RSpec.describe UserPolicy do
           zip_code: '123',
           city: 'foo',
           state: 'foo',
-          country: 'foo',
-          phone: '123456'
+          country: 'foo'
         )
       end
 

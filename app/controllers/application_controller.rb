@@ -54,8 +54,7 @@ class ApplicationController < ActionController::Base
   def permitted_user_sign_up_parameters
     %i[
       first_name last_name affiliate_tag cpf address address_number
-      address_complement zip_code neighborhood city state country phone
-      mobile_phone
+      address_complement zip_code neighborhood city state country
     ]
   end
 end

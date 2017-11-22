@@ -9,8 +9,7 @@ user = User.create!(
   zip_code: '123',
   city: 'foo',
   state: 'foo',
-  country: 'foo',
-  phone: '123456'
+  country: 'foo'
 )
 
 User.create!(
@@ -24,8 +23,7 @@ User.create!(
   zip_code: '123',
   city: 'foo',
   state: 'foo',
-  country: 'foo',
-  phone: '123456'
+  country: 'foo'  
 )
 
 Subscription.create!(

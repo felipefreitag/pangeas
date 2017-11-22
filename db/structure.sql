@@ -273,8 +273,6 @@ CREATE TABLE users (
     city character varying,
     state character varying,
     country character varying,
-    phone character varying,
-    mobile_phone character varying,
     zip_code character varying
 );
 

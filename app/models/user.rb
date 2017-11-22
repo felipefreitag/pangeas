@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true
   validates :country, presence: true
-  validates :phone, presence: true
   has_many :subscriptions, dependent: :restrict_with_exception
 
   def subscribed?
