@@ -11,7 +11,15 @@ RSpec.describe UserPolicy do
       last_name: 'doe',
       email: 'foo@bar.com',
       password: '123456',
-      admin: admin
+      cpf: '1234567890',
+      admin: admin,
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo',
+      phone: '123456'
     )
   end
 
@@ -41,7 +49,15 @@ RSpec.describe UserPolicy do
             first_name: 'john',
             last_name: 'doe',
             email: 'foo@baz.com',
-            password: '123456'
+            password: '123456',
+            cpf: '1234567890',
+            address: 'foo',
+            address_number: '42',
+            zip_code: '123',
+            city: 'foo',
+            state: 'foo',
+            country: 'foo',
+            phone: '123456'
           )
         end
 
@@ -57,7 +73,15 @@ RSpec.describe UserPolicy do
           first_name: 'john',
           last_name: 'doe',
           email: 'foo@baz.com',
-          password: '123456'
+          password: '123456',
+          cpf: '1234567890',
+          address: 'foo',
+          address_number: '42',
+          zip_code: '123',
+          city: 'foo',
+          state: 'foo',
+          country: 'foo',
+          phone: '123456'
         )
       end
 

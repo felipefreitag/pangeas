@@ -10,7 +10,15 @@ RSpec.describe 'GET /users/:id', type: :request do
       first_name: 'jane',
       last_name: 'doe',
       email: 'bar@baz.com',
-      password: '123456'
+      password: '123456',
+      cpf: '1234567890',
+      address: 'foo',
+      address_number: '42',
+      zip_code: '123',
+      city: 'foo',
+      state: 'foo',
+      country: 'foo',
+      phone: '123456'
     )
   end
 
@@ -38,7 +46,15 @@ RSpec.describe 'GET /users/:id', type: :request do
           first_name: 'john',
           last_name: 'doe',
           email: 'foo@baz.com',
-          password: '123456'
+          password: '123456',
+          cpf: '1234567890',
+          address: 'foo',
+          address_number: '42',
+          zip_code: '123',
+          city: 'foo',
+          state: 'foo',
+          country: 'foo',
+          phone: '123456'
         )
       end
 
@@ -57,7 +73,15 @@ RSpec.describe 'GET /users/:id', type: :request do
           last_name: 'doe',
           email: 'foo@baz.com',
           password: '123456',
-          admin: true
+          cpf: '1234567890',
+          admin: true,
+          address: 'foo',
+          address_number: '42',
+          zip_code: '123',
+          city: 'foo',
+          state: 'foo',
+          country: 'foo',
+          phone: '123456'
         )
       end
 

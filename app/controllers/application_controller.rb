@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
-      :sign_up, keys: %i[first_name last_name affiliate_tag]
+      :sign_up, keys: permitted_user_sign_up_parameters
     )
     devise_parameter_sanitizer.permit(
       :account_update,
@@ -49,5 +49,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     sections_path
+  end
+
+  def permitted_user_sign_up_parameters
+    %i[
+      first_name last_name affiliate_tag cpf address address_number
+      address_complement zip_code neighborhood city state country phone
+      mobile_phone
+    ]
   end
 end

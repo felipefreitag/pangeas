@@ -12,7 +12,14 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-
+  validates :cpf, presence: true
+  validates :zip_code, presence: true
+  validates :address, presence: true
+  validates :address_number, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :country, presence: true
+  validates :phone, presence: true
   has_many :subscriptions, dependent: :restrict_with_exception
 
   def subscribed?
