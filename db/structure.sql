@@ -265,15 +265,15 @@ CREATE TABLE users (
     updated_at timestamp without time zone NOT NULL,
     iugu_id character varying,
     affiliate_tag character varying,
-    cpf character varying,
-    address character varying,
-    address_number character varying,
+    cpf character varying NOT NULL,
+    address character varying NOT NULL,
+    address_number character varying NOT NULL,
     address_complement character varying,
     neighborhood character varying,
-    city character varying,
-    state character varying,
-    country character varying,
-    zip_code character varying
+    city character varying NOT NULL,
+    state character varying NOT NULL,
+    country character varying NOT NULL,
+    zip_code character varying NOT NULL
 );
 
 
