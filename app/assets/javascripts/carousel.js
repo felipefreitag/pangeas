@@ -6,6 +6,7 @@ function startCarousel() {
     loop: true,
     margin: 15,
     responsiveClass: true,
+    dots: false,
     responsive: {
       0: { items: 1 },
       400: { items: 2 },
@@ -20,6 +21,7 @@ function startCarousel() {
     loop: true,
     margin: 15,
     responsiveClass: true,
+    dots: false,
     responsive: {
       0: { items: 1 },
       400: { items: 2 },
