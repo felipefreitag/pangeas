@@ -62,8 +62,8 @@
               h3= @talks.name
           - unless @talks.videos.empty?
             .owl-carousel.carousel-three-items
-              - @other_events.series.each do |serie|
+              - @talks.videos.each do |video|
                 .text-center
                   = render partial: 'layouts/video_link',
-                    locals: { resource: serie }
-                  p= serie.name
+                    locals: { resource: video }
+                  p= video.name
