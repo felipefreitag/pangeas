@@ -7,5 +7,5 @@
         - if video != current
           .text-center
             = render partial: 'layouts/video_link',
-              locals: { video: video }
+              locals: { resource: video }
             p= video.name

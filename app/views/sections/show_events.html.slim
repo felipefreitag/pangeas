@@ -20,7 +20,7 @@
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @highlight, extra_class: 'highlighted' }
+              locals: { resource: @highlight, extra_class: 'highlighted' }
           .medium-6.cell
             div
               h5= @highlight.name
@@ -39,7 +39,7 @@
                   .grid-x.grid-padding-x
                     .medium-7.cell
                       = render partial: 'layouts/video_link',
-                        locals: { video: event }
+                        locals: { resource: event }
                     .medium-5.cell
                       h6= event.name
                       p= event.description
@@ -53,7 +53,7 @@
               - @other_events.series.each do |serie|
                 .text-center
                   = render partial: 'layouts/video_link',
-                    locals: { video: serie, extra_class: 'smaller' }
+                    locals: { resource: serie, extra_class: 'smaller' }
                   p= serie.name
       - if @talks
         .talks.event-category-block
@@ -65,5 +65,5 @@
               - @other_events.series.each do |serie|
                 .text-center
                   = render partial: 'layouts/video_link',
-                    locals: { video: serie }
+                    locals: { resource: serie }
                   p= serie.name

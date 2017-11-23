@@ -32,13 +32,14 @@
         - if @latest_series
           .medium-6.medium-centered.large-4.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @latest_series }
+              locals: { resource: @latest_series }
             h5= @latest_series.name
             p= @latest_series.description
         - if @latest_videos
           - @latest_videos.each do |video|
             .medium-6.medium-centered.large-4.cell
-              = render partial: 'layouts/video_link', locals: { video: video }
+              = render partial: 'layouts/video_link',
+                locals: { resource: video }
               h5= video.name
               p= video.description
   .subsections-container
@@ -58,7 +59,7 @@
                     .medium-6.cell
                       = render partial: 'layouts/video_link',
                         locals: { \
-                          video: category.highlight,
+                          resource: category.highlight,
                           extra_class: 'highlighted' \
                         }
                     .medium-6.cell
@@ -72,14 +73,14 @@
                         - unless serie.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',
-                              locals: { video: serie }
+                              locals: { resource: serie }
                             p= serie.name
                     - unless category.videos.empty?
                       - category.videos.each do |video|
                         - unless video.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',
-                              locals: { video: video }
+                              locals: { resource: video }
                             p= video.name
               .watch-all
                 = link_to 'Ver todos os vídeos', category,
