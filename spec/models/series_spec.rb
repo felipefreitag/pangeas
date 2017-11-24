@@ -46,7 +46,7 @@ RSpec.describe Series, type: :model do
       it { is_expected.to eq('http://foo') }
     end
 
-    context 'without series image_url set' do
+    context 'without series image_url set, with video' do
       let(:series) do
         Series.create!(
           name: 'foo bar',
@@ -72,6 +72,12 @@ RSpec.describe Series, type: :model do
       end
 
       it { is_expected.to eq(video.image_url) }
+    end
+
+    context 'without series image_url set, without video' do
+      let(:series) { Series.new }
+
+      it { is_expected.to eq(nil) }
     end
   end
 end
