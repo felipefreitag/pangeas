@@ -10,7 +10,7 @@
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @highlight, extra_class: 'highlighted' }
+              locals: { resource: @highlight, extra_class: 'highlighted' }
           .medium-6.cell
             div
               h5= @highlight.name
@@ -21,12 +21,12 @@
           - unless serie.highlighted
             .medium-4.cell.img-container
               = render partial: 'layouts/video_link',
-                locals: { video: serie }
+                locals: { resource: serie }
               h6= serie.name
       - unless @series.empty?
         - @series.each do |video|
           - unless video.highlighted
             .medium-4.cell.img-container
               = render partial: 'layouts/video_link',
-                locals: { video: video }
+                locals: { resource: video }
               h6= video.name
