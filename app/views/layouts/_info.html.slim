@@ -8,7 +8,10 @@
           .medium-2.cell.play
             a data-open='info-video'
               = image_tag 'home-play.png'
-            .reveal#info-video data-reveal='true'
+            .reveal.large#info-video[
+              data-reveal="true"
+              data-reset-on-close="true"
+            ]
               button[
                 class="close-button"
                 data-close
@@ -18,7 +21,7 @@
                 span aria-hidden="true" &times;
               .responsive-embed.widescreen
                 iframe[
-                  src="https://player.vimeo.com/video/163721649"
+                  src="https://player.vimeo.com/video/244211236"
                   frameborder="0"
                   gesture="media"
                   allowfullscreen
