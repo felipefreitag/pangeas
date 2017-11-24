@@ -10,7 +10,7 @@
           .medium-6.cell
             = render partial: 'layouts/video_link',
               locals: { \
-                video: @series.videos.first,
+                resource: @series.videos.first,
                 extra_class: 'highlighted' \
               }
           .medium-6.cell
@@ -22,5 +22,5 @@
         - unless video == @videos.first
           .medium-4.cell.img-container
             = render partial: 'layouts/video_link',
-              locals: { video: video }
+              locals: { resource: video }
             h6= video.name

@@ -35,13 +35,14 @@
         - if @latest_series
           .medium-6.medium-centered.large-4.cell
             = render partial: 'layouts/video_link',
-              locals: { video: @latest_series }
+              locals: { resource: @latest_series }
             h5= @latest_series.name
             p= @latest_series.description
         - if @latest_videos
           - @latest_videos.each do |video|
             .medium-6.medium-centered.large-4.cell
-              = render partial: 'layouts/video_link', locals: { video: video }
+              = render partial: 'layouts/video_link',
+                locals: { resource: video }
               h5= video.name
               p= video.description
   .coming-up

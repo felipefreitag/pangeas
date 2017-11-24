@@ -1,11 +1,12 @@
-- extra_class ||= ''
-.video-wrap class=extra_class
-  = link_to(video)
-    = image_tag 'top-menu-colored-bar.png',
-    class: 'colored-bar'
-    - if video.image_url
-      = image_tag video.image_url
-    - elsif video.image
-      = image_tag video.image
-    = fa_stacked_icon 'play',
-      base: 'square', class: 'fa-2x'
+- if resource
+  - extra_class ||= ''
+  .video-wrap class=extra_class
+    = link_to(resource)
+      = image_tag 'top-menu-colored-bar.png',
+      class: 'colored-bar'
+      - if resource.image_url
+        = image_tag resource.image_url
+      - elsif resource.image
+        = image_tag resource.image
+      = fa_stacked_icon 'play',
+        base: 'square', class: 'fa-2x'

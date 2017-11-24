@@ -16,7 +16,8 @@ $carousel-nav-width: 20px
       width: $carousel-nav-width
       height: $carousel-nav-height
       margin-top: -($carousel-nav-height)/2-15
-      margin-left: -($carousel-nav-width)-5
+      @include breakpoint(xlarge)
+        margin-left: -($carousel-nav-width)+10
       color: $white
       background: $dark-gray
       border-radius: 1px
@@ -29,7 +30,8 @@ $carousel-nav-width: 20px
       width: $carousel-nav-width
       height: $carousel-nav-height
       margin-top: -($carousel-nav-height)/2-15
-      margin-right: -($carousel-nav-width)-5
+      @include breakpoint(xlarge)
+        margin-right: -($carousel-nav-width)+10
       color: $white
       background: $dark-gray
       position: absolute
