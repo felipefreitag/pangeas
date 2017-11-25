@@ -3,7 +3,7 @@ function iuguApi() {
     var accountID = $('#payment-form').data('account');
     var testMode = $('#payment-form').data('test');
     Iugu.setAccountID(accountID);
-    Iugu.setTestMode(testMode ? testMode : true);
+    Iugu.setTestMode(testMode);
     Iugu.setup();
   }
 
