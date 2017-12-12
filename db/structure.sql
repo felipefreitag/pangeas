@@ -272,7 +272,7 @@ CREATE TABLE users (
     neighborhood character varying,
     city character varying NOT NULL,
     state character varying NOT NULL,
-    country character varying NOT NULL,
+    country character varying DEFAULT ''::character varying,
     zip_code character varying NOT NULL
 );
 
@@ -590,6 +590,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171106133117'),
 ('20171106133210'),
 ('20171120121856'),
-('20171122192715');
+('20171122192715'),
+('20171212192237');
 
 
