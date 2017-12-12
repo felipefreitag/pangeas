@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Video < ApplicationRecord
+  include PgSearch
+
+  pg_search_scope :search,
+    against: %i[name description information synopsys bio]
+
   validates :name, presence: true
   validates :description, presence: true
   validates :vimeo_id, presence: true

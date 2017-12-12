@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :payments, only: %i[new]
   resources :users, only: %i[show]
+  resources :search, only: %i[index]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
   get '/cifsqpangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
   get '/svl', to: 'high_voltage/pages#show', id: 'landing_svl'
