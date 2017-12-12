@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
       address_number: '42',
       zip_code: '123',
       city: 'foo',
-      state: 'foo',
+      state: 'foo'
     )
   end
 
