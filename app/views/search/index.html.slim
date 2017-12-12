@@ -1,0 +1,12 @@
+.forms-container
+  .grid-container
+    .devise-form.grid-x
+      .medium-8.medium-centered.cell
+        .grid-x.grid-padding-x
+          .large-12.cell
+            h3.text-center= 'Pesquisar'
+            input type='text' name='query' id='query' placeholder='Pesquisar'
+            input type='submit' name='commit' value='Pesquisar'
+            - if @videos.present?
+              - @videos.each do |video|
+                p= video.name
