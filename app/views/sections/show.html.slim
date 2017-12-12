@@ -69,14 +69,14 @@
                 .category-carousel
                   .owl-carousel.carousel-three-items
                     - unless category.series.empty?
-                      - category.series.each do |serie|
+                      - category.series.order(created_at: :desc).each do |serie|
                         - unless serie.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',
                               locals: { resource: serie }
                             p= serie.name
                     - unless category.videos.empty?
-                      - category.videos.each do |video|
+                      - category.videos.order(created_at: :desc).each do |video|
                         - unless video.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',

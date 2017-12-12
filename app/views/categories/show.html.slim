@@ -16,15 +16,15 @@
               h5= @highlight.name
               p= @highlight.description
     .video-list.grid-x.grid-padding-x.grid-padding-y
-      - unless @videos.empty?
-        - @videos.each do |serie|
+      - unless @series.empty?
+        - @series.order(created_at: :desc).each do |serie|
           - unless serie.highlighted
             .medium-4.cell.img-container
               = render partial: 'layouts/video_link',
                 locals: { resource: serie }
               h6= serie.name
-      - unless @series.empty?
-        - @series.each do |video|
+      - unless @videos.empty?
+        - @videos.order(created_at: :desc).each do |video|
           - unless video.highlighted
             .medium-4.cell.img-container
               = render partial: 'layouts/video_link',
