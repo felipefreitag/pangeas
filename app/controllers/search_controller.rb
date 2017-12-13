@@ -4,6 +4,10 @@ class SearchController < ApplicationController
   skip_after_action :verify_authorized
 
   def index
-    params[:query].present? && @videos = Video.search(params[:query])
+    @videos = Video.search(search_params[:query]) if search_params.present?
+  end
+
+  def search_params
+    params.permit(:query)
   end
 end

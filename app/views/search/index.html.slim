@@ -1,12 +1,31 @@
 .forms-container
   .grid-container
-    .devise-form.grid-x
-      .medium-8.medium-centered.cell
+    .devise-form.grid-x.mb-2rem
+      .medium-11.medium-centered.large-8.cell
         .grid-x.grid-padding-x
           .large-12.cell
-            h3.text-center= 'Pesquisar'
-            input type='text' name='query' id='query' placeholder='Pesquisar'
-            input type='submit' name='commit' value='Pesquisar'
-            - if @videos.present?
-              - @videos.each do |video|
-                p= video.name
+            = form_with url: search_index_path, method: :get do |f|
+              h3.text-center Pesquisar vídeos
+              .grid-x.grid-padding-x
+                .large-12.cell
+                  = f.text_field :query,
+                    autofocus: true,
+                    class: 'pink-input',
+                    value: params[:query],
+                    placeholder: 'Digite o termo de pesquisa'
+              .grid-x
+                .medium-6.medium-centered.cell
+                  = f.submit 'Pesquisar',
+                    class: 'button primary expand large-12 large-centered cell'
+  .grid-container
+    - unless @videos.empty?
+      .grid-x
+        .cell.text-center
+          h4 Resultados da busca
+      .video-list.grid-x.grid-padding-x.grid-padding-y
+        - @videos.each do |video|
+          - unless video.highlighted
+            .medium-4.cell.img-container
+              = render partial: 'layouts/video_link',
+                locals: { resource: video }
+              h6= video.name
