@@ -24,7 +24,7 @@
           .medium-6.cell
             div
               h5= @highlight.name
-              p= @highlight.description
+              p= simple_format(@highlight.description)
   .event-categories
     .grid-container
       - if @events
@@ -42,7 +42,7 @@
                         locals: { resource: event }
                     .medium-5.cell
                       h6= event.name
-                      p= event.description
+                      p= simple_format(event.description)
       - if @other_events
         .other-events.event-category-block
           .text-center

@@ -8,15 +8,17 @@
       .top-bar-left
         ul.dropdown.menu[data-dropdown-menu]
           li.menu-text
-            = link_to root_path, class: 'home-link' do
-              = image_tag 'logo-pangeas.png'
           - if user_signed_in? && current_user.subscribed?
+            = link_to sections_path, class: 'home-link' do
+              = image_tag 'logo-pangeas.png'
             li.menu-item
               = link_to 'Início', sections_path
             - @sections.each do |section|
                 li.menu-item
                   = link_to section.name, section
           - else
+            = link_to root_path, class: 'home-link' do
+              = image_tag 'logo-pangeas.png'
             li.menu-item
               = link_to 'Assine agora',
                 new_subscription_path,

@@ -16,15 +16,15 @@
         - if @video.information
           .medium-4.cell.border-right-white
             h6 Informações
-            .more= @video.information
+            .more= simple_format(@video.information)
         - if @video.synopsys
           .medium-4.cell.border-right-white
             h6 Sinopse
-            .more= @video.synopsys
+            .more= simple_format(@video.synopsys)
         - if @video.bio
           .medium-4.cell
             h6 Biografia
-            .more= @video.bio
+            .more= simple_format(@video.bio)
     .link-container
       =link_to 'javascript:void(0)', class: 'morelink'
         = fa_stacked_icon 'angle-double-down', base: 'circle'
