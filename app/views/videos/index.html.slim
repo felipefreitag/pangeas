@@ -4,14 +4,14 @@
       .medium-11.medium-centered.large-8.cell
         .grid-x.grid-padding-x
           .large-12.cell
-            = form_with url: search_index_path, method: :get, local: true do |f|
+            = form_with url: videos_path, method: :get, local: true do |f|
               h3.text-center Pesquisar vídeos
               .grid-x.grid-padding-x
                 .large-12.cell
-                  = f.text_field :query,
+                  = f.text_field :search,
                     autofocus: true,
                     class: 'pink-input',
-                    value: params[:query],
+                    value: params[:search],
                     placeholder: 'Digite o termo de pesquisa'
               .grid-x
                 .medium-6.medium-centered.cell
@@ -30,6 +30,6 @@
                 = render partial: 'layouts/video_link',
                   locals: { resource: video }
                 h6= video.name
-      - elsif params[:query].present?
+      - elsif params[:search].present?
         .cell.text-center.mb-2rem
           h4 Nenhum vídeo encontrado.

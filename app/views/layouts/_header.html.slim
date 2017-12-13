@@ -29,7 +29,7 @@
         ul.menu
           - if user_signed_in?
             li
-              = link_to search_index_path, class: 'right-link' do
+              = link_to videos_path, class: 'right-link' do
                 = fa_icon 'search'
                 span< Pesquisar
             li

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  resources :videos, only: %i[show]
+  resources :videos, only: %i[index show]
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
   resources :sections, only: %i[index show]
@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   end
   resources :payments, only: %i[new]
   resources :users, only: %i[show]
-  resources :search, only: %i[index]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
   get '/cifsqpangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
   get '/svl', to: 'high_voltage/pages#show', id: 'landing_svl'

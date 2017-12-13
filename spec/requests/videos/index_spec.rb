@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe 'GET /search', type: :request do
+RSpec.describe 'GET /videos', type: :request do
   subject { response }
 
   context 'without logged user' do
     before do
-      get '/search'
+      get '/videos'
     end
 
     it { is_expected.to have_http_status(:found) }
@@ -33,7 +33,7 @@ RSpec.describe 'GET /search', type: :request do
     context 'without subscription' do
       before do
         sign_in user
-        get '/search'
+        get '/videos'
       end
 
       it { is_expected.to have_http_status(:found) }
@@ -47,7 +47,21 @@ RSpec.describe 'GET /search', type: :request do
           recurrence: 'monthly'
         )
         sign_in user
-        get '/search'
+        get '/videos'
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+
+    context 'with query string' do
+      before do
+        Subscription.create!(
+          user: user,
+          state: 'active',
+          recurrence: 'monthly'
+        )
+        sign_in user
+        get '/videos', params: { search: 'foo' }
       end
 
       it { is_expected.to have_http_status(:ok) }
