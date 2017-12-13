@@ -24,7 +24,7 @@
           .medium-6.cell
             div
               h5= @highlight.name
-              p= @highlight.description
+              p= simple_format(@highlight.description)
   .event-categories
     .grid-container
       - if @events
@@ -34,7 +34,7 @@
               h3= @events.name
           .grid-x.grid-margin-y
             - unless @events.series.empty?
-              - @events.series.each do |event|
+              - @events.series.order(created_at: :desc).each do |event|
                 .medium-6.cell
                   .grid-x.grid-padding-x
                     .medium-7.cell
@@ -42,7 +42,7 @@
                         locals: { resource: event }
                     .medium-5.cell
                       h6= event.name
-                      p= event.description
+                      p= simple_format(event.description)
       - if @other_events
         .other-events.event-category-block
           .text-center
@@ -50,7 +50,7 @@
               h3= @other_events.name
           - unless @other_events.series.empty?
             .owl-carousel.carousel-four-items
-              - @other_events.series.each do |serie|
+              - @other_events.series.order(created_at: :desc).each do |serie|
                 .text-center
                   = render partial: 'layouts/video_link',
                     locals: { resource: serie, extra_class: 'smaller' }
@@ -62,7 +62,7 @@
               h3= @talks.name
           - unless @talks.videos.empty?
             .owl-carousel.carousel-three-items
-              - @talks.videos.each do |video|
+              - @talks.videos.order(created_at: :desc).each do |video|
                 .text-center
                   = render partial: 'layouts/video_link',
                     locals: { resource: video }
