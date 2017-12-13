@@ -3,9 +3,10 @@
     .hero
       .text-center.title
         h3.m-0
-          span.bg-highlight Todos os vídeos
-          |  de #{@category.name}
-        h5 #{@category.description}
+          span.bg-highlight
+            ' Todos os vídeos de
+            = @category.name
+        h5= simple_format(@category.description)
       - if @highlight
         .grid-x.grid-padding-x
           .medium-6.cell
@@ -14,7 +15,7 @@
           .medium-6.cell
             div
               h5= @highlight.name
-              p= @highlight.description
+              p= simple_format(@highlight.description)
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - unless @videos.empty?
         - @videos.each do |serie|

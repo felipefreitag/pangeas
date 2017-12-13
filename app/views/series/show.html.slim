@@ -4,19 +4,19 @@
       .text-center.title
         h3.m-0
           = @series.name
-        h5= @series.description
+        h5= simple_format(@series.description)
       - unless @series.videos.empty?
         .grid-x.grid-padding-x
           .medium-6.cell
             = render partial: 'layouts/video_link',
               locals: { \
-                resource: @series.videos.first,
+                resource: @videos.first,
                 extra_class: 'highlighted' \
               }
           .medium-6.cell
             div
               h5= @videos.first.name
-              p= @videos.first.description
+              p= simple_format(@videos.first.description)
     .video-list.grid-x.grid-padding-x.grid-padding-y
       - @videos.each do |video|
         - unless video == @videos.first
