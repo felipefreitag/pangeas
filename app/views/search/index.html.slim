@@ -1,6 +1,6 @@
 .forms-container
   .grid-container
-    .devise-form.grid-x.mb-2rem
+    .devise-form.grid-x
       .medium-11.medium-centered.large-8.cell
         .grid-x.grid-padding-x
           .large-12.cell
@@ -18,7 +18,7 @@
                   = f.submit 'Pesquisar',
                     class: 'button primary expand large-12 large-centered cell'
   .grid-container
-    - unless @videos.empty?
+    - if @videos.present?
       .grid-x
         .cell.text-center
           h4 Resultados da busca
