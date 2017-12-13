@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class SearchController < ApplicationController
-  skip_after_action :verify_authorized
-
   def index
-    @videos = Video.search(search_params[:query]) if search_params.present?
+    authorize Video
+    return if search_params[:query].blank?
+    @videos = Video.search(search_params[:query])
   end
 
   def search_params

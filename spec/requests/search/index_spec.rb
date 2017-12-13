@@ -30,15 +30,14 @@ RSpec.describe 'GET /search', type: :request do
       )
     end
 
-    #  TODO: add search policy
-    # context 'without subscription' do
-    #   before do
-    #     sign_in user
-    #     get '/search'
-    #   end
-    #
-    #   it { is_expected.to have_http_status(:found) }
-    # end
+    context 'without subscription' do
+      before do
+        sign_in user
+        get '/search'
+      end
+
+      it { is_expected.to have_http_status(:found) }
+    end
 
     context 'with subscription' do
       before do

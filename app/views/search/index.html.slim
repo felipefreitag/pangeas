@@ -4,7 +4,7 @@
       .medium-11.medium-centered.large-8.cell
         .grid-x.grid-padding-x
           .large-12.cell
-            = form_with url: search_index_path, method: :get do |f|
+            = form_with url: search_index_path, method: :get, local: true do |f|
               h3.text-center Pesquisar vídeos
               .grid-x.grid-padding-x
                 .large-12.cell
@@ -16,16 +16,20 @@
               .grid-x
                 .medium-6.medium-centered.cell
                   = f.submit 'Pesquisar',
-                    class: 'button primary expand large-12 large-centered cell'
+                    class: 'button primary expand large-12 large-centered cell',
+                    name: nil
   .grid-container
-    - if @videos.present?
-      .grid-x
+    .grid-x
+      - if @videos.present?
         .cell.text-center
           h4 Resultados da busca
-      .video-list.grid-x.grid-padding-x.grid-padding-y
-        - @videos.each do |video|
-          - unless video.highlighted
-            .medium-4.cell.img-container
-              = render partial: 'layouts/video_link',
-                locals: { resource: video }
-              h6= video.name
+        .video-list.grid-x.grid-padding-x.grid-padding-y.mb-2rem
+          - @videos.each do |video|
+            - unless video.highlighted
+              .medium-4.cell.img-container
+                = render partial: 'layouts/video_link',
+                  locals: { resource: video }
+                h6= video.name
+      - elsif params[:query].present?
+        .cell.text-center.mb-2rem
+          h4 Nenhum vídeo encontrado.
