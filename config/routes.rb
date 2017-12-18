@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :payments, only: %i[new]
   resources :users, only: %i[show]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
+  get '/cstqnapangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
   get '/cifsqpangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
+  get '/cifsqnapangeas', to: 'high_voltage/pages#show', id: 'landing_cifsq'
   get '/svl', to: 'high_voltage/pages#show', id: 'landing_svl'
 end

@@ -34,14 +34,14 @@
             = render partial: 'layouts/video_link',
               locals: { resource: @latest_series }
             h5= @latest_series.name
-            p= @latest_series.description
+            p= simple_format(@latest_series.description)
         - if @latest_videos
           - @latest_videos.each do |video|
             .medium-6.medium-centered.large-4.cell
               = render partial: 'layouts/video_link',
                 locals: { resource: video }
               h5= video.name
-              p= video.description
+              p= simple_format(video.description)
   .subsections-container
     .grid-container
       - @subsections.each do |subsection|
@@ -52,7 +52,7 @@
             .category-block
               .category-title
                 h4= category.name
-                p= category.description
+                p= simple_format(category.description)
               - if category.highlight.present?
                 .category-latest
                   .grid-x.grid-padding-x
@@ -65,18 +65,18 @@
                     .medium-6.cell
                       div
                         h5= category.highlight.name
-                        p= category.highlight.description
+                        p= simple_format(category.highlight.description)
                 .category-carousel
                   .owl-carousel.carousel-three-items
                     - unless category.series.empty?
-                      - category.series.each do |serie|
+                      - category.series.order(created_at: :desc).each do |serie|
                         - unless serie.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',
                               locals: { resource: serie }
                             p= serie.name
                     - unless category.videos.empty?
-                      - category.videos.each do |video|
+                      - category.videos.order(created_at: :desc).each do |video|
                         - unless video.highlighted
                           .text-center
                             = render partial: 'layouts/video_link',
