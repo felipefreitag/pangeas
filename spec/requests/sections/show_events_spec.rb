@@ -46,8 +46,7 @@ RSpec.describe 'GET /sections/1', type: :request do
         address_number: '42',
         zip_code: '123',
         city: 'foo',
-        state: 'foo',
-        country: 'foo'
+        state: 'foo'
       )
     end
 
