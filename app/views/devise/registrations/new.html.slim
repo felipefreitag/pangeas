@@ -67,13 +67,17 @@
                   = f.text_field :state,
                     class: 'large-12 cell pink-input',
                     placeholder: 'Estado'
-                .medium-6.cell
-                  = f.text_field :country,
-                    class: 'large-12 cell pink-input',
-                    placeholder: 'País'
+                .medium-12.cell
+                  = f.check_box :terms_of_service
+                  = label_tag :terms_of_service
+                    ' Aceito o
+                    = link_to 'contrato de serviço',
+                      'https://www.dropbox.com/s/xl62qqftahw6oww/'\
+                      'CONTRATO%20DE%20ADES%C3%83O.pdf?dl=0',
+                      target: '_blank'
               .grid-x
                 .large-12.cell
-                  = f.submit  t('.sign_up', default: 'Sign up'),
+                  = f.submit t('.sign_up', default: 'Sign up'),
                     class: 'button primary expand large-12 large-centered cell'
               p.text-center
                 ' Já possui uma conta?

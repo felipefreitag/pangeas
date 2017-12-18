@@ -14,8 +14,7 @@ RSpec.describe User, type: :model do
       address_number: '42',
       zip_code: '123',
       city: 'foo',
-      state: 'foo',
-      country: 'foo'
+      state: 'foo'
     )
   end
 
@@ -32,7 +31,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:address_number) }
     it { is_expected.to validate_presence_of(:city) }
     it { is_expected.to validate_presence_of(:state) }
-    it { is_expected.to validate_presence_of(:country) }
   end
 
   describe 'subscribed?' do

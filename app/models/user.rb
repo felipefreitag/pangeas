@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :address_number, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :country, presence: true
+  validates :terms_of_service, acceptance: true
   has_many :subscriptions, dependent: :restrict_with_exception
 
   def subscribed?

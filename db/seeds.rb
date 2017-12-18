@@ -8,8 +8,7 @@ user = User.create!(
   address_number: '42',
   zip_code: '123',
   city: 'foo',
-  state: 'foo',
-  country: 'foo'
+  state: 'foo'
 )
 
 User.create!(
@@ -22,8 +21,7 @@ User.create!(
   address_number: '42',
   zip_code: '123',
   city: 'foo',
-  state: 'foo',
-  country: 'foo'  
+  state: 'foo'
 )
 
 Subscription.create!(

@@ -17,8 +17,7 @@ RSpec.describe 'POST /subscriptions/activate', type: :request do
       address_number: '42',
       zip_code: '123',
       city: 'foo',
-      state: 'foo',
-      country: 'foo'
+      state: 'foo'
     )
   end
 
