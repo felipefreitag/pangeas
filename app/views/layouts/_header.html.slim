@@ -31,13 +31,17 @@
         ul.menu
           - if user_signed_in?
             li
+              = link_to videos_path, class: 'right-link' do
+                = fa_icon 'search'
+                span< Pesquisar
+            li
               = link_to 'Meu Perfil',
                 user_path(current_user.id),
                 class: 'profile-link'
             li
               = link_to 'Sair',
                 destroy_user_session_path, method: :delete,
-                class: 'logout-link'
+                class: 'right-link'
           - else
             li
               = link_to 'Login do Assinante',

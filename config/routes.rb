@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  resources :videos, only: %i[show]
+  resources :videos, only: %i[index show]
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
   resources :sections, only: %i[index show]
