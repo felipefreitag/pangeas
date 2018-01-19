@@ -17,3 +17,7 @@
           ' aprendizado, tendo acesso a todas as aulas desde o princípio.
           ' E o melhor,
           span.bg-highlight assinantes Pangeas tem desconto exclusivo.
+  - if @courses
+    .courses
+      - @courses.each do |course|
+        h2= course.name

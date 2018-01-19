@@ -42,7 +42,7 @@ section =  Section.create!(
   image_url: 'https://image.ibb.co/iAgvok/vida_equilibrio.png'
 )
 
-section3 =  Section.create!(
+section_courses =  Section.create!(
   name: 'Cursos Pangeas',
   description: 'some section description',
   image_url: 'https://image.ibb.co/bvG6uQ/courses_coming_soon.png'
@@ -51,6 +51,11 @@ section3 =  Section.create!(
 subsection_events = Subsection.create!(
   name: 'events',
   section: section_events,
+)
+
+subsection_courses = Subsection.create!(
+  name: 'courses',
+  section: section_courses,
 )
 
 subsection_mente = Subsection.create!(
@@ -94,6 +99,24 @@ category_talks = Category.create!(
   name: 'Palestras Avulsas',
   description: 'some category description',
   subsection: subsection_events,
+)
+
+category_course1 = Category.create!(
+  name: 'Curso Pangeas 1',
+  description: 'Um baita curso da Pangeas',
+  subsection: subsection_courses,
+)
+
+category_course2 = Category.create!(
+  name: 'Curso Pangeas 2',
+  description: 'Um baita curso da Pangeas',
+  subsection: subsection_courses,
+)
+
+category_course3 = Category.create!(
+  name: 'Curso Pangeas 3',
+  description: 'Um baita curso da Pangeas',
+  subsection: subsection_courses,
 )
 
 category_educacao = Category.create!(
