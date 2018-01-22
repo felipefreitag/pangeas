@@ -13,6 +13,13 @@ RSpec.describe 'GET /sections/3', type: :request do
     )
   end
 
+  before do
+    Subsection.create!(
+      name: 'courses',
+      section: section
+    )
+  end
+
   context 'without logged user' do
     before do
       get "/sections/#{section.id}"
