@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use(
-  Rack::Affiliates, param: 'aff', extra_params: [:campaign]
+  Rack::Affiliates, param: 'aff', path: '/', extra_params: [:campaign]
 )
