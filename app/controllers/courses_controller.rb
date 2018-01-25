@@ -6,5 +6,6 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @videos = @course.videos.order(:sorting)
   end
 end
