@@ -7,7 +7,7 @@ RSpec.describe Course, type: :model do
     Course.create!(
       name: 'baz course',
       description: 'some course description',
-      class_detail: 'foo',
+      lesson_detail: 'foo',
       subsection: subsection,
       vimeo_id: '1234',
       image_url: 'http://foo',

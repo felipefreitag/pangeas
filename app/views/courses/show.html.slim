@@ -50,7 +50,7 @@
     .lessons
       .detail
         h5 Detalhamento das aulas:
-        = simple_format(@course.class_detail, class: 'text-justify')
+        = simple_format(@course.lesson_detail, class: 'text-justify')
       - @videos.each do |lesson|
         .lesson
           h6= lesson.name

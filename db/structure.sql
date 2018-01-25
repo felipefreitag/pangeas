@@ -104,7 +104,7 @@ CREATE TABLE courses (
     subsection_id bigint NOT NULL,
     name text NOT NULL,
     description text NOT NULL,
-    class_detail text NOT NULL,
+    lesson_detail text NOT NULL,
     vimeo_id integer NOT NULL,
     image_url text NOT NULL,
     instructor text NOT NULL,

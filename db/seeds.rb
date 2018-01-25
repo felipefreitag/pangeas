@@ -110,7 +110,7 @@ Course.create!(
   ' na prática para proporcionar uma jornada com foco no desenvolvimento'\
   ' intrapessoal. É dentro desse profundo processo de autoconhecimento que a'\
   ' vida ganha nova base.',
-  class_detail: 'Cada aula do curso Conhece-te segue uma sequência de'\
+  lesson_detail: 'Cada aula do curso Conhece-te segue uma sequência de'\
   ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
   ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
   ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
@@ -134,7 +134,7 @@ Course.create!(
   ' humor e marcar os estados das ondas cerebrais que você deseja. É isso que'\
   ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas ou'\
   ' comprar individualmente.',
-  class_detail: 'Cada aula do curso Meditação Guiada iAwake é um módulo'\
+  lesson_detail: 'Cada aula do curso Meditação Guiada iAwake é um módulo'\
   ' individual de conhecimento sobre uma temática diferente. Ou seja, você'\
   ' pode escolher o que busca aperfeiçoar com as ferramentas de meditação e'\
   ' começar pela parte que preferir.',
@@ -158,7 +158,7 @@ course1 = Course.create!(
   ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
   ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
   ' individualmente.',
-  class_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
+  lesson_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
   ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
   ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
   ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
