@@ -5,7 +5,8 @@ class Series < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
 
-  belongs_to :category
+  belongs_to :category, optional: true
+  belongs_to :course, optional: true
   has_many :videos, dependent: :restrict_with_exception
 
   def image

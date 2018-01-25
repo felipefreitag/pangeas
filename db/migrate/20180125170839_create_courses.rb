@@ -7,6 +7,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
       t.references :subsection, null: false, foreign_key: true, index: true
       t.text :name, null: false
       t.text :description, null: false
+      t.text :class_detail, null: false
       t.integer :vimeo_id, null: false
       t.text :image_url, null: false
       t.text :instructor, null: false

@@ -13,4 +13,5 @@ class Video < ApplicationRecord
 
   belongs_to :category, optional: true
   belongs_to :series, optional: true
+  belongs_to :course, optional: true
 end
