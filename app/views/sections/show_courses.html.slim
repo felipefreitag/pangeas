@@ -10,26 +10,43 @@
           .shrink.cell
             h2= @section.name
           .auto.cell.show-for-medium
-    .grid-container
-      .grid-x
-        .medium-3.cell
-        .medium-6.cell
-          .card
-            .card-title
-              h4 Em breve!
-            .card-section
-              p
-                | Pensando em todos que gostariam de aprender e ter contato
-                  direto com essas pessoas especiais que dividem seus
-                  conhecimentos com a gente aqui na Pangeas, nós decidimos
-                  criar uma área de cursos. Aqui cada aluno vai poder aprofundar
-                  seu conhecimento, fazer exercícios, ter aulas ao vivo,
-                  encontros presenciais e uma experiência mais intensa de
-                  aprendizado.
-              p
-                | É claro que todos os cursos vão nos ajudar ainda mais a
-                  construir um mundo livre e saudável.
-        .medium-2.cell
-          .courses-box-img
-            = image_tag 'courses-person-standing.png'
-        .auto.cell
+        h5
+          ' Aqui você encontra
+          span.bg-highlight> cursos para aprofundar seu conhecimento
+          ' com profissionais de destaque. Você decide a velocidade de
+          ' aprendizado, tendo acesso a todas as aulas desde o princípio.
+          ' E o melhor,
+          span.bg-highlight assinantes Pangeas tem desconto exclusivo.
+  - if @courses
+    .courses
+      .grid-container
+        - @courses.each do |course|
+          .course
+            .grid-x.grid-padding-x
+              .medium-5.cell
+                = render partial: 'layouts/video_reveal',
+                  locals: { \
+                    id: "course#{course.id}",
+                    image_url: 'https://image.ibb.co/'\
+                      'jLT3ib/ecologia_celular.png',
+                    video_url: 'https://player.vimeo.com/video/163721649',
+                    colored_bar: true,
+                    square_play: true \
+                  }
+              .medium-7.cell
+                .info
+                  h4= course.name
+                  = simple_format(course.description, class: 'description')
+                  .pricing
+                    h5
+                      span.bg-highlight VALOR DO CURSO: R$ 300
+                    h5 Assinante Pangeas: R$ 240
+                  .grid-x.grid-padding-x
+                    .medium-6.cell
+                      = link_to 'Comprar o curso',
+                        '#',
+                        class: 'button success expanded'
+                    .medium-6.cell
+                      = link_to 'Mais informações',
+                        course,
+                        class: 'button secondary expanded'
