@@ -7,8 +7,6 @@ AllCops:
     - '**/config.ru'
   Exclude:
     - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
     - 'node_modules/**/*'
     - '.gems/**/*'
     - 'vendor/**/*'

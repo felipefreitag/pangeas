@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/MethodLength
 class CreateVideos < ActiveRecord::Migration[5.1]
   def change
     create_table :videos do |t|
@@ -16,3 +19,4 @@ class CreateVideos < ActiveRecord::Migration[5.1]
     end
   end
 end
+# rubocop:enable Metrics/MethodLength
