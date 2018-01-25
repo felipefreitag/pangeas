@@ -41,7 +41,7 @@ class SectionsController < ApplicationController
 
   def show_courses
     subsection_courses = @section.subsections.find_by(name: 'courses')
-    @courses = subsection_courses.courses
+    @courses = subsection_courses.courses.order('created_at DESC')
     render :show_courses
   end
 

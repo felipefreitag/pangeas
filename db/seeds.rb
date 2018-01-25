@@ -103,28 +103,28 @@ category_talks = Category.create!(
   subsection: subsection_events
 )
 
-course1 = Course.create!(
-  name: 'Ecologia Celular',
-  description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
-  ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
-  ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
-  ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
-  ' individualmente.',
-  class_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
+Course.create!(
+  name: 'Conhece-te (Educação Emocional)',
+  description: 'O curso de educação emocional Conhece-te é uma capacitação'\
+  ' composta por 7 módulos. Nessas aulas online a Autoconsciência é vivenciada'\
+  ' na prática para proporcionar uma jornada com foco no desenvolvimento'\
+  ' intrapessoal. É dentro desse profundo processo de autoconhecimento que a'\
+  ' vida ganha nova base.',
+  class_detail: 'Cada aula do curso Conhece-te segue uma sequência de'\
   ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
   ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
   ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
   subsection: subsection_courses,
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/abstract',
+  image_url: 'https://image.ibb.co/cuYQww/conhecete.png',
   instructor: 'Dr. Carlos Braghini',
-  credentials: 'Braghini é médico e tem sua pesquisa focada no papel da'\
+  credentials: 'Brraghini é médico e tem sua pesquisa focada no papel da'\
   ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
   ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
-  price: '300',
-  discount_price: '240'
+  price: '500',
+  discount_price: '400'
 )
 
 Course.create!(
@@ -140,7 +140,7 @@ Course.create!(
   ' começar pela parte que preferir.',
   subsection: subsection_courses,
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/abstract',
+  image_url: 'https://image.ibb.co/ccjyGw/meditacao_iawake.png',
   instructor: 'Dr. Carlos Braghini',
   credentials: 'Brraghini é médico e tem sua pesquisa focada no papel da'\
   ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
@@ -151,28 +151,28 @@ Course.create!(
   discount_price: '960'
 )
 
-Course.create!(
-  name: 'Conhece-te (Educação Emocional)',
-  description: 'O curso de educação emocional Conhece-te é uma capacitação'\
-  ' composta por 7 módulos. Nessas aulas online a Autoconsciência é vivenciada'\
-  ' na prática para proporcionar uma jornada com foco no desenvolvimento'\
-  ' intrapessoal. É dentro desse profundo processo de autoconhecimento que a'\
-  ' vida ganha nova base.',
-  class_detail: 'Cada aula do curso Conhece-te segue uma sequência de'\
+course1 = Course.create!(
+  name: 'Ecologia Celular',
+  description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
+  ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
+  ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
+  ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
+  ' individualmente.',
+  class_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
   ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
   ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
   ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
   subsection: subsection_courses,
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/abstract',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   instructor: 'Dr. Carlos Braghini',
-  credentials: 'Brraghini é médico e tem sua pesquisa focada no papel da'\
+  credentials: 'Braghini é médico e tem sua pesquisa focada no papel da'\
   ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
   ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
-  price: '500',
-  discount_price: '400'
+  price: '300',
+  discount_price: '240'
 )
 
 category_educacao = Category.create!(
