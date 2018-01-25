@@ -96,6 +96,45 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
+-- Name: courses; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE courses (
+    id bigint NOT NULL,
+    subsection_id bigint NOT NULL,
+    name text NOT NULL,
+    description text NOT NULL,
+    vimeo_id integer NOT NULL,
+    image_url text NOT NULL,
+    instructor text NOT NULL,
+    credentials text NOT NULL,
+    price text NOT NULL,
+    discount_price text NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: courses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE courses_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: courses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE courses_id_seq OWNED BY courses.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -143,14 +182,15 @@ ALTER SEQUENCE sections_id_seq OWNED BY sections.id;
 
 CREATE TABLE series (
     id bigint NOT NULL,
-    category_id bigint NOT NULL,
+    category_id bigint,
     name text NOT NULL,
     description text NOT NULL,
     highlighted boolean DEFAULT false NOT NULL,
     sorting integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    image_url character varying
+    image_url character varying,
+    course_id bigint
 );
 
 
@@ -313,7 +353,8 @@ CREATE TABLE videos (
     sorting integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    image_url character varying NOT NULL
+    image_url character varying NOT NULL,
+    course_id bigint
 );
 
 
@@ -341,6 +382,13 @@ ALTER SEQUENCE videos_id_seq OWNED BY videos.id;
 --
 
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
+
+
+--
+-- Name: courses id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY courses ALTER COLUMN id SET DEFAULT nextval('courses_id_seq'::regclass);
 
 
 --
@@ -399,6 +447,14 @@ ALTER TABLE ONLY ar_internal_metadata
 
 ALTER TABLE ONLY categories
     ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: courses courses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY courses
+    ADD CONSTRAINT courses_pkey PRIMARY KEY (id);
 
 
 --
@@ -465,10 +521,24 @@ CREATE INDEX index_categories_on_subsection_id ON categories USING btree (subsec
 
 
 --
+-- Name: index_courses_on_subsection_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_courses_on_subsection_id ON courses USING btree (subsection_id);
+
+
+--
 -- Name: index_series_on_category_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_series_on_category_id ON series USING btree (category_id);
+
+
+--
+-- Name: index_series_on_course_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_series_on_course_id ON series USING btree (course_id);
 
 
 --
@@ -514,10 +584,33 @@ CREATE INDEX index_videos_on_category_id ON videos USING btree (category_id);
 
 
 --
+-- Name: index_videos_on_course_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_videos_on_course_id ON videos USING btree (course_id);
+
+
+--
 -- Name: index_videos_on_series_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_videos_on_series_id ON videos USING btree (series_id);
+
+
+--
+-- Name: courses fk_rails_3590e5f1a0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY courses
+    ADD CONSTRAINT fk_rails_3590e5f1a0 FOREIGN KEY (subsection_id) REFERENCES subsections(id);
+
+
+--
+-- Name: series fk_rails_7e523f8111; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY series
+    ADD CONSTRAINT fk_rails_7e523f8111 FOREIGN KEY (course_id) REFERENCES courses(id);
 
 
 --
@@ -550,6 +643,14 @@ ALTER TABLE ONLY videos
 
 ALTER TABLE ONLY series
     ADD CONSTRAINT fk_rails_d50a220694 FOREIGN KEY (category_id) REFERENCES categories(id);
+
+
+--
+-- Name: videos fk_rails_dc08c1994c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY videos
+    ADD CONSTRAINT fk_rails_dc08c1994c FOREIGN KEY (course_id) REFERENCES courses(id);
 
 
 --
@@ -591,6 +692,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171120121856'),
 ('20171122192715'),
 ('20171212192237'),
-('20171218174635');
+('20171218174635'),
+('20180125170839'),
+('20180125171816');
 
 
