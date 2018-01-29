@@ -1,0 +1,25 @@
+.course-container
+  .grid-container
+    .hero.mb-2rem
+      .text-center.title
+        h3= @course.name
+        h5= simple_format(@course.description)
+      - unless @videos.empty?
+        .grid-x.grid-padding-x
+          .medium-6.cell
+            = render partial: 'layouts/video_link',
+              locals: { \
+                resource: @videos.first,
+                extra_class: 'highlighted' \
+              }
+          .medium-6.cell
+            div
+              h5= @videos.first.name
+              p= simple_format(@videos.first.description, class: 'text-justify')
+    .lesson-list.grid-x.grid-padding-x.grid-padding-y
+      - @videos.each do |video|
+        - unless video == @videos.first
+          .medium-4.cell.img-container
+            = render partial: 'layouts/video_link',
+              locals: { resource: video }
+            h6= video.name

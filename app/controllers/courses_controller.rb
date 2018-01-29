@@ -8,4 +8,9 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @videos = @course.videos.order(:sorting)
   end
+
+  def watch
+    @course = Course.find(params[:id])
+    @videos = @course.videos.order(:sorting)
+  end
 end

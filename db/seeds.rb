@@ -132,8 +132,7 @@ Course.create!(
   description: 'O ritmo é a linguagem básica da natureza. Agora, imagine usar'\
   ' todo o poder dessa ressonância de maneira consciente para definir seu'\
   ' humor e marcar os estados das ondas cerebrais que você deseja. É isso que'\
-  ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas ou'\
-  ' comprar individualmente.',
+  ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas.',
   lesson_detail: 'Cada aula do curso Meditação Guiada iAwake é um módulo'\
   ' individual de conhecimento sobre uma temática diferente. Ou seja, você'\
   ' pode escolher o que busca aperfeiçoar com as ferramentas de meditação e'\
@@ -156,8 +155,7 @@ course1 = Course.create!(
   description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
   ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
   ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
-  ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
-  ' individualmente.',
+  ' da saúde onde quer que você esteja.',
   lesson_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
   ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
   ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
@@ -668,7 +666,7 @@ Video.create!(
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/animals',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   course: course1
 )
 
@@ -695,7 +693,7 @@ Video.create!(
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/animals',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   course: course1
 )
 
@@ -722,7 +720,7 @@ Video.create!(
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/animals',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   course: course1
 )
 
@@ -749,6 +747,6 @@ Video.create!(
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
-  image_url: 'http://lorempixel.com/573/322/animals',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   course: course1
 )
