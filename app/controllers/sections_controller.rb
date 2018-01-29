@@ -12,10 +12,9 @@ class SectionsController < ApplicationController
     authorize @section
     if @section.name == 'Eventos & Pesquisa'
       show_events
-    elsif @section.name == 'Cursos Pangeas'
-      show_courses
     elsif @section.name == section_life
       show_section
+    else redirect_to courses_path
     end
   end
 
@@ -37,12 +36,6 @@ class SectionsController < ApplicationController
     @other_events = subsection_events.categories.find_by(name: 'Outros Eventos')
     @talks = subsection_events.categories.find_by(name: 'Palestras Avulsas')
     render :show_events
-  end
-
-  def show_courses
-    subsection_courses = @section.subsections.find_by(name: 'courses')
-    @courses = subsection_courses.courses.order(created_at: :desc)
-    render :show_courses
   end
 
   def section_life

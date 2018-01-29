@@ -64,8 +64,8 @@ RSpec.describe 'GET /sections/3', type: :request do
         get "/sections/#{section.id}"
       end
 
-      it { is_expected.to have_http_status(:ok) }
-      it { is_expected.to render_template(:show_courses) }
+      it { is_expected.to have_http_status(:found) }
+      it { is_expected.to redirect_to(courses_path) }
     end
   end
 end

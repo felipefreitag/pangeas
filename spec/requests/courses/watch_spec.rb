@@ -35,9 +35,82 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
     )
   end
 
-  before do
-    get "/courses/#{course.id}/watch"
+  let!(:course2) do
+    Course.create!(
+      name: 'foo course',
+      description: 'another course description',
+      lesson_detail: 'foo',
+      subsection: subsection,
+      vimeo_id: '1234',
+      image_url: 'http://foo',
+      instructor: 'foo',
+      credentials: 'foo',
+      price: '2000',
+      discount_price: '1900'
+    )
   end
 
-  it { is_expected.to have_http_status(:ok) }
+  context 'without logged user' do
+    before do
+      get "/courses/#{course.id}/watch"
+    end
+
+    it { is_expected.to have_http_status(:found) }
+  end
+
+  context 'with logged user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'jane',
+        last_name: 'doe',
+        email: 'bar@baz.com',
+        password: '123456',
+        cpf: '1234567890',
+        address: 'foo',
+        address_number: '42',
+        zip_code: '123',
+        city: 'foo',
+        state: 'foo'
+      )
+    end
+
+    context 'who did not buy any course' do
+      before do
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:found) }
+    end
+
+    context 'who bought only other courses' do
+      before do
+        user.courses = [course2]
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:found) }
+    end
+
+    context 'who bought the course' do
+      before do
+        user.courses = [course]
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+
+    context 'who bought the course and others' do
+      before do
+        user.courses = [course, course2]
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+  end
 end

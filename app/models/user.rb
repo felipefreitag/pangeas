@@ -20,6 +20,7 @@ class User < ApplicationRecord
   validates :state, presence: true
   validates :terms_of_service, acceptance: true
   has_many :subscriptions, dependent: :restrict_with_exception
+  has_many :courses, dependent: :restrict_with_exception
 
   def subscribed?
     @subscribed ||= subscriptions.with_state(:active).count.positive?

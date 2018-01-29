@@ -102,6 +102,7 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 CREATE TABLE courses (
     id bigint NOT NULL,
     subsection_id bigint NOT NULL,
+    user_id bigint,
     name text NOT NULL,
     description text NOT NULL,
     lesson_detail text NOT NULL,
@@ -529,6 +530,13 @@ CREATE INDEX index_courses_on_subsection_id ON courses USING btree (subsection_i
 
 
 --
+-- Name: index_courses_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_courses_on_user_id ON courses USING btree (user_id);
+
+
+--
 -- Name: index_series_on_category_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -636,6 +644,14 @@ ALTER TABLE ONLY categories
 
 ALTER TABLE ONLY videos
     ADD CONSTRAINT fk_rails_a2aee9449d FOREIGN KEY (series_id) REFERENCES series(id);
+
+
+--
+-- Name: courses fk_rails_b3c61f05ef; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY courses
+    ADD CONSTRAINT fk_rails_b3c61f05ef FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :videos, only: %i[index show]
   resources :series, only: %i[show]
   resources :categories, only: %i[show]
-  resources :courses, only: %i[show] do
+  resources :courses, only: %i[index show] do
     get :watch, on: :member
   end
   resources :sections, only: %i[index show]
