@@ -341,7 +341,8 @@ Video.create!(
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
   image_url: 'http://lorempixel.com/573/322/nature',
-  series: series
+  series: series,
+  sorting: 1
 )
 
 Video.create!(
@@ -363,7 +364,8 @@ Video.create!(
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
   vimeo_id: '163721649',
   image_url: 'http://lorempixel.com/573/322/nature',
-  series: series
+  series: series,
+  sorting: 2
 )
 
 event1 = Series.create!(

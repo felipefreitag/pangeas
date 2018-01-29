@@ -3,7 +3,7 @@
     h5
       strong Assista também...
     .owl-carousel.carousel-three-items
-      - videos.each do |video|
+      - videos.reverse.each do |video|
         - if video != current
           .text-center
             = render partial: 'layouts/video_link',
