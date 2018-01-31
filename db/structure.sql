@@ -143,6 +143,7 @@ CREATE TABLE purchases (
     id bigint NOT NULL,
     paid boolean DEFAULT false NOT NULL,
     invoice_id character varying,
+    affiliate_tag character varying,
     user_id bigint,
     course_id bigint,
     created_at timestamp without time zone NOT NULL,
