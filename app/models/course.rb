@@ -12,7 +12,8 @@ class Course < ApplicationRecord
   validates :discount_price, presence: true
 
   belongs_to :subsection
-  belongs_to :user, optional: true
+  has_many :purchases, dependent: :restrict_with_exception
+  has_many :users, through: :purchases, dependent: :restrict_with_exception
   has_many :videos, dependent: :restrict_with_exception
   has_many :series, dependent: :restrict_with_exception
 end

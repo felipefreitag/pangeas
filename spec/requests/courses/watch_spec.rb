@@ -85,7 +85,7 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
 
     context 'who bought only other courses' do
       before do
-        user.courses = [course2]
+        Purchase.create!(user: user, course: course2)
         sign_in user
         get "/courses/#{course.id}/watch"
       end
@@ -95,7 +95,7 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
 
     context 'who bought the course' do
       before do
-        user.courses = [course]
+        Purchase.create!(user: user, course: course)
         sign_in user
         get "/courses/#{course.id}/watch"
       end
@@ -105,7 +105,8 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
 
     context 'who bought the course and others' do
       before do
-        user.courses = [course, course2]
+        Purchase.create!(user: user, course: course2)
+        Purchase.create!(user: user, course: course)
         sign_in user
         get "/courses/#{course.id}/watch"
       end
