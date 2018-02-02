@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/LineLength
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -6,7 +9,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6539d8969f79fb001794a30d4d18fa7695742e06a069bc30c557d3f13d555ccd2aea2a4eec1859a3f139faf04347fd656ea63a0ba38eb20a403539f0bfcacc60'
+  # config.secret_key = '6539d8969f79fb001794a30d4d18fa7695742e06a069bc30c557d3f
+  # 13d555ccd2aea2a4eec1859a3f139faf04347fd656ea63a0ba38eb20a403539f0bfcacc60'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -275,3 +279,4 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+# rubocop:enable Metrics/LineLength

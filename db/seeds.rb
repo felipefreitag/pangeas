@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 user = User.create!(
   first_name: 'foo',
   last_name: 'bar',
@@ -30,19 +32,19 @@ Subscription.create!(
   state: 'active'
 )
 
-section_events =  Section.create!(
+section_events = Section.create!(
   name: 'Eventos & Pesquisa',
   description: 'some section description',
   image_url: 'http://image.ibb.co/h3KBZG/Icone_Eventose_Pesquisas.png'
 )
 
-section =  Section.create!(
+section = Section.create!(
   name: 'Vida em Equilíbrio',
   description: 'some section description',
   image_url: 'http://image.ibb.co/ek13gw/Icone_Vidaem_Equilibrio.png'
 )
 
-section_courses =  Section.create!(
+section_courses = Section.create!(
   name: 'Cursos Pangeas',
   description: 'some section description',
   image_url: 'http://image.ibb.co/dhkkuG/Icone_Cursos_Pangeas.png'
@@ -50,148 +52,148 @@ section_courses =  Section.create!(
 
 subsection_events = Subsection.create!(
   name: 'events',
-  section: section_events,
+  section: section_events
 )
 
 subsection_courses = Subsection.create!(
   name: 'courses',
-  section: section_courses,
+  section: section_courses
 )
 
 subsection_mente = Subsection.create!(
   name: 'Mente Sã',
-  section: section,
+  section: section
 )
 
 subsection_corpo = Subsection.create!(
   name: 'Corpo São',
-  section: section,
+  section: section
 )
 
 subsection_espirito = Subsection.create!(
   name: 'Espírito Livre',
-  section: section,
+  section: section
 )
 
 subsection_energia = Subsection.create!(
   name: 'Energia em Equilíbrio',
-  section: section,
+  section: section
 )
 
 subsection_terra = Subsection.create!(
   name: 'Terra Viva',
-  section: section,
+  section: section
 )
 
 category_events = Category.create!(
   name: 'Eventos',
   description: 'some category description',
-  subsection: subsection_events,
+  subsection: subsection_events
 )
 
 category_other_events = Category.create!(
   name: 'Outros Eventos',
   description: 'some category description',
-  subsection: subsection_events,
+  subsection: subsection_events
 )
 
 category_talks = Category.create!(
   name: 'Palestras Avulsas',
   description: 'some category description',
-  subsection: subsection_events,
+  subsection: subsection_events
 )
 
-category_course1 = Category.create!(
+Category.create!(
   name: 'Ecologia Celular',
   description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
   ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
   ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
   ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
   ' individualmente.',
-  subsection: subsection_courses,
+  subsection: subsection_courses
 )
 
-category_course2 = Category.create!(
+Category.create!(
   name: 'Meditação Guiada iAwake',
   description: 'O ritmo é a linguagem básica da natureza. Agora, imagine usar'\
   ' todo o poder dessa ressonância de maneira consciente para definir seu'\
   ' humor e marcar os estados das ondas cerebrais que você deseja. É isso que'\
   ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas ou'\
   ' comprar individualmente.',
-  subsection: subsection_courses,
+  subsection: subsection_courses
 )
 
-category_course3 = Category.create!(
+Category.create!(
   name: 'Conhece-te (Educação Emocional)',
   description: 'O curso de educação emocional Conhece-te é uma capacitação'\
   ' composta por 7 módulos. Nessas aulas online a Autoconsciência é vivenciada'\
   ' na prática para proporcionar uma jornada com foco no desenvolvimento'\
   ' intrapessoal. É dentro desse profundo processo de autoconhecimento que a'\
   ' vida ganha nova base.',
-  subsection: subsection_courses,
+  subsection: subsection_courses
 )
 
 category_educacao = Category.create!(
   name: 'Educação Emocional & Comunicação Não Violenta',
   description: 'some category description',
-  subsection: subsection_mente,
+  subsection: subsection_mente
 )
 
-category_meditacao = Category.create!(
+Category.create!(
   name: 'Meditação & Exercícios para a Mente',
   description: 'some category description',
-  subsection: subsection_mente,
+  subsection: subsection_mente
 )
 
-category_alimentacao = Category.create!(
+Category.create!(
   name: 'Alimentação',
   description: 'some category description',
-  subsection: subsection_corpo,
+  subsection: subsection_corpo
 )
 
-category_consciencia = Category.create!(
+Category.create!(
   name: 'Consciência Corporal e Exercícios',
   description: 'some category description',
-  subsection: subsection_corpo,
+  subsection: subsection_corpo
 )
 
-category_espiritualidade = Category.create!(
+Category.create!(
   name: 'Espiritualidade',
   description: 'some category description',
-  subsection: subsection_espirito,
+  subsection: subsection_espirito
 )
 
-category_fe = Category.create!(
+Category.create!(
   name: 'Humanização, Fé e Ciência',
   description: 'some category description',
-  subsection: subsection_espirito,
+  subsection: subsection_espirito
 )
 
-category_vida = Category.create!(
+Category.create!(
   name: 'Vida Integral',
   description: 'some category description',
-  subsection: subsection_energia,
+  subsection: subsection_energia
 )
 
-category_biofisica = Category.create!(
+Category.create!(
   name: 'Humanização, Fé e Ciência',
   description: 'some category description',
-  subsection: subsection_energia,
+  subsection: subsection_energia
 )
 
-category_verde = Category.create!(
+Category.create!(
   name: 'Vida Verde e Sustentabilidade',
   description: 'some category description',
-  subsection: subsection_terra,
+  subsection: subsection_terra
 )
 
 series = Series.create!(
   name: 'Os Portais da Alma',
   description: 'some series description',
-  category: category_educacao,
+  category: category_educacao
 )
 
-video1 = Video.create!(
+Video.create!(
   name: 'Conheça a Psicologia Quântica',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -208,12 +210,12 @@ video1 = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/animals",
-  category: category_educacao,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/animals',
+  category: category_educacao
 )
 
-video2 = Video.create!(
+Video.create!(
   name: 'Parto Humanizado',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -230,13 +232,13 @@ video2 = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/sports",
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/sports',
   highlighted: true,
-  category: category_educacao,
+  category: category_educacao
 )
 
-video3 = Video.create!(
+Video.create!(
   name: 'Pocket Show Banda Curasom',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -253,12 +255,12 @@ video3 = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/people",
-  category: category_educacao,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/people',
+  category: category_educacao
 )
 
-video4 = Video.create!(
+Video.create!(
   name: 'Encontro com Sri Prem Baba',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -275,12 +277,12 @@ video4 = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/abstract",
-  category: category_educacao,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/abstract',
+  category: category_educacao
 )
 
-video1_series = Video.create!(
+Video.create!(
   name: 'Os Portais da Alma parte 1',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -297,12 +299,12 @@ video1_series = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: series,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: series
 )
 
-video2_series = Video.create!(
+Video.create!(
   name: 'Os Portais da Alma parte 2',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -319,9 +321,9 @@ video2_series = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: series,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: series
 )
 
 event1 = Series.create!(
@@ -329,80 +331,80 @@ event1 = Series.create!(
   description: 'some series description',
   category: category_events,
   highlighted: true,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
 event2a = Series.create!(
   name: 'Primeiro Congresso Internacional',
   description: 'some series description',
   category: category_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event2b = Series.create!(
+Series.create!(
   name: '5° Congresso Saúde Terapia Quântica',
   description: 'some series description',
   category: category_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event2c = Series.create!(
+Series.create!(
   name: 'Primeiro Congresso Internacional',
   description: 'some series description',
   category: category_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event2d = Series.create!(
+Series.create!(
   name: '5° Congresso Saúde Terapia Quântica',
   description: 'some series description',
   category: category_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event3a = Series.create!(
+Series.create!(
   name: 'Primeiro Congresso Internacional',
   description: 'some series description',
   category: category_other_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event3b = Series.create!(
+Series.create!(
   name: '5° Congresso Saúde Terapia Quântica',
   description: 'some series description',
   category: category_other_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event3c = Series.create!(
+Series.create!(
   name: 'Primeiro Congresso Internacional',
   description: 'some series description',
   category: category_other_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event3d = Series.create!(
+Series.create!(
   name: '5° Congresso Saúde Terapia Quântica',
   description: 'some series description',
   category: category_other_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event3e = Series.create!(
+Series.create!(
   name: '7° Congresso Saúde Terapia Quântica',
   description: 'some series description',
   category: category_other_events,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-event4a = Series.create!(
+Series.create!(
   name: 'Palestra avulsa 1',
   description: 'some series description',
   category: category_talks,
-  image_url: "http://lorempixel.com/573/322/nature",
+  image_url: 'http://lorempixel.com/573/322/nature'
 )
 
-video1_events = Video.create!(
+Video.create!(
   name: 'Palestra 1 Evento',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -419,12 +421,12 @@ video1_events = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: event1,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: event1
 )
 
-video2_events = Video.create!(
+Video.create!(
   name: 'Palestra 1 Evento',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -441,12 +443,12 @@ video2_events = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: event2a,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: event2a
 )
 
-video3_events = Video.create!(
+Video.create!(
   name: 'Palestra 1 Evento',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -463,12 +465,12 @@ video3_events = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: event2a,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: event2a
 )
 
-video4_events = Video.create!(
+Video.create!(
   name: 'Palestra 1 Evento',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -485,12 +487,12 @@ video4_events = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  series: event2a,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  series: event2a
 )
 
-video5_events = Video.create!(
+Video.create!(
   name: 'Palestra 1 Evento',
   description: 'Amig Goswami é uma das maiores autoridades mundiais em'\
   ' Psicologia Quântica. Nesta palestra, ele faz um contraponto entre a'\
@@ -507,8 +509,8 @@ video5_events = Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
   series: event2a,
   category: category_events
 )
@@ -530,9 +532,9 @@ Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  category: category_talks,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  category: category_talks
 )
 
 Video.create!(
@@ -552,9 +554,9 @@ Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  category: category_talks,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  category: category_talks
 )
 
 Video.create!(
@@ -574,9 +576,9 @@ Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  category: category_talks,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  category: category_talks
 )
 
 Video.create!(
@@ -596,7 +598,7 @@ Video.create!(
   bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
   ' sua participação no filme "Quem somos nós?". Com diversos livros'\
   ' publicados e vários artigos científicos, o trabalho de Amit traz',
-  vimeo_id: "163721649",
-  image_url: "http://lorempixel.com/573/322/nature",
-  category: category_talks,
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/nature',
+  category: category_talks
 )

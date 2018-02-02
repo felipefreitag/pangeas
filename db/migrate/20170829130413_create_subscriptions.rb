@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/MethodLength
 class CreateSubscriptions < ActiveRecord::Migration[5.1]
   def up
     execute <<-SQL
@@ -6,7 +9,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.1]
     SQL
     create_table :subscriptions do |t|
       t.references :user, null: false, foreign_key: true, index: true
-      t.column :state, :subscription_state, null: false, default: "pending"
+      t.column :state, :subscription_state, null: false, default: 'pending'
       t.column :recurrence, :subscription_recurrence, null: false
       t.string :payment_method
       t.timestamp :activated_at
@@ -23,3 +26,4 @@ class CreateSubscriptions < ActiveRecord::Migration[5.1]
     SQL
   end
 end
+# rubocop:enable Metrics/MethodLength

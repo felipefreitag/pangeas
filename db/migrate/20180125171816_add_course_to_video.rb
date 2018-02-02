@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCourseToVideo < ActiveRecord::Migration[5.1]
   def change
     change_column_null :series, :category_id, true
