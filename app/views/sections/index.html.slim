@@ -16,7 +16,9 @@
           .auto.cell
           - @sections.each do |section|
             .medium-3.cell.section-cell
-              = link_to(section)
+              = link_to( \
+                section.name == 'Cursos Pangeas' ? courses_path : section \
+              )
                 = image_tag section.image_url
                 h6= section.name
           .auto.cell
