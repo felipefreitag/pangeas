@@ -2,7 +2,8 @@
   "name": "pangeas",
   "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "sass-lint": "sass-lint -c .sass-lint.yml --no-exit -v"
   },
   "jest": {
     "collectCoverage": true,

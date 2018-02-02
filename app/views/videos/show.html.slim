@@ -39,3 +39,9 @@
     - elsif @video.category
       = render partial: 'videos_carousel',
         locals: { videos: @video.category.videos, current: @video }
+    - elsif @video.course
+      .text-center
+        = link_to 'Voltar para a lista de aulas do curso',
+          watch_course_path(@video.course), class: 'button success'
+      = render partial: 'videos_carousel',
+        locals: { videos: @video.course.videos, current: @video }

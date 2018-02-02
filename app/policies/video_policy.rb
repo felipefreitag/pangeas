@@ -6,6 +6,7 @@ class VideoPolicy < ApplicationPolicy
   end
 
   def show?
-    user.subscribed?
+    return user.subscribed? unless record.course
+    user.courses.include? record.course
   end
 end

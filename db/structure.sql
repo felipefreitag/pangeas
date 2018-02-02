@@ -136,6 +136,41 @@ ALTER SEQUENCE courses_id_seq OWNED BY courses.id;
 
 
 --
+-- Name: purchases; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE purchases (
+    id bigint NOT NULL,
+    paid boolean DEFAULT false NOT NULL,
+    invoice_id character varying,
+    affiliate_tag character varying,
+    user_id bigint,
+    course_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: purchases_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE purchases_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: purchases_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE purchases_id_seq OWNED BY purchases.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -393,6 +428,13 @@ ALTER TABLE ONLY courses ALTER COLUMN id SET DEFAULT nextval('courses_id_seq'::r
 
 
 --
+-- Name: purchases id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY purchases ALTER COLUMN id SET DEFAULT nextval('purchases_id_seq'::regclass);
+
+
+--
 -- Name: sections id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -456,6 +498,14 @@ ALTER TABLE ONLY categories
 
 ALTER TABLE ONLY courses
     ADD CONSTRAINT courses_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: purchases purchases_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY purchases
+    ADD CONSTRAINT purchases_pkey PRIMARY KEY (id);
 
 
 --
@@ -529,6 +579,20 @@ CREATE INDEX index_courses_on_subsection_id ON courses USING btree (subsection_i
 
 
 --
+-- Name: index_purchases_on_course_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_purchases_on_course_id ON purchases USING btree (course_id);
+
+
+--
+-- Name: index_purchases_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_purchases_on_user_id ON purchases USING btree (user_id);
+
+
+--
 -- Name: index_series_on_category_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -599,11 +663,27 @@ CREATE INDEX index_videos_on_series_id ON videos USING btree (series_id);
 
 
 --
+-- Name: purchases fk_rails_2888c5cba9; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY purchases
+    ADD CONSTRAINT fk_rails_2888c5cba9 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
 -- Name: courses fk_rails_3590e5f1a0; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY courses
     ADD CONSTRAINT fk_rails_3590e5f1a0 FOREIGN KEY (subsection_id) REFERENCES subsections(id);
+
+
+--
+-- Name: purchases fk_rails_7b913c2916; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY purchases
+    ADD CONSTRAINT fk_rails_7b913c2916 FOREIGN KEY (course_id) REFERENCES courses(id);
 
 
 --
@@ -695,6 +775,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171212192237'),
 ('20171218174635'),
 ('20180125170839'),
-('20180125171816');
+('20180125171816'),
+('20180131182654');
 
 
