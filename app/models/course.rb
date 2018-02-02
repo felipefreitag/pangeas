@@ -5,6 +5,7 @@ class Course < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :vimeo_id, presence: true
+  validates :image_url, presence: true
   validates :instructor, presence: true
   validates :credentials, presence: true
   validates :price, presence: true
