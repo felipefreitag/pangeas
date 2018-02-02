@@ -103,34 +103,76 @@ category_talks = Category.create!(
   subsection: subsection_events
 )
 
-Category.create!(
-  name: 'Ecologia Celular',
-  description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
-  ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
-  ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
-  ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
-  ' individualmente.',
-  subsection: subsection_courses
-)
-
-Category.create!(
-  name: 'Meditação Guiada iAwake',
-  description: 'O ritmo é a linguagem básica da natureza. Agora, imagine usar'\
-  ' todo o poder dessa ressonância de maneira consciente para definir seu'\
-  ' humor e marcar os estados das ondas cerebrais que você deseja. É isso que'\
-  ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas ou'\
-  ' comprar individualmente.',
-  subsection: subsection_courses
-)
-
-Category.create!(
+Course.create!(
   name: 'Conhece-te (Educação Emocional)',
   description: 'O curso de educação emocional Conhece-te é uma capacitação'\
   ' composta por 7 módulos. Nessas aulas online a Autoconsciência é vivenciada'\
   ' na prática para proporcionar uma jornada com foco no desenvolvimento'\
   ' intrapessoal. É dentro desse profundo processo de autoconhecimento que a'\
   ' vida ganha nova base.',
-  subsection: subsection_courses
+  lesson_detail: 'Cada aula do curso Conhece-te segue uma sequência de'\
+  ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
+  ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
+  ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
+  subsection: subsection_courses,
+  vimeo_id: '163721649',
+  image_url: 'https://image.ibb.co/cuYQww/conhecete.png',
+  instructor: 'Dr. Carlos Braghini',
+  credentials: 'Brraghini é médico e tem sua pesquisa focada no papel da'\
+  ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
+  ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
+  ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
+  ' QuantumBIO.',
+  price: '500',
+  discount_price: '400'
+)
+
+Course.create!(
+  name: 'Meditação Guiada iAwake',
+  description: 'O ritmo é a linguagem básica da natureza. Agora, imagine usar'\
+  ' todo o poder dessa ressonância de maneira consciente para definir seu'\
+  ' humor e marcar os estados das ondas cerebrais que você deseja. É isso que'\
+  ' estamos trazendo aqui. Você pode acessar todos os áudios e aulas ou'\
+  ' comprar individualmente.',
+  lesson_detail: 'Cada aula do curso Meditação Guiada iAwake é um módulo'\
+  ' individual de conhecimento sobre uma temática diferente. Ou seja, você'\
+  ' pode escolher o que busca aperfeiçoar com as ferramentas de meditação e'\
+  ' começar pela parte que preferir.',
+  subsection: subsection_courses,
+  vimeo_id: '163721649',
+  image_url: 'https://image.ibb.co/ccjyGw/meditacao_iawake.png',
+  instructor: 'Dr. Carlos Braghini',
+  credentials: 'Brraghini é médico e tem sua pesquisa focada no papel da'\
+  ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
+  ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
+  ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
+  ' QuantumBIO.',
+  price: '1200',
+  discount_price: '960'
+)
+
+course1 = Course.create!(
+  name: 'Ecologia Celular',
+  description: 'O Dr. Carlos Braghini e a Pangeas tem a alegria de trazer a'\
+  ' atualização de todos os estudos que deram origem ao livro Ecologia Celular'\
+  ' agora em um formato de video aulas. Aprenda tudo sobre a visão sistêmica'\
+  ' da saúde onde quer que você esteja. Você também pode comprar as aulas'\
+  ' individualmente.',
+  lesson_detail: 'Cada aula do curso Ecologia Celular segue uma sequência de'\
+  ' aprendizado e aprofundamento, mas também pode ser aproveitada como um'\
+  ' módulo individual de conhecimento sobre a sua temática. Então, aproveite'\
+  ' tudo o que organizamos para você ampliar sua visão sobre a saúde.',
+  subsection: subsection_courses,
+  vimeo_id: '163721649',
+  image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
+  instructor: 'Dr. Carlos Braghini',
+  credentials: 'Braghini é médico e tem sua pesquisa focada no papel da'\
+  ' alimentação e do meio ambiente no envelhecimento e na longevidade. É'\
+  ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
+  ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
+  ' QuantumBIO.',
+  price: '300',
+  discount_price: '240'
 )
 
 category_educacao = Category.create!(
@@ -601,4 +643,112 @@ Video.create!(
   vimeo_id: '163721649',
   image_url: 'http://lorempixel.com/573/322/nature',
   category: category_talks
+)
+
+Video.create!(
+  name: 'Aula 1',
+  sorting: 1,
+  description: 'A Anatomia é a ciência que estuda as estruturas do corpo'\
+  ' humano e é considerada como fundamento de toda a arte da medicina.'\
+  ' Embora, o interesse da anatomia implique a estrutura dos órgãos,'\
+  ' estrutura e função relacionam-se intimamente, como se verifica na'\
+  ' comparação existente entre a geografia e a história, ou anatomia e'\
+  ' fisiologia. O ensino da anatomia clássica tem sido realizado em todas'\
+  ' as universidades do mundo por meio de métodos de dissecção de peças de'\
+  ' cadáveres formolizados.',
+  information: 'Dr Braghini
+  Tema da Palestra: Psicologia Quântica Integrativa
+  Local: Palácio dos Festivais - Gramado
+  Evento: Conferência Internacional de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia'\
+  ' Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia'\
+  ' tradicional e a Quântica. Ele sua fala ele mostra que o modelo'\
+  ' comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
+  ' sua participação no filme "Quem somos nós?". Com diversos livros'\
+  ' publicados e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/animals',
+  course: course1
+)
+
+Video.create!(
+  name: 'Aula 2',
+  sorting: 2,
+  description: 'A Anatomia é a ciência que estuda as estruturas do corpo'\
+  ' humano e é considerada como fundamento de toda a arte da medicina.'\
+  ' Embora, o interesse da anatomia implique a estrutura dos órgãos,'\
+  ' estrutura e função relacionam-se intimamente, como se verifica na'\
+  ' comparação existente entre a geografia e a história, ou anatomia e'\
+  ' fisiologia. O ensino da anatomia clássica tem sido realizado em todas'\
+  ' as universidades do mundo por meio de métodos de dissecção de peças de'\
+  ' cadáveres formolizados.',
+  information: 'Dr Braghini
+  Tema da Palestra: Psicologia Quântica Integrativa
+  Local: Palácio dos Festivais - Gramado
+  Evento: Conferência Internacional de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia'\
+  ' Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia'\
+  ' tradicional e a Quântica. Ele sua fala ele mostra que o modelo'\
+  ' comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
+  ' sua participação no filme "Quem somos nós?". Com diversos livros'\
+  ' publicados e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/animals',
+  course: course1
+)
+
+Video.create!(
+  name: 'Aula 3',
+  sorting: 3,
+  description: 'A Anatomia é a ciência que estuda as estruturas do corpo'\
+  ' humano e é considerada como fundamento de toda a arte da medicina.'\
+  ' Embora, o interesse da anatomia implique a estrutura dos órgãos,'\
+  ' estrutura e função relacionam-se intimamente, como se verifica na'\
+  ' comparação existente entre a geografia e a história, ou anatomia e'\
+  ' fisiologia. O ensino da anatomia clássica tem sido realizado em todas'\
+  ' as universidades do mundo por meio de métodos de dissecção de peças de'\
+  ' cadáveres formolizados.',
+  information: 'Dr Braghini
+  Tema da Palestra: Psicologia Quântica Integrativa
+  Local: Palácio dos Festivais - Gramado
+  Evento: Conferência Internacional de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia'\
+  ' Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia'\
+  ' tradicional e a Quântica. Ele sua fala ele mostra que o modelo'\
+  ' comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
+  ' sua participação no filme "Quem somos nós?". Com diversos livros'\
+  ' publicados e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/animals',
+  course: course1
+)
+
+Video.create!(
+  name: 'Aula 4',
+  sorting: 4,
+  description: 'A Anatomia é a ciência que estuda as estruturas do corpo'\
+  ' humano e é considerada como fundamento de toda a arte da medicina.'\
+  ' Embora, o interesse da anatomia implique a estrutura dos órgãos,'\
+  ' estrutura e função relacionam-se intimamente, como se verifica na'\
+  ' comparação existente entre a geografia e a história, ou anatomia e'\
+  ' fisiologia. O ensino da anatomia clássica tem sido realizado em todas'\
+  ' as universidades do mundo por meio de métodos de dissecção de peças de'\
+  ' cadáveres formolizados.',
+  information: 'Dr Braghini
+  Tema da Palestra: Psicologia Quântica Integrativa
+  Local: Palácio dos Festivais - Gramado
+  Evento: Conferência Internacional de Saúde Quântica',
+  synopsys: 'Amig Goswami é uma das maiores autoridades mundiais em Psicologia'\
+  ' Quântica. Nesta palestra, ele faz um contraponto entre a Psicologia'\
+  ' tradicional e a Quântica. Ele sua fala ele mostra que o modelo'\
+  ' comportamental',
+  bio: 'Ph.D em Física Quântica, Amit Goswami ficou mundialmente famoso pela'\
+  ' sua participação no filme "Quem somos nós?". Com diversos livros'\
+  ' publicados e vários artigos científicos, o trabalho de Amit traz',
+  vimeo_id: '163721649',
+  image_url: 'http://lorempixel.com/573/322/animals',
+  course: course1
 )

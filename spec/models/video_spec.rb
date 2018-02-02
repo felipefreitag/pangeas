@@ -6,6 +6,7 @@ RSpec.describe Video, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:category) }
     it { is_expected.to belong_to(:series) }
+    it { is_expected.to belong_to(:course) }
   end
 
   describe 'validations' do

@@ -27,9 +27,9 @@
                 = render partial: 'layouts/video_reveal',
                   locals: { \
                     id: "course#{course.id}",
-                    image_url: 'https://image.ibb.co/'\
-                      'jLT3ib/ecologia_celular.png',
-                    video_url: 'https://player.vimeo.com/video/163721649',
+                    image_url: course.image_url,
+                    video_url: 'https://player.vimeo.com/video/'\
+                      "#{course.vimeo_id}",
                     colored_bar: true,
                     square_play: true \
                   }
@@ -39,8 +39,11 @@
                   = simple_format(course.description, class: 'description')
                   .pricing
                     h5
-                      span.bg-highlight VALOR DO CURSO: R$ 300
-                    h5 Assinante Pangeas: R$ 240
+                      span.bg-highlight VALOR DO CURSO: R$
+                      span.bg-highlight= course.price
+                    h5
+                      ' Assinante Pangeas: R$
+                      =course.discount_price
                   .grid-x.grid-padding-x
                     .medium-6.cell
                       = link_to 'Comprar o curso',

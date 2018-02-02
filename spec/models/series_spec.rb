@@ -28,6 +28,7 @@ RSpec.describe Series, type: :model do
 
   describe 'associations' do
     it { is_expected.to belong_to(:category) }
+    it { is_expected.to belong_to(:course) }
     it { is_expected.to have_many(:videos) }
   end
 

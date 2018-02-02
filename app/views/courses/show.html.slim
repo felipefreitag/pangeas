@@ -1,0 +1,63 @@
+.course-container
+  .grid-container
+    .hero
+      .text-center.title
+        h3= @course.name
+        h5= simple_format(@course.description)
+    .course-info
+      .grid-x.grid-padding-x
+        .medium-5.cell
+          = render partial: 'layouts/video_reveal',
+            locals: { \
+              id: "course#{@course.id}",
+              image_url: @course.image_url,
+              video_url: 'https://player.vimeo.com/video/'\
+                "#{@course.vimeo_id}",
+              colored_bar: true,
+              square_play: true \
+            }
+        .medium-7.cell
+          .info
+            h4= @course.instructor
+            = simple_format(@course.credentials, class: 'text-justify')
+            .pricing
+              h5
+                span.bg-highlight VALOR DO CURSO: R$
+                span.bg-highlight= @course.price
+              h5
+                ' Assinante Pangeas: R$
+                =@course.discount_price
+            .grid-x.grid-padding-x
+              .medium-6.cell
+                = link_to 'Comprar o curso',
+                  '#',
+                  class: 'button success expanded'
+              .medium-6.cell
+                = link_to 'Assinar a Pangeas',
+                  new_subscription_path,
+                  class: 'button secondary expanded'
+    .how-it-works
+      h5 Como funciona:
+      p
+        ' Quando você compra um curso na Pangeas o conteúdo já está liberado
+        ' para você assistir online. Para assistir basta estar logado com o
+        ' usuário que você criou no momento da compra do curso, o que pode ser
+        ' feito de qualquer aparelho. No caso de assinantes Pangeas basta logar
+        | com o usuário que já possuía na plataforma.
+      p
+        ' *Após a confirmação do pagamento você poderá acessar esse curso pelo
+        | período de 24 meses.
+    .lessons
+      .detail
+        h5 Detalhamento das aulas:
+        = simple_format(@course.lesson_detail, class: 'text-justify')
+      - @videos.each do |lesson|
+        .lesson
+          h6= lesson.name
+          = simple_format(lesson.description, class: 'text-justify')
+    .purchase
+      .grid-x
+        .medium-6.medium-centered.cell
+          = link_to 'Comprar o curso',
+           '#',
+           class: 'button success large expanded'
