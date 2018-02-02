@@ -10,7 +10,6 @@ module Iugu
       @customer = Customer.new(options.merge(api: @api))
       @payment_method = PaymentMethod.new(options.merge(api: @api))
       @subscription = Subscription.new(options.merge(api: @api))
-      @charge = Charge.new(options.merge(api: @api))
     end
   end
 end
