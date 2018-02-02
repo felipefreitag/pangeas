@@ -16,7 +16,7 @@
             div
               h5= @videos.first.name
               p= simple_format(@videos.first.description, class: 'text-justify')
-    .lesson-list.grid-x.grid-padding-x.grid-padding-y
+    .lessons-list.grid-x.grid-padding-x.grid-padding-y
       - @videos.each do |video|
         - unless video == @videos.first
           .medium-4.cell.img-container
