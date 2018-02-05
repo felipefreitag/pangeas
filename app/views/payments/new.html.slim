@@ -1,3 +1,4 @@
+- path = params[:path] == 'purchase' ? purchases_path : subscriptions_path
 .forms-container
   .grid-container
     .devise-form.payment-form.grid-x.grid-padding-x
@@ -7,7 +8,7 @@
             .alert-box.alert
               h5 Não foi possível cadastrar meio de pagamento
               ul#error-list
-        = form_with url: subscriptions_path, id: 'payment-form',
+        = form_with url: path, id: 'payment-form',
             data: { \
               account: ENV['IUGU_ACCOUNT_ID'],
               test: ENV['IUGU_TEST_MODE'] \
@@ -17,6 +18,11 @@
             type="hidden"
             name="subscription[recurrence]"
             value=params[:recurrence]
+          ]
+          input[
+            type="hidden"
+            name="purchase[course]"
+            value=params[:course]
           ]
           .usable-creditcard-form
             .wrapper

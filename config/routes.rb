@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: %i[new create show] do
     post :activate, on: :collection
   end
+  resources :purchases, only: %i[new create show]
   resources :payments, only: %i[new]
   resources :users, only: %i[show]
   get '/cstqpangeas', to: 'high_voltage/pages#show', id: 'landing_cstq'
