@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
 
   def new
     authorize Purchase
+    @course = Course.find(params[:course])
   end
 
   def create
