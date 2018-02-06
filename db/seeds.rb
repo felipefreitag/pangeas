@@ -123,8 +123,8 @@ Course.create!(
   ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
-  price: '500',
-  discount_price: '400'
+  price: '200',
+  discount_price: '100'
 )
 
 Course.create!(
@@ -146,8 +146,8 @@ Course.create!(
   ' também fisiologista, quiropraxista, membro da BARM, criador do projeto'\
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
-  price: '1200',
-  discount_price: '960'
+  price: '360',
+  discount_price: '300'
 )
 
 course1 = Course.create!(

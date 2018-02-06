@@ -134,7 +134,9 @@ RSpec.describe 'GET /videos/:id', type: :request do
 
     context 'with logged user who bought the video' do
       before do
-        user.update(courses: [course])
+        Purchase.create!(
+          user: user, course: course, price: '100', installments: '1'
+        )
         sign_in user
         get "/videos/#{video.id}"
       end

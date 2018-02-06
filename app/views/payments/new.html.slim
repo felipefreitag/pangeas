@@ -24,6 +24,11 @@
             name="purchase[course]"
             value=params[:course]
           ]
+          input[
+            type="hidden"
+            name="purchase[installments]"
+            value=params[:installments]
+          ]
           .usable-creditcard-form
             .wrapper
               .input-group.nmb_a

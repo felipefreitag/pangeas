@@ -144,6 +144,8 @@ CREATE TABLE purchases (
     paid boolean DEFAULT false NOT NULL,
     invoice_id character varying,
     affiliate_tag character varying,
+    installments character varying DEFAULT '1'::character varying NOT NULL,
+    price character varying NOT NULL,
     user_id bigint,
     course_id bigint,
     created_at timestamp without time zone NOT NULL,

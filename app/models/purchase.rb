@@ -3,6 +3,8 @@
 class Purchase < ApplicationRecord
   validates :user, presence: true
   validates :course, presence: true
+  validates :installments, presence: true
+  validates :price, presence: true
 
   belongs_to :user
   belongs_to :course

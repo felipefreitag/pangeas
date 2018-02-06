@@ -1,0 +1,22 @@
+.purchases-container.bg-white
+  .hero
+    .grid-container
+      .grid-x.grid-padding-x
+        .medium-6.medium-centered.cell.text-center
+          h3.mb-2rem Compra realizada com sucesso!
+          h5.text-left Aqui estão seus dados:
+          ul.text-left.mb-3rem
+            li
+              ' Nome:
+              = current_user.first_name
+              '
+              = current_user.last_name
+            li
+              ' E-mail:
+              = current_user.email
+            li
+              ' Curso comprado:
+              = @purchase.course.name
+          = link_to 'Assistir',
+            watch_course_path(@purchase.course),
+            class: 'button primary large expanded'
