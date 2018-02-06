@@ -34,7 +34,8 @@ class PurchasesController < ApplicationController
       course: @course,
       invoice_id: invoice_id,
       paid: true,
-      price: current_user.subscribed? ? course.discount_price : course.price
+      price: current_user.subscribed? ? course.discount_price : course.price,
+      affiliate_tag: request.env['affiliate.tag'].presence
     ))
   end
 
