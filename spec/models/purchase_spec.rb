@@ -6,7 +6,9 @@ RSpec.describe Purchase, type: :model do
   subject(:purchase) do
     Purchase.new(
       user: user,
-      course: course
+      course: course,
+      price: course.price,
+      installments: 1
     )
   end
 
@@ -63,6 +65,7 @@ RSpec.describe Purchase, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:user) }
     it { is_expected.to validate_presence_of(:course) }
+    it { is_expected.to validate_presence_of(:installments) }
   end
 
   describe 'pay' do

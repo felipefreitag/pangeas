@@ -29,9 +29,8 @@
                 =@course.discount_price
             .grid-x.grid-padding-x
               .medium-6.cell
-                = link_to 'Comprar o curso',
-                  '#',
-                  class: 'button success expanded'
+                = render partial: 'course_button',
+                  locals: { course: @course }
               .medium-6.cell
                 = link_to 'Assinar a Pangeas',
                   new_subscription_path,
@@ -58,6 +57,5 @@
     .purchase
       .grid-x
         .medium-6.medium-centered.cell
-          = link_to 'Comprar o curso',
-           '#',
-           class: 'button success large expanded'
+          = render partial: 'course_button',
+            locals: { course: @course }

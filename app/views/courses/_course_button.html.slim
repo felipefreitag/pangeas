@@ -1,0 +1,8 @@
+- if current_user && (current_user.courses.include? course)
+  = link_to 'Assistir',
+    watch_course_path(course),
+    class: 'button primary expanded'
+- else
+  = link_to 'Comprar o curso',
+    new_purchase_path(course: course),
+    class: 'button success expanded'
