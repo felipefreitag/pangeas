@@ -152,7 +152,7 @@ def stub_charge_request(to_return)
       body: {
         token: nil,
         customer_id: user.iugu_id,
-        months: '1',
+        months: 1,
         items: { description: course.name, quantity: 1, price_cents: '100000' }
       }.to_json,
       headers: headers
