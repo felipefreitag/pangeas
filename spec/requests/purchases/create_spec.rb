@@ -62,9 +62,26 @@ RSpec.describe 'POST /purchases/create', type: :request do
     end
   end
 
-  context 'when api charge fails' do
+  context 'when api call fails' do
     before do
       stub_charge_request(status: 500)
+      sign_in user
+      post '/purchases', params: {
+        purchase: { installments: '1', course: course.id }
+      }
+    end
+
+    it { is_expected.to redirect_to(course_path(course)) }
+    it 'shows an error message' do
+      expect(flash[:failure]).to be_present
+    end
+  end
+
+  context 'when credit card charge fails' do
+    before do
+      stub_charge_request(
+        status: 200, body: { invoice_id: '1', success: false }.to_json
+      )
       sign_in user
       post '/purchases', params: {
         purchase: { installments: '1', course: course.id }
@@ -80,7 +97,9 @@ RSpec.describe 'POST /purchases/create', type: :request do
   context 'when purchase is created' do
     context 'without an affiliate_tag' do
       before do
-        stub_charge_request(status: 200, body: { invoice_id: '1' }.to_json)
+        stub_charge_request(
+          status: 200, body: { invoice_id: '1', success: true }.to_json
+        )
         sign_in user
         post '/purchases', params: {
           purchase: { installments: '1', course: course.id }
@@ -102,7 +121,9 @@ RSpec.describe 'POST /purchases/create', type: :request do
 
     context 'with an affiliate_tag' do
       before do
-        stub_charge_request(status: 200, body: { invoice_id: '1' }.to_json)
+        stub_charge_request(
+          status: 200, body: { invoice_id: '1', success: true }.to_json
+        )
         sign_in user
         get '/', params: { aff: 'aff123' }
         post '/purchases', params: {
