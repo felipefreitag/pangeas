@@ -48,6 +48,8 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       super
     else
+      flash[:info] =
+        'Para continuar, cadastre-se ou faça login.'
       session[:user_return_to] = request.fullpath
       redirect_to new_user_registration_url unless user_signed_in?
     end

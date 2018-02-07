@@ -27,6 +27,9 @@ RSpec.describe 'POST /subscriptions/create', type: :request do
     end
 
     it { is_expected.to redirect_to(new_user_registration_path) }
+    it 'shows a message' do
+      expect(flash[:info]).to be_present
+    end
   end
 
   context 'when api payment method fails' do
