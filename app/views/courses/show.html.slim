@@ -2,8 +2,11 @@
   .grid-container
     .hero
       .text-center.title
-        h3= @course.name
-        h5= simple_format(@course.description)
+        .grid-x.grid-padding-x
+          .cell
+            h3= @course.name
+          .cell
+            h5= simple_format(@course.description)
     .course-info
       .grid-x.grid-padding-x
         .medium-5.cell
@@ -36,26 +39,32 @@
                   new_subscription_path,
                   class: 'button secondary expanded'
     .how-it-works
-      h5 Como funciona:
-      p
-        ' Quando você compra um curso na Pangeas o conteúdo já está liberado
-        ' para você assistir online. Para assistir basta estar logado com o
-        ' usuário que você criou no momento da compra do curso, o que pode ser
-        ' feito de qualquer aparelho. No caso de assinantes Pangeas basta logar
-        | com o usuário que já possuía na plataforma.
-      p
-        ' *Após a confirmação do pagamento você poderá acessar esse curso pelo
-        | período de 24 meses.
+      .grid-x.grid-padding-x
+        .cell
+          h5 Como funciona:
+        .cell
+          p
+            ' Quando você compra um curso na Pangeas o conteúdo já está liberado
+            ' para você assistir online. Para assistir basta estar logado com o
+            ' usuário que você criou no momento da compra do curso, o que pode
+            ' ser feito de qualquer aparelho. No caso de assinantes Pangeas
+            ' basta logar com o usuário que já possuía na plataforma.
+          p
+            ' *Após a confirmação do pagamento você poderá acessar esse curso
+            ' pelo período de 24 meses.
     .lessons
-      .detail
-        h5 Detalhamento das aulas:
-        = simple_format(@course.lesson_detail, class: 'text-justify')
-      - @videos.each do |lesson|
-        .lesson
-          h6= lesson.name
-          = simple_format(lesson.description, class: 'text-justify')
+      .grid-x.grid-padding-x
+        .cell
+          .detail
+            h5 Detalhamento das aulas:
+            = simple_format(@course.lesson_detail, class: 'text-justify')
+        .cell
+          - @videos.each do |lesson|
+            .lesson
+              h6= lesson.name
+              = simple_format(lesson.description, class: 'text-justify')
     .purchase
-      .grid-x
+      .grid-x.grid-padding-x
         .medium-6.medium-centered.cell
           = render partial: 'course_button',
             locals: { course: @course }
