@@ -2,7 +2,7 @@
 
 class VideoPolicy < ApplicationPolicy
   def index?
-    user.subscribed?
+    user.subscribed? || user.courses?
   end
 
   def show?
