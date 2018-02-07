@@ -12,7 +12,7 @@ RSpec.describe 'GET /payments/new', type: :request do
       get '/payments/new'
     end
 
-    it { is_expected.to redirect_to(new_user_session_path) }
+    it { is_expected.to redirect_to(new_user_registration_path) }
   end
 
   context 'with logged in user' do

@@ -21,12 +21,29 @@ RSpec.describe 'GET /users/sign_up', type: :request do
       }
     end
 
+    context 'without a previous path' do
+      before do
+        post user_registration_path, params: { user: user }
+      end
+
+      it { is_expected.to redirect_to(root_path) }
+    end
+
+    context 'with a previous path' do
+      before do
+        get new_payment_path
+        post user_registration_path, params: { user: user }
+      end
+
+      it { is_expected.to redirect_to(new_payment_path) }
+    end
+
     context 'without affiliate_tag' do
       before do
         post user_registration_path, params: { user: user }
       end
 
-      it { is_expected.to redirect_to(new_payment_path) }
+      it { is_expected.to redirect_to(root_path) }
 
       subject(:first_user) { User.first }
 
@@ -42,7 +59,7 @@ RSpec.describe 'GET /users/sign_up', type: :request do
         post user_registration_path, params: { user: user }
       end
 
-      it { is_expected.to redirect_to(new_payment_path) }
+      it { is_expected.to redirect_to(root_path) }
 
       subject(:first_user) { User.first }
 

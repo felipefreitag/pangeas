@@ -51,6 +51,14 @@ RSpec.describe 'POST /purchases/create', type: :request do
     )
   end
 
+  context 'without current user' do
+    before do
+      post '/purchases'
+    end
+
+    it { is_expected.to redirect_to(new_user_registration_path) }
+  end
+
   context 'when api charge fails' do
     before do
       stub_charge_request(status: 500)
@@ -60,7 +68,7 @@ RSpec.describe 'POST /purchases/create', type: :request do
       }
     end
 
-    it { is_expected.to redirect_to(root_path) }
+    it { is_expected.to redirect_to(course_path(course)) }
     it 'shows an error message' do
       expect(flash[:failure]).to be_present
     end

@@ -29,7 +29,7 @@ RSpec.describe 'GET /subscriptions/:id', type: :request do
       get "/subscriptions/#{subscription[:id]}"
     end
 
-    it { is_expected.to redirect_to(new_subscription_path) }
+    it { is_expected.to redirect_to(new_user_registration_path) }
   end
 
   context 'with logged in user' do
@@ -67,7 +67,7 @@ RSpec.describe 'GET /subscriptions/:id', type: :request do
         get "/subscriptions/#{subscription[:id]}"
       end
 
-      it { is_expected.to redirect_to(new_subscription_path) }
+      it { is_expected.to redirect_to(root_path) }
     end
 
     context 'that is admin' do

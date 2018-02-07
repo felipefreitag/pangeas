@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PurchasesController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[new]
 
   def new
     authorize Purchase
@@ -65,6 +65,6 @@ class PurchasesController < ApplicationController
     flash[:failure] =
       "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
       'Por favor, tente novamente mais tarde.'
-    redirect_to root_path
+    redirect_to @course ? @course : root_path
   end
 end

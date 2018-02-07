@@ -9,7 +9,6 @@
               as: resource_name,
               url: registration_path(resource_name)) do |f|
               h3.text-center= 'Inscreva-se'
-              input type='hidden' name='recurrence' value=params[:recurrence]
               = f.hidden_field :affiliate_tag,
                 value: request.env['affiliate.tag']
               .grid-x.grid-padding-x.mb-2rem

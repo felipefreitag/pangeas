@@ -6,7 +6,7 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user
   end
 
   def activate?
