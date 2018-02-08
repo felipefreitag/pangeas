@@ -17,6 +17,14 @@
           ' aprendizado, tendo acesso a todas as aulas desde o princípio.
           ' E o melhor,
           span.bg-highlight assinantes Pangeas tem desconto exclusivo.
+        - if current_user && params[:my_courses]
+          = link_to 'Ver lista completa',
+            courses_path,
+            class: 'button success large mt-2rem'
+        - elsif current_user&.courses?
+          = link_to 'Cursos que já comprei',
+            courses_path(my_courses: true),
+            class: 'button pink-button large mt-2rem'
   - if @courses
     .courses
       .grid-container

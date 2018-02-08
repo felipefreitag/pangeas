@@ -7,7 +7,12 @@ class CoursesController < ApplicationController
     authorize Course
     @section = Section.find_by(name: 'Cursos Pangeas')
     subsection_courses = @section.subsections.find_by(name: 'courses')
-    @courses = subsection_courses.courses.order(created_at: :desc)
+    @courses =
+      if params[:my_courses]
+        current_user&.courses
+      else
+        subsection_courses.courses.order(created_at: :desc)
+      end
   end
 
   def show

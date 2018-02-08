@@ -53,7 +53,7 @@ RSpec.describe 'POST /purchases/create', type: :request do
 
   context 'without current user' do
     before do
-      post '/purchases'
+      post purchases_path
     end
 
     it { is_expected.to redirect_to(new_user_registration_path) }
@@ -66,7 +66,7 @@ RSpec.describe 'POST /purchases/create', type: :request do
     before do
       stub_charge_request(status: 500)
       sign_in user
-      post '/purchases', params: {
+      post purchases_path, params: {
         purchase: { installments: '1', course: course.id }
       }
     end
@@ -83,7 +83,7 @@ RSpec.describe 'POST /purchases/create', type: :request do
         status: 200, body: { invoice_id: '1', success: false }.to_json
       )
       sign_in user
-      post '/purchases', params: {
+      post purchases_path, params: {
         purchase: { installments: '1', course: course.id }
       }
     end
@@ -101,7 +101,7 @@ RSpec.describe 'POST /purchases/create', type: :request do
           status: 200, body: { invoice_id: '1', success: true }.to_json
         )
         sign_in user
-        post '/purchases', params: {
+        post purchases_path, params: {
           purchase: { installments: '1', course: course.id }
         }
       end
@@ -125,8 +125,8 @@ RSpec.describe 'POST /purchases/create', type: :request do
           status: 200, body: { invoice_id: '1', success: true }.to_json
         )
         sign_in user
-        get '/', params: { aff: 'aff123' }
-        post '/purchases', params: {
+        get root_path, params: { aff: 'aff123' }
+        post purchases_path, params: {
           purchase: { installments: '1', course: course.id }
         }
       end
@@ -144,16 +144,35 @@ RSpec.describe 'POST /purchases/create', type: :request do
       it { expect(purchase.invoice_id).to eq('1') }
     end
   end
+
+  context 'when user has a subscription' do
+    before do
+      subscription = Subscription.create!(user: user, recurrence: 'monthly')
+      subscription.activate!
+      stub_charge_request(
+        { status: 200, body: { invoice_id: '1', success: true }.to_json },
+        "#{course.discount_price}00"
+      )
+      sign_in user
+      post purchases_path, params: {
+        purchase: { installments: '1', course: course.id }
+      }
+    end
+
+    subject(:purchase) { Purchase.first }
+
+    it { expect(purchase.price).to eq(course.discount_price) }
+  end
 end
 
-def stub_charge_request(to_return)
+def stub_charge_request(to_return, price = '100000')
   stub_request(:post, "#{base_url}/charge")
     .with(
       body: {
         token: nil,
         customer_id: user.iugu_id,
         months: 1,
-        items: { description: course.name, quantity: 1, price_cents: '100000' }
+        items: { description: course.name, quantity: 1, price_cents: price }
       }.to_json,
       headers: headers
     ).to_return(to_return)

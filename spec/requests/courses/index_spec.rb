@@ -18,8 +18,49 @@ RSpec.describe 'GET /courses', type: :request do
       name: 'courses',
       section: section
     )
-    get '/courses'
   end
 
-  it { is_expected.to have_http_status(:ok) }
+  context 'without logged in user' do
+    before do
+      get courses_path
+    end
+
+    it { is_expected.to have_http_status(:ok) }
+  end
+
+  context 'with logged in user' do
+    let!(:user) do
+      User.create!(
+        first_name: 'jane',
+        last_name: 'doe',
+        email: 'bar@baz.com',
+        password: '123456',
+        cpf: '1234567890',
+        iugu_id: '1',
+        address: 'foo',
+        address_number: '42',
+        zip_code: '123',
+        city: 'foo',
+        state: 'foo'
+      )
+    end
+
+    context 'without params' do
+      before do
+        sign_in user
+        get courses_path(my_courses: true)
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+
+    context 'listing only the user courses' do
+      before do
+        sign_in user
+        get courses_path(my_courses: true)
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+  end
 end
