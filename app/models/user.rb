@@ -27,6 +27,10 @@ class User < ApplicationRecord
     @subscribed ||= subscriptions.with_state(:active).count.positive?
   end
 
+  def courses?
+    @has_courses ||= courses.count.positive?
+  end
+
   def subscription
     subscriptions.order(:created_at).last
   end

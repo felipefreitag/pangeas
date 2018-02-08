@@ -51,7 +51,18 @@ RSpec.describe 'POST /purchases/create', type: :request do
     )
   end
 
-  context 'when api charge fails' do
+  context 'without current user' do
+    before do
+      post '/purchases'
+    end
+
+    it { is_expected.to redirect_to(new_user_registration_path) }
+    it 'shows a message' do
+      expect(flash[:info]).to be_present
+    end
+  end
+
+  context 'when api call fails' do
     before do
       stub_charge_request(status: 500)
       sign_in user
@@ -60,7 +71,24 @@ RSpec.describe 'POST /purchases/create', type: :request do
       }
     end
 
-    it { is_expected.to redirect_to(root_path) }
+    it { is_expected.to redirect_to(course_path(course)) }
+    it 'shows an error message' do
+      expect(flash[:failure]).to be_present
+    end
+  end
+
+  context 'when credit card charge fails' do
+    before do
+      stub_charge_request(
+        status: 200, body: { invoice_id: '1', success: false }.to_json
+      )
+      sign_in user
+      post '/purchases', params: {
+        purchase: { installments: '1', course: course.id }
+      }
+    end
+
+    it { is_expected.to redirect_to(course_path(course)) }
     it 'shows an error message' do
       expect(flash[:failure]).to be_present
     end
@@ -69,7 +97,9 @@ RSpec.describe 'POST /purchases/create', type: :request do
   context 'when purchase is created' do
     context 'without an affiliate_tag' do
       before do
-        stub_charge_request(status: 200, body: { invoice_id: '1' }.to_json)
+        stub_charge_request(
+          status: 200, body: { invoice_id: '1', success: true }.to_json
+        )
         sign_in user
         post '/purchases', params: {
           purchase: { installments: '1', course: course.id }
@@ -91,7 +121,9 @@ RSpec.describe 'POST /purchases/create', type: :request do
 
     context 'with an affiliate_tag' do
       before do
-        stub_charge_request(status: 200, body: { invoice_id: '1' }.to_json)
+        stub_charge_request(
+          status: 200, body: { invoice_id: '1', success: true }.to_json
+        )
         sign_in user
         get '/', params: { aff: 'aff123' }
         post '/purchases', params: {
@@ -120,7 +152,7 @@ def stub_charge_request(to_return)
       body: {
         token: nil,
         customer_id: user.iugu_id,
-        months: '1',
+        months: 1,
         items: { description: course.name, quantity: 1, price_cents: '100000' }
       }.to_json,
       headers: headers

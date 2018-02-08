@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PurchasesController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: %i[new]
 
   def new
     authorize Purchase
@@ -10,11 +10,10 @@ class PurchasesController < ApplicationController
 
   def create
     authorize Purchase
-    iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
     @course = Course.find(params[:purchase][:course])
     return render_error('o curso escolhido') unless @course
     iugu_charge = create_iugu_charge(iugu, @course)
-    return render_error('sua cobrança') unless iugu_charge
+    return render_error('sua cobrança') unless iugu_charge&.[]('success')
     purchase = create_purchase(
       purchase_params, @course, iugu_charge['invoice_id']
     )
@@ -26,12 +25,18 @@ class PurchasesController < ApplicationController
     authorize @purchase
   end
 
+  protected
+
+  def iugu
+    @iugu ||= Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
+  end
+
   private
 
   def create_purchase(attributes, course, invoice_id)
     Purchase.create!(attributes.merge(
       user: current_user,
-      course: @course,
+      course: course,
       invoice_id: invoice_id,
       paid: true,
       price: current_user.subscribed? ? course.discount_price : course.price,
@@ -43,7 +48,7 @@ class PurchasesController < ApplicationController
     response = iugu.charge.create(
       token: params[:token],
       customer_id: current_user.iugu_id,
-      months: params[:purchase][:installments],
+      months: params[:purchase][:installments].to_i,
       items: {
         description: course.name, quantity: 1, price_cents: price_cents(course)
       }
@@ -65,6 +70,6 @@ class PurchasesController < ApplicationController
     flash[:failure] =
       "Ooops, alguma coisa deu errado com #{message} no Iugu. " \
       'Por favor, tente novamente mais tarde.'
-    redirect_to root_path
+    redirect_to @course ? @course : root_path
   end
 end
