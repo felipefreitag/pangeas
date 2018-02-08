@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
       if params[:my_courses]
         current_user&.courses
       else
-        subsection_courses.courses.order(created_at: :desc)
+        subsection_courses.courses.order(:sorting, created_at: :desc)
       end
   end
 

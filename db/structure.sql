@@ -111,6 +111,7 @@ CREATE TABLE courses (
     credentials text NOT NULL,
     price text NOT NULL,
     discount_price text NOT NULL,
+    sorting integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
