@@ -124,7 +124,8 @@ Course.create!(
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
   price: '200',
-  discount_price: '100'
+  discount_price: '100',
+  sorting: 3
 )
 
 Course.create!(
@@ -147,7 +148,8 @@ Course.create!(
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
   price: '360',
-  discount_price: '300'
+  discount_price: '300',
+  sorting: 1
 )
 
 course1 = Course.create!(
@@ -170,7 +172,8 @@ course1 = Course.create!(
   ' Saúde na Cozinha (com série aqui na Pangeas) e prof. da Pós-Graduação da'\
   ' QuantumBIO.',
   price: '300',
-  discount_price: '240'
+  discount_price: '240',
+  sorting: 2
 )
 
 category_educacao = Category.create!(

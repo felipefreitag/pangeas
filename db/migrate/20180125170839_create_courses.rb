@@ -14,6 +14,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
       t.text :credentials, null: false
       t.text :price, null: false
       t.text :discount_price, null: false
+      t.integer :sorting
 
       t.timestamps
     end
