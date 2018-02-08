@@ -57,8 +57,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     session[:user_return_to] ||
-      current_user.subscribed? && sections_path ||
-      current_user.courses? && courses_path ||
+      (current_user.subscribed? && sections_path) ||
+      (current_user.courses? && courses_path) ||
       root_path
   end
 

@@ -12,12 +12,12 @@ class PurchasesController < ApplicationController
     authorize Purchase
     @course = Course.find(params[:purchase][:course])
     return render_error('o curso escolhido') unless @course
-    iugu = Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
     iugu_charge = create_iugu_charge(iugu, @course)
     return render_error('sua cobrança') unless iugu_charge&.[]('success')
-    create_purchase_and_redirect(
+    purchase = create_purchase(
       purchase_params, @course, iugu_charge['invoice_id']
     )
+    redirect_to purchase
   end
 
   def show
@@ -25,10 +25,16 @@ class PurchasesController < ApplicationController
     authorize @purchase
   end
 
+  protected
+
+  def iugu
+    @iugu ||= Iugu::Integration.new(token: ENV['IUGU_API_TOKEN'])
+  end
+
   private
 
-  def create_purchase_and_redirect(attributes, course, invoice_id)
-    purchase = Purchase.create!(attributes.merge(
+  def create_purchase(attributes, course, invoice_id)
+    Purchase.create!(attributes.merge(
       user: current_user,
       course: course,
       invoice_id: invoice_id,
@@ -36,7 +42,6 @@ class PurchasesController < ApplicationController
       price: current_user.subscribed? ? course.discount_price : course.price,
       affiliate_tag: request.env['affiliate.tag'].presence
     ))
-    redirect_to purchase
   end
 
   def create_iugu_charge(iugu, course)
