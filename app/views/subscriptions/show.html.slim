@@ -1,14 +1,18 @@
 .subscribe-container.bg-white
   .hero
     .grid-container
-      .grid-x.grid-padding-x
+      .grid-x.grid-padding-x.mb-3rem
         .medium-9.medium-centered.cell.text-center
           h2 Bem-vindx!
-          h5
-            ' Sua assinatura está sendo processada.
-            ' Você receberá um e-mail do Iugu no endereço
-            = current_user.email
-            span< quando for aprovada.
+          - if @current_user.subscribed?
+            h5
+              ' Sua assinatura está ativa.
+          - else
+            h5
+              ' Sua assinatura está sendo processada.
+              ' Você receberá um e-mail do Iugu no endereço
+              = current_user.email
+              span< quando for aprovada.
           h5.text-left Aqui estão os dados que você registrou:
           ul.text-left
             li
@@ -24,3 +28,17 @@
                 ' Mensal
               - if @subscription.recurrence == 'anual'
                 ' Anual
+      .grid-x.grid-padding-x
+        .medium-9.medium-centered.cell.text-center
+          h5.text-left.mb-2rem
+            ' E aqui nós temos um vídeo rápido que mostra
+            span.bg-highlight como aproveitar a Pangeas ao máximo:
+          .responsive-embed.widescreen
+            iframe [src="https://player.vimeo.com/video/257199659"
+              width="720"
+              height="480"
+              frameborder="0"
+              webkitallowfullscreen
+              mozallowfullscreen
+              allowfullscreen
+            ]
