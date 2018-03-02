@@ -176,6 +176,33 @@ course1 = Course.create!(
   sorting: 2
 )
 
+course2 = Course.create!(
+  name: 'Alfabetização Emocional',
+  description: 'Hoje aprendemos muito sobre informática, matemática, etc. Mas'\
+  ' pouco sabemos sobre o que realmente define nossa vida como positiva ou'\
+  ' negativa: as emoções. Para vencermos essa limitação, a Pangeas e o Dr.'\
+  ' Jorge Carvajal tem a alegria de apresentar um curso completo de 4 aulas'\
+  ' focado na Alfabetização Emocional.',
+  lesson_detail: '',
+  subsection: subsection_courses,
+  vimeo_id: '242497343',
+  image_url: 'https://image.ibb.co/iZAGQ6/'\
+    'Thumbs_Pangeas_Alfabetizacao_Emocional_Parte_1_640.jpg',
+  instructor: 'Dr. Jorge Carvajal',
+  credentials: 'Médico, cirurgião, poeta, inventor, escritor… Dr. Jorge'\
+  ' Carvajal é um médico de renome mundial que dedica seu à investigação das'\
+  ' mais variadas formas de ciências e culturas curativas por todo o planeta.'\
+  ' Nos seus mais de 40 anos nessa jornada já passou por ensinamentos que vão'\
+  ' desde a convivência por anos na selva aprendendo com as culturas'\
+  ' ameríndias, xamânicas e orientais até o aprendizado nas faculdades mais'\
+  ' tradicionais da Europa (como a Universidade de Andaluzia, sua alma mater).'\
+  ' Seu trabalho atual está centrado na Sintergética (conceito que criou a'\
+  ' partir de toda sua experiência integralista).',
+  price: '150',
+  discount_price: '95',
+  sorting: 4
+)
+
 category_educacao = Category.create!(
   name: 'Educação Emocional & Comunicação Não Violenta',
   description: 'some category description',
@@ -754,4 +781,80 @@ Video.create!(
   vimeo_id: '163721649',
   image_url: 'https://image.ibb.co/jLT3ib/ecologia_celular.png',
   course: course1
+)
+
+Video.create!(
+  name: 'Aula 1',
+  sorting: 1,
+  description: 'Nesse mundo moderno, tecnológico e competitivo nos ensinaram'\
+  ' muito sobre matemática, história, línguas e informática. Mas não nos'\
+  ' ensinaram nada sobre as emoções. Por isso, o melhor é reconhecermos de'\
+  ' uma vez por todas: somos incontáveis analfabetos emocionais.'\
+  ' No episódio 1 nós vemos: Como as emoções modificam as nossas funções'\
+  ' corporais; O uso da emoção para superar a própria genética; As funções'\
+  ' emocionais para gerar ou bloquear doenças; A importância do carinho e da'\
+  ' fé; O que é a Resposta de Relaxamento.',
+  information: '',
+  synopsys: '',
+  bio: '',
+  vimeo_id: '242497343',
+  image_url: 'https://image.ibb.co/iZAGQ6/'\
+    'Thumbs_Pangeas_Alfabetizacao_Emocional_Parte_1_640.jpg',
+  course: course2
+)
+
+Video.create!(
+  name: 'Aula 2',
+  sorting: 2,
+  description: 'Enquanto crescíamos, pais, professores, filmes e muitas outras'\
+  ' influências nos ensinaram muito sobre a vida. Mas não nos ensinaram nada'\
+  ' sobre as emoções. O resultado? Incontáveis analfabetos emocionais.'\
+  ' No episódio 2 nós vemos: A importância do prazer e da motivação; Como'\
+  ' superar a mentalidade do “viver para ter”; Encontrar o prazer que gera'\
+  ' liberdade; Descobrindo o medo do castigo; Como a nossa emoção influencia'\
+  ' nosso entorno.',
+  information: '',
+  synopsys: '',
+  bio: '',
+  vimeo_id: '242497343',
+  image_url: 'https://image.ibb.co/iZAGQ6/'\
+    'Thumbs_Pangeas_Alfabetizacao_Emocional_Parte_1_640.jpg',
+  course: course2
+)
+
+Video.create!(
+  name: 'Aula 3',
+  sorting: 3,
+  description: 'Enquanto crescíamos, pais, professores, filmes e muitas outras'\
+  ' influências nos ensinaram muito sobre a vida. Mas não nos ensinaram nada'\
+  ' sobre as emoções. O resultado? Incontáveis analfabetos emocionais.'\
+  ' No episódio 3 nós vemos: Como as emoções equilibram o cérebro; Os caminhos'\
+  ' para obter a Resposta de Relaxamento; As 3 falsas crenças; As ferramentas'\
+  ' para uma mentalidade positiva; Entendendo a emoção por trás do vício e da'\
+  ' compulsão.',
+  information: '',
+  synopsys: '',
+  bio: '',
+  vimeo_id: '242497343',
+  image_url: 'https://image.ibb.co/iZAGQ6/'\
+    'Thumbs_Pangeas_Alfabetizacao_Emocional_Parte_1_640.jpg',
+  course: course2
+)
+
+Video.create!(
+  name: 'Aula 4',
+  sorting: 4,
+  description: 'Enquanto crescíamos, pais, professores, filmes e muitas outras'\
+  ' influências nos ensinaram muito sobre a vida. Mas não nos ensinaram nada'\
+  ' sobre as emoções. O resultado? Incontáveis analfabetos emocionais.'\
+  ' No episódio 4 nós vemos: A energia e o movimento das emoções; Superando o'\
+  ' medo; Compreendendo o amor; O que significa usar uma emoção para carregar'\
+  ' o coração; Alcançando a capacidade de ser alegre.',
+  information: '',
+  synopsys: '',
+  bio: '',
+  vimeo_id: '242497343',
+  image_url: 'https://image.ibb.co/iZAGQ6/'\
+    'Thumbs_Pangeas_Alfabetizacao_Emocional_Parte_1_640.jpg',
+  course: course2
 )

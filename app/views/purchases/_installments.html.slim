@@ -1,0 +1,5 @@
+- (1..12).each do |number|
+  option value=number
+    =number
+    ' x
+    = number_with_precision(value.to_f / number, precision: 2, locale: :"pt-BR")

@@ -30,6 +30,9 @@
               h5
                 ' Assinante Pangeas: R$
                 =@course.discount_price
+                '  (Desconto de R$
+                =@course.price.to_i - @course.discount_price.to_i
+                ' )
             .grid-x.grid-padding-x
               .medium-6.cell
                 = render partial: 'course_button',
