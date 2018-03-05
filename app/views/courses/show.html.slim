@@ -30,6 +30,9 @@
               h5
                 ' Assinante Pangeas: R$
                 =@course.discount_price
+                '  (Desconto de R$
+                =@course.price.to_i - @course.discount_price.to_i
+                ' )
             .grid-x.grid-padding-x
               .medium-6.cell
                 = render partial: 'course_button',
@@ -51,7 +54,8 @@
             ' basta logar com o usuário que já possuía na plataforma.
           p
             ' *Após a confirmação do pagamento você poderá acessar esse curso
-            ' pelo período de 24 meses.
+            ' pelo período de 24 meses. Para outras opções de pagamento, fale
+            ' com a gente: atendimento@pangeas.com.br
     .lessons
       .grid-x.grid-padding-x
         .cell
