@@ -34,4 +34,9 @@ class User < ApplicationRecord
   def subscription
     subscriptions.order(:created_at).last
   end
+
+  def purchased?(course)
+    purchase = purchases.where(course: course).last
+    purchase&.paid
+  end
 end
