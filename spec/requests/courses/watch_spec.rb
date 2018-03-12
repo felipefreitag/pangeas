@@ -86,7 +86,8 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
     context 'who bought only other courses' do
       before do
         Purchase.create!(
-          user: user, course: course2, price: '100', installments: '1'
+          user: user, course: course2, price: '100',
+          installments: '1', paid: true
         )
         sign_in user
         get "/courses/#{course.id}/watch"
@@ -98,7 +99,8 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
     context 'who bought the course' do
       before do
         Purchase.create!(
-          user: user, course: course, price: '100', installments: '1'
+          user: user, course: course, price: '100',
+          installments: '1', paid: true
         )
         sign_in user
         get "/courses/#{course.id}/watch"
@@ -110,10 +112,42 @@ RSpec.describe 'GET /courses/:id/watch', type: :request do
     context 'who bought the course and others' do
       before do
         Purchase.create!(
-          user: user, course: course2, price: '100', installments: '1'
+          user: user, course: course2, price: '100',
+          installments: '1', paid: true
         )
         Purchase.create!(
-          user: user, course: course, price: '100', installments: '1'
+          user: user, course: course, price: '100',
+          installments: '1', paid: true
+        )
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:ok) }
+    end
+
+    context 'who bought the course and was expired' do
+      before do
+        Purchase.create!(
+          user: user, course: course, price: '100',
+          installments: '1', paid: false
+        )
+        sign_in user
+        get "/courses/#{course.id}/watch"
+      end
+
+      it { is_expected.to have_http_status(:found) }
+    end
+
+    context 'who bought the course again after expiration' do
+      before do
+        Purchase.create!(
+          user: user, course: course, price: '100',
+          installments: '1', paid: false
+        )
+        Purchase.create!(
+          user: user, course: course, price: '100',
+          installments: '1', paid: true
         )
         sign_in user
         get "/courses/#{course.id}/watch"

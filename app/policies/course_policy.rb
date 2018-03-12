@@ -11,6 +11,6 @@ class CoursePolicy < ApplicationPolicy
 
   def watch?
     return unless user
-    user.courses.include? record
+    user.purchased? record
   end
 end

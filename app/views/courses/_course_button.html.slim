@@ -1,4 +1,4 @@
-- if current_user && (current_user.courses.include? course)
+- if current_user && (current_user.purchased? course)
   = link_to 'Assistir',
     watch_course_path(course),
     class: 'button primary expanded'
