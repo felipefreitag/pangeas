@@ -54,11 +54,6 @@
             h6 Renova automaticamente de 12 em 12 meses
             h6 Solicitando o cancelamento, a assinatura não será renovada
               no final do período de adesão
-            - if user_signed_in?
-              = link_to 'Assinar',
-                new_payment_path(recurrence: 'anual'),
-                class: 'button success large'
-            - else
               = link_to 'Assinar',
                 new_payment_path(recurrence: 'anual'),
                 class: 'button success large'
