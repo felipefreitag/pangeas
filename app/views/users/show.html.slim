@@ -37,7 +37,7 @@
                 = l(@user.subscription.activated_at, format: :short)
         - else
           | Nenhuma assinatura encontrada.
-        = mail_to 'financeiro@pange.as',
+        = mail_to 'financeiro@pangeas.com.br',
           'Alterar Assinatura',
           subject: 'Alterar Assinatura',
           class: 'button success'
@@ -63,7 +63,7 @@
           ' contratado. Além disso, estamos sempre procurando melhorar... Então,
           ' por favor, antes nos informe o motivo da interrupção da busca por
           | Saúde e Liberdade.
-        = mail_to 'financeiro@pange.as',
+        = mail_to 'financeiro@pangeas.com.br',
           'Encerrar assinatura',
           subject: 'Encerrar Assinatura',
           class: 'button bg-dark-gray'
