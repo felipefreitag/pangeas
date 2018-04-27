@@ -36,7 +36,9 @@
                 ' Última renovação:
                 = l(@user.subscription.activated_at, format: :short)
         - else
-          | Nenhuma assinatura encontrada.
+          ul
+            li
+              | Nenhuma assinatura encontrada.
         = mail_to 'financeiro@pangeas.com.br',
           'Alterar Assinatura',
           subject: 'Alterar Assinatura',
