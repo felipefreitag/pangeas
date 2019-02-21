@@ -72,7 +72,7 @@ $ bin/bundle
 
 Install javascript dependencies:
 ```
-$ yarn
+$ npm install
 ```
 
 #### Set the env vars
