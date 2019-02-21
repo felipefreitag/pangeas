@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   def index
     authorize Video
     return if search_params[:search].blank?
-    @videos = Video.search(search_params[:search])
+    @videos = Video.where(course_id: nil).search(search_params[:search])
   end
 
   def show
